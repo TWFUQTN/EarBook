@@ -8,18 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		853991E37D48CED5FBF1F1E4 /* libPods-EarBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA9998324EB31859CEAD3A1 /* libPods-EarBook.a */; };
-		D60A54101D1D2A8200ECF173 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D60A53FB1D1D2A8200ECF173 /* 苹果接口.txt */; };
-		D60A54111D1D2A8200ECF173 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D60A53FD1D1D2A8200ECF173 /* 苹果接口.txt */; };
-		D60A54121D1D2A8200ECF173 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D60A53FF1D1D2A8200ECF173 /* 苹果接口.txt */; };
-		D60A54131D1D2A8200ECF173 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60A54031D1D2A8200ECF173 /* HomeViewController.m */; };
-		D60A54141D1D2A8200ECF173 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D60A54041D1D2A8200ECF173 /* HomeViewController.xib */; };
-		D60A54151D1D2A8200ECF173 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D60A54061D1D2A8200ECF173 /* 苹果接口.txt */; };
-		D60A54161D1D2A8200ECF173 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D60A54081D1D2A8200ECF173 /* 苹果接口.txt */; };
-		D60A54171D1D2A8200ECF173 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D60A540B1D1D2A8200ECF173 /* 苹果接口.txt */; };
-		D60A54181D1D2A8200ECF173 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D60A540D1D1D2A8200ECF173 /* 苹果接口.txt */; };
-		D60A54191D1D2A8200ECF173 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D60A540F1D1D2A8200ECF173 /* 苹果接口.txt */; };
 		D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09091D1CC90700128D82 /* AppDelegate.m */; };
 		D62B09261D1D20EA00128D82 /* Tool_AdaptiveHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09251D1D20EA00128D82 /* Tool_AdaptiveHeight.m */; };
+		D62B09531D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B093C1D1D2DFC00128D82 /* 苹果接口.txt */; };
+		D62B09541D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B093E1D1D2DFC00128D82 /* 苹果接口.txt */; };
+		D62B09551D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B09401D1D2DFC00128D82 /* 苹果接口.txt */; };
+		D62B09561D1D2DFC00128D82 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09441D1D2DFC00128D82 /* HomeViewController.m */; };
+		D62B09571D1D2DFC00128D82 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62B09451D1D2DFC00128D82 /* HomeViewController.xib */; };
+		D62B09581D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B09471D1D2DFC00128D82 /* 苹果接口.txt */; };
+		D62B09591D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B09491D1D2DFC00128D82 /* 苹果接口.txt */; };
+		D62B095A1D1D2DFC00128D82 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B094D1D1D2DFC00128D82 /* PlayerViewController.m */; };
+		D62B095B1D1D2DFC00128D82 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62B094E1D1D2DFC00128D82 /* PlayerViewController.xib */; };
+		D62B095C1D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B09501D1D2DFC00128D82 /* 苹果接口.txt */; };
+		D62B095D1D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B09521D1D2DFC00128D82 /* 苹果接口.txt */; };
 		D631B4B11D1C1CBC00102682 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D631B4B01D1C1CBC00102682 /* main.m */; };
 		D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D631B4B61D1C1CBC00102682 /* ViewController.m */; };
 		D631B4BA1D1C1CBC00102682 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D631B4B81D1C1CBC00102682 /* Main.storyboard */; };
@@ -29,21 +30,23 @@
 
 /* Begin PBXFileReference section */
 		9114F739FD6B7025008EF6B7 /* Pods-EarBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EarBook/Pods-EarBook.debug.xcconfig"; sourceTree = "<group>"; };
-		D60A53FB1D1D2A8200ECF173 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
-		D60A53FD1D1D2A8200ECF173 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
-		D60A53FF1D1D2A8200ECF173 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
-		D60A54021D1D2A8200ECF173 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		D60A54031D1D2A8200ECF173 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		D60A54041D1D2A8200ECF173 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		D60A54061D1D2A8200ECF173 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
-		D60A54081D1D2A8200ECF173 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
-		D60A540B1D1D2A8200ECF173 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
-		D60A540D1D1D2A8200ECF173 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
-		D60A540F1D1D2A8200ECF173 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
 		D62B09081D1CC90700128D82 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D62B09091D1CC90700128D82 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D62B09241D1D20EA00128D82 /* Tool_AdaptiveHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tool_AdaptiveHeight.h; sourceTree = "<group>"; };
 		D62B09251D1D20EA00128D82 /* Tool_AdaptiveHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tool_AdaptiveHeight.m; sourceTree = "<group>"; };
+		D62B093C1D1D2DFC00128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
+		D62B093E1D1D2DFC00128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
+		D62B09401D1D2DFC00128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
+		D62B09431D1D2DFC00128D82 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		D62B09441D1D2DFC00128D82 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		D62B09451D1D2DFC00128D82 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		D62B09471D1D2DFC00128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
+		D62B09491D1D2DFC00128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
+		D62B094C1D1D2DFC00128D82 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
+		D62B094D1D1D2DFC00128D82 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
+		D62B094E1D1D2DFC00128D82 /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
+		D62B09501D1D2DFC00128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
+		D62B09521D1D2DFC00128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
 		D631B4AC1D1C1CBC00102682 /* EarBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D631B4B01D1C1CBC00102682 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D631B4B51D1C1CBC00102682 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -88,130 +91,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		D60A53F81D1D2A8200ECF173 /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				D60A53F91D1D2A8200ECF173 /* Detail */,
-				D60A54001D1D2A8200ECF173 /* Home */,
-				D60A54091D1D2A8200ECF173 /* Play */,
-			);
-			name = Scenes;
-			path = Resource/Scenes;
-			sourceTree = "<group>";
-		};
-		D60A53F91D1D2A8200ECF173 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				D60A53FA1D1D2A8200ECF173 /* Controller */,
-				D60A53FC1D1D2A8200ECF173 /* Model */,
-				D60A53FE1D1D2A8200ECF173 /* View */,
-			);
-			path = Detail;
-			sourceTree = "<group>";
-		};
-		D60A53FA1D1D2A8200ECF173 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				D60A53FB1D1D2A8200ECF173 /* 苹果接口.txt */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		D60A53FC1D1D2A8200ECF173 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D60A53FD1D1D2A8200ECF173 /* 苹果接口.txt */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		D60A53FE1D1D2A8200ECF173 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				D60A53FF1D1D2A8200ECF173 /* 苹果接口.txt */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		D60A54001D1D2A8200ECF173 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				D60A54011D1D2A8200ECF173 /* Controller */,
-				D60A54051D1D2A8200ECF173 /* Model */,
-				D60A54071D1D2A8200ECF173 /* View */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		D60A54011D1D2A8200ECF173 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				D60A54021D1D2A8200ECF173 /* HomeViewController.h */,
-				D60A54031D1D2A8200ECF173 /* HomeViewController.m */,
-				D60A54041D1D2A8200ECF173 /* HomeViewController.xib */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		D60A54051D1D2A8200ECF173 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D60A54061D1D2A8200ECF173 /* 苹果接口.txt */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		D60A54071D1D2A8200ECF173 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				D60A54081D1D2A8200ECF173 /* 苹果接口.txt */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		D60A54091D1D2A8200ECF173 /* Play */ = {
-			isa = PBXGroup;
-			children = (
-				D60A540A1D1D2A8200ECF173 /* Controller */,
-				D60A540C1D1D2A8200ECF173 /* Model */,
-				D60A540E1D1D2A8200ECF173 /* View */,
-			);
-			path = Play;
-			sourceTree = "<group>";
-		};
-		D60A540A1D1D2A8200ECF173 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				D60A540B1D1D2A8200ECF173 /* 苹果接口.txt */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		D60A540C1D1D2A8200ECF173 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				D60A540D1D1D2A8200ECF173 /* 苹果接口.txt */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		D60A540E1D1D2A8200ECF173 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				D60A540F1D1D2A8200ECF173 /* 苹果接口.txt */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		D62B09061D1CC90700128D82 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D62B09391D1D2DFC00128D82 /* Scenes */,
 				D62B09071D1CC90700128D82 /* AppDelegate */,
 				D62B090A1D1CC90700128D82 /* General */,
 				D62B090B1D1CC90700128D82 /* Helpers */,
 				D6ECF0461D1D0A92005C372A /* Macros */,
 				D62B090D1D1CC90700128D82 /* Resource */,
-				D60A53F81D1D2A8200ECF173 /* Scenes */,
 				D62B090F1D1CC90700128D82 /* Vendors */,
 			);
 			path = Classes;
@@ -254,6 +142,122 @@
 			children = (
 			);
 			path = Vendors;
+			sourceTree = "<group>";
+		};
+		D62B09391D1D2DFC00128D82 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				D62B093A1D1D2DFC00128D82 /* Detail */,
+				D62B09411D1D2DFC00128D82 /* Home */,
+				D62B094A1D1D2DFC00128D82 /* Play */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		D62B093A1D1D2DFC00128D82 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				D62B093B1D1D2DFC00128D82 /* Controller */,
+				D62B093D1D1D2DFC00128D82 /* Model */,
+				D62B093F1D1D2DFC00128D82 /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		D62B093B1D1D2DFC00128D82 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D62B093C1D1D2DFC00128D82 /* 苹果接口.txt */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D62B093D1D1D2DFC00128D82 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D62B093E1D1D2DFC00128D82 /* 苹果接口.txt */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D62B093F1D1D2DFC00128D82 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D62B09401D1D2DFC00128D82 /* 苹果接口.txt */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D62B09411D1D2DFC00128D82 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				D62B09421D1D2DFC00128D82 /* Controller */,
+				D62B09461D1D2DFC00128D82 /* Model */,
+				D62B09481D1D2DFC00128D82 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		D62B09421D1D2DFC00128D82 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D62B09431D1D2DFC00128D82 /* HomeViewController.h */,
+				D62B09441D1D2DFC00128D82 /* HomeViewController.m */,
+				D62B09451D1D2DFC00128D82 /* HomeViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D62B09461D1D2DFC00128D82 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D62B09471D1D2DFC00128D82 /* 苹果接口.txt */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D62B09481D1D2DFC00128D82 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D62B09491D1D2DFC00128D82 /* 苹果接口.txt */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D62B094A1D1D2DFC00128D82 /* Play */ = {
+			isa = PBXGroup;
+			children = (
+				D62B094B1D1D2DFC00128D82 /* Controller */,
+				D62B094F1D1D2DFC00128D82 /* Model */,
+				D62B09511D1D2DFC00128D82 /* View */,
+			);
+			path = Play;
+			sourceTree = "<group>";
+		};
+		D62B094B1D1D2DFC00128D82 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D62B094C1D1D2DFC00128D82 /* PlayerViewController.h */,
+				D62B094D1D1D2DFC00128D82 /* PlayerViewController.m */,
+				D62B094E1D1D2DFC00128D82 /* PlayerViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D62B094F1D1D2DFC00128D82 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D62B09501D1D2DFC00128D82 /* 苹果接口.txt */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D62B09511D1D2DFC00128D82 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D62B09521D1D2DFC00128D82 /* 苹果接口.txt */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D631B4A31D1C1CBC00102682 = {
@@ -369,17 +373,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				D631B4BF1D1C1CBC00102682 /* LaunchScreen.storyboard in Resources */,
+				D62B095B1D1D2DFC00128D82 /* PlayerViewController.xib in Resources */,
 				D631B4BC1D1C1CBC00102682 /* Assets.xcassets in Resources */,
-				D60A54161D1D2A8200ECF173 /* 苹果接口.txt in Resources */,
-				D60A54111D1D2A8200ECF173 /* 苹果接口.txt in Resources */,
-				D60A54151D1D2A8200ECF173 /* 苹果接口.txt in Resources */,
-				D60A54181D1D2A8200ECF173 /* 苹果接口.txt in Resources */,
+				D62B09591D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
+				D62B09541D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
+				D62B095C1D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
+				D62B09581D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D631B4BA1D1C1CBC00102682 /* Main.storyboard in Resources */,
-				D60A54101D1D2A8200ECF173 /* 苹果接口.txt in Resources */,
-				D60A54171D1D2A8200ECF173 /* 苹果接口.txt in Resources */,
-				D60A54141D1D2A8200ECF173 /* HomeViewController.xib in Resources */,
-				D60A54121D1D2A8200ECF173 /* 苹果接口.txt in Resources */,
-				D60A54191D1D2A8200ECF173 /* 苹果接口.txt in Resources */,
+				D62B09531D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
+				D62B09571D1D2DFC00128D82 /* HomeViewController.xib in Resources */,
+				D62B09551D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
+				D62B095D1D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,8 +445,9 @@
 				D62B09261D1D20EA00128D82 /* Tool_AdaptiveHeight.m in Sources */,
 				D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */,
 				D631B4B11D1C1CBC00102682 /* main.m in Sources */,
-				D60A54131D1D2A8200ECF173 /* HomeViewController.m in Sources */,
+				D62B09561D1D2DFC00128D82 /* HomeViewController.m in Sources */,
 				D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */,
+				D62B095A1D1D2DFC00128D82 /* PlayerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

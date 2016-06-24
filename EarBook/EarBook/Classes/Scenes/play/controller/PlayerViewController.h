@@ -1,5 +1,5 @@
 //
-//  HomeViewController.h
+//  PlayerViewController.h
 //  EarBook
 //
 //  Created by lanou3g on 16/6/24.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UIViewController
+@interface PlayerViewController : UIViewController
 
 @end
