@@ -35,6 +35,9 @@
                         <constraint firstAttribute="width" secondItem="Teg-aL-zRF" secondAttribute="height" id="9Ug-7T-N7w"/>
                     </constraints>
                     <state key="normal" image="add.png"/>
+                    <connections>
+                        <action selector="presentMenuButtonTapped:" destination="-1" eventType="touchUpInside" id="WW5-Ah-f5q"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="集数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogo-oX-zYy">
                     <rect key="frame" x="65" y="80" width="230" height="16"/>
