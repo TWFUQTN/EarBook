@@ -14,7 +14,6 @@
 		D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09091D1CC90700128D82 /* AppDelegate.m */; };
 		D62B09261D1D20EA00128D82 /* Tool_AdaptiveHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09251D1D20EA00128D82 /* Tool_AdaptiveHeight.m */; };
 		D62B09541D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B093E1D1D2DFC00128D82 /* 苹果接口.txt */; };
-		D62B09551D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B09401D1D2DFC00128D82 /* 苹果接口.txt */; };
 		D62B09561D1D2DFC00128D82 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09441D1D2DFC00128D82 /* HomeViewController.m */; };
 		D62B09571D1D2DFC00128D82 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62B09451D1D2DFC00128D82 /* HomeViewController.xib */; };
 		D62B09581D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B09471D1D2DFC00128D82 /* 苹果接口.txt */; };
@@ -56,7 +55,6 @@
 		D62B09241D1D20EA00128D82 /* Tool_AdaptiveHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tool_AdaptiveHeight.h; sourceTree = "<group>"; };
 		D62B09251D1D20EA00128D82 /* Tool_AdaptiveHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tool_AdaptiveHeight.m; sourceTree = "<group>"; };
 		D62B093E1D1D2DFC00128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
-		D62B09401D1D2DFC00128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
 		D62B09431D1D2DFC00128D82 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D62B09441D1D2DFC00128D82 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D62B09451D1D2DFC00128D82 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 			children = (
 				D60A541F1D1D51B400ECF173 /* ZF_SegmentLabelView.h */,
 				D60A54201D1D51B400ECF173 /* ZF_SegmentLabelView.m */,
-				D62B09401D1D2DFC00128D82 /* 苹果接口.txt */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -473,12 +470,10 @@
 				D62B09691D1D2FFD00128D82 /* arrowdown.png in Resources */,
 				D631B4BA1D1C1CBC00102682 /* Main.storyboard in Resources */,
 				D62B096C1D1D2FFD00128D82 /* pause.png in Resources */,
-				D62B09531D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D62B09701D1D2FFD00128D82 /* volumehigh@3x.png in Resources */,
 				D62B096B1D1D2FFD00128D82 /* loop.png in Resources */,
 				D62B09571D1D2DFC00128D82 /* HomeViewController.xib in Resources */,
 				D62B09711D1D2FFD00128D82 /* volumelow@2x.png in Resources */,
-				D62B09551D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D62B09721D1D2FFD00128D82 /* volumelow@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

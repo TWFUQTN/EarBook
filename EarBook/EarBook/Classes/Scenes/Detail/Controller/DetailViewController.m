@@ -26,6 +26,15 @@
     
     [self addSegment];
     
+    [self layoutSubView];
+    
+}
+
+- (void)layoutSubView {
+    
+    
+    
+    
 }
 
 
