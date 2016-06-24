@@ -20,7 +20,21 @@
 		D62B095A1D1D2DFC00128D82 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B094D1D1D2DFC00128D82 /* PlayerViewController.m */; };
 		D62B095B1D1D2DFC00128D82 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62B094E1D1D2DFC00128D82 /* PlayerViewController.xib */; };
 		D62B095C1D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B09501D1D2DFC00128D82 /* 苹果接口.txt */; };
-		D62B095D1D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B09521D1D2DFC00128D82 /* 苹果接口.txt */; };
+		D62B09691D1D2FFD00128D82 /* arrowdown.png in Resources */ = {isa = PBXBuildFile; fileRef = D62B095F1D1D2FFD00128D82 /* arrowdown.png */; };
+		D62B096A1D1D2FFD00128D82 /* forward.png in Resources */ = {isa = PBXBuildFile; fileRef = D62B09601D1D2FFD00128D82 /* forward.png */; };
+		D62B096B1D1D2FFD00128D82 /* loop.png in Resources */ = {isa = PBXBuildFile; fileRef = D62B09611D1D2FFD00128D82 /* loop.png */; };
+		D62B096C1D1D2FFD00128D82 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = D62B09621D1D2FFD00128D82 /* pause.png */; };
+		D62B096D1D1D2FFD00128D82 /* play.png in Resources */ = {isa = PBXBuildFile; fileRef = D62B09631D1D2FFD00128D82 /* play.png */; };
+		D62B096E1D1D2FFD00128D82 /* rewind.png in Resources */ = {isa = PBXBuildFile; fileRef = D62B09641D1D2FFD00128D82 /* rewind.png */; };
+		D62B096F1D1D2FFD00128D82 /* volumehigh@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D62B09651D1D2FFD00128D82 /* volumehigh@2x.png */; };
+		D62B09701D1D2FFD00128D82 /* volumehigh@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D62B09661D1D2FFD00128D82 /* volumehigh@3x.png */; };
+		D62B09711D1D2FFD00128D82 /* volumelow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D62B09671D1D2FFD00128D82 /* volumelow@2x.png */; };
+		D62B09721D1D2FFD00128D82 /* volumelow@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = D62B09681D1D2FFD00128D82 /* volumelow@3x.png */; };
+		D62B09741D1D30AD00128D82 /* add.png in Resources */ = {isa = PBXBuildFile; fileRef = D62B09731D1D30AD00128D82 /* add.png */; };
+		D62B097B1D1D571E00128D82 /* UIView+YALConstraints.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09771D1D571E00128D82 /* UIView+YALConstraints.m */; };
+		D62B097C1D1D571E00128D82 /* YALContextMenuTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B097A1D1D571E00128D82 /* YALContextMenuTableView.m */; };
+		D62B09811D1D57B900128D82 /* ContextMenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B097F1D1D57B900128D82 /* ContextMenuCell.m */; };
+		D62B09821D1D57B900128D82 /* ContextMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62B09801D1D57B900128D82 /* ContextMenuCell.xib */; };
 		D631B4B11D1C1CBC00102682 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D631B4B01D1C1CBC00102682 /* main.m */; };
 		D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D631B4B61D1C1CBC00102682 /* ViewController.m */; };
 		D631B4BA1D1C1CBC00102682 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D631B4B81D1C1CBC00102682 /* Main.storyboard */; };
@@ -46,7 +60,25 @@
 		D62B094D1D1D2DFC00128D82 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		D62B094E1D1D2DFC00128D82 /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
 		D62B09501D1D2DFC00128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
-		D62B09521D1D2DFC00128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
+		D62B095F1D1D2FFD00128D82 /* arrowdown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowdown.png; sourceTree = "<group>"; };
+		D62B09601D1D2FFD00128D82 /* forward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = forward.png; sourceTree = "<group>"; };
+		D62B09611D1D2FFD00128D82 /* loop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loop.png; sourceTree = "<group>"; };
+		D62B09621D1D2FFD00128D82 /* pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause.png; sourceTree = "<group>"; };
+		D62B09631D1D2FFD00128D82 /* play.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = play.png; sourceTree = "<group>"; };
+		D62B09641D1D2FFD00128D82 /* rewind.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rewind.png; sourceTree = "<group>"; };
+		D62B09651D1D2FFD00128D82 /* volumehigh@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "volumehigh@2x.png"; sourceTree = "<group>"; };
+		D62B09661D1D2FFD00128D82 /* volumehigh@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "volumehigh@3x.png"; sourceTree = "<group>"; };
+		D62B09671D1D2FFD00128D82 /* volumelow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "volumelow@2x.png"; sourceTree = "<group>"; };
+		D62B09681D1D2FFD00128D82 /* volumelow@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "volumelow@3x.png"; sourceTree = "<group>"; };
+		D62B09731D1D30AD00128D82 /* add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = add.png; sourceTree = "<group>"; };
+		D62B09761D1D571E00128D82 /* UIView+YALConstraints.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+YALConstraints.h"; sourceTree = "<group>"; };
+		D62B09771D1D571E00128D82 /* UIView+YALConstraints.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+YALConstraints.m"; sourceTree = "<group>"; };
+		D62B09781D1D571E00128D82 /* YALContextMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALContextMenuCell.h; sourceTree = "<group>"; };
+		D62B09791D1D571E00128D82 /* YALContextMenuTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALContextMenuTableView.h; sourceTree = "<group>"; };
+		D62B097A1D1D571E00128D82 /* YALContextMenuTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALContextMenuTableView.m; sourceTree = "<group>"; };
+		D62B097E1D1D57B900128D82 /* ContextMenuCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContextMenuCell.h; sourceTree = "<group>"; };
+		D62B097F1D1D57B900128D82 /* ContextMenuCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContextMenuCell.m; sourceTree = "<group>"; };
+		D62B09801D1D57B900128D82 /* ContextMenuCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ContextMenuCell.xib; sourceTree = "<group>"; };
 		D631B4AC1D1C1CBC00102682 /* EarBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D631B4B01D1C1CBC00102682 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D631B4B51D1C1CBC00102682 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -133,6 +165,7 @@
 		D62B090D1D1CC90700128D82 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D62B095E1D1D2FFD00128D82 /* PlayerImage */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -255,9 +288,50 @@
 		D62B09511D1D2DFC00128D82 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D62B09521D1D2DFC00128D82 /* 苹果接口.txt */,
+				D62B097D1D1D57B900128D82 /* ContextMenuCell */,
+				D62B09751D1D571E00128D82 /* YALContextMenu */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D62B095E1D1D2FFD00128D82 /* PlayerImage */ = {
+			isa = PBXGroup;
+			children = (
+				D62B09731D1D30AD00128D82 /* add.png */,
+				D62B095F1D1D2FFD00128D82 /* arrowdown.png */,
+				D62B09601D1D2FFD00128D82 /* forward.png */,
+				D62B09611D1D2FFD00128D82 /* loop.png */,
+				D62B09621D1D2FFD00128D82 /* pause.png */,
+				D62B09631D1D2FFD00128D82 /* play.png */,
+				D62B09641D1D2FFD00128D82 /* rewind.png */,
+				D62B09651D1D2FFD00128D82 /* volumehigh@2x.png */,
+				D62B09661D1D2FFD00128D82 /* volumehigh@3x.png */,
+				D62B09671D1D2FFD00128D82 /* volumelow@2x.png */,
+				D62B09681D1D2FFD00128D82 /* volumelow@3x.png */,
+			);
+			path = PlayerImage;
+			sourceTree = "<group>";
+		};
+		D62B09751D1D571E00128D82 /* YALContextMenu */ = {
+			isa = PBXGroup;
+			children = (
+				D62B09761D1D571E00128D82 /* UIView+YALConstraints.h */,
+				D62B09771D1D571E00128D82 /* UIView+YALConstraints.m */,
+				D62B09781D1D571E00128D82 /* YALContextMenuCell.h */,
+				D62B09791D1D571E00128D82 /* YALContextMenuTableView.h */,
+				D62B097A1D1D571E00128D82 /* YALContextMenuTableView.m */,
+			);
+			path = YALContextMenu;
+			sourceTree = "<group>";
+		};
+		D62B097D1D1D57B900128D82 /* ContextMenuCell */ = {
+			isa = PBXGroup;
+			children = (
+				D62B097E1D1D57B900128D82 /* ContextMenuCell.h */,
+				D62B097F1D1D57B900128D82 /* ContextMenuCell.m */,
+				D62B09801D1D57B900128D82 /* ContextMenuCell.xib */,
+			);
+			path = ContextMenuCell;
 			sourceTree = "<group>";
 		};
 		D631B4A31D1C1CBC00102682 = {
@@ -373,17 +447,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				D631B4BF1D1C1CBC00102682 /* LaunchScreen.storyboard in Resources */,
+				D62B096D1D1D2FFD00128D82 /* play.png in Resources */,
 				D62B095B1D1D2DFC00128D82 /* PlayerViewController.xib in Resources */,
 				D631B4BC1D1C1CBC00102682 /* Assets.xcassets in Resources */,
+				D62B09741D1D30AD00128D82 /* add.png in Resources */,
+				D62B096E1D1D2FFD00128D82 /* rewind.png in Resources */,
+				D62B096F1D1D2FFD00128D82 /* volumehigh@2x.png in Resources */,
 				D62B09591D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D62B09541D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D62B095C1D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D62B09581D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
+				D62B09821D1D57B900128D82 /* ContextMenuCell.xib in Resources */,
+				D62B096A1D1D2FFD00128D82 /* forward.png in Resources */,
+				D62B09691D1D2FFD00128D82 /* arrowdown.png in Resources */,
 				D631B4BA1D1C1CBC00102682 /* Main.storyboard in Resources */,
+				D62B096C1D1D2FFD00128D82 /* pause.png in Resources */,
 				D62B09531D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
+				D62B09701D1D2FFD00128D82 /* volumehigh@3x.png in Resources */,
+				D62B096B1D1D2FFD00128D82 /* loop.png in Resources */,
 				D62B09571D1D2DFC00128D82 /* HomeViewController.xib in Resources */,
+				D62B09711D1D2FFD00128D82 /* volumelow@2x.png in Resources */,
 				D62B09551D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
-				D62B095D1D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
+				D62B09721D1D2FFD00128D82 /* volumelow@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,11 +528,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D62B09261D1D20EA00128D82 /* Tool_AdaptiveHeight.m in Sources */,
+				D62B09811D1D57B900128D82 /* ContextMenuCell.m in Sources */,
 				D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */,
+				D62B097B1D1D571E00128D82 /* UIView+YALConstraints.m in Sources */,
 				D631B4B11D1C1CBC00102682 /* main.m in Sources */,
 				D62B09561D1D2DFC00128D82 /* HomeViewController.m in Sources */,
 				D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */,
 				D62B095A1D1D2DFC00128D82 /* PlayerViewController.m in Sources */,
+				D62B097C1D1D571E00128D82 /* YALContextMenuTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

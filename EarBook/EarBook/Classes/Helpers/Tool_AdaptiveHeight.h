@@ -14,7 +14,7 @@
 
 // 声明类方法,用于计算文本的高度
 + (CGFloat)textHeightWithText:(NSString *)text
-                         font:(UIFont *)font
+                     fontSize:(CGFloat)fontSize
                     viewWidth:(CGFloat)viewWidth;
 
 // 声明类方法,用于计算图片的高度

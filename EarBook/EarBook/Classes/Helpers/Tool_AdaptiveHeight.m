@@ -15,7 +15,7 @@
 // 计算文本的高度
 //
 + (CGFloat)textHeightWithText:(NSString *)text
-                     fontSize:(CGFloat *)fontSize
+                     fontSize:(CGFloat)fontSize
                     viewWidth:(CGFloat)viewWidth
 {
     // iOS7.0中求文本高度的方法,返回一个CGRect的高度
