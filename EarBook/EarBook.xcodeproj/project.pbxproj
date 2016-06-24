@@ -26,6 +26,9 @@
 		D631B4BB1D1C1CBC00102682 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D631B4BE1D1C1CBC00102682 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D631B4C01D1C1CBC00102682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6ECF0471D1D0A92005C372A /* DB_COLOR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB_COLOR.h; sourceTree = "<group>"; };
+		D6ECF0481D1D0A92005C372A /* DB_URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB_URL.h; sourceTree = "<group>"; };
+		D6ECF0491D1D0A92005C372A /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,7 +48,7 @@
 				D62B09071D1CC90700128D82 /* AppDelegate */,
 				D62B090A1D1CC90700128D82 /* General */,
 				D62B090B1D1CC90700128D82 /* Helpers */,
-				D62B090C1D1CC90700128D82 /* Macros */,
+				D6ECF0461D1D0A92005C372A /* Macros */,
 				D62B090D1D1CC90700128D82 /* Resource */,
 				D62B090E1D1CC90700128D82 /* Scenes */,
 				D62B090F1D1CC90700128D82 /* Vendors */,
@@ -74,13 +77,6 @@
 			children = (
 			);
 			path = Helpers;
-			sourceTree = "<group>";
-		};
-		D62B090C1D1CC90700128D82 /* Macros */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Macros;
 			sourceTree = "<group>";
 		};
 		D62B090D1D1CC90700128D82 /* Resource */ = {
@@ -141,6 +137,16 @@
 				D631B4B01D1C1CBC00102682 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D6ECF0461D1D0A92005C372A /* Macros */ = {
+			isa = PBXGroup;
+			children = (
+				D6ECF0471D1D0A92005C372A /* DB_COLOR.h */,
+				D6ECF0481D1D0A92005C372A /* DB_URL.h */,
+				D6ECF0491D1D0A92005C372A /* Singleton.h */,
+			);
+			path = Macros;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
