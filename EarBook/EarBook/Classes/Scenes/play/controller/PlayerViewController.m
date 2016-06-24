@@ -38,31 +38,30 @@ static NSString *const menuCellIdentifier = @"rotationCell";
     [self.navigationController setValue:[[YALNavigationBar alloc]init] forKeyPath:@"navigationBar"];
 }
 
-- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
-    //should be called after rotation animation completed
-    [self.contextMenuTableView reloadData];
-}
-
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-    
-    [self.contextMenuTableView updateAlongsideRotation];
-}
-
-- (void)viewWillTransitionToSize:(CGSize)size
-       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-    
-    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-    
-    
-    [coordinator animateAlongsideTransition:nil completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-        //should be called after rotation animation completed
-        [self.contextMenuTableView reloadData];
-    }];
-    [self.contextMenuTableView updateAlongsideRotation];
-    
-}
-
+//- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+//    //should be called after rotation animation completed
+//    [self.contextMenuTableView reloadData];
+//}
+//
+//- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+//    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+//    
+//    [self.contextMenuTableView updateAlongsideRotation];
+//}
+//
+//- (void)viewWillTransitionToSize:(CGSize)size
+//       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+//    
+//    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+//    
+//    
+//    [coordinator animateAlongsideTransition:nil completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+//        //should be called after rotation animation completed
+//        [self.contextMenuTableView reloadData];
+//    }];
+//    [self.contextMenuTableView updateAlongsideRotation];
+//    
+//}
 
 - (IBAction)presentMenuButtonTapped:(UIButton *)sender
 {
