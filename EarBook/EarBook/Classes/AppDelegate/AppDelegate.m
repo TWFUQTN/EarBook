@@ -35,6 +35,7 @@
     
     self.window.rootViewController = nav;
     
+    [UINavigationBar appearance].translucent = NO;
     
     return YES;
 }

@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		853991E37D48CED5FBF1F1E4 /* libPods-EarBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA9998324EB31859CEAD3A1 /* libPods-EarBook.a */; };
+		D60A541D1D1D2FDC00ECF173 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60A541B1D1D2FDC00ECF173 /* DetailViewController.m */; };
+		D60A541E1D1D2FDC00ECF173 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D60A541C1D1D2FDC00ECF173 /* DetailViewController.xib */; };
+		D60A54211D1D51B400ECF173 /* ZF_SegmentLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = D60A54201D1D51B400ECF173 /* ZF_SegmentLabelView.m */; };
 		D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09091D1CC90700128D82 /* AppDelegate.m */; };
 		D62B09261D1D20EA00128D82 /* Tool_AdaptiveHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09251D1D20EA00128D82 /* Tool_AdaptiveHeight.m */; };
-		D62B09531D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B093C1D1D2DFC00128D82 /* 苹果接口.txt */; };
 		D62B09541D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B093E1D1D2DFC00128D82 /* 苹果接口.txt */; };
-		D62B09551D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B09401D1D2DFC00128D82 /* 苹果接口.txt */; };
 		D62B09561D1D2DFC00128D82 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09441D1D2DFC00128D82 /* HomeViewController.m */; };
 		D62B09571D1D2DFC00128D82 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62B09451D1D2DFC00128D82 /* HomeViewController.xib */; };
 		D62B09581D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B09471D1D2DFC00128D82 /* 苹果接口.txt */; };
@@ -44,13 +45,16 @@
 
 /* Begin PBXFileReference section */
 		9114F739FD6B7025008EF6B7 /* Pods-EarBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EarBook/Pods-EarBook.debug.xcconfig"; sourceTree = "<group>"; };
+		D60A541A1D1D2FDC00ECF173 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		D60A541B1D1D2FDC00ECF173 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		D60A541C1D1D2FDC00ECF173 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
+		D60A541F1D1D51B400ECF173 /* ZF_SegmentLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZF_SegmentLabelView.h; sourceTree = "<group>"; };
+		D60A54201D1D51B400ECF173 /* ZF_SegmentLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZF_SegmentLabelView.m; sourceTree = "<group>"; };
 		D62B09081D1CC90700128D82 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D62B09091D1CC90700128D82 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D62B09241D1D20EA00128D82 /* Tool_AdaptiveHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tool_AdaptiveHeight.h; sourceTree = "<group>"; };
 		D62B09251D1D20EA00128D82 /* Tool_AdaptiveHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tool_AdaptiveHeight.m; sourceTree = "<group>"; };
-		D62B093C1D1D2DFC00128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
 		D62B093E1D1D2DFC00128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
-		D62B09401D1D2DFC00128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
 		D62B09431D1D2DFC00128D82 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		D62B09441D1D2DFC00128D82 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		D62B09451D1D2DFC00128D82 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
@@ -200,7 +204,9 @@
 		D62B093B1D1D2DFC00128D82 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D62B093C1D1D2DFC00128D82 /* 苹果接口.txt */,
+				D60A541A1D1D2FDC00ECF173 /* DetailViewController.h */,
+				D60A541B1D1D2FDC00ECF173 /* DetailViewController.m */,
+				D60A541C1D1D2FDC00ECF173 /* DetailViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -216,7 +222,8 @@
 		D62B093F1D1D2DFC00128D82 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D62B09401D1D2DFC00128D82 /* 苹果接口.txt */,
+				D60A541F1D1D51B400ECF173 /* ZF_SegmentLabelView.h */,
+				D60A54201D1D51B400ECF173 /* ZF_SegmentLabelView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -447,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D631B4BF1D1C1CBC00102682 /* LaunchScreen.storyboard in Resources */,
+				D60A541E1D1D2FDC00ECF173 /* DetailViewController.xib in Resources */,
 				D62B096D1D1D2FFD00128D82 /* play.png in Resources */,
 				D62B095B1D1D2DFC00128D82 /* PlayerViewController.xib in Resources */,
 				D631B4BC1D1C1CBC00102682 /* Assets.xcassets in Resources */,
@@ -462,12 +470,10 @@
 				D62B09691D1D2FFD00128D82 /* arrowdown.png in Resources */,
 				D631B4BA1D1C1CBC00102682 /* Main.storyboard in Resources */,
 				D62B096C1D1D2FFD00128D82 /* pause.png in Resources */,
-				D62B09531D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D62B09701D1D2FFD00128D82 /* volumehigh@3x.png in Resources */,
 				D62B096B1D1D2FFD00128D82 /* loop.png in Resources */,
 				D62B09571D1D2DFC00128D82 /* HomeViewController.xib in Resources */,
 				D62B09711D1D2FFD00128D82 /* volumelow@2x.png in Resources */,
-				D62B09551D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D62B09721D1D2FFD00128D82 /* volumelow@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -534,7 +540,9 @@
 				D631B4B11D1C1CBC00102682 /* main.m in Sources */,
 				D62B09561D1D2DFC00128D82 /* HomeViewController.m in Sources */,
 				D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */,
+				D60A54211D1D51B400ECF173 /* ZF_SegmentLabelView.m in Sources */,
 				D62B095A1D1D2DFC00128D82 /* PlayerViewController.m in Sources */,
+				D60A541D1D1D2FDC00ECF173 /* DetailViewController.m in Sources */,
 				D62B097C1D1D571E00128D82 /* YALContextMenuTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
