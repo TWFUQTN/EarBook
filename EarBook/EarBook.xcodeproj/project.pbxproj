@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09091D1CC90700128D82 /* AppDelegate.m */; };
 		D631B4B11D1C1CBC00102682 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D631B4B01D1C1CBC00102682 /* main.m */; };
-		D631B4B41D1C1CBC00102682 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D631B4B31D1C1CBC00102682 /* AppDelegate.m */; };
 		D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D631B4B61D1C1CBC00102682 /* ViewController.m */; };
 		D631B4BA1D1C1CBC00102682 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D631B4B81D1C1CBC00102682 /* Main.storyboard */; };
 		D631B4BC1D1C1CBC00102682 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D631B4BB1D1C1CBC00102682 /* Assets.xcassets */; };
@@ -16,10 +16,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D62B09081D1CC90700128D82 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D62B09091D1CC90700128D82 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D631B4AC1D1C1CBC00102682 /* EarBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D631B4B01D1C1CBC00102682 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		D631B4B21D1C1CBC00102682 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		D631B4B31D1C1CBC00102682 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D631B4B51D1C1CBC00102682 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		D631B4B61D1C1CBC00102682 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		D631B4B91D1C1CBC00102682 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,6 +39,71 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D62B09061D1CC90700128D82 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D62B09071D1CC90700128D82 /* AppDelegate */,
+				D62B090A1D1CC90700128D82 /* General */,
+				D62B090B1D1CC90700128D82 /* Helpers */,
+				D62B090C1D1CC90700128D82 /* Macros */,
+				D62B090D1D1CC90700128D82 /* Resource */,
+				D62B090E1D1CC90700128D82 /* Scenes */,
+				D62B090F1D1CC90700128D82 /* Vendors */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		D62B09071D1CC90700128D82 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				D62B09081D1CC90700128D82 /* AppDelegate.h */,
+				D62B09091D1CC90700128D82 /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		D62B090A1D1CC90700128D82 /* General */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		D62B090B1D1CC90700128D82 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D62B090C1D1CC90700128D82 /* Macros */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Macros;
+			sourceTree = "<group>";
+		};
+		D62B090D1D1CC90700128D82 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		D62B090E1D1CC90700128D82 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		D62B090F1D1CC90700128D82 /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
 		D631B4A31D1C1CBC00102682 = {
 			isa = PBXGroup;
 			children = (
@@ -58,8 +123,7 @@
 		D631B4AE1D1C1CBC00102682 /* EarBook */ = {
 			isa = PBXGroup;
 			children = (
-				D631B4B21D1C1CBC00102682 /* AppDelegate.h */,
-				D631B4B31D1C1CBC00102682 /* AppDelegate.m */,
+				D62B09061D1CC90700128D82 /* Classes */,
 				D631B4B51D1C1CBC00102682 /* ViewController.h */,
 				D631B4B61D1C1CBC00102682 /* ViewController.m */,
 				D631B4B81D1C1CBC00102682 /* Main.storyboard */,
@@ -151,8 +215,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */,
-				D631B4B41D1C1CBC00102682 /* AppDelegate.m in Sources */,
 				D631B4B11D1C1CBC00102682 /* main.m in Sources */,
+				D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,6 +365,7 @@
 				D631B4C51D1C1CBC00102682 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
