@@ -1,0 +1,205 @@
+
+听吧-推荐
+POST http://apis.mting.info/yyting/gateway/batchOperation.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8*&pfunction=1 HTTP/1.1
+
+body：
+nwt=1&operations=%5B%22%2Fyyting%2Fbookclient%2FClientGetTopicByType.action%3FterminalType%3D4%26type%3D12%22%2C%22%2Fyyting%2Fbookclient%2FgetRecommend.action%3Ftype%3D1%22%2C%22%2Fyyting%2Fadvertclient%2FgetBizAdvertList.action%3F%22%2C%22%2Fyyting%2Fbookclient%2FgetRecommendTypes.action%3Fsize%3D6%26type%3D3%26typeId%3D0%22%2C%22%2Fyyting%2Fbookclient%2FgetRecommendTypes.action%3Fsize%3D6%26type%3D4%26typeId%3D0%22%2C%22%2Fyyting%2Fbookclient%2FClientGetTopicList.action%3FisTop%3D1%26type%3D1%22%2C%22%2Fyyting%2Fbookclient%2FgetRecommend.action%3Ftype%3D2%22%2C%22%2Fyyting%2Fbookclient%2FgetRecommendTypes.action%3Fsize%3D3%26type%3D1%26typeId%3D0%22%5D&pfunction=1&q=201&sc=7676b0166bf565cd8dbbb13590c022a5
+
+数据见听吧-推荐.txt
+
+
+
+轮播图点击跳转
+
+
+详细描述（publicType = 2 节目的接口）
+GET http://42.62.15.101/yyting/snsresource/getAblumnDetail.action?id=17379&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&q=1103&sc=901846794747c2fa095c33302378fb5c&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCm1MERM9GQasAk6L-vqa3PqIC3t2KIXkyw%2A HTTP/1.1
+
+（不同数据的ID不一样）
+GET http://42.62.15.101/yyting/snsresource/getAblumnDetail.action?id=19910&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&q=1503&sc=e07b04e5a4438a589206a584d96b434c&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCm1MERM9GQasAk6L-vqa3PqIC3t2KIXkyw%2A HTTP/1.1
+
+返回数据
+{"ablumn":{"announcer":"白嵩","author":"佚名","commentCount":41,"commentMean":4.73,"cover":"http:\/\/77g8sy.com2.z0.glb.qiniucdn.com\/Fjn1RU0odysJl5kn-FJQG5fLj8qD?imageMogr\/v2\/auto-orient\/thumbnail\/x180\/crop\/!180x180a0a0&e=1467251049&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:vd9uUylx-xemyhLMvxcMRCUKC9Q=","description":"中国十佳旅游节目主持人-白嵩\n带你的耳朵去世界各地","id":17379,"isLike":0,"length":14780,"name":"音乐旅行家","playCount":75151,"sections":10,"source":1,"typeName":"人文历史","updateTime":1464921319000},"msg":null,"status":0,"user":{"cover":"http:\/\/785j53.com2.z0.glb.qiniucdn.com\/853abeabd7774a8e8492b6b60cebe87a?imageMogr\/v2\/auto-orient\/thumbnail\/180x180&e=1467252435&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:KGzkWxrM1VIoIRIWY21IOXgupYo=","desc":"中国著名摇滚音乐电台：致力于摇滚乐最前沿的网络电台，独特的节目形式，追寻媒体自由，用独特的角度思考音乐感受音乐，如今已发展成国内极具影响力的摇滚乐媒体，专注与真实的声音有关的一切","flag":56,"isFollow":0,"nickName":"荷尔蒙电台","userId":86210102}}
+
+
+听过此节目的人还听过
+GET http://42.62.15.101/yyting/bookclient/getRecommendByEntity.action?id=17379&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&q=1101&sc=642fddb1673aba91ee0d7a3803baaacd&size=6&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCm1MERM9GQasAk6L-vqa3PqIC3t2KIXkyw%2A&type=2 HTTP/1.1
+
+返回数据
+{"list":[{"announcer":"zhaotingdong10","cover":"http:\/\/77g8sy.com2.z0.glb.qiniucdn.com\/FmHYGXSuRi7colxpexAnij7XvHun?imageMogr\/v2\/auto-orient\/thumbnail\/180\/crop\/!180x180a0a0&e=1467528349&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:cPKekE_zKWiBi3wjj3arqvm8Lr8=","hot":6195680,"id":17353,"name":"杨家将评书-刘兰芳","type":2},{"announcer":"365读书","cover":"http:\/\/77g8sy.com2.z0.glb.qiniucdn.com\/FjVzdKDI22Jwpxq-XZCG4yYQ2iNP?imageMogr\/v2\/auto-orient\/thumbnail\/x180\/crop\/!180x180a0a0&e=1467510455&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:VxNArvDBspWKZvYIKr1P8tPXoGc=","hot":4060370,"id":13031,"name":"365读书","type":2},{"announcer":"天海一线","cover":"http:\/\/77g8sy.com2.z0.glb.qiniucdn.com\/FoHBK6_xgdVvQz0C6UWc7qmAO5Dc?imageMogr\/v2\/auto-orient\/thumbnail\/x180\/crop\/!180x180a0a0&e=1467262010&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:nBhedqFDC-dZAX6sXV7_afbXS4U=","hot":3554997,"id":5745,"name":"易中天品三国","type":2},{"announcer":"主播郭小贱","cover":"http:\/\/77g8sy.com2.z0.glb.qiniucdn.com\/FhTbCtCaB28nE8ZH7yZZtkBNYvee?imageMogr\/v2\/auto-orient\/thumbnail\/x180\/crop\/!180x180a0a0&e=1467357401&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:N3ZikDnKSa7NONLpizM5VlwYoCc=","hot":1886965,"id":21652,"name":"爆笑历史小吃摊","type":2},{"announcer":"见证者延鹏","cover":"http:\/\/77g8sy.com2.z0.glb.qiniucdn.com\/FtahBhGyTjOf-C5I8gF4q_Y9BGIZ?imageMogr\/v2\/auto-orient\/thumbnail\/x180\/crop\/!180x180a0a0&e=1467510423&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:uqAPvMCm1QUZblecKO7UQdoXgso=","hot":1619970,"id":11320,"name":"闲话当年","type":2},{"announcer":"大话风水","cover":"http:\/\/77g8sy.com2.z0.glb.qiniucdn.com\/Fm9Vx63cmVHud6VeBUYhVXmRDy-S?imageMogr\/v2\/auto-orient\/thumbnail\/x180\/crop\/!180x180a0a0&e=1467442134&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:X71erOVTGuX_gbdGI2Flt20Hl7s=","hot":1203605,"id":12711,"name":"大话风水","type":2}],"msg":null,"status":0}
+
+
+评论：（下拉刷新，每次10条数据）
+GET http://42.62.15.101/yyting/interactclient/GetBookComment.action?entityId=17379&entityType=2&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&opType=H&pageSize=10&q=1104&referId=0&sc=7224674ee95fd46eea15a51feb77110c&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCm1MERM9GQasAk6L-vqa3PqIC3t2KIXkyw%2A HTTP/1.1
+
+返回数据
+{"count":10,"list":[{"bookId":0,"commentContent":"好听，挺上心的节目。","commentId":6711552,"commentStar":5,"cover":"http:\/\/785j53.com2.z0.glb.qiniucdn.com\/b642aa6af38e42efae9ec227a1a4a0c3_.jpg?imageMogr\/v2\/auto-orient\/thumbnail\/180x180&e=1467446452&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:s2kewM-Nr55ICJ8-NtmWTljimfA=","isMember":0,"isReg":1,"isV":0,"lastModify":"2016-05-22 10:56:41","nickName":"yaya50","phoneType":"HUAWEI-H60-L01","replyNickName":null,"replyUserId":0,"userId":99556447},{"bookId":0,"commentContent":"海岛我的最爱阴雨天真的很难用心去享受的旅程","commentId":6507149,"commentStar":5,"cover":"http:\/\/785j53.com2.z0.glb.qiniucdn.com\/1362671820160422231352uc.jpg?imageMogr\/v2\/auto-orient\/thumbnail\/180x180&e=1467408269&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:Vyn3VGbSH7YOquGyqhTdO61zeKY=","isMember":0,"isReg":1,"isV":0,"lastModify":"2016-04-30 06:17:32","nickName":"TEjia","phoneType":"samsung-SM-N900V","replyNickName":null,"replyUserId":0,"userId":157220589},{"bookId":0,"commentContent":"一个月了快还不更新呢？","commentId":6493744,"commentStar":5,"cover":"http:\/\/785j53.com2.z0.glb.qiniucdn.com\/1317212020160328105416uc.jpg?imageMogr\/v2\/auto-orient\/thumbnail\/180x180&e=1467268666&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:SegynCKca-pWwK3swkzr86OUeVw=","isMember":0,"isReg":1,"isV":0,"lastModify":"2016-04-28 14:02:12","nickName":"mayone","phoneType":"Apple-iPhone6Plus","replyNickName":null,"replyUserId":0,"userId":154493358},{"bookId":0,"commentContent":"下期什么时候更新呀","commentId":6460740,"commentStar":5,"cover":"http:\/\/785j53.com2.z0.glb.qiniucdn.com\/1365813720160424180142uc.jpg?imageMogr\/v2\/auto-orient\/thumbnail\/180x180&e=1467553535&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:Y0POIfCT6SMci_NrKexVEdlGpbE=","isMember":0,"isReg":1,"isV":0,"lastModify":"2016-04-24 18:07:08","nickName":"筱筱萱","phoneType":"Apple-iPhone5","replyNickName":null,"replyUserId":0,"userId":157422552},{"bookId":0,"commentContent":"太棒了，你更新了！","commentId":6327812,"commentStar":5,"cover":"http:\/\/785j53.com2.z0.glb.qiniucdn.com\/1317212020160328105416uc.jpg?imageMogr\/v2\/auto-orient\/thumbnail\/180x180&e=1467268666&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:SegynCKca-pWwK3swkzr86OUeVw=","isMember":0,"isReg":1,"isV":0,"lastModify":"2016-04-08 09:36:58","nickName":"mayone","phoneType":"Apple-iPhone6Plus","replyNickName":null,"replyUserId":0,"userId":154493358},{"bookId":0,"commentContent":"下周去海边，会在海边给大家录节目听：","commentId":6186897,"commentStar":4,"cover":"http:\/\/785j53.com2.z0.glb.qiniucdn.com\/853abeabd7774a8e8492b6b60cebe87a?imageMogr\/v2\/auto-orient\/thumbnail\/180x180&e=1467252435&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:KGzkWxrM1VIoIRIWY21IOXgupYo=","isMember":0,"isReg":1,"isV":1,"lastModify":"2016-03-20 00:16:14","nickName":"荷尔蒙电台","phoneType":null,"replyNickName":"笑颜37","replyUserId":144835426,"userId":86210102},{"bookId":0,"commentContent":"什么情况","commentId":6180460,"commentStar":4,"cover":"http:\/\/bookpic.lrts.me\/default_user_head_2.png","isMember":0,"isReg":1,"isV":0,"lastModify":"2016-03-19 06:48:32","nickName":"guanwenwenk","phoneType":"HUAWEI-HUAWEI MT7-CL00","replyNickName":"笑看今朝—☞拒聊，工作忙","replyUserId":106697912,"userId":151401032},{"bookId":0,"commentContent":"很不错，只是好少，更新得也太慢了，是为什么呢","commentId":6180316,"commentStar":5,"cover":"http:\/\/785j53.com2.z0.glb.qiniucdn.com\/1165210020161230150044uc.jpg?imageMogr\/v2\/auto-orient\/thumbnail\/180x180&e=1467259999&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:ALBkni74SLtziFuevtwygFWHXeQ=","isMember":0,"isReg":1,"isV":0,"lastModify":"2016-03-19 05:33:16","nickName":"笑颜37","phoneType":"vivo-vivo Y23L","replyNickName":null,"replyUserId":0,"userId":144835426},{"bookId":0,"commentContent":"喜欢喜欢。怎么只有5个呢","commentId":6171860,"commentStar":5,"cover":"http:\/\/bookpic.lrts.me\/default_user_head_1.png","isMember":0,"isReg":1,"isV":0,"lastModify":"2016-06-23 10:14:46","nickName":"Romance灬vivi","phoneType":"OPPO-OPPO R7","replyNickName":null,"replyUserId":0,"userId":153143651},{"bookId":0,"commentContent":"耳朵的享受，赞","commentId":6130499,"commentStar":5,"cover":"http:\/\/785j53.com2.z0.glb.qiniucdn.com\/409570920150102205352uc.jpg?imageMogr\/v2\/auto-orient\/thumbnail\/180x180&e=1467264233&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:t9xG_cShi4Y8gi4NFF2edcpKeRQ=","isMember":0,"isReg":1,"isV":0,"lastModify":"2016-03-12 08:15:19","nickName":"夏秋末","phoneType":"Apple-iPhone6Plus","replyNickName":null,"replyUserId":0,"userId":89540065}],"msg":null,"pageNum":0,"pageSize":10,"status":0}
+
+
+列表页
+GET http://42.62.15.101/yyting/snsresource/getAblumnAudios.action?ablumnId=17379&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&q=1102&sc=598564115493a8848b6c6ff4b39a7c0f&sortType=1&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCm1MERM9GQasAk6L-vqa3PqIC3t2KIXkyw%2A HTTP/1.1
+
+返回数据
+{"list":[{"audioId":359709,"cover":"http:\/\/77g8sy.com2.z0.glb.qiniucdn.com\/FshXjpe9quDyAKLgNk4VS1CaxrPG?imageMogr\/v2\/auto-orient\/thumbnail\/x180\/crop\/!180x180a0a0&e=1467527684&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:8kdZIO7o7JBWEF-uEX9ZgbcR270=","length":1851,"name":"潜入海底世界感受时空中的越南芽庄【音乐旅行家】DJ","path":"http:\/\/lraudio.qiniucdn.com\/BSKdX6qT3NaY5gCd7lqObWINEzw=\/luV-huE6rUcbT9KV_CA2jUa5k5qd?e=1467527684&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:bGy3kS5QNl7xP46qycnnCEywY_8=","section":10,"size":14809575},{"audioId":358365,"cover":"http:\/\/77g8sy.com2.z0.glb.qiniucdn.com\/FvNNLkkdbolN5nqFuFbAfPq42Rgq?imageMogr\/v2\/auto-orient\/thumbnail\/x180\/crop\/!180x180a0a0&e=1467352532&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:-A52BkObQ0dMvSKG7RFDIojb_wE=","length":1113,"name":"天空之城那端的越南芽庄【音乐旅行家】DJ白嵩","path":"http:\/\/lraudio.qiniucdn.com\/BSKdX6qT3NaY5gCd7lqObWINEzw=\/lqjX11YaoIZU6Or6wgV3u1-DhqFT?e=1467352532&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:1CHkYEcOsgpuEzEOSEfvGXkF1CM=","section":9,"size":8910708},{"audioId":356995,"cover":"http:\/\/77g8sy.com2.z0.glb.qiniucdn.com\/Fr7WjiTetOP8lKp1sQynZzNtk3Y-?imageMogr\/v2\/auto-orient\/thumbnail\/x180\/crop\/!180x180a0a0&e=1467190569&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:Ylsu8vHi7xXu5FQ7MCQ3CjT2Z_A=","length":1636,"name":"越南芽庄与生俱来的慢生活【音乐旅行家】DJ白嵩","path":"http:\/\/lraudio.qiniucdn.com\/BSKdX6qT3NaY5gCd7lqObWINEzw=\/ltX0uLHk-a95yAe1zYr6aaGq71Ut?e=1467190569&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:wu_XoXiJ9mPhbRNUtN6XYGcll3k=","section":8,"size":13096152},{"audioId":322323,"cover":"http:\/\/77g8sy.com2.z0.glb.qiniucdn.com\/FsD1xv2mhM-PcyKzBV73HRFpeO5F?imageMogr\/v2\/auto-orient\/thumbnail\/x180\/crop\/!180x180a0a0&e=1467318288&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:hd2B8dFklPl-3V4SDdWxzkrUtVg=","length":1036,"name":"去海陵岛做一个捕鱼达人【音乐旅行家】DJ白嵩","path":"http:\/\/lraudio.qiniucdn.com\/BSKdX6qT3NaY5gCd7lqObWINEzw=\/lmhemH0F8W_gqZQTpehlVFFdfWHj?e=1467318288&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:70CSPCWnKKQYr2cI5Zj34BUweHA=","section":7,"size":8291087},{"audioId":313895,"cover":"http:\/\/77g8sy.com2.z0.glb.qiniucdn.com\/FvjvXtybS4RtpWNycPZYpy0NSf02?imageMogr\/v2\/auto-orient\/thumbnail\/180\/crop\/!180x180a0a0&e=1467299490&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:766dRXGIo8T0qlgd2CbIWazAPCs=","length":1712,"name":"漫步在广东赤坎古镇听三月的细雨【音乐旅行家】","path":"http:\/\/lraudio.qiniucdn.com\/BSKdX6qT3NaY5gCd7lqObWINEzw=\/lmbNuX1JTD1LO7ypXzH_lK0IxUdh?e=1467318288&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:y33K8nUXNc4G_1lMfl_Uo_l8NtM=","section":6,"size":13698434},{"audioId":295704,"cover":"http:\/\/77g8sy.com2.z0.glb.qiniucdn.com\/FsXppYfdViTHfGPsSDoRlKgsrZN6?imageMogr\/v2\/auto-orient\/thumbnail\/180\/crop\/!180x180a0a0&e=1467318288&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:gkG2qQpOLgc_76H6neQ5O7qFAA0=","length":1468,"name":"上海弄堂里藏着一个联合国【音乐旅行家】DJ白嵩","path":"http:\/\/lraudio.qiniucdn.com\/BSKdX6qT3NaY5gCd7lqObWINEzw=\/ll6uIGZlaRbJXser2yw84UXaMXVi?e=1467318288&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:yZtL6bjiC6K7PNpg-h-laGWoimU=","section":5,"size":11745116},{"audioId":288569,"cover":"http:\/\/77g8sy.com2.z0.glb.qiniucdn.com\/Fu1_2x86L2sflbKKW7b6mPgwmgb-?imageMogr\/v2\/auto-orient\/thumbnail\/x180\/crop\/!180x180a0a0&e=1467318288&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:BJ4haGifxzMp-2xpaH0OwblYEdg=","length":1704,"name":"泰国甲米迷失记（下）【音乐旅行家】DJ白嵩","path":"http:\/\/lraudio.qiniucdn.com\/BSKdX6qT3NaY5gCd7lqObWINEzw=\/ltXcNDX7DkaTYSbesu417vzDfz-t?e=1467318288&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:3Ok-xOE3y9je_ED2WiI3bN2c5fc=","section":4,"size":13638036},{"audioId":287822,"cover":"http:\/\/77g8sy.com2.z0.glb.qiniucdn.com\/FnuXtuG1Lcpi7gA1pIzFBMuZoCrf?imageMogr\/v2\/auto-orient\/thumbnail\/x180\/crop\/!180x180a0a0&e=1467318288&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:M9O9x9zZjel1delmXvww2dHx7Lo=","length":1407,"name":"甲米泰国甲米迷失记（上）【音乐旅行家】DJ白嵩","path":"http:\/\/lraudio.qiniucdn.com\/BSKdX6qT3NaY5gCd7lqObWINEzw=\/lj-skav217mLaFhyYIYbL1fjS14r?e=1467318288&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:5y-Z0I08LSJ28ti2dITAHNUdSJ0=","section":3,"size":11259429},{"audioId":264241,"cover":"http:\/\/77g8sy.com2.z0.glb.qiniucdn.com\/FqVWAEdscRbL440dQuY0DZa9JIAq?imageMogr\/v2\/auto-orient\/thumbnail\/x180\/crop\/!180x180a0a0&e=1467318288&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:K74j3C4JC7O9ZGGMRkcL0Ew1eg0=","length":1213,"name":"带着耳朵去越南岘港（下）【音乐旅行家】DJ白嵩","path":"http:\/\/lraudio.qiniucdn.com\/BSKdX6qT3NaY5gCd7lqObWINEzw=\/lsW9Z9OUeJdMyLrY_rncLbphqO3M?e=1467318288&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:V1ps2GQeAoBt4dyl5ZgKfFgy5V8=","section":2,"size":9709010},{"audioId":263189,"cover":"http:\/\/77g8sy.com2.z0.glb.qiniucdn.com\/Fjn1RU0odysJl5kn-FJQG5fLj8qD?imageMogr\/v2\/auto-orient\/thumbnail\/x180\/crop\/!180x180a0a0&e=1467318288&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:l8hj58GovXSnsTMxN1L4CG-DvIk=","length":1640,"name":"带着耳朵去越南岘港（上）【音乐旅行家】DJ白嵩","path":"http:\/\/lraudio.qiniucdn.com\/BSKdX6qT3NaY5gCd7lqObWINEzw=\/lnEGoJxQKQuHhF78kZpaZA-L7Yd6?e=1467318288&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:u7loioLFuMKf_VyQSPPuwfUFaIc=","section":1,"size":13124363}],"msg":"","status":0}
+
+青春
+GET http://g.eqxiu.com/s/SA9G6COL HTTP/1.1
+
+缺接口
+详细描述（publicType = 3 专题的接口）
+详细描述（publicType = 0 书籍的接口）
+详细描述（publicType = 9 听友会的接口）
+
+
+
+
+
+
+
+听吧-分类
+POST http://apis.mting.info/yyting/gateway/batchOperation.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8*&pfunction=1 HTTP/1.1
+body：
+nwt=1&operations=%5B%22%2Fyyting%2Fbookclient%2FgetCategory.action%3Fopen%3D2%26pt%3D24%22%2C%22%2Fyyting%2Fbookclient%2FClientGetBookType.action%3Ffid%3D1000%26open%3D2%22%2C%22%2Fyyting%2Fbookclient%2FClientGetBookType.action%3Ffid%3D0%26open%3D1%22%5D&q=202&sc=6d2b176aa087e09b31e18d4a912b817a
+数据见听吧-分类.txt
+
+
+听吧-榜单
+POST http://apis.mting.info/yyting/gateway/batchOperation.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8*&pfunction=1 HTTP/1.1
+body：
+nwt=1&operations=%5B%22%2Fyyting%2Fbookclient%2FgetRecommendTypes.action%3Fsize%3D8%26type%3D5%26typeId%3D0%22%2C%22%2Fyyting%2Fbookclient%2FgetRecommendTypes.action%3Fsize%3D8%26type%3D6%26typeId%3D0%22%2C%22%2Fyyting%2Fbookclient%2FClientRankingsDir.action%3FpageSize%3D8%22%5D&q=203&sc=a55b5189fb8bee61df3230dbd722816c
+
+数据见听吧-榜单.txt
+
+
+发现
+POST http://42.62.15.103/yyting/gateway/batchOperation.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8* HTTP/1.1
+body：
+nwt=1&operations=%5B%22%2Fyyting%2Fgroup%2FgetGroupList.action%3FopType%3DH%26referId%3D0%26size%3D10%26type%3D2%22%2C%22%2Fyyting%2Fgroup%2FgetRecommendList.action%3FopType%3DH%26referId%3D0%26size%3D10%26type%3D2%22%2C%22%2Fyyting%2Fgroup%2FgetRecommendList.action%3FopType%3DH%26referId%3D0%26size%3D6%26type%3D1%22%5D&q=901&sc=79f2197210cfd6d683afb211d54617b3
+
+书籍详情
+跳大神儿
+GET http://42.62.15.103/yyting/bookclient/ClientGetBookDetail.action?id=28920&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&q=902&sc=ac06d2aec776649fc7612210bb2b4a5e&to
+
+婚后私房故事
+GET http://42.62.15.103/yyting/bookclient/ClientGetBookDetail.action?id=28433&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&q=906&sc=221a15c6083f48c698b493c390a2468b&to
+
+GET http://42.62.15.103/yyting/bookclient/ClientGetBookDetail.action?id=30368&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&q=1301&sc=59304b563102d84a6c368eeb95055741
+
+返回数据
+{"announcer":"糖醋炒栗子","author":"崔走召","cantDown":0,"commentCount":3449,"commentMean":"4.69","cover":"http:\/\/bookpic.lrts.me\/d3d2da637c634fd789b7061a2bc3de25.jpg","desc":"“跳大神儿”起源于东北辽源黑土中的萨满巫教文化，是一种活人与死人邪祟沟通的方式，其实应该归于封建迷信一类，充满了神秘的民间怪谈色彩，而且现代的人很少见过，大多数人都听过，就好像这种‘东西’似乎离我们并不是那么远，但却又好像也不怎么近。这种感觉就像接下来我要讲的这个也许就发生在你我身边的故事一样。 \n    姚远是一从小体格就单薄、性格有些孤僻、立志要成为一名歌星、大学后一直期待做个蛀虫足矣的乡下土包子！不料，从小一直给他讲鬼故事的“邵永兴”彻底影响了姚远的命运！也默默地成为了他的师父。师父上吊死亡的谜团亦逐步解开。邵永兴和邵永林从小长大，但不是亲兄弟，邵永兴有一颗善良的心，而永林则好胜心强、心浮气躁，无缘承继萨满传人，其位由兄长邵永兴担任。一气之下便加入了金巫教，萨满的敌人，成为了掌教。\n邵永林一直寻找邵永兴，要邵永兴这位正统萨满传人告诉他关于萨满的宝藏，邵永兴为避开纷争，逃到姚远的故乡，并机缘之下救了姚远的爷爷，姚远的爷爷曾经不小心烧了黄鼠狼的窝导致黄鼠狼的鬼魂要不断加害姚家子孙后代，刚好姚远的爷爷曾救下狐仙胡三太爷之女，便主动让女儿成为姚家的保家仙，但仅限于在家乡保护，姚远十分善良，虽然多次出远门时被黄鼠狼鬼魂迷惑所害，但是他并不恨他们，因为他知道这都是自己爷爷种下的因，自己是应该承担果，于是多次为那些一直跟在他身边加害他的黄鼠狼鬼魂烧香，最终化解了这场恩怨，种善恩得善果。","downPrice":0,"download":0,"extInfo":null,"feeType":0,"id":28920,"isLike":0,"length":0,"listenPrice":0,"msg":"","name":"跳大神","play":6690913,"sections":218,"sort":0,"state":2,"status":0,"type":"灵异奇谈","update":"2015-11-26","user":null,"users":[{"cover":"http:\/\/785j53.com2.z0.glb.qiniucdn.com\/88099547_userPic.png?imageMogr\/v2\/auto-orient\/thumbnail\/180x180&e=1467341762&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:x9UQaFQh3bxqzDwugjOeWhpJ-_M=","desc":"非专业播音，听友QQ群470437674。新书预告《异行诡闻录：南疆谜蛊》","flag":8986,"isFollow":0,"nickName":"糖醋炒栗子","userId":88099547}]}
+
+{"announcer":"柴少鸿，苏雅","author":"刘小念","cantDown":0,"commentCount":86,"commentMean":"4.84","cover":"http:\/\/bookpic.lrts.me\/fe322f965269409d89941184d0d7a912.jpg","desc":"《婚后私房故事》根据小说《婚后三十六个月》改编。\n金灿灿、江一朵、杜娟儿毕业后不久各自进入了婚姻的殿堂，在婚后的三年内，从不谙世事、懵懵懂懂的小女孩演变成妻子、儿媳妇、妈妈。不断地尝试，不断地适应，跟婆婆之间也是没完没了地抗争，然而她们始终相信：只要心中有爱，就一定能到达幸福的彼岸。","downPrice":0,"download":0,"extInfo":null,"feeType":0,"id":28433,"isLike":0,"length":0,"listenPrice":0,"msg":"","name":"婚后私房故事","play":731481,"sections":36,"sort":0,"state":2,"status":0,"type":"现代言情","update":"2015-07-25","user":null,"users":[{"cover":"http:\/\/785j53.com2.z0.glb.qiniucdn.com\/chaishaohong?imageMogr\/v2\/auto-orient\/thumbnail\/180x180&e=1467308939&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:wuD92DV69xfXRJn4V2TxNZYSmTc=","desc":"有声小说演播家，新听友群： 480567076，欢迎大家入群交流","flag":1800,"isFollow":0,"nickName":"柴少鸿","userId":79939585},{"cover":"http:\/\/785j53.com2.z0.glb.qiniucdn.com\/suya0?imageMogr\/v2\/auto-orient\/thumbnail\/180x180&e=1467345135&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:ZFkALI4lPOPA2-mNVCDD0mdMqmc=","desc":"苏雅，知名播音员，其主播的作品主要有《黄帝传说（第三季）》《雪落忽汗河》《左手参禅，右手修佛》《富豪来自穷人》《最有效的激励艺术》等","flag":256,"isFollow":0,"nickName":"苏雅","userId":79940455}]}
+
+
+跳大神儿章节目录：
+GET http://42.62.15.103/yyting/bookclient/ClientGetBookResource.action?bookId=28920&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&pageNum=1&pageSize=50& q=904 & sc=11619c41107cf5f3017e786f37252243 &sortType=0&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8%2A HTTP/1.1
+
+婚后私房故事章节目录：
+GET http://42.62.15.103/yyting/bookclient/ClientGetBookResource.action?bookId=28433&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&pageNum=1&pageSize=50& q=908 & sc=3189e79098fbb9932eed713d257cf740 &sortType=0&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8%2A HTTP/1.1
+
+GET http://42.62.15.103/yyting/bookclient/ClientGetBookResource.action?bookId=30368&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&pageNum=1&pageSize=50&q=1303&sc=aa820751ca605d758efeda34c913bc49&sortType=0&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8%2A HTTP/1.1
+
+跳大神儿评论：
+GET http://42.62.15.103/yyting/interactclient/GetBookComment.action? entityId=28920 &entityType=4&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&opType=H&pageSize=10& q=905 &referId=0& sc=0204824edf1e8f8c8a020f3829acd715&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8%2A HTTP/1.1
+
+婚后私房故事评论：
+GET http://42.62.15.103/yyting/interactclient/GetBookComment.action? entityId=28433 &entityType=4&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&opType=H&pageSize=10& q=909 &referId=0& sc=4f98a259fef1a5a7b65aaaa4caf6e0c6&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8%2A HTTP/1.1
+
+注册
+POST http://api.mting.info/yyting/usercenter/ManualRegister.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8* HTTP/1.1
+body：
+account=2049982764%40qq.com&nickname=%E8%BF%99%E9%87%8C%E6%B2%A1%E6%9C%89%E7%90%86%E7%94%B1&nwt=1&pwd=4QrcOUm6Wau%2BVuBX8g%2BIPg%3D%3D&q=2301&sc=b8af135a209eed951c013969f97f229a
+
+返回数据：
+{"ablumnCount":0,"account":"2049982764@qq.com","address":null,"areaIds":null,"attentionCount":0,"audioCount":0,"backCover":null,"birthday":null,"coin":0,"collectFolderCount":0,"cover":null,"description":null,"email":"2049982764@qq.com","fansCount":0,"fcoin":0.0,"feeType":0,"grade":2,"haspwd":1,"isV":0,"memberSectionCount":0,"msg":"","nickname":"这里没有理由","phone":null,"point":100,"purchaseTime":null,"question_A":null,"question_B":null,"sectionCount":1000,"sex":0,"shortRemark":null,"showGuide":1,"state":1,"status":0,"timeRemaining":0,"token":"DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCkVMCR9zULlfUzbvMzS8fQI0OXcAQGcIb4*","userId":163638937,"userState":2}
+
+登录
+POST http://api.mting.info/yyting/usercenter/ClientLogon.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCkVMCR9zULlfUzbvMzS8fQI0OXcAQGcIb4* HTTP/1.1
+
+body：
+account=2049982764%40qq.com&nwt=1&pwd=4QrcOUm6Wau%2BVuBX8g%2BIPg%3D%3D&q=3&sc=d28dde79be6813fa89326fac63062bcb
+
+返回数据
+{"ablumnCount":0,"account":"2049982764@qq.com","activate":false,"address":null,"areaIds":null,"attentionCount":12,"audioCount":0,"backCover":null,"birthday":"1992-10-10","coin":0,"collectFolderCount":0,"cover":"http:\/\/785j53.com2.z0.glb.qiniucdn.com\/1471576620160623191419uc.jpg?imageMogr\/v2\/auto-orient\/thumbnail\/180x180&e=1467547204&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:FX4tSYTptKcc2jUEPSp0quZWc2M=","description":null,"email":"2049982764@qq.com","fansCount":0,"fcoin":0.0,"feeType":0,"grade":2,"isV":0,"memberSectionCount":0,"msg":null,"nickname":"这里没有","phone":null,"point":100,"purchaseTime":null,"question_A":null,"question_B":null,"sectionCount":1000,"sex":0,"shortRemark":null,"showGuide":0,"state":1,"status":0,"timeRemaining":0,"token":"DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCm1MERM9GQasAk6L-vqa3PqIC3t2KIXkyw*","userId":163638937,"userState":2}
+
+得到最近听书
+GET http://api.mting.info/yyting/bookclient/ClientGetRecentListenBooks.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&sc=a269bcd3d942c0fa9ec176c02209723c&srcType=101&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCm1MERM9GQasAk6L-vqa3PqIC3t2KIXkyw%2A HTTP/1.1
+
+返回数据
+{"list":[{"announcer":"糖醋炒栗子","bookId":28920,"cover":"http:\/\/bookpic.lrts.me\/d3d2da637c634fd789b7061a2bc3de25.jpg","date":"2016-06-23 18:52:44.0","entityType":4,"id":734425412,"listpos":1,"name":"跳大神","pagenum":0,"playpos":81,"resourceName":null,"sonId":184631333,"source":1,"sum":218,"type":"灵异奇谈","updateState":0,"userNick":"糖醋炒栗子"}],"msg":"","status":0}
+
+关注：
+GET http://api.mting.info/yyting/snsresource/getUserFollowing.action?fans=0&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&opType=T&q=102&referId=0&sc=7802063d6d8f5b7d4f7a6cb54bc6549c&size=20&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCkVMCR9zULlfUzbvMzS8fQI0OXcAQGcIb4%2A&userId=163638937 HTTP/1.1
+
+返回数据：
+{"list":[{"entityId":null,"entityName":null,"entityType":0,"flag":32768,"headPic":"http:\/\/785j53.com2.z0.glb.qiniucdn.com\/c971032437734d47b6a69bbd1721048c_.jpg?imageMogr\/v2\/auto-orient\/thumbnail\/180x180&e=1467302847&token=OOHK9_MIwdSJxAHYi5os2taDVS13CVvcEa1cZDb9:MfPcc8bHRuFYsdewzpY8tVBdFm4=","id":6310189,"isFollow":1,"nickName":"月上港湾微电台","userId":104729442}],"msg":null,"status":0}
+
+粉丝：
+GET http://api.mting.info/yyting/snsresource/getUserFollowing.action?fans=1&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&opType=T&q=105&referId=0&sc=a79ca666551dd86f68bea4d5ed9daa67&size=20&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCkVMCR9zULlfUzbvMzS8fQI0OXcAQGcIb4%2A&userId=163638937 HTTP/1.1
+返回数据（没有数据）
+{"list":[],"msg":null,"status":0}
+
+动态：
+GET http://api.mting.info/yyting/snsresource/getDynamicList.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&opType=T&q=106&referId=0&sc=f21162921d8a18c2cf808b982b0813f8&size=10&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCkVMCR9zULlfUzbvMzS8fQI0OXcAQGcIb4%2A&type=3&userId=163638937 HTTP/1.1
+
+{"list":[],"msg":null,"size":10,"status":0}
+
+获取头像图片
+GET http://api.mting.info/yyting/snsresource/getPicture.action?entityId=163638937&entityType=10&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&q=202&sc=0257167732d50a64010801d41c35fb9a&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCkVMCR9zULlfUzbvMzS8fQI0OXcAQGcIb4%2A HTTP/1.1
+
+{"msg":null,"picUrl":null,"status":0}
+
+消息：
+	私信：
+	GET http://api.mting.info/yyting/notify/getLetterNotify.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&opType=H&q=205&referId=0&sc=17ef99c9564d75f86b22e174018029b2&size=10&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCkVMCR9zULlfUzbvMzS8fQI0OXcAQGcIb4%2A HTTP/1.1
+
+	{"list":[],"msg":"","status":0}
+
+	通知（系统消息）
+	GET http://api.mting.info/yyting/notify/getSystemNotify.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&opType=H&q=203&referId=0&sc=3510bc817fa7c4deac778a2d7a851210&size=15&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCkVMCR9zULlfUzbvMzS8fQI0OXcAQGcIb4%2A HTTP/1.1
+
+	{"list":[],"msg":"","status":0}
+
+	评论
+	GET http://api.mting.info/yyting/notify/getCommentNotify.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&opType=H&q=204&referId=0&sc=730ca720a6712e4d5d00bf8e7e334e92&size=10&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCkVMCR9zULlfUzbvMzS8fQI0OXcAQGcIb4%2A HTTP/1.1
+
+	{"list":[],"msg":"","status":0}
+
+个人资料：
+修改：
+生日：
+POST http://api.mting.info/yyting/userclient/ClientEditUser.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCkVMCR9zULlfUzbvMzS8fQI0OXcAQGcIb4* HTTP/1.1
+
+birthday=1992-10-10&nwt=1&q=207&sc=fc5f2e4d41e5f5300a4477370aefe9ca
+
+{"msg":null,"status":0}
+
+昵称：
+POST http://api.mting.info/yyting/userclient/ClientEditUser.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCkVMCR9zULlfUzbvMzS8fQI0OXcAQGcIb4* HTTP/1.1
+
+nickName=%E8%BF%99%E9%87%8C%E6%B2%A1%E6%9C%89&nwt=1&q=208&sc=882f850a697a0192cea34d3100af20ca
+
+{"msg":null,"status":0}
+
+头像：
+POST http://api.mting.info/yyting/userclient/ClientEditUser.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCkVMCR9zULlfUzbvMzS8fQI0OXcAQGcIb4* HTTP/1.1
+
+cover=1471576620160623191419uc.jpg&nwt=1&q=302&sc=0ec4a319a47910760897b1f64aaae2cd
+
+{"msg":null,"status":0}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
