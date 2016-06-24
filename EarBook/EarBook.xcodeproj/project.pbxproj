@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		853991E37D48CED5FBF1F1E4 /* libPods-EarBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA9998324EB31859CEAD3A1 /* libPods-EarBook.a */; };
 		D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09091D1CC90700128D82 /* AppDelegate.m */; };
 		D631B4B11D1C1CBC00102682 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D631B4B01D1C1CBC00102682 /* main.m */; };
 		D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D631B4B61D1C1CBC00102682 /* ViewController.m */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9114F739FD6B7025008EF6B7 /* Pods-EarBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EarBook/Pods-EarBook.debug.xcconfig"; sourceTree = "<group>"; };
 		D62B09081D1CC90700128D82 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D62B09091D1CC90700128D82 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D631B4AC1D1C1CBC00102682 /* EarBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,6 +28,8 @@
 		D631B4BB1D1C1CBC00102682 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D631B4BE1D1C1CBC00102682 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D631B4C01D1C1CBC00102682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EDA54285FFE5263EE5BB3965 /* Pods-EarBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-EarBook/Pods-EarBook.release.xcconfig"; sourceTree = "<group>"; };
+		EEA9998324EB31859CEAD3A1 /* libPods-EarBook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EarBook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,12 +37,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				853991E37D48CED5FBF1F1E4 /* libPods-EarBook.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		840ADB149E1926E8214AF6CB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9114F739FD6B7025008EF6B7 /* Pods-EarBook.debug.xcconfig */,
+				EDA54285FFE5263EE5BB3965 /* Pods-EarBook.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AFB473BCB4BE4E0E4B2B1812 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EEA9998324EB31859CEAD3A1 /* libPods-EarBook.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D62B09061D1CC90700128D82 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +131,8 @@
 			children = (
 				D631B4AE1D1C1CBC00102682 /* EarBook */,
 				D631B4AD1D1C1CBC00102682 /* Products */,
+				840ADB149E1926E8214AF6CB /* Pods */,
+				AFB473BCB4BE4E0E4B2B1812 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -150,9 +174,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D631B4C31D1C1CBC00102682 /* Build configuration list for PBXNativeTarget "EarBook" */;
 			buildPhases = (
+				A3332A109E2D8F547C042A22 /* 📦 Check Pods Manifest.lock */,
 				D631B4A81D1C1CBC00102682 /* Sources */,
 				D631B4A91D1C1CBC00102682 /* Frameworks */,
 				D631B4AA1D1C1CBC00102682 /* Resources */,
+				C43AD5B77022C6FB529888A4 /* 📦 Embed Pods Frameworks */,
+				73E41DDB76BC17E38E58BE30 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -208,6 +235,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		73E41DDB76BC17E38E58BE30 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EarBook/Pods-EarBook-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3332A109E2D8F547C042A22 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C43AD5B77022C6FB529888A4 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-EarBook/Pods-EarBook-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D631B4A81D1C1CBC00102682 /* Sources */ = {
@@ -326,6 +401,7 @@
 		};
 		D631B4C41D1C1CBC00102682 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9114F739FD6B7025008EF6B7 /* Pods-EarBook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EarBook/Info.plist;
@@ -337,6 +413,7 @@
 		};
 		D631B4C51D1C1CBC00102682 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDA54285FFE5263EE5BB3965 /* Pods-EarBook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = EarBook/Info.plist;
