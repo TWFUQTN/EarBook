@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "HomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,23 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    // 1.创建window对象并设置为屏幕大小
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    
+    // 2.设置window的背景颜色
+    self.window.backgroundColor = [UIColor whiteColor];
+    // 3.显示window
+    [self.window makeKeyAndVisible];
+    
+    // 4.设置根视图控制器
+    
+    // 设置导航控制器(第一个入栈的控制器,也就是第一个显示的控制器)
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
+    
+    self.window.rootViewController = nav;
+    
+    
     return YES;
 }
 

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		853991E37D48CED5FBF1F1E4 /* libPods-EarBook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EEA9998324EB31859CEAD3A1 /* libPods-EarBook.a */; };
 		D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09091D1CC90700128D82 /* AppDelegate.m */; };
+		D62B09261D1D20EA00128D82 /* Tool_AdaptiveHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09251D1D20EA00128D82 /* Tool_AdaptiveHeight.m */; };
+		D62B09321D1D25C200128D82 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09301D1D25C200128D82 /* HomeViewController.m */; };
+		D62B09331D1D25C200128D82 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62B09311D1D25C200128D82 /* HomeViewController.xib */; };
 		D631B4B11D1C1CBC00102682 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D631B4B01D1C1CBC00102682 /* main.m */; };
 		D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D631B4B61D1C1CBC00102682 /* ViewController.m */; };
 		D631B4BA1D1C1CBC00102682 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D631B4B81D1C1CBC00102682 /* Main.storyboard */; };
@@ -20,6 +23,11 @@
 		9114F739FD6B7025008EF6B7 /* Pods-EarBook.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarBook.debug.xcconfig"; path = "Pods/Target Support Files/Pods-EarBook/Pods-EarBook.debug.xcconfig"; sourceTree = "<group>"; };
 		D62B09081D1CC90700128D82 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D62B09091D1CC90700128D82 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D62B09241D1D20EA00128D82 /* Tool_AdaptiveHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tool_AdaptiveHeight.h; sourceTree = "<group>"; };
+		D62B09251D1D20EA00128D82 /* Tool_AdaptiveHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Tool_AdaptiveHeight.m; sourceTree = "<group>"; };
+		D62B092F1D1D25C200128D82 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		D62B09301D1D25C200128D82 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		D62B09311D1D25C200128D82 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		D631B4AC1D1C1CBC00102682 /* EarBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D631B4B01D1C1CBC00102682 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D631B4B51D1C1CBC00102682 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -28,11 +36,11 @@
 		D631B4BB1D1C1CBC00102682 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D631B4BE1D1C1CBC00102682 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D631B4C01D1C1CBC00102682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EDA54285FFE5263EE5BB3965 /* Pods-EarBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-EarBook/Pods-EarBook.release.xcconfig"; sourceTree = "<group>"; };
-		EEA9998324EB31859CEAD3A1 /* libPods-EarBook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EarBook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6ECF0471D1D0A92005C372A /* DB_COLOR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB_COLOR.h; sourceTree = "<group>"; };
 		D6ECF0481D1D0A92005C372A /* DB_URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB_URL.h; sourceTree = "<group>"; };
 		D6ECF0491D1D0A92005C372A /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		EDA54285FFE5263EE5BB3965 /* Pods-EarBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-EarBook/Pods-EarBook.release.xcconfig"; sourceTree = "<group>"; };
+		EEA9998324EB31859CEAD3A1 /* libPods-EarBook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EarBook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,8 @@
 		D62B090B1D1CC90700128D82 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				D62B09241D1D20EA00128D82 /* Tool_AdaptiveHeight.h */,
+				D62B09251D1D20EA00128D82 /* Tool_AdaptiveHeight.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -111,6 +121,8 @@
 		D62B090E1D1CC90700128D82 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				D62B09271D1D259D00128D82 /* home */,
+				D62B092B1D1D259D00128D82 /* play */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -120,6 +132,71 @@
 			children = (
 			);
 			path = Vendors;
+			sourceTree = "<group>";
+		};
+		D62B09271D1D259D00128D82 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				D62B09281D1D259D00128D82 /* controller */,
+				D62B09291D1D259D00128D82 /* model */,
+				D62B092A1D1D259D00128D82 /* view */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
+		D62B09281D1D259D00128D82 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				D62B092F1D1D25C200128D82 /* HomeViewController.h */,
+				D62B09301D1D25C200128D82 /* HomeViewController.m */,
+				D62B09311D1D25C200128D82 /* HomeViewController.xib */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		D62B09291D1D259D00128D82 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		D62B092A1D1D259D00128D82 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		D62B092B1D1D259D00128D82 /* play */ = {
+			isa = PBXGroup;
+			children = (
+				D62B092C1D1D259D00128D82 /* controller */,
+				D62B092D1D1D259D00128D82 /* model */,
+				D62B092E1D1D259D00128D82 /* view */,
+			);
+			path = play;
+			sourceTree = "<group>";
+		};
+		D62B092C1D1D259D00128D82 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		D62B092D1D1D259D00128D82 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		D62B092E1D1D259D00128D82 /* view */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = view;
 			sourceTree = "<group>";
 		};
 		D631B4A31D1C1CBC00102682 = {
@@ -237,6 +314,7 @@
 				D631B4BF1D1C1CBC00102682 /* LaunchScreen.storyboard in Resources */,
 				D631B4BC1D1C1CBC00102682 /* Assets.xcassets in Resources */,
 				D631B4BA1D1C1CBC00102682 /* Main.storyboard in Resources */,
+				D62B09331D1D25C200128D82 /* HomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,8 +373,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D62B09261D1D20EA00128D82 /* Tool_AdaptiveHeight.m in Sources */,
 				D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */,
 				D631B4B11D1C1CBC00102682 /* main.m in Sources */,
+				D62B09321D1D25C200128D82 /* HomeViewController.m in Sources */,
 				D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
