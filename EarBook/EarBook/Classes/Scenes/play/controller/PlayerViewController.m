@@ -10,7 +10,7 @@
 
 #import "ContextMenuCell.h"
 #import "YALContextMenuTableView.h"
-//#import "YALNavigationBar.h"
+#import "YALNavigationBar.h"
 
 static NSString *const menuCellIdentifier = @"rotationCell";
 
@@ -32,8 +32,37 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+    [self initiateMenuOptions];
+    // set custom navigationBar with a bigger height
+    [self.navigationController setValue:[[YALNavigationBar alloc]init] forKeyPath:@"navigationBar"];
 }
+
+- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
+    //should be called after rotation animation completed
+    [self.contextMenuTableView reloadData];
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
+    
+    [self.contextMenuTableView updateAlongsideRotation];
+}
+
+- (void)viewWillTransitionToSize:(CGSize)size
+       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    
+    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
+    
+    
+    [coordinator animateAlongsideTransition:nil completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
+        //should be called after rotation animation completed
+        [self.contextMenuTableView reloadData];
+    }];
+    [self.contextMenuTableView updateAlongsideRotation];
+    
+}
+
 
 - (IBAction)presentMenuButtonTapped:(UIButton *)sender
 {
@@ -58,17 +87,11 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 - (void)initiateMenuOptions {
     self.menuTitles = @[@"",
                         @"Send message",
-                        @"Like profile",
-                        @"Add to friends",
-                        @"Add to favourites",
-                        @"Block user"];
+                        @"Like profile"];
     
-    self.menuIcons = @[[UIImage imageNamed:@"Icnclose"],
-                       [UIImage imageNamed:@"SendMessageIcn"],
-                       [UIImage imageNamed:@"LikeIcn"],
-                       [UIImage imageNamed:@"AddToFriendsIcn"],
-                       [UIImage imageNamed:@"AddToFavouritesIcn"],
-                       [UIImage imageNamed:@"BlockUserIcn"]];
+    self.menuIcons = @[[UIImage imageNamed:@"icn_close"],
+                       [UIImage imageNamed:@"icn_1"],
+                       [UIImage imageNamed:@"icn_2"]];
 }
 
 
