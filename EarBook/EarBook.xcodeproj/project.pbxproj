@@ -61,14 +61,15 @@
 		D632AFDA1D1E22EF0092A6A3 /* HomeCustomHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFD61D1E22EF0092A6A3 /* HomeCustomHeader.m */; };
 		D632AFDB1D1E22EF0092A6A3 /* HomeCustomHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D632AFD71D1E22EF0092A6A3 /* HomeCustomHeader.xib */; };
 		D632AFDC1D1E22EF0092A6A3 /* WYScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFD91D1E22EF0092A6A3 /* WYScrollView.m */; };
-		D632AFE81D1E231F0092A6A3 /* ClassificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFDE1D1E231F0092A6A3 /* ClassificationViewController.m */; };
-		D632AFE91D1E231F0092A6A3 /* ClassificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D632AFDF1D1E231F0092A6A3 /* ClassificationViewController.xib */; };
 		D632AFEA1D1E231F0092A6A3 /* HomeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFE11D1E231F0092A6A3 /* HomeNavigationController.m */; };
-		D632AFEB1D1E231F0092A6A3 /* RankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFE31D1E231F0092A6A3 /* RankingViewController.m */; };
-		D632AFEC1D1E231F0092A6A3 /* RankingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D632AFE41D1E231F0092A6A3 /* RankingViewController.xib */; };
-		D632AFED1D1E231F0092A6A3 /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFE61D1E231F0092A6A3 /* RecommendViewController.m */; };
-		D632AFEE1D1E231F0092A6A3 /* RecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D632AFE71D1E231F0092A6A3 /* RecommendViewController.xib */; };
 		D632AFF11D1E237D0092A6A3 /* YALNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFF01D1E237D0092A6A3 /* YALNavigationBar.m */; };
+		D644AD201D1E3470006BB1E3 /* ClassificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D644AD1E1D1E3470006BB1E3 /* ClassificationViewController.m */; };
+		D644AD211D1E3470006BB1E3 /* ClassificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D644AD1F1D1E3470006BB1E3 /* ClassificationViewController.xib */; };
+		D644AD251D1E34A0006BB1E3 /* RankingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D644AD231D1E34A0006BB1E3 /* RankingViewController.m */; };
+		D644AD261D1E34A0006BB1E3 /* RankingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D644AD241D1E34A0006BB1E3 /* RankingViewController.xib */; };
+		D644AD2A1D1E34C8006BB1E3 /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D644AD281D1E34C8006BB1E3 /* RecommendViewController.m */; };
+		D644AD2B1D1E34C8006BB1E3 /* RecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D644AD291D1E34C8006BB1E3 /* RecommendViewController.xib */; };
+		D69048231D1E6541000A6574 /* placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D69048221D1E6541000A6574 /* placeholderImage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,19 +157,20 @@
 		D632AFD71D1E22EF0092A6A3 /* HomeCustomHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCustomHeader.xib; sourceTree = "<group>"; };
 		D632AFD81D1E22EF0092A6A3 /* WYScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYScrollView.h; sourceTree = "<group>"; };
 		D632AFD91D1E22EF0092A6A3 /* WYScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYScrollView.m; sourceTree = "<group>"; };
-		D632AFDD1D1E231F0092A6A3 /* ClassificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassificationViewController.h; sourceTree = "<group>"; };
-		D632AFDE1D1E231F0092A6A3 /* ClassificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassificationViewController.m; sourceTree = "<group>"; };
-		D632AFDF1D1E231F0092A6A3 /* ClassificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassificationViewController.xib; sourceTree = "<group>"; };
 		D632AFE01D1E231F0092A6A3 /* HomeNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeNavigationController.h; sourceTree = "<group>"; };
 		D632AFE11D1E231F0092A6A3 /* HomeNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeNavigationController.m; sourceTree = "<group>"; };
-		D632AFE21D1E231F0092A6A3 /* RankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingViewController.h; sourceTree = "<group>"; };
-		D632AFE31D1E231F0092A6A3 /* RankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingViewController.m; sourceTree = "<group>"; };
-		D632AFE41D1E231F0092A6A3 /* RankingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RankingViewController.xib; sourceTree = "<group>"; };
-		D632AFE51D1E231F0092A6A3 /* RecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendViewController.h; sourceTree = "<group>"; };
-		D632AFE61D1E231F0092A6A3 /* RecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendViewController.m; sourceTree = "<group>"; };
-		D632AFE71D1E231F0092A6A3 /* RecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendViewController.xib; sourceTree = "<group>"; };
 		D632AFEF1D1E237D0092A6A3 /* YALNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALNavigationBar.h; sourceTree = "<group>"; };
 		D632AFF01D1E237D0092A6A3 /* YALNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALNavigationBar.m; sourceTree = "<group>"; };
+		D644AD1D1D1E3470006BB1E3 /* ClassificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ClassificationViewController.h; path = EarBook/Classes/Scenes/home/controller/ClassificationViewController.h; sourceTree = SOURCE_ROOT; };
+		D644AD1E1D1E3470006BB1E3 /* ClassificationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ClassificationViewController.m; path = EarBook/Classes/Scenes/home/controller/ClassificationViewController.m; sourceTree = SOURCE_ROOT; };
+		D644AD1F1D1E3470006BB1E3 /* ClassificationViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ClassificationViewController.xib; path = EarBook/Classes/Scenes/home/controller/ClassificationViewController.xib; sourceTree = SOURCE_ROOT; };
+		D644AD221D1E34A0006BB1E3 /* RankingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RankingViewController.h; path = EarBook/Classes/Scenes/home/controller/RankingViewController.h; sourceTree = SOURCE_ROOT; };
+		D644AD231D1E34A0006BB1E3 /* RankingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RankingViewController.m; path = EarBook/Classes/Scenes/home/controller/RankingViewController.m; sourceTree = SOURCE_ROOT; };
+		D644AD241D1E34A0006BB1E3 /* RankingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RankingViewController.xib; path = EarBook/Classes/Scenes/home/controller/RankingViewController.xib; sourceTree = SOURCE_ROOT; };
+		D644AD271D1E34C8006BB1E3 /* RecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecommendViewController.h; path = EarBook/Classes/Scenes/home/controller/RecommendViewController.h; sourceTree = SOURCE_ROOT; };
+		D644AD281D1E34C8006BB1E3 /* RecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecommendViewController.m; path = EarBook/Classes/Scenes/home/controller/RecommendViewController.m; sourceTree = SOURCE_ROOT; };
+		D644AD291D1E34C8006BB1E3 /* RecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecommendViewController.xib; path = EarBook/Classes/Scenes/home/controller/RecommendViewController.xib; sourceTree = SOURCE_ROOT; };
+		D69048221D1E6541000A6574 /* placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderImage.png; sourceTree = "<group>"; };
 		D6ECF0471D1D0A92005C372A /* DB_COLOR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB_COLOR.h; sourceTree = "<group>"; };
 		D6ECF0481D1D0A92005C372A /* DB_URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB_URL.h; sourceTree = "<group>"; };
 		D6ECF0491D1D0A92005C372A /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
@@ -325,20 +327,20 @@
 		D62B09421D1D2DFC00128D82 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D632AFDD1D1E231F0092A6A3 /* ClassificationViewController.h */,
-				D632AFDE1D1E231F0092A6A3 /* ClassificationViewController.m */,
-				D632AFDF1D1E231F0092A6A3 /* ClassificationViewController.xib */,
 				D632AFE01D1E231F0092A6A3 /* HomeNavigationController.h */,
 				D632AFE11D1E231F0092A6A3 /* HomeNavigationController.m */,
-				D632AFE21D1E231F0092A6A3 /* RankingViewController.h */,
-				D632AFE31D1E231F0092A6A3 /* RankingViewController.m */,
-				D632AFE41D1E231F0092A6A3 /* RankingViewController.xib */,
-				D632AFE51D1E231F0092A6A3 /* RecommendViewController.h */,
-				D632AFE61D1E231F0092A6A3 /* RecommendViewController.m */,
-				D632AFE71D1E231F0092A6A3 /* RecommendViewController.xib */,
 				D62B09431D1D2DFC00128D82 /* HomeViewController.h */,
 				D62B09441D1D2DFC00128D82 /* HomeViewController.m */,
 				D62B09451D1D2DFC00128D82 /* HomeViewController.xib */,
+				D644AD1D1D1E3470006BB1E3 /* ClassificationViewController.h */,
+				D644AD1E1D1E3470006BB1E3 /* ClassificationViewController.m */,
+				D644AD1F1D1E3470006BB1E3 /* ClassificationViewController.xib */,
+				D644AD221D1E34A0006BB1E3 /* RankingViewController.h */,
+				D644AD231D1E34A0006BB1E3 /* RankingViewController.m */,
+				D644AD241D1E34A0006BB1E3 /* RankingViewController.xib */,
+				D644AD271D1E34C8006BB1E3 /* RecommendViewController.h */,
+				D644AD281D1E34C8006BB1E3 /* RecommendViewController.m */,
+				D644AD291D1E34C8006BB1E3 /* RecommendViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -560,6 +562,7 @@
 		D632AFCD1D1E22A70092A6A3 /* HomeImage */ = {
 			isa = PBXGroup;
 			children = (
+				D69048221D1E6541000A6574 /* placeholderImage.png */,
 				D632AFCE1D1E22A70092A6A3 /* text.jpg */,
 				D632AFCF1D1E22A70092A6A3 /* textHeader.png */,
 			);
@@ -642,11 +645,10 @@
 				D632AFAD1D1E227A0092A6A3 /* 苹果接口.txt in Resources */,
 				D62B096D1D1D2FFD00128D82 /* play.png in Resources */,
 				D62B095B1D1D2DFC00128D82 /* PlayerViewController.xib in Resources */,
-				D632AFEE1D1E231F0092A6A3 /* RecommendViewController.xib in Resources */,
+				D644AD2B1D1E34C8006BB1E3 /* RecommendViewController.xib in Resources */,
 				D631B4BC1D1C1CBC00102682 /* Assets.xcassets in Resources */,
 				D62B09741D1D30AD00128D82 /* add.png in Resources */,
 				D62B096E1D1D2FFD00128D82 /* rewind.png in Resources */,
-				D632AFEC1D1E231F0092A6A3 /* RankingViewController.xib in Resources */,
 				D62B096F1D1D2FFD00128D82 /* volumehigh@2x.png in Resources */,
 				D62B09591D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D62B09541D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
@@ -657,15 +659,17 @@
 				D62B09691D1D2FFD00128D82 /* arrowdown.png in Resources */,
 				D632AFAA1D1E227A0092A6A3 /* LoginViewController.xib in Resources */,
 				D631B4BA1D1C1CBC00102682 /* Main.storyboard in Resources */,
+				D644AD261D1E34A0006BB1E3 /* RankingViewController.xib in Resources */,
 				D62B096C1D1D2FFD00128D82 /* pause.png in Resources */,
+				D69048231D1E6541000A6574 /* placeholderImage.png in Resources */,
 				D62B09701D1D2FFD00128D82 /* volumehigh@3x.png in Resources */,
 				D62B096B1D1D2FFD00128D82 /* loop.png in Resources */,
 				D62B09571D1D2DFC00128D82 /* HomeViewController.xib in Resources */,
+				D644AD211D1E3470006BB1E3 /* ClassificationViewController.xib in Resources */,
 				D632AFD01D1E22A70092A6A3 /* text.jpg in Resources */,
 				D62B09711D1D2FFD00128D82 /* volumelow@2x.png in Resources */,
 				D62B09721D1D2FFD00128D82 /* volumelow@3x.png in Resources */,
 				D632AFAC1D1E227A0092A6A3 /* RegisterViewController.xib in Resources */,
-				D632AFE91D1E231F0092A6A3 /* ClassificationViewController.xib in Resources */,
 				D632AFAE1D1E227A0092A6A3 /* 苹果接口.txt in Resources */,
 				D632AFD11D1E22A70092A6A3 /* textHeader.png in Resources */,
 				D632AFDB1D1E22EF0092A6A3 /* HomeCustomHeader.xib in Resources */,
@@ -732,14 +736,11 @@
 				D632AFC91D1E22880092A6A3 /* TYCircleCollectionView.m in Sources */,
 				D62B09811D1D57B900128D82 /* ContextMenuCell.m in Sources */,
 				D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */,
-				D632AFEB1D1E231F0092A6A3 /* RankingViewController.m in Sources */,
 				D632AFD41D1E22C70092A6A3 /* UIImage+ImageEffects.m in Sources */,
 				D632AFCA1D1E22880092A6A3 /* TYCircleCollectionViewLayout.m in Sources */,
 				D632AFC51D1E22880092A6A3 /* ARSegmentPageController.m in Sources */,
-				D632AFED1D1E231F0092A6A3 /* RecommendViewController.m in Sources */,
 				D632AFC61D1E22880092A6A3 /* ARSegmentPageHeader.m in Sources */,
 				D62B097B1D1D571E00128D82 /* UIView+YALConstraints.m in Sources */,
-				D632AFE81D1E231F0092A6A3 /* ClassificationViewController.m in Sources */,
 				D631B4B11D1C1CBC00102682 /* main.m in Sources */,
 				D632AFF11D1E237D0092A6A3 /* YALNavigationBar.m in Sources */,
 				D632AFCB1D1E22880092A6A3 /* TYCircleMenu.m in Sources */,
@@ -748,9 +749,12 @@
 				D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */,
 				D60A54211D1D51B400ECF173 /* ZF_SegmentLabelView.m in Sources */,
 				D632AFA91D1E227A0092A6A3 /* LoginViewController.m in Sources */,
+				D644AD201D1E3470006BB1E3 /* ClassificationViewController.m in Sources */,
 				D632AFC71D1E22880092A6A3 /* ARSegmentView.m in Sources */,
+				D644AD2A1D1E34C8006BB1E3 /* RecommendViewController.m in Sources */,
 				D632AFAB1D1E227A0092A6A3 /* RegisterViewController.m in Sources */,
 				D632AFDA1D1E22EF0092A6A3 /* HomeCustomHeader.m in Sources */,
+				D644AD251D1E34A0006BB1E3 /* RankingViewController.m in Sources */,
 				D632AFC81D1E22880092A6A3 /* TYCircleCell.m in Sources */,
 				D62B095A1D1D2DFC00128D82 /* PlayerViewController.m in Sources */,
 				D60A541D1D1D2FDC00ECF173 /* DetailViewController.m in Sources */,
