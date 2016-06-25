@@ -10,6 +10,18 @@
 
 @interface RegisterViewController ()
 
+/// 账号
+@property (weak, nonatomic) IBOutlet UITextField *accountTextField;
+
+/// 昵称
+@property (weak, nonatomic) IBOutlet UITextField *nicknameTextField;
+
+/// 密码
+@property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
+
+/// 确认密码
+@property (weak, nonatomic) IBOutlet UITextField *rePWDTextField;
+
 @end
 
 @implementation RegisterViewController
@@ -18,6 +30,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
+
+#pragma mark - 注册按钮点击事件
+- (IBAction)registerAction:(UIButton *)sender
+{
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

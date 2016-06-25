@@ -12,7 +12,10 @@
 
 @interface LoginViewController ()
 
+/// 账号
 @property (weak, nonatomic) IBOutlet UITextField *accountTextField;
+
+/// 密码
 @property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
 
 
