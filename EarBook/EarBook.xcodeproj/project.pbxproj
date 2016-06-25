@@ -69,6 +69,10 @@
 		D632AFED1D1E231F0092A6A3 /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFE61D1E231F0092A6A3 /* RecommendViewController.m */; };
 		D632AFEE1D1E231F0092A6A3 /* RecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D632AFE71D1E231F0092A6A3 /* RecommendViewController.xib */; };
 		D632AFF11D1E237D0092A6A3 /* YALNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFF01D1E237D0092A6A3 /* YALNavigationBar.m */; };
+		D632AFF81D1E36D80092A6A3 /* BookCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFF61D1E36D80092A6A3 /* BookCollectionCell.m */; };
+		D632AFF91D1E36D80092A6A3 /* BookCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D632AFF71D1E36D80092A6A3 /* BookCollectionCell.xib */; };
+		D632AFFC1D1E5AC40092A6A3 /* BookCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFFB1D1E5AC40092A6A3 /* BookCell.m */; };
+		D632B0001D1E615B0092A6A3 /* BookMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFFF1D1E615B0092A6A3 /* BookMP3.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -169,6 +173,13 @@
 		D632AFE71D1E231F0092A6A3 /* RecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendViewController.xib; sourceTree = "<group>"; };
 		D632AFEF1D1E237D0092A6A3 /* YALNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALNavigationBar.h; sourceTree = "<group>"; };
 		D632AFF01D1E237D0092A6A3 /* YALNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALNavigationBar.m; sourceTree = "<group>"; };
+		D632AFF51D1E36D80092A6A3 /* BookCollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCollectionCell.h; sourceTree = "<group>"; };
+		D632AFF61D1E36D80092A6A3 /* BookCollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCollectionCell.m; sourceTree = "<group>"; };
+		D632AFF71D1E36D80092A6A3 /* BookCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BookCollectionCell.xib; sourceTree = "<group>"; };
+		D632AFFA1D1E5AC40092A6A3 /* BookCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookCell.h; sourceTree = "<group>"; };
+		D632AFFB1D1E5AC40092A6A3 /* BookCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookCell.m; sourceTree = "<group>"; };
+		D632AFFE1D1E615B0092A6A3 /* BookMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookMP3.h; sourceTree = "<group>"; };
+		D632AFFF1D1E615B0092A6A3 /* BookMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookMP3.m; sourceTree = "<group>"; };
 		D6ECF0471D1D0A92005C372A /* DB_COLOR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB_COLOR.h; sourceTree = "<group>"; };
 		D6ECF0481D1D0A92005C372A /* DB_URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB_URL.h; sourceTree = "<group>"; };
 		D6ECF0491D1D0A92005C372A /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
@@ -208,6 +219,7 @@
 		D62B09061D1CC90700128D82 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				D632AFFD1D1E615B0092A6A3 /* Models */,
 				D62B09391D1D2DFC00128D82 /* Scenes */,
 				D62B09071D1CC90700128D82 /* AppDelegate */,
 				D62B090A1D1CC90700128D82 /* General */,
@@ -360,6 +372,11 @@
 				D632AFD81D1E22EF0092A6A3 /* WYScrollView.h */,
 				D632AFD91D1E22EF0092A6A3 /* WYScrollView.m */,
 				D62B09491D1D2DFC00128D82 /* 苹果接口.txt */,
+				D632AFF51D1E36D80092A6A3 /* BookCollectionCell.h */,
+				D632AFF61D1E36D80092A6A3 /* BookCollectionCell.m */,
+				D632AFF71D1E36D80092A6A3 /* BookCollectionCell.xib */,
+				D632AFFA1D1E5AC40092A6A3 /* BookCell.h */,
+				D632AFFB1D1E5AC40092A6A3 /* BookCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -566,6 +583,15 @@
 			path = HomeImage;
 			sourceTree = "<group>";
 		};
+		D632AFFD1D1E615B0092A6A3 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D632AFFE1D1E615B0092A6A3 /* BookMP3.h */,
+				D632AFFF1D1E615B0092A6A3 /* BookMP3.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		D6ECF0461D1D0A92005C372A /* Macros */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,6 +685,7 @@
 				D631B4BA1D1C1CBC00102682 /* Main.storyboard in Resources */,
 				D62B096C1D1D2FFD00128D82 /* pause.png in Resources */,
 				D62B09701D1D2FFD00128D82 /* volumehigh@3x.png in Resources */,
+				D632AFF91D1E36D80092A6A3 /* BookCollectionCell.xib in Resources */,
 				D62B096B1D1D2FFD00128D82 /* loop.png in Resources */,
 				D62B09571D1D2DFC00128D82 /* HomeViewController.xib in Resources */,
 				D632AFD01D1E22A70092A6A3 /* text.jpg in Resources */,
@@ -729,6 +756,7 @@
 			files = (
 				D632AFEA1D1E231F0092A6A3 /* HomeNavigationController.m in Sources */,
 				D62B09261D1D20EA00128D82 /* Tool_AdaptiveHeight.m in Sources */,
+				D632AFF81D1E36D80092A6A3 /* BookCollectionCell.m in Sources */,
 				D632AFC91D1E22880092A6A3 /* TYCircleCollectionView.m in Sources */,
 				D62B09811D1D57B900128D82 /* ContextMenuCell.m in Sources */,
 				D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */,
@@ -742,6 +770,7 @@
 				D632AFE81D1E231F0092A6A3 /* ClassificationViewController.m in Sources */,
 				D631B4B11D1C1CBC00102682 /* main.m in Sources */,
 				D632AFF11D1E237D0092A6A3 /* YALNavigationBar.m in Sources */,
+				D632AFFC1D1E5AC40092A6A3 /* BookCell.m in Sources */,
 				D632AFCB1D1E22880092A6A3 /* TYCircleMenu.m in Sources */,
 				D632AFDC1D1E22EF0092A6A3 /* WYScrollView.m in Sources */,
 				D62B09561D1D2DFC00128D82 /* HomeViewController.m in Sources */,
@@ -756,6 +785,7 @@
 				D60A541D1D1D2FDC00ECF173 /* DetailViewController.m in Sources */,
 				D632AFCC1D1E22880092A6A3 /* TYCircleView.m in Sources */,
 				D62B097C1D1D571E00128D82 /* YALContextMenuTableView.m in Sources */,
+				D632B0001D1E615B0092A6A3 /* BookMP3.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
