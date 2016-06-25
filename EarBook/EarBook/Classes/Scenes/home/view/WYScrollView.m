@@ -174,12 +174,12 @@
 }
 
 //点击事件
-- (void)imageViewDidTap
-{
-    
-    [self.netDelagate didSelectedNetImageAtIndex:_currentIndex];
-    [self.localDelagate didSelectedLocalImageAtIndex:_currentIndex];
-}
+//- (void)imageViewDidTap
+//{
+//    
+//    [self.netDelagate didSelectedNetImageAtIndex:_currentIndex];
+//    [self.localDelagate didSelectedLocalImageAtIndex:_currentIndex];
+//}
 
 -(void)createPageControl
 {

@@ -51,7 +51,6 @@ static NSString * const reuseIdentifier = @"Cell";
     /** 设置占位图*/
     WYNetScrollView.placeholderImage = [UIImage imageNamed:@"placeholderImage"];
     
-    
     /** 获取网络图片的index*/
     WYNetScrollView.netDelagate = self;
     
@@ -87,13 +86,13 @@ static NSString * const reuseIdentifier = @"Cell";
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
+
     return 2;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
+
     return 10;
 }
 

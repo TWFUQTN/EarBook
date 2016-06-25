@@ -52,7 +52,6 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    设置头像图
-//    self.header.headImageView.layer.cornerRadius = self.header.headImageView.frame.size.width / 3;
       self.header.headImageView.layer.cornerRadius = self.header.headImageView.frame.size.width / 4;
     self.header.headImageView.layer.masksToBounds = YES;
     self.header.headImageView.layer.borderWidth = 2;
