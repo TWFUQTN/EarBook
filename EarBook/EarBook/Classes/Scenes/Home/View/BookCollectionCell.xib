@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="BookCollectionCell">
+            <rect key="frame" x="0.0" y="0.0" width="125" height="161"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="125" height="161"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textHeader.png" translatesAutoresizingMaskIntoConstraints="NO" id="rYi-K6-RJe">
+                        <rect key="frame" x="10" y="10" width="105" height="123"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="rYi-K6-RJe" secondAttribute="height" multiplier="6:7" id="9py-tQ-sOo"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="跳大神" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xpw-ew-ST9">
+                        <rect key="frame" x="10" y="138" width="105" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="rYi-K6-RJe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="F6i-6a-6f4"/>
+                <constraint firstAttribute="trailing" secondItem="Xpw-ew-ST9" secondAttribute="trailing" constant="10" id="Lrl-Yj-Omi"/>
+                <constraint firstItem="Xpw-ew-ST9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="W7B-bL-slV"/>
+                <constraint firstItem="Xpw-ew-ST9" firstAttribute="top" secondItem="rYi-K6-RJe" secondAttribute="bottom" constant="5" id="XKA-H5-TCM"/>
+                <constraint firstItem="rYi-K6-RJe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="muc-tw-OF5"/>
+                <constraint firstAttribute="trailing" secondItem="rYi-K6-RJe" secondAttribute="trailing" constant="10" id="n5q-bT-3Tw"/>
+                <constraint firstAttribute="bottom" secondItem="Xpw-ew-ST9" secondAttribute="bottom" constant="5" id="qDc-RJ-9Vu"/>
+            </constraints>
+            <size key="customSize" width="143" height="161"/>
+            <connections>
+                <outlet property="coverImageView" destination="rYi-K6-RJe" id="ch0-vP-qpf"/>
+                <outlet property="nameLabel" destination="Xpw-ew-ST9" id="zr7-Yw-uJp"/>
+            </connections>
+            <point key="canvasLocation" x="183.5" y="225.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="textHeader.png" width="171" height="171"/>
+    </resources>
+</document>

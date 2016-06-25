@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -16,43 +16,49 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SoA-0u-y6K">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrowdown.png" translatesAutoresizingMaskIntoConstraints="NO" id="OCc-IH-vZh">
-                    <rect key="frame" x="10" y="30" width="40" height="40"/>
+                    <rect key="frame" x="10" y="20" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="40" id="211-uV-rNr"/>
                         <constraint firstAttribute="width" secondItem="OCc-IH-vZh" secondAttribute="height" id="GKj-aQ-c0b"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="书籍名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SYM-Fx-8bv">
-                    <rect key="frame" x="65" y="30" width="230" height="40"/>
+                    <rect key="frame" x="65" y="20" width="230" height="40"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Teg-aL-zRF">
-                    <rect key="frame" x="325" y="30" width="40" height="40"/>
+                    <rect key="frame" x="325" y="20" width="40" height="40"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Teg-aL-zRF" secondAttribute="height" id="9Ug-7T-N7w"/>
                     </constraints>
                     <state key="normal" image="add.png"/>
+                    <connections>
+                        <action selector="presentMenuButtonTapped:" destination="-1" eventType="touchUpInside" id="WW5-Ah-f5q"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="集数" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ogo-oX-zYy">
-                    <rect key="frame" x="65" y="80" width="230" height="16"/>
+                    <rect key="frame" x="65" y="70" width="230" height="16"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KaJ-tT-yTN">
-                    <rect key="frame" x="50" y="146" width="275" height="275"/>
+                    <rect key="frame" x="50" y="136" width="275" height="275"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="KaJ-tT-yTN" secondAttribute="height" id="Aov-VL-oxe"/>
                     </constraints>
                 </imageView>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="SGd-Xy-Ig1">
-                    <rect key="frame" x="64" y="450" width="247" height="31"/>
+                    <rect key="frame" x="64" y="440" width="247" height="31"/>
                 </slider>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdZ-Ke-OLx">
-                    <rect key="frame" x="10" y="450" width="46" height="31"/>
+                    <rect key="frame" x="10" y="440" width="46" height="31"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="31" id="uGI-Zm-Abj"/>
                     </constraints>
@@ -61,7 +67,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gOl-fh-Ec1">
-                    <rect key="frame" x="319" y="450" width="46" height="31"/>
+                    <rect key="frame" x="319" y="440" width="46" height="31"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="31" id="29n-Sx-b25"/>
                     </constraints>
@@ -70,7 +76,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SgB-Q2-dVJ">
-                    <rect key="frame" x="171" y="523" width="32" height="42"/>
+                    <rect key="frame" x="171" y="513" width="32" height="42"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="42" id="kzA-f9-V8l"/>
                         <constraint firstAttribute="width" constant="32" id="ooZ-iB-QZ9"/>
@@ -78,21 +84,21 @@
                     <state key="normal" image="play.png"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27x-J2-AL5">
-                    <rect key="frame" x="38" y="523" width="62" height="42"/>
+                    <rect key="frame" x="38" y="513" width="62" height="42"/>
                     <state key="normal" image="rewind.png"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWb-vH-6iN">
-                    <rect key="frame" x="275" y="523" width="62" height="42"/>
+                    <rect key="frame" x="275" y="513" width="62" height="42"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="62" id="CBp-es-L2E"/>
                     </constraints>
                     <state key="normal" image="forward.png"/>
                 </button>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Cvk-oV-nrs">
-                    <rect key="frame" x="50" y="593" width="275" height="31"/>
+                    <rect key="frame" x="50" y="583" width="275" height="31"/>
                 </slider>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jz6-FX-PZs">
-                    <rect key="frame" x="10" y="592" width="32" height="32"/>
+                    <rect key="frame" x="10" y="582" width="32" height="32"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="32" id="UgB-pL-SMY"/>
                         <constraint firstAttribute="height" constant="32" id="yqT-9L-yBa"/>
@@ -100,16 +106,13 @@
                     <state key="normal" image="volumelow.png"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4p-yK-uaq">
-                    <rect key="frame" x="333" y="592" width="32" height="32"/>
+                    <rect key="frame" x="333" y="582" width="32" height="32"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="32" id="KHf-RU-xAm"/>
                         <constraint firstAttribute="width" constant="32" id="Q9r-sW-57X"/>
                     </constraints>
                     <state key="normal" image="volumehigh.png"/>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SoA-0u-y6K">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -152,7 +155,7 @@
                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="KaJ-tT-yTN" secondAttribute="trailing" constant="50" id="oY5-VX-8wG"/>
                 <constraint firstItem="Cvk-oV-nrs" firstAttribute="top" secondItem="SgB-Q2-dVJ" secondAttribute="bottom" constant="28" id="pOM-hu-m6R"/>
                 <constraint firstItem="SYM-Fx-8bv" firstAttribute="leading" secondItem="OCc-IH-vZh" secondAttribute="trailing" constant="15" id="pxY-pI-Tao"/>
-                <constraint firstItem="OCc-IH-vZh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="30" id="q3v-kH-vRL"/>
+                <constraint firstItem="OCc-IH-vZh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="q3v-kH-vRL"/>
                 <constraint firstItem="Teg-aL-zRF" firstAttribute="height" secondItem="SYM-Fx-8bv" secondAttribute="height" id="qXa-J4-ock"/>
                 <constraint firstItem="hdZ-Ke-OLx" firstAttribute="top" secondItem="OCc-IH-vZh" secondAttribute="bottom" constant="380" id="uL5-Ag-sWD"/>
                 <constraint firstItem="SYM-Fx-8bv" firstAttribute="height" secondItem="OCc-IH-vZh" secondAttribute="height" id="uOE-Wc-Ty1"/>

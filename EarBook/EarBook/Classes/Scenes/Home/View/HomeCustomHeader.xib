@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="HomeCustomHeader">
+            <rect key="frame" x="0.0" y="0.0" width="368" height="150"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="A1r-Fm-vpg">
+                    <rect key="frame" x="0.0" y="0.0" width="368" height="150"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="芳芳" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ddz-Xf-YNo">
+                    <rect key="frame" x="50" y="98" width="268" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textHeader.png" translatesAutoresizingMaskIntoConstraints="NO" id="Av5-IS-ncG">
+                    <rect key="frame" x="144" y="10" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="Av5-IS-ncG" secondAttribute="height" multiplier="1:1" id="Iir-SF-qF3"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Av5-IS-ncG" firstAttribute="height" secondItem="A1r-Fm-vpg" secondAttribute="height" multiplier="8:15" id="9Yw-NM-IeA"/>
+                <constraint firstItem="Av5-IS-ncG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="JDD-Kc-GAE"/>
+                <constraint firstItem="Ddz-Xf-YNo" firstAttribute="top" secondItem="Av5-IS-ncG" secondAttribute="bottom" constant="8" id="MZm-WY-xuF"/>
+                <constraint firstAttribute="trailing" secondItem="A1r-Fm-vpg" secondAttribute="trailing" id="ObM-ng-xjV"/>
+                <constraint firstAttribute="trailing" secondItem="Ddz-Xf-YNo" secondAttribute="trailing" constant="50" id="WvY-iC-HTb"/>
+                <constraint firstItem="Ddz-Xf-YNo" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="ZjS-Me-Cjh"/>
+                <constraint firstItem="Ddz-Xf-YNo" firstAttribute="centerX" secondItem="Av5-IS-ncG" secondAttribute="centerX" id="Znu-UD-dhf"/>
+                <constraint firstItem="A1r-Fm-vpg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="aTj-Sn-dlY"/>
+                <constraint firstItem="A1r-Fm-vpg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eak-sh-7wn"/>
+                <constraint firstAttribute="bottom" secondItem="Av5-IS-ncG" secondAttribute="bottom" constant="60" id="ekm-RT-tAA"/>
+                <constraint firstAttribute="bottom" secondItem="A1r-Fm-vpg" secondAttribute="bottom" id="fpd-h6-3DS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="bottomConstraint" destination="ekm-RT-tAA" id="OLw-J6-YYJ"/>
+                <outlet property="headImageView" destination="Av5-IS-ncG" id="Mhm-8T-0m5"/>
+                <outlet property="imageView" destination="A1r-Fm-vpg" id="ap5-HP-DzO"/>
+                <outlet property="nameLabel" destination="Ddz-Xf-YNo" id="pex-1u-94y"/>
+            </connections>
+            <point key="canvasLocation" x="291" y="157"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="text.jpg" width="2560" height="1600"/>
+        <image name="textHeader.png" width="171" height="171"/>
+    </resources>
+</document>

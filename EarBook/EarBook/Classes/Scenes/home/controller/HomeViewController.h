@@ -6,8 +6,8 @@
 //  Copyright © 2016年 赵符壹. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "ARSegmentPageController.h"
 
-@interface HomeViewController : UIViewController
+@interface HomeViewController : ARSegmentPageController
 
 @end

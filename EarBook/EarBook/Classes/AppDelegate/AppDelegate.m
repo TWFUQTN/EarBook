@@ -8,8 +8,12 @@
 
 #import "AppDelegate.h"
 #import "HomeViewController.h"
+<<<<<<< HEAD
 
 #import "DetailViewController.h"
+=======
+#import "HomeNavigationController.h"
+>>>>>>> 6adf13dc5945c88c299e1202dad7f203e102eb5e
 @interface AppDelegate ()
 
 @end
@@ -31,11 +35,16 @@
     // 4.设置根视图控制器
     
     // 设置导航控制器(第一个入栈的控制器,也就是第一个显示的控制器)
+<<<<<<< HEAD
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[DetailViewController alloc] init]];
     
+=======
+    HomeNavigationController *nav = [[HomeNavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
+
+>>>>>>> 6adf13dc5945c88c299e1202dad7f203e102eb5e
     self.window.rootViewController = nav;
     
-    [UINavigationBar appearance].translucent = NO;
+//    [UINavigationBar appearance].translucent = NO;
     
     return YES;
 }

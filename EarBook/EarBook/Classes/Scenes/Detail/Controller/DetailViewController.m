@@ -173,7 +173,7 @@
         
     }];
     
-    NSLog(@"我是第%ld页", index + 1);
+    NSLog(@"我是第%d页", index + 1);
     
 }
 
