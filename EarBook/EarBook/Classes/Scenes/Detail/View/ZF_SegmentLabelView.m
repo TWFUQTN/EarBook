@@ -46,7 +46,7 @@
     self.upSegment = [[UISegmentedControl alloc] initWithItems:items];
 
     // 确定frame
-    self.upSegment.frame = CGRectMake(kUpSegmentFrameX, kUpSegmentFrameY, CGRectGetWidth(self.frame) - kUpSegmentFrameX * 2, CGRectGetHeight(self.frame) - kUpSegmentFrameY * 2);
+    self.upSegment.frame = CGRectMake(0, kUpSegmentFrameY, CGRectGetWidth(self.frame), CGRectGetHeight(self.frame) - kUpSegmentFrameY * 2);
     
     // 设置背景颜色
     self.upSegment.tintColor = self.backgroundColor;
@@ -66,7 +66,7 @@
     [self addSubview:self.upSegment];
     
     // 创建Label
-    self.downLabel = [[UILabel alloc] initWithFrame:CGRectMake(kUpSegmentFrameX, CGRectGetMaxY(self.upSegment.frame), CGRectGetWidth(self.upSegment.frame) / items.count, CGRectGetHeight(self.frame) - CGRectGetMaxY(self.upSegment.frame))];
+    self.downLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.upSegment.frame), CGRectGetWidth(self.upSegment.frame) / items.count, CGRectGetHeight(self.frame) - CGRectGetMaxY(self.upSegment.frame))];
 
     self.downLabel.backgroundColor = labelBackgroundColor;
     

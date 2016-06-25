@@ -41,6 +41,8 @@
 		D631B4BA1D1C1CBC00102682 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D631B4B81D1C1CBC00102682 /* Main.storyboard */; };
 		D631B4BC1D1C1CBC00102682 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D631B4BB1D1C1CBC00102682 /* Assets.xcassets */; };
 		D631B4BF1D1C1CBC00102682 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D631B4BD1D1C1CBC00102682 /* LaunchScreen.storyboard */; };
+		D6856C2B1D1E2D1800E4F4FE /* ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6856C291D1E2D1800E4F4FE /* ListCell.m */; };
+		D6856C2C1D1E2D1800E4F4FE /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6856C2A1D1E2D1800E4F4FE /* ListCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +93,9 @@
 		D631B4BB1D1C1CBC00102682 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D631B4BE1D1C1CBC00102682 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D631B4C01D1C1CBC00102682 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6856C281D1E2D1800E4F4FE /* ListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListCell.h; sourceTree = "<group>"; };
+		D6856C291D1E2D1800E4F4FE /* ListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListCell.m; sourceTree = "<group>"; };
+		D6856C2A1D1E2D1800E4F4FE /* ListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 		D6ECF0471D1D0A92005C372A /* DB_COLOR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB_COLOR.h; sourceTree = "<group>"; };
 		D6ECF0481D1D0A92005C372A /* DB_URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB_URL.h; sourceTree = "<group>"; };
 		D6ECF0491D1D0A92005C372A /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
@@ -224,6 +229,9 @@
 			children = (
 				D60A541F1D1D51B400ECF173 /* ZF_SegmentLabelView.h */,
 				D60A54201D1D51B400ECF173 /* ZF_SegmentLabelView.m */,
+				D6856C281D1E2D1800E4F4FE /* ListCell.h */,
+				D6856C291D1E2D1800E4F4FE /* ListCell.m */,
+				D6856C2A1D1E2D1800E4F4FE /* ListCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -472,6 +480,7 @@
 				D62B096C1D1D2FFD00128D82 /* pause.png in Resources */,
 				D62B09701D1D2FFD00128D82 /* volumehigh@3x.png in Resources */,
 				D62B096B1D1D2FFD00128D82 /* loop.png in Resources */,
+				D6856C2C1D1E2D1800E4F4FE /* ListCell.xib in Resources */,
 				D62B09571D1D2DFC00128D82 /* HomeViewController.xib in Resources */,
 				D62B09711D1D2FFD00128D82 /* volumelow@2x.png in Resources */,
 				D62B09721D1D2FFD00128D82 /* volumelow@3x.png in Resources */,
@@ -536,6 +545,7 @@
 				D62B09261D1D20EA00128D82 /* Tool_AdaptiveHeight.m in Sources */,
 				D62B09811D1D57B900128D82 /* ContextMenuCell.m in Sources */,
 				D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */,
+				D6856C2B1D1E2D1800E4F4FE /* ListCell.m in Sources */,
 				D62B097B1D1D571E00128D82 /* UIView+YALConstraints.m in Sources */,
 				D631B4B11D1C1CBC00102682 /* main.m in Sources */,
 				D62B09561D1D2DFC00128D82 /* HomeViewController.m in Sources */,

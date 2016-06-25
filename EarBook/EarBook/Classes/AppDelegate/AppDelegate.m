@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "HomeViewController.h"
 
+#import "DetailViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -30,7 +31,7 @@
     // 4.设置根视图控制器
     
     // 设置导航控制器(第一个入栈的控制器,也就是第一个显示的控制器)
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[HomeViewController alloc] init]];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:[[DetailViewController alloc] init]];
     
     self.window.rootViewController = nav;
     
