@@ -18,7 +18,7 @@
 #define pageColor RGB(67, 199, 176)
 
 /** 滚动宽度*/
-#define ScrollWidth self.frame.size.width
+#define ScrollWidth [UIScreen mainScreen].bounds.size.width // self.frame.size.width
 
 /** 滚动高度*/
 #define ScrollHeight self.frame.size.height
@@ -38,7 +38,7 @@
     __weak  UIPageControl *_PageControl;
     
     NSTimer *_timer;
-    
+
     /** 当前显示的是第几个*/
     NSInteger _currentIndex;
     
@@ -105,7 +105,7 @@
 {
     _MaxImageCount = MaxImageCount;
     
-     /** 复用imageView初始化*/
+    /** 复用imageView初始化*/
     [self initImageView];
     
     /** pageControl*/
@@ -174,16 +174,16 @@
 }
 
 //点击事件
-//- (void)imageViewDidTap
-//{
-//    
-//    [self.netDelagate didSelectedNetImageAtIndex:_currentIndex];
+- (void)imageViewDidTap
+{
+    
+    [self.netDelagate didSelectedNetImageAtIndex:_currentIndex];
 //    [self.localDelagate didSelectedLocalImageAtIndex:_currentIndex];
-//}
+}
 
 -(void)createPageControl
 {
-    UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0,ScrollHeight - pageSize,ScrollWidth, 8)];
+    UIPageControl *pageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(ScrollWidth / 2 ,ScrollHeight - pageSize,ScrollWidth -100, 8)];
     
     //设置页面指示器的颜色
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
@@ -321,12 +321,12 @@
 
 
 /*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
-}
-*/
+ // Only override drawRect: if you perform custom drawing.
+ // An empty implementation adversely affects performance during animation.
+ - (void)drawRect:(CGRect)rect {
+ // Drawing code
+ }
+ */
 
 @end
 // 版权属于原作者
