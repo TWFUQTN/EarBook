@@ -16,15 +16,15 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="LikeIcn" translatesAutoresizingMaskIntoConstraints="NO" id="x5n-ji-Tg4">
-                        <rect key="frame" x="254" y="0.0" width="66" height="66"/>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icn_1.png" translatesAutoresizingMaskIntoConstraints="NO" id="x5n-ji-Tg4">
+                        <rect key="frame" x="255" y="0.0" width="65" height="65"/>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="x5n-ji-Tg4" secondAttribute="height" multiplier="1:1" id="GWs-T1-DQU"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JxD-XJ-YMF">
-                        <rect key="frame" x="8" y="11" width="226" height="43"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JxD-XJ-YMF">
+                        <rect key="frame" x="8" y="11" width="227" height="43"/>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -49,6 +49,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="LikeIcn" width="32" height="32"/>
+        <image name="icn_1.png" width="32" height="32"/>
     </resources>
 </document>

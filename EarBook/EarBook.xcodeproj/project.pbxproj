@@ -80,6 +80,12 @@
 		D62C9D4D1D1D803700AF5535 /* ARSegmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C9D4A1D1D803700AF5535 /* ARSegmentView.m */; };
 		D62C9D511D1D850E00AF5535 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62C9D4F1D1D850E00AF5535 /* HomeViewController.m */; };
 		D62C9D521D1D850E00AF5535 /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62C9D501D1D850E00AF5535 /* HomeViewController.xib */; };
+		D62B0A401D1D7AB800128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B0A3D1D1D7AB800128D82 /* 苹果接口.txt */; };
+		D62B0A411D1D7AB800128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B0A3F1D1D7AB800128D82 /* 苹果接口.txt */; };
+		D62B0A451D1D7AD500128D82 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B0A431D1D7AD500128D82 /* LoginViewController.m */; };
+		D62B0A461D1D7AD500128D82 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62B0A441D1D7AD500128D82 /* LoginViewController.xib */; };
+		D62B0A4A1D1D874F00128D82 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B0A481D1D874F00128D82 /* RegisterViewController.m */; };
+		D62B0A4B1D1D874F00128D82 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62B0A491D1D874F00128D82 /* RegisterViewController.xib */; };
 		D631B4B11D1C1CBC00102682 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D631B4B01D1C1CBC00102682 /* main.m */; };
 		D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D631B4B61D1C1CBC00102682 /* ViewController.m */; };
 		D631B4BA1D1C1CBC00102682 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D631B4B81D1C1CBC00102682 /* Main.storyboard */; };
@@ -189,6 +195,14 @@
 		D62C9D4E1D1D850E00AF5535 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = EarBook/Classes/Scenes/home/controller/HomeViewController.h; sourceTree = SOURCE_ROOT; };
 		D62C9D4F1D1D850E00AF5535 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = EarBook/Classes/Scenes/home/controller/HomeViewController.m; sourceTree = SOURCE_ROOT; };
 		D62C9D501D1D850E00AF5535 /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = HomeViewController.xib; path = EarBook/Classes/Scenes/home/controller/HomeViewController.xib; sourceTree = SOURCE_ROOT; };
+		D62B0A3D1D1D7AB800128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
+		D62B0A3F1D1D7AB800128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
+		D62B0A421D1D7AD500128D82 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		D62B0A431D1D7AD500128D82 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		D62B0A441D1D7AD500128D82 /* LoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
+		D62B0A471D1D874F00128D82 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		D62B0A481D1D874F00128D82 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		D62B0A491D1D874F00128D82 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 		D631B4AC1D1C1CBC00102682 /* EarBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D631B4B01D1C1CBC00102682 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D631B4B51D1C1CBC00102682 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -307,6 +321,7 @@
 		D62B09391D1D2DFC00128D82 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				D62B0A3A1D1D7AB800128D82 /* User */,
 				D62B093A1D1D2DFC00128D82 /* Detail */,
 				D62B09411D1D2DFC00128D82 /* Home */,
 				D62B094A1D1D2DFC00128D82 /* Play */,
@@ -531,6 +546,43 @@
 				D62C9D4A1D1D803700AF5535 /* ARSegmentView.m */,
 			);
 			path = ARSegmentPageController;
+		D62B0A3A1D1D7AB800128D82 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				D62B0A3B1D1D7AB800128D82 /* Controller */,
+				D62B0A3C1D1D7AB800128D82 /* Model */,
+				D62B0A3E1D1D7AB800128D82 /* View */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		D62B0A3B1D1D7AB800128D82 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D62B0A421D1D7AD500128D82 /* LoginViewController.h */,
+				D62B0A431D1D7AD500128D82 /* LoginViewController.m */,
+				D62B0A441D1D7AD500128D82 /* LoginViewController.xib */,
+				D62B0A471D1D874F00128D82 /* RegisterViewController.h */,
+				D62B0A481D1D874F00128D82 /* RegisterViewController.m */,
+				D62B0A491D1D874F00128D82 /* RegisterViewController.xib */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D62B0A3C1D1D7AB800128D82 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D62B0A3D1D1D7AB800128D82 /* 苹果接口.txt */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D62B0A3E1D1D7AB800128D82 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D62B0A3F1D1D7AB800128D82 /* 苹果接口.txt */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D631B4A31D1C1CBC00102682 = {
@@ -682,6 +734,7 @@
 				D62B096E1D1D2FFD00128D82 /* rewind.png in Resources */,
 				D62B096F1D1D2FFD00128D82 /* volumehigh@2x.png in Resources */,
 				D62B09A91D1D611F00128D82 /* icn_close@3x.png in Resources */,
+				D62B0A411D1D7AB800128D82 /* 苹果接口.txt in Resources */,
 				D62B09AD1D1D612700128D82 /* icn_2@1x.png in Resources */,
 				D62B09591D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D62B09541D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
@@ -694,6 +747,7 @@
 				D62B098F1D1D60F900128D82 /* icn_3@1x.png in Resources */,
 				D62B09B41D1D613000128D82 /* photo@2x.png in Resources */,
 				D62B099C1D1D610E00128D82 /* btn_add@2x.png in Resources */,
+				D62B0A401D1D7AB800128D82 /* 苹果接口.txt in Resources */,
 				D62B098A1D1D60EE00128D82 /* icn_4@2x.png in Resources */,
 				D62B09961D1D610600128D82 /* icn_5@2x.png in Resources */,
 				D62C9D521D1D850E00AF5535 /* HomeViewController.xib in Resources */,
@@ -702,6 +756,7 @@
 				D62B096C1D1D2FFD00128D82 /* pause.png in Resources */,
 				D62B099B1D1D610E00128D82 /* btn_add@1x.png in Resources */,
 				D62B099D1D1D610E00128D82 /* btn_add@3x.png in Resources */,
+				D62B0A4B1D1D874F00128D82 /* RegisterViewController.xib in Resources */,
 				D62B09B91D1D613A00128D82 /* icn_1@1x.png in Resources */,
 				D62B09701D1D2FFD00128D82 /* volumehigh@3x.png in Resources */,
 				D62C9D311D1D7BC500AF5535 /* RankingViewController.xib in Resources */,
@@ -716,6 +771,7 @@
 				D62B09B31D1D613000128D82 /* photo@1x.png in Resources */,
 				D62B09951D1D610600128D82 /* icn_5@1x.png in Resources */,
 				D62B09911D1D60F900128D82 /* icn_3@3x.png in Resources */,
+				D62B0A461D1D7AD500128D82 /* LoginViewController.xib in Resources */,
 				D62B09A81D1D611F00128D82 /* icn_close@2x.png in Resources */,
 				D62B09721D1D2FFD00128D82 /* volumelow@3x.png in Resources */,
 				D62B09AF1D1D612700128D82 /* icn_2@3x.png in Resources */,
@@ -787,6 +843,7 @@
 				D644AD1B1D1E1A57006BB1E3 /* TYCircleMenu.m in Sources */,
 				D62C9D1A1D1D74FC00AF5535 /* HomeCustomHeader.m in Sources */,
 				D62B09811D1D57B900128D82 /* ContextMenuCell.m in Sources */,
+				D62B0A451D1D7AD500128D82 /* LoginViewController.m in Sources */,
 				D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */,
 				D62B097B1D1D571E00128D82 /* UIView+YALConstraints.m in Sources */,
 				D62B09851D1D5E6700128D82 /* YALNavigationBar.m in Sources */,
@@ -802,6 +859,7 @@
 				D62C9D511D1D850E00AF5535 /* HomeViewController.m in Sources */,
 				D62C9D2B1D1D7B4A00AF5535 /* ClassificationViewController.m in Sources */,
 				D62B095A1D1D2DFC00128D82 /* PlayerViewController.m in Sources */,
+				D62B0A4A1D1D874F00128D82 /* RegisterViewController.m in Sources */,
 				D60A541D1D1D2FDC00ECF173 /* DetailViewController.m in Sources */,
 				D62B097C1D1D571E00128D82 /* YALContextMenuTableView.m in Sources */,
 			);
