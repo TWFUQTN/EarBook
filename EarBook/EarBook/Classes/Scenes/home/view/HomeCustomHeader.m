@@ -29,7 +29,7 @@
 }
 
 - (void)updateHeadPhotoWithTopInset:(CGFloat)inset {
-    CGFloat ratio = (inset - 64)/200.0;
+    CGFloat ratio = (inset - 64) / 150.0;
     self.bottomConstraint.constant = ratio * 30 + 10;
     self.widthConstraint.constant = 30 + ratio * 50;
 }

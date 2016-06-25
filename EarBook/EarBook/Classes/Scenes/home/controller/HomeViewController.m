@@ -33,7 +33,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     if (self) {
         // your code
         self.segmentMiniTopInset = 64;
-        self.headerHeight = 200;
+        self.headerHeight = 150;
     }
     
     return self;
@@ -51,10 +51,12 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-//    设置头像图
-      self.header.headImageView.layer.cornerRadius = self.header.headImageView.frame.size.width / 4;
-    self.header.headImageView.layer.masksToBounds = YES;
-    self.header.headImageView.layer.borderWidth = 2;
+    // 设置头像图
+//    self.header.headImageView.layer.cornerRadius = self.header.headImageView.frame.size.width / 4;
+//    self.header.headImageView.layer.masksToBounds = YES;
+    
+    // 边框
+//    self.header.headImageView.layer.borderWidth = 2;
     [self addObserver:self forKeyPath:@"segmentTopInset" options:NSKeyValueObservingOptionNew context:CustomHeaderInsetObserver];
 }
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -63,8 +65,12 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     if (context == CustomHeaderInsetObserver) {
         CGFloat inset = [change[NSKeyValueChangeNewKey] floatValue];
         [self.header updateHeadPhotoWithTopInset:inset];
+        
+        // 设置头像图
+        self.header.headImageView.layer.cornerRadius = self.header.headImageView.frame.size.width / 2;
+        self.header.headImageView.layer.masksToBounds = YES;
+        
     }
-    
 }
 
 -(void)dealloc

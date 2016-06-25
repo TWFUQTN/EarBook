@@ -58,6 +58,7 @@ static NSString * const reuseIdentifier = @"Cell";
     [self.collectionView addSubview:WYNetScrollView];
     
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
