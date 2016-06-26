@@ -10,6 +10,7 @@
 #import "BookCollectionCell.h"
 #import <Masonry.h>
 
+#import "BookMP3.h"
 
 #define kWidth [UIScreen mainScreen].bounds.size.width
 
@@ -22,6 +23,14 @@
 @end
 
 @implementation BookCell
+
+- (void)setBookArray:(NSArray *)bookArray
+{
+    if (_bookArray != bookArray) {
+        _bookArray = bookArray;
+    }
+    [self.myCollectionView reloadData];
+}
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -71,7 +80,9 @@
 {
     BookCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionCell" forIndexPath:indexPath];
     
-    cell.book = self.book;
+    if (self.bookArray.count > 0) {
+        cell.book = self.bookArray[indexPath.row];
+    }
     
     return cell;
 }

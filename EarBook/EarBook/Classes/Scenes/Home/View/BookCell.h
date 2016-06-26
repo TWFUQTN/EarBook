@@ -11,6 +11,6 @@
 @class BookMP3;
 @interface BookCell : UITableViewCell
 
-@property (nonatomic, strong) BookMP3 *book;
+@property (nonatomic, strong) NSArray *bookArray;
 
 @end

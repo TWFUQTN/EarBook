@@ -12,6 +12,8 @@
 #import "RecommendCell.h"
 #import "EB_URL.h"
 #import "BookMP3.h"
+#import "RecommendHeaderView.h"
+#import "SpecialSubjectCell.h"
 #import <AFNetworking/AFNetworking.h>
 
 @interface RecommendViewController ()<WYScrollViewNetDelegate>
@@ -19,9 +21,10 @@
 /** 网络图片数组*/
 @property(nonatomic,strong) NSMutableArray *NetImageArray;
 
-@property (nonatomic, strong) NSMutableArray *bookArray;
-
 @property (nonatomic, strong) NSMutableDictionary *bookDict;
+
+/// 录播图
+@property (nonatomic, strong) WYScrollView *wyNetScrollView;
 
 /// 网络请求
 @property (nonatomic, strong)  AFHTTPSessionManager *session;
@@ -53,14 +56,6 @@
     return _NetImageArray;
 }
 
-- (NSMutableArray *)bookArray
-{
-    if (!_bookArray) {
-        _bookArray = [NSMutableArray array];
-    }
-    return _bookArray;
-}
-
 - (NSMutableDictionary *)bookDict
 {
     if (!_bookDict) {
@@ -69,9 +64,6 @@
     return _bookDict;
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -81,11 +73,10 @@
     // 隐藏每一行的分隔线
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 
-    
-    
     // 注册cell
     [self.tableView registerClass:[BookCell class] forCellReuseIdentifier:@"bookCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"RecommendCell" bundle:nil] forCellReuseIdentifier:@"recommendCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"SpecialSubjectCell" bundle:nil] forCellReuseIdentifier:@"SpecialSubjectCell"];
     
     // 添加轮播图
     [self createNetScrollView];
@@ -112,20 +103,24 @@
                       // 拼接
                       NSString *urlStr = [NSString stringWithFormat:@"%@%@", EB_BASE_URL, urlBody];
                       [urlArray addObject:urlStr];
+                      NSLog(@"%@", urlStr);
                   }
                   
                   // 分析section = 0的数据
                   [recommendVC analyzeDataWithURLString:urlArray[1] section0:@0];
                   
+                  // 分析section = 1的数据
+                  [recommendVC analyzeDataWithURLString:urlArray[3] section1:@1];
+                  
+                  // 分析section = 2的数据
+                  [recommendVC analyzeDataWithURLString:urlArray[4] section1:@2];
                   
                   // 返回主线程
                   dispatch_async(dispatch_get_main_queue(), ^{
                       
                       [self.tableView reloadData];
                   });
-                  
-                  
-                  
+
               } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                   NSLog(@"网络请求错误");
               }];
@@ -143,7 +138,7 @@
                          for (NSDictionary *dict in responseObject[@"list"]) {
                              BookMP3 *book = [BookMP3 new];
                              [book setValuesForKeysWithDictionary:dict];
-                             NSLog(@"%@", book.name);
+//                             NSLog(@"%@", book.name);
                              [array addObject:book];
 //                             [self.bookArray addObject:book];
                              [self.bookDict setObject:array forKey:section];
@@ -159,7 +154,7 @@
                      }];
 }
 
-#pragma mark - 分析section = 1的数据
+#pragma mark - 分析section = 1/2的数据
 - (void)analyzeDataWithURLString:(NSString *)urlString
                          section1:(NSNumber *)section
 {
@@ -167,14 +162,22 @@
            parameters:nil
              progress:nil
               success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                  NSMutableArray *array = [NSMutableArray array];
-                  for (NSDictionary *dict in responseObject[@"list"]) {
+                  NSArray *listArray = [[responseObject[@"list"] firstObject] objectForKey:@"list"];
+                  NSMutableArray *bookArray = [NSMutableArray array];
+                  NSMutableArray *bookArr1 = [NSMutableArray array];
+                  NSMutableArray *bookArr2 = [NSMutableArray array];
+                  for (int i = 0; i < listArray.count; i++) {
                       BookMP3 *book = [BookMP3 new];
-                      [book setValuesForKeysWithDictionary:dict];
-                      NSLog(@"%@", book.name);
-                      [array addObject:book];
-                      [self.bookDict setObject:array forKey:section];
+                      [book setValuesForKeysWithDictionary:listArray[i]];
+                      if (i < 3) {
+                          [bookArr1 addObject:book];
+                      } else {
+                          [bookArr2 addObject:book];
+                      }
                   }
+                  [bookArray addObject:bookArr1];
+                  [bookArray addObject:bookArr2];
+                  [self.bookDict setObject:bookArray forKey:section];
                   // 返回主线程
                   dispatch_async(dispatch_get_main_queue(), ^{
                       
@@ -192,6 +195,32 @@
     return @"推荐";
 }
 
+#pragma mark - 轮播图
+-(void)createNetScrollView
+{
+    /** 设置网络scrollView的Frame及所需图片*/
+    WYScrollView *wyNetScrollView = [[WYScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150) WithNetImages:self.NetImageArray];
+    
+    /** 设置滚动延时*/
+    wyNetScrollView.AutoScrollDelay = 3;
+    
+    /** 设置占位图*/
+    wyNetScrollView.placeholderImage = [UIImage imageNamed:@"placeholderImage"];
+    
+    
+    /** 获取网络图片的index*/
+    wyNetScrollView.netDelagate = self;
+    
+    self.wyNetScrollView = wyNetScrollView;
+    /** 添加到当前tableView上*/
+//    self.tableView.tableHeaderView = WYNetScrollView;
+    
+}
+/** 获取网络图片的index*/
+-(void)didSelectedNetImageAtIndex:(NSInteger)index
+{
+    NSLog(@"点中网络图片的下标是:%ld",(long)index);
+}
 
 //-(UIScrollView *)streachScrollView
 //{
@@ -212,35 +241,79 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    return 2;
+    if (section == 0 || section == 1 || section == 2) {
+        return 2;
+    }
+    return 1;
 }
 
+#pragma mark cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.section == 0) {
-        
-        RecommendCell *recCell = [tableView dequeueReusableCellWithIdentifier:@"recommendCell"];
-        
-//        if (_bookArray.count > 0) {
-//            recCell.book = self.bookArray[indexPath.row];
-//        }
-        
-        // 获取字典中对应的数据数组
-        NSArray *arr = _bookDict[@0];
-        
-        if (arr.count > 0) {
-            recCell.book = arr[indexPath.row];
+    switch (indexPath.section) {
+        case 0: {
+            RecommendCell *recCell = [tableView dequeueReusableCellWithIdentifier:@"recommendCell"];
+            
+            // 获取字典中对应的数据数组
+            NSArray *arr = _bookDict[@0];
+            
+            if (arr.count > 0) {
+                recCell.book = arr[indexPath.row];
+            }
+            
+            return recCell;
+            break;
         }
-        
-        return recCell;
-    }
-    
-    if (indexPath.section == 1) {
-        BookCell *bookCell = [tableView dequeueReusableCellWithIdentifier:@"bookCell"];
-        
-        bookCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        return bookCell;
+        case 1: {
+            BookCell *bookCell = [tableView dequeueReusableCellWithIdentifier:@"bookCell"];
+            
+            bookCell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            NSArray *arr = _bookDict[@1];
+            
+            if (arr.count > 0) {
+                if (indexPath.row == 0) {
+                    bookCell.bookArray = arr[0];
+                }
+                if (indexPath.row == 1) {
+                    bookCell.bookArray = arr[1];
+                }
+            }
+            
+            return bookCell;
+            break;
+        }
+        case 2: {
+            BookCell *bookCell = [tableView dequeueReusableCellWithIdentifier:@"bookCell"];
+            
+            bookCell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            NSArray *arr = _bookDict[@2];
+            
+            if (arr.count > 0) {
+                if (indexPath.row == 0) {
+                    bookCell.bookArray = arr[0];
+                }
+                if (indexPath.row == 1) {
+                    bookCell.bookArray = arr[1];
+                }
+            }
+            
+            return bookCell;
+            break;
+        }
+        case 3: {
+            SpecialSubjectCell *specialSubjectCell = [tableView dequeueReusableCellWithIdentifier:@"SpecialSubjectCell"];
+            specialSubjectCell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            return specialSubjectCell;
+            break;
+        }
+            
+        default: {
+            
+            break;
+        }
     }
     BookCell *bookCell = [tableView dequeueReusableCellWithIdentifier:@"bookCell"];
     
@@ -249,42 +322,55 @@
     return bookCell;
 }
 
+#pragma mark 高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (indexPath.section == 0) {
         
         return 65;
     }
-    return 165;
+    if (indexPath.section == 3) {
+        return 90;
+    }
+    return 168;
 }
 
-
-
-#pragma mark - 轮播图
--(void)createNetScrollView
+#pragma mark 头视图
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    /** 设置网络scrollView的Frame及所需图片*/
-    WYScrollView *WYNetScrollView = [[WYScrollView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 150) WithNetImages:self.NetImageArray];
-    
-    /** 设置滚动延时*/
-    WYNetScrollView.AutoScrollDelay = 3;
-    
-    /** 设置占位图*/
-    WYNetScrollView.placeholderImage = [UIImage imageNamed:@"placeholderImage"];
-    
-    
-    /** 获取网络图片的index*/
-    WYNetScrollView.netDelagate = self;
-    
-    /** 添加到当前tableView上*/
-    self.tableView.tableHeaderView = WYNetScrollView;
+    RecommendHeaderView *headerView = [RecommendHeaderView new];
+    switch (section) {
+        case 0: {
+            return self.wyNetScrollView;
+            break;
+        }
+        case 1:
+            headerView.titleLabel.text = @"小编推荐";
+            return headerView;
+            break;
+        case 2:
+            headerView.titleLabel.text = @"新书推荐";
+            return headerView;
+            break;
+        case 3:
+            headerView.titleLabel.text = @"更多专题";
+            return headerView;
+            break;
+        default:
+            return headerView;
+            break;
+    }
+}
 
-}
-/** 获取网络图片的index*/
--(void)didSelectedNetImageAtIndex:(NSInteger)index
+#pragma mark 头视图高度
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-    NSLog(@"点中网络图片的下标是:%ld",(long)index);
+    if (section == 0) {
+        return 155;
+    }
+    return 40;
 }
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
