@@ -48,6 +48,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     }
     return _header;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -59,6 +60,12 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 //    self.header.headImageView.layer.borderWidth = 2;
     [self addObserver:self forKeyPath:@"segmentTopInset" options:NSKeyValueObservingOptionNew context:CustomHeaderInsetObserver];
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBar.translucent = YES;
+}
+
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];

@@ -11,9 +11,11 @@
 @interface SpecialSubjectCell : UITableViewCell
 
 /// 专题图片1
-@property (unsafe_unretained, nonatomic) IBOutlet UIButton *SpecialSubImage1;
+@property (unsafe_unretained, nonatomic) IBOutlet UIImageView *specialSubImage1;
+
 /// 专题图片2
-@property (unsafe_unretained, nonatomic) IBOutlet UIButton *SpecialSubImage2;
+@property (unsafe_unretained, nonatomic) IBOutlet UIImageView *specialSubImage2;
+
 
 
 @end

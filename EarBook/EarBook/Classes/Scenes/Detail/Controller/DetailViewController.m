@@ -10,6 +10,7 @@
 #import "ZF_SegmentLabelView.h"
 #import "ListCell.h"
 #import "EB_COLOR.h"
+#import "BookMP3.h"
 
 #define kScrollWidth self.scrollView.frame.size.width
 #define kScrollHeight self.scrollView.frame.size.height
@@ -59,46 +60,118 @@
 
 @implementation DetailViewController
 
+- (NSMutableArray *)listArray
+{
+    if (!_listArray) {
+        _listArray = [NSMutableArray array];
+    }
+    return _listArray;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    // 请求数据
+    [self requestData];
+    
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = EB_MAIN_COLOR;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     self.bottomScrollView.delegate = self;
     self.listTableView.dataSource = self;
     self.listTableView.delegate = self;
     
     self.contentHeight.constant = CGRectGetMaxY(self.descLabel.frame) + 90;
-    NSLog(@"%f", self.contentHeight.constant);
+//    NSLog(@"%f", self.contentHeight.constant);
     
     [self layoutSubView];
     
     [self.listTableView registerNib:[UINib nibWithNibName:@"ListCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:(UIBarButtonItemStylePlain) target:self action:@selector(back)];
+    
+}
+
+- (void)back
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - 加载详情数据
+- (void)requestData
+{
+    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+    
+    // 详情页数据加载
+    [session GET:self.bookDetailURL
+      parameters:nil
+        progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             
+             BookMP3 *book = [BookMP3 new];
+             [book setValuesForKeysWithDictionary:responseObject];
+             
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 // 刷新详情界面
+                 [self reloadUIWithBook:book];
+             });
+             
+         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+#warning Alert
+             NSLog(@"请求出错");
+         }];
+    
+    // 列表页数据加载
+//    [session GET:self.bookListURL
+//      parameters:nil
+//        progress:nil
+//         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//             
+//             for (NSDictionary *dict in responseObject[@"list"]) {
+//                 BookMP3 *book = [BookMP3 new];
+//                 [book setValuesForKeysWithDictionary:dict];
+//                 [self.listArray addObject:book];
+//             }
+//             
+//             dispatch_async(dispatch_get_main_queue(), ^{
+//                 [self.listTableView reloadData];
+//             });
+//             
+//         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+//#warning Alert
+//             NSLog(@"请求出错");
+//         }];
+}
+
+#pragma mark - 刷新详情界面
+- (void)reloadUIWithBook:(BookMP3 *)book
+{
+    
+    self.navigationItem.title = book.name;
+    
+    [_coverImageView sd_setImageWithURL:[NSURL URLWithString:book.cover]];
+    _nameLabel.text = book.name;
+    _typeLabel.text = [NSString stringWithFormat:@"类别：%@",book.type];
+    _authorLabel.text = [NSString stringWithFormat:@"原著：%@",book.author];
+    _announcerLabel.text = [NSString stringWithFormat:@"主播：%@",book.announcer];
+    _sectionsLabel.text = [NSString stringWithFormat:@"集数：%@",book.sections];
+    _playLabel.text = [NSString stringWithFormat:@"播放量：%.1f万",book.play.floatValue / 10000];
+    _descLabel.text = book.desc;
+    if (book.state.integerValue == 2) {
+        _statusLabel.text = @"状态：完结";
+    } else {
+        _statusLabel.text = @"状态：连载";
+    }
 }
 
 //页面布局
 - (void)layoutSubView {
     //设置segment
     [self addSegment];
-    
-    //设置scrollView
-//    [self addScrollView];
 }
 
-//添加一个scrollView
-- (void)addScrollView{
-    
-//    UIView *dd = [[UIView alloc] initWithFrame:CGRectMake(0, 114, self.view.frame.size.width, self.view.frame.size.height - self.SLView.frame.size.height - 64)];
-//    
-//    dd.backgroundColor = [UIColor cyanColor];
-//    
-//    [self.view addSubview:dd];
-    
-//    self.detailView = [[DetailView alloc] initWithFrame:CGRectMake(0, 114, self.view.frame.size.width, self.view.frame.size.height - self.SLView.frame.size.height - 64)];
-//    
-//    [self.view addSubview:self.detailView];
-    
-}
 
 #pragma mark - tableView代理方法
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -107,14 +180,16 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return 10;
+    return self.listArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
-    
+    if (_listArray.count > 0) {
+        cell.bookList = _listArray[indexPath.row];
+    }
     
     return cell;
 }
@@ -140,9 +215,9 @@
     
     NSDictionary *dicNormal = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor blackColor],NSForegroundColorAttributeName,[UIFont fontWithName:@"AppleGothic"size:15],NSFontAttributeName ,nil];
     
-    NSDictionary *dicSelected = [NSDictionary dictionaryWithObjectsAndKeys:[UIColor greenColor],NSForegroundColorAttributeName,[UIFont fontWithName:@"AppleGothic"size:17],NSFontAttributeName ,nil];
+    NSDictionary *dicSelected = [NSDictionary dictionaryWithObjectsAndKeys:EB_MAIN_COLOR,NSForegroundColorAttributeName,[UIFont fontWithName:@"AppleGothic"size:17],NSFontAttributeName ,nil];
     
-    self.SLView = [[ZF_SegmentLabelView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 50) viewBackgroundColor:DB_COLOR(245, 245, 245, 1) items:self.itemArr dicNormal:dicNormal dicSelected:dicSelected labelBackgroundColor:[UIColor greenColor]];
+    self.SLView = [[ZF_SegmentLabelView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 50) viewBackgroundColor:EB_COLOR(245, 245, 245, 1) items:self.itemArr dicNormal:dicNormal dicSelected:dicSelected labelBackgroundColor:EB_MAIN_COLOR];
     
     [self.view addSubview:self.SLView];
     
@@ -172,9 +247,6 @@
         self.bottomScrollView.contentOffset = CGPointMake([UIScreen mainScreen].bounds.size.width * index, 0) ;
         
     }];
-    
-    NSLog(@"我是第%d页", index + 1);
-    
 }
 
 
