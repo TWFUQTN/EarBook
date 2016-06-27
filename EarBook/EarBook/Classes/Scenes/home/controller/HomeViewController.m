@@ -50,8 +50,6 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     }
     return _header;
 }
-<<<<<<< HEAD
-=======
 - (void)viewDidAppear:(BOOL)animated {
 //    _tabbarHomeView.layer.cornerRadius = 10;
 //    _tabbarHomeView.layer.masksToBounds = YES;
@@ -68,7 +66,6 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 - (void)selectMenuAtIndex:(NSInteger)index {
     NSLog(@"选中:%zd",index);
 }
->>>>>>> dd05584a127ed20dad3ebcabf90f765083c49fd7
 
 - (void)viewDidLoad {
     [super viewDidLoad];

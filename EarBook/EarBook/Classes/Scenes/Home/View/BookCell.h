@@ -10,7 +10,7 @@
 
 @class BookMP3;
 
-typedef void(^BookCellBlock)(NSString *url);
+typedef void(^BookCellBlock)(BookMP3 *book);
 
 @interface BookCell : UITableViewCell
 

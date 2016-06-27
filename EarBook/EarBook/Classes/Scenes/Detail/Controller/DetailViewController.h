@@ -8,11 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class BookMP3;
 @interface DetailViewController : UIViewController
 
-/// 详情页数据请求地址字符串(详情)
-@property (nonatomic, copy) NSString *bookDetailURL;
-/// 详情页数据请求地址字符串(列表)
-@property (nonatomic, copy) NSString *bookListURL;
+@property (nonatomic, strong) BookMP3 *book;
 
 @end

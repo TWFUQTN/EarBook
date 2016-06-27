@@ -10,6 +10,7 @@
 #import "ZF_SegmentLabelView.h"
 #import "ListCell.h"
 #import "EB_COLOR.h"
+#import "EB_URL.h"
 #import "BookMP3.h"
 
 #define kScrollWidth self.scrollView.frame.size.width
@@ -102,15 +103,16 @@
 #pragma mark - 加载详情数据
 - (void)requestData
 {
-    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+    NSString *bookDetailURL = [NSString stringWithFormat:@"%@%@%@", EB_BOOK_DETAIL_BASE_URL, _book.url, EB_BOOK_DETAIL_URL];
     
+    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+    BookMP3 *book = [BookMP3 new];
     // 详情页数据加载
-    [session GET:self.bookDetailURL
+    [session GET:bookDetailURL
       parameters:nil
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              
-             BookMP3 *book = [BookMP3 new];
              [book setValuesForKeysWithDictionary:responseObject];
              
              dispatch_async(dispatch_get_main_queue(), ^{
