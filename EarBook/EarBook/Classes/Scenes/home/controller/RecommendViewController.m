@@ -326,14 +326,11 @@
                 }
             }
             
-            bookCell.block = ^void(NSString *url) {
-                NSString *bookDetailURL = [NSString stringWithFormat:@"%@%@%@", EB_BOOK_DETAIL_BASE_URL, url, EB_BOOK_DETAIL_URL];
-                NSString *bookListURL = [NSString stringWithFormat:@"%@%@%@", EB_BOOK_LIST_BASE_URL, url, EB_BOOK_LIST_URL];
+            bookCell.block = ^void(BookMP3 *book) {
                 
                 DetailViewController *detailVC = [DetailViewController new];
                 
-                detailVC.bookDetailURL = bookDetailURL;
-                detailVC.bookListURL = bookListURL;
+                detailVC.book = book;
                 
                 [recommendVC.navigationController pushViewController:detailVC animated:YES];
             };
@@ -357,14 +354,11 @@
                 }
             }
             
-            bookCell.block = ^void(NSString *url) {
-                NSString *bookDetailURL = [NSString stringWithFormat:@"%@%@%@", EB_BOOK_DETAIL_BASE_URL, url, EB_BOOK_DETAIL_URL];
-                NSString *bookListURL = [NSString stringWithFormat:@"%@%@%@", EB_BOOK_LIST_BASE_URL, url, EB_BOOK_LIST_URL];
+            bookCell.block = ^void(BookMP3 *book) {
                 
                 DetailViewController *detailVC = [DetailViewController new];
                 
-                detailVC.bookDetailURL = bookDetailURL;
-                detailVC.bookListURL = bookListURL;
+                detailVC.book = book;
                 
                 [self.navigationController pushViewController:detailVC animated:YES];
             };

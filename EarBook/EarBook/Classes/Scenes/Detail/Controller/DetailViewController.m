@@ -10,6 +10,7 @@
 #import "ZF_SegmentLabelView.h"
 #import "ListCell.h"
 #import "EB_COLOR.h"
+#import "EB_URL.h"
 #import "BookMP3.h"
 
 #define kScrollWidth self.scrollView.frame.size.width
@@ -102,20 +103,26 @@
 #pragma mark - 加载详情数据
 - (void)requestData
 {
-    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
-    
     // 详情页数据加载
-    [session GET:self.bookDetailURL
+    NSString *bookDetailURL = [NSString stringWithFormat:@"%@%@%@", EB_BOOK_DETAIL_BASE_URL, _book.url, EB_BOOK_DETAIL_URL];
+    
+    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+    BookMP3 *book = [BookMP3 new];
+    
+    __weak typeof(self) detailVC = self;
+    [session GET:bookDetailURL
       parameters:nil
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              
-             BookMP3 *book = [BookMP3 new];
              [book setValuesForKeysWithDictionary:responseObject];
+             book.ID = responseObject[@"id"];
+             
+             [detailVC bookListWithBook:book];
              
              dispatch_async(dispatch_get_main_queue(), ^{
                  // 刷新详情界面
-                 [self reloadUIWithBook:book];
+                 [detailVC reloadUIWithBook:book];
              });
              
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -123,26 +130,34 @@
              NSLog(@"请求出错");
          }];
     
+    
+}
+
+#pragma mark - 加载列表数据
+- (void)bookListWithBook:(BookMP3 *)book
+{
+    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
     // 列表页数据加载
-//    [session GET:self.bookListURL
-//      parameters:nil
-//        progress:nil
-//         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//             
-//             for (NSDictionary *dict in responseObject[@"list"]) {
-//                 BookMP3 *book = [BookMP3 new];
-//                 [book setValuesForKeysWithDictionary:dict];
-//                 [self.listArray addObject:book];
-//             }
-//             
-//             dispatch_async(dispatch_get_main_queue(), ^{
-//                 [self.listTableView reloadData];
-//             });
-//             
-//         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-//#warning Alert
-//             NSLog(@"请求出错");
-//         }];
+    NSString *bookListURL = [NSString stringWithFormat:@"%@%@%@", EB_BOOK_LIST_BASE_URL, book.ID, EB_BOOK_LIST_URL];
+    [session GET:bookListURL
+      parameters:nil
+        progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             
+             for (NSDictionary *dict in responseObject[@"list"]) {
+                 BookMP3 *book = [BookMP3 new];
+                 [book setValuesForKeysWithDictionary:dict];
+                 [self.listArray addObject:book];
+             }
+             
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [self.listTableView reloadData];
+             });
+             
+         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+#warning Alert
+             NSLog(@"请求出错");
+         }];
 }
 
 #pragma mark - 刷新详情界面

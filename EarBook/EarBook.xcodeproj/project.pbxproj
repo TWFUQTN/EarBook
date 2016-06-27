@@ -92,7 +92,13 @@
 		D675A5861D20D35900E6F999 /* tabBarnext.png in Resources */ = {isa = PBXBuildFile; fileRef = D675A5801D20D35900E6F999 /* tabBarnext.png */; };
 		D675A5891D20D35900E6F999 /* tabBarup.png in Resources */ = {isa = PBXBuildFile; fileRef = D675A5831D20D35900E6F999 /* tabBarup.png */; };
 		D675A5AE1D210C8C00E6F999 /* tabBarpause.png in Resources */ = {isa = PBXBuildFile; fileRef = D675A5AC1D210C8C00E6F999 /* tabBarpause.png */; };
-		D675A5AF1D210C8C00E6F999 /* tabBarplay.png in Resources */ = {isa = PBXBuildFile; fileRef = D675A5AD1D210C8C00E6F999 /* tabBarplay.png */; };
+		D675A5B41D21469100E6F999 /* tabBardownload.png in Resources */ = {isa = PBXBuildFile; fileRef = D675A5B01D21469100E6F999 /* tabBardownload.png */; };
+		D675A5B51D21469100E6F999 /* tabBarheart.png in Resources */ = {isa = PBXBuildFile; fileRef = D675A5B11D21469100E6F999 /* tabBarheart.png */; };
+		D675A5B71D21469100E6F999 /* tabBartrash.png in Resources */ = {isa = PBXBuildFile; fileRef = D675A5B31D21469100E6F999 /* tabBartrash.png */; };
+		D675A5B91D2146E900E6F999 /* tabBarplay.png in Resources */ = {isa = PBXBuildFile; fileRef = D675A5B81D2146E900E6F999 /* tabBarplay.png */; };
+		D675A5BB1D21496A00E6F999 /* tabBarlikes.png in Resources */ = {isa = PBXBuildFile; fileRef = D675A5BA1D21496A00E6F999 /* tabBarlikes.png */; };
+		D675A5C41D21642A00E6F999 /* TabBarListViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D675A5C21D21642A00E6F999 /* TabBarListViewCell.m */; };
+		D675A5C51D21642A00E6F999 /* TabBarListViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D675A5C31D21642A00E6F999 /* TabBarListViewCell.xib */; };
 		D6770F7B1D1EA73E00AE0CFE /* UserTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6770F791D1EA73E00AE0CFE /* UserTableViewController.m */; };
 		D6770F7C1D1EA73E00AE0CFE /* UserTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6770F7A1D1EA73E00AE0CFE /* UserTableViewController.xib */; };
 		D6770F801D1EA82600AE0CFE /* UserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6770F7E1D1EA82600AE0CFE /* UserCell.m */; };
@@ -246,7 +252,14 @@
 		D675A5801D20D35900E6F999 /* tabBarnext.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarnext.png; sourceTree = "<group>"; };
 		D675A5831D20D35900E6F999 /* tabBarup.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarup.png; sourceTree = "<group>"; };
 		D675A5AC1D210C8C00E6F999 /* tabBarpause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarpause.png; sourceTree = "<group>"; };
-		D675A5AD1D210C8C00E6F999 /* tabBarplay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarplay.png; sourceTree = "<group>"; };
+		D675A5B01D21469100E6F999 /* tabBardownload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBardownload.png; sourceTree = "<group>"; };
+		D675A5B11D21469100E6F999 /* tabBarheart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarheart.png; sourceTree = "<group>"; };
+		D675A5B31D21469100E6F999 /* tabBartrash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBartrash.png; sourceTree = "<group>"; };
+		D675A5B81D2146E900E6F999 /* tabBarplay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarplay.png; sourceTree = "<group>"; };
+		D675A5BA1D21496A00E6F999 /* tabBarlikes.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarlikes.png; sourceTree = "<group>"; };
+		D675A5C11D21642A00E6F999 /* TabBarListViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabBarListViewCell.h; sourceTree = "<group>"; };
+		D675A5C21D21642A00E6F999 /* TabBarListViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabBarListViewCell.m; sourceTree = "<group>"; };
+		D675A5C31D21642A00E6F999 /* TabBarListViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TabBarListViewCell.xib; sourceTree = "<group>"; };
 		D6770F781D1EA73E00AE0CFE /* UserTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserTableViewController.h; sourceTree = "<group>"; };
 		D6770F791D1EA73E00AE0CFE /* UserTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserTableViewController.m; sourceTree = "<group>"; };
 		D6770F7A1D1EA73E00AE0CFE /* UserTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserTableViewController.xib; sourceTree = "<group>"; };
@@ -498,6 +511,9 @@
 				D69DC4441D20FA3700489DC6 /* ClassificationCell.h */,
 				D69DC4451D20FA3700489DC6 /* ClassificationCell.m */,
 				D69DC4461D20FA3700489DC6 /* ClassificationCell.xib */,
+				D675A5C11D21642A00E6F999 /* TabBarListViewCell.h */,
+				D675A5C21D21642A00E6F999 /* TabBarListViewCell.m */,
+				D675A5C31D21642A00E6F999 /* TabBarListViewCell.xib */,
 				D6B248D01D215B590082ED6A /* MoreListCell.h */,
 				D6B248D11D215B590082ED6A /* MoreListCell.m */,
 				D6B248D21D215B590082ED6A /* MoreListCell.xib */,
@@ -748,8 +764,12 @@
 		D675A5731D20D16600E6F999 /* tabBarimage */ = {
 			isa = PBXGroup;
 			children = (
+				D675A5BA1D21496A00E6F999 /* tabBarlikes.png */,
+				D675A5B81D2146E900E6F999 /* tabBarplay.png */,
+				D675A5B01D21469100E6F999 /* tabBardownload.png */,
+				D675A5B11D21469100E6F999 /* tabBarheart.png */,
+				D675A5B31D21469100E6F999 /* tabBartrash.png */,
 				D675A5AC1D210C8C00E6F999 /* tabBarpause.png */,
-				D675A5AD1D210C8C00E6F999 /* tabBarplay.png */,
 				D675A57E1D20D35900E6F999 /* tabBardown.png */,
 				D675A57F1D20D35900E6F999 /* tabBarlast.png */,
 				D675A5801D20D35900E6F999 /* tabBarnext.png */,
@@ -844,18 +864,22 @@
 				D62B095B1D1D2DFC00128D82 /* PlayerViewController.xib in Resources */,
 				D66F8F381D200E160039139A /* SpecialSubjectCell.xib in Resources */,
 				D644AD2B1D1E34C8006BB1E3 /* RecommendViewController.xib in Resources */,
+				D675A5BB1D21496A00E6F999 /* tabBarlikes.png in Resources */,
 				D631B4BC1D1C1CBC00102682 /* Assets.xcassets in Resources */,
 				D6770F831D1EAB7E00AE0CFE /* rightofcell.png in Resources */,
-				D675A5AF1D210C8C00E6F999 /* tabBarplay.png in Resources */,
+				D675A5B41D21469100E6F999 /* tabBardownload.png in Resources */,
 				D62B09741D1D30AD00128D82 /* add.png in Resources */,
 				D62B096E1D1D2FFD00128D82 /* rewind.png in Resources */,
+				D675A5B91D2146E900E6F999 /* tabBarplay.png in Resources */,
 				D62B096F1D1D2FFD00128D82 /* volumehigh@2x.png in Resources */,
 				D69DC4481D20FA3700489DC6 /* ClassificationCell.xib in Resources */,
 				D675A5791D20D16600E6F999 /* actions@2x.png in Resources */,
 				D6770F891D1EB5ED00AE0CFE /* 2.png in Resources */,
+				D675A5C51D21642A00E6F999 /* TabBarListViewCell.xib in Resources */,
 				D62B09591D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D656751D1D210FC5000E4B26 /* back.png in Resources */,
 				D675A5861D20D35900E6F999 /* tabBarnext.png in Resources */,
+				D675A5B71D21469100E6F999 /* tabBartrash.png in Resources */,
 				D62B09541D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D62B095C1D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D62B09581D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
@@ -881,6 +905,7 @@
 				D62B09571D1D2DFC00128D82 /* HomeViewController.xib in Resources */,
 				D644AD211D1E3470006BB1E3 /* ClassificationViewController.xib in Resources */,
 				D632AFD01D1E22A70092A6A3 /* text.jpg in Resources */,
+				D675A5B51D21469100E6F999 /* tabBarheart.png in Resources */,
 				D62B09711D1D2FFD00128D82 /* volumelow@2x.png in Resources */,
 				D62B09721D1D2FFD00128D82 /* volumelow@3x.png in Resources */,
 				D632AFAC1D1E227A0092A6A3 /* RegisterViewController.xib in Resources */,
@@ -965,6 +990,7 @@
 				D632AFD41D1E22C70092A6A3 /* UIImage+ImageEffects.m in Sources */,
 				D632AFCA1D1E22880092A6A3 /* TYCircleCollectionViewLayout.m in Sources */,
 				D632AFC51D1E22880092A6A3 /* ARSegmentPageController.m in Sources */,
+				D675A5C41D21642A00E6F999 /* TabBarListViewCell.m in Sources */,
 				D66582F41D1EC41C0023A7B0 /* RecommendCell.m in Sources */,
 				D632AFC61D1E22880092A6A3 /* ARSegmentPageHeader.m in Sources */,
 				D62B097B1D1D571E00128D82 /* UIView+YALConstraints.m in Sources */,
