@@ -105,15 +105,12 @@
 		D6856C2B1D1E2D1800E4F4FE /* ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6856C291D1E2D1800E4F4FE /* ListCell.m */; };
 		D6856C2C1D1E2D1800E4F4FE /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6856C2A1D1E2D1800E4F4FE /* ListCell.xib */; };
 		D69048231D1E6541000A6574 /* placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D69048221D1E6541000A6574 /* placeholderImage.png */; };
-<<<<<<< HEAD
 		D69DC4471D20FA3700489DC6 /* ClassificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D69DC4451D20FA3700489DC6 /* ClassificationCell.m */; };
 		D69DC4481D20FA3700489DC6 /* ClassificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D69DC4461D20FA3700489DC6 /* ClassificationCell.xib */; };
-=======
 		D6B248CC1D211A850082ED6A /* BookList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B248CB1D211A850082ED6A /* BookList.m */; };
 		D6B248CF1D2144E90082ED6A /* MoreListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B248CE1D2144E90082ED6A /* MoreListViewController.m */; };
 		D6B248D31D215B590082ED6A /* MoreListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B248D11D215B590082ED6A /* MoreListCell.m */; };
 		D6B248D41D215B590082ED6A /* MoreListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6B248D21D215B590082ED6A /* MoreListCell.xib */; };
->>>>>>> 4a71637a5d9a94775078183daedde140557a6470
 		D6D21C3F1D1ED17E00C5FF4B /* RecommendHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D21C3E1D1ED17E00C5FF4B /* RecommendHeaderView.m */; };
 /* End PBXBuildFile section */
 
@@ -265,11 +262,9 @@
 		D6856C291D1E2D1800E4F4FE /* ListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListCell.m; sourceTree = "<group>"; };
 		D6856C2A1D1E2D1800E4F4FE /* ListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 		D69048221D1E6541000A6574 /* placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderImage.png; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		D69DC4441D20FA3700489DC6 /* ClassificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassificationCell.h; sourceTree = "<group>"; };
 		D69DC4451D20FA3700489DC6 /* ClassificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassificationCell.m; sourceTree = "<group>"; };
 		D69DC4461D20FA3700489DC6 /* ClassificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassificationCell.xib; sourceTree = "<group>"; };
-=======
 		D6B248CA1D211A850082ED6A /* BookList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookList.h; sourceTree = "<group>"; };
 		D6B248CB1D211A850082ED6A /* BookList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookList.m; sourceTree = "<group>"; };
 		D6B248CD1D2144E90082ED6A /* MoreListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreListViewController.h; sourceTree = "<group>"; };
@@ -277,7 +272,6 @@
 		D6B248D01D215B590082ED6A /* MoreListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreListCell.h; sourceTree = "<group>"; };
 		D6B248D11D215B590082ED6A /* MoreListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreListCell.m; sourceTree = "<group>"; };
 		D6B248D21D215B590082ED6A /* MoreListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreListCell.xib; sourceTree = "<group>"; };
->>>>>>> 4a71637a5d9a94775078183daedde140557a6470
 		D6D21C3D1D1ED17E00C5FF4B /* RecommendHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendHeaderView.h; sourceTree = "<group>"; };
 		D6D21C3E1D1ED17E00C5FF4B /* RecommendHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendHeaderView.m; sourceTree = "<group>"; };
 		D6ECF0471D1D0A92005C372A /* EB_COLOR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EB_COLOR.h; sourceTree = "<group>"; };
@@ -501,15 +495,12 @@
 				D66F8F341D200E160039139A /* SpecialSubjectCell.h */,
 				D66F8F351D200E160039139A /* SpecialSubjectCell.m */,
 				D66F8F361D200E160039139A /* SpecialSubjectCell.xib */,
-<<<<<<< HEAD
 				D69DC4441D20FA3700489DC6 /* ClassificationCell.h */,
 				D69DC4451D20FA3700489DC6 /* ClassificationCell.m */,
 				D69DC4461D20FA3700489DC6 /* ClassificationCell.xib */,
-=======
 				D6B248D01D215B590082ED6A /* MoreListCell.h */,
 				D6B248D11D215B590082ED6A /* MoreListCell.m */,
 				D6B248D21D215B590082ED6A /* MoreListCell.xib */,
->>>>>>> 4a71637a5d9a94775078183daedde140557a6470
 			);
 			path = View;
 			sourceTree = "<group>";

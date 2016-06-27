@@ -8,6 +8,7 @@
 
 #import "ClassificationViewController.h"
 #import "ClassificationCell.h"
+#import "EB_URL.h"
 
 #import <AFNetworking/AFNetworking.h>
 
@@ -53,7 +54,29 @@
 //请求数据
 - (void)requestData {
     
-    
+    __weak typeof(self) recommendVC = self;
+    [self.session GET:EB_CLASSIFICATION_URL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        NSArray *dataArray = responseObject[@"list"];
+        for (NSDictionary *dict in dataArray) {
+            NSString *name = dict[@"name"];
+            NSString *url = [NSString stringWithFormat:@"%@,%@", EB_BASE_URL, name];
+            
+            [self.session GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                NSDictionary *dataDict = [responseObject[@"list"] firstObject];
+                
+                
+            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+                NSLog(@"第二次网络请求失败");
+            }];
+            
+            
+        }
+        
+        
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"网络请求失败:%@", error);
+    }];
     
 }
 
