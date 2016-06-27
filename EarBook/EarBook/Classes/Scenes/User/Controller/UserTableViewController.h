@@ -1,5 +1,5 @@
 //
-//  BookCell.h
+//  UserTableViewController.h
 //  EarBook
 //
 //  Created by lanou3g on 16/6/25.
@@ -8,9 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@class BookMP3;
-@interface BookCell : UITableViewCell
-
-@property (nonatomic, strong) NSArray *bookArray;
+@interface UserTableViewController : UITableViewController
 
 @end

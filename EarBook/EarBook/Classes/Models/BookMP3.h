@@ -46,4 +46,6 @@
 /// url
 @property (nonatomic, copy) NSString *url;
 
+@property (nonatomic, copy) NSString *reason;
+
 @end

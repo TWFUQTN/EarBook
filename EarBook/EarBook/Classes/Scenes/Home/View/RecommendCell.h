@@ -1,5 +1,5 @@
 //
-//  BookCell.h
+//  recommendCell.h
 //  EarBook
 //
 //  Created by lanou3g on 16/6/25.
@@ -9,8 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @class BookMP3;
-@interface BookCell : UITableViewCell
+@interface RecommendCell : UITableViewCell
 
-@property (nonatomic, strong) NSArray *bookArray;
+@property (nonatomic, strong) BookMP3 *book;
 
 @end

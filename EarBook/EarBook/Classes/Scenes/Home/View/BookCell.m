@@ -10,6 +10,8 @@
 #import "BookCollectionCell.h"
 #import <Masonry.h>
 
+#import "BookMP3.h"
+
 #define kWidth [UIScreen mainScreen].bounds.size.width
 
 @interface BookCell () <UICollectionViewDataSource, UICollectionViewDelegate>
@@ -22,12 +24,21 @@
 
 @implementation BookCell
 
+- (void)setBookArray:(NSArray *)bookArray
+{
+    if (_bookArray != bookArray) {
+        _bookArray = bookArray;
+    }
+    [self.myCollectionView reloadData];
+}
+
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     
     if (self) {
         [self layoutView];
+        self.backgroundColor = [UIColor whiteColor];
     }
     return self;
 }
@@ -38,29 +49,24 @@
     self.myFlowLayout = [UICollectionViewFlowLayout new];
     // 设置属性
     // 给定Item的大小
-    self.myFlowLayout.itemSize = CGSizeMake((kWidth - 40) / 3, kWidth / 3);
-    // 每两个Item之间的最小间隙(垂直滚动)
-    self.myFlowLayout.minimumInteritemSpacing = 10;
-    // 每两个Item之间的最小间隙(水平滚动)
-    self.myFlowLayout.minimumLineSpacing = 10;
-    // 设置滚动方向
-    self.myFlowLayout.scrollDirection = UICollectionViewScrollDirectionVertical; // 垂直方向
-    //    self.myFlowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal; // 水平方向
-    // 设置视图的内边距(上左下右)
-    self.myFlowLayout.sectionInset = UIEdgeInsetsMake(20, 10, 10, 10);
-    
-//    // 布局头视图尺寸
-//    self.myFlowLayout.headerReferenceSize = CGSizeMake(0, 50);
-//    
-//    // 布局尾视图尺寸
-//    self.myFlowLayout.footerReferenceSize = CGSizeMake(0, 50);
-    
+    self.myFlowLayout.itemSize = CGSizeMake((kWidth - 20) / 3, 161);
     self.myCollectionView = [[UICollectionView alloc] initWithFrame:self.bounds collectionViewLayout:self.myFlowLayout];
     
+    // 取消水平滚动条,关闭滑动效果
+    self.myCollectionView.scrollEnabled = NO;
+    self.myCollectionView.showsVerticalScrollIndicator = NO;
+    self.myCollectionView.bounces = NO;
     [self.contentView addSubview:_myCollectionView];
-    
+    self.myCollectionView.backgroundColor = [UIColor whiteColor];
     self.myCollectionView.delegate = self;
     self.myCollectionView.dataSource = self;
+    
+    [self.myCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(self).with.offset(0);
+        make.top.equalTo(self).with.offset(0);
+        make.right.equalTo(self).with.offset(0);
+        make.bottom.equalTo(self).with.offset(-10);
+    }];
     
     [self.myCollectionView registerNib:[UINib nibWithNibName:@"BookCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"CollectionCell"];
 }
@@ -74,7 +80,9 @@
 {
     BookCollectionCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"CollectionCell" forIndexPath:indexPath];
     
-    cell.book = self.book;
+    if (self.bookArray.count > 0) {
+        cell.book = self.bookArray[indexPath.row];
+    }
     
     return cell;
 }
