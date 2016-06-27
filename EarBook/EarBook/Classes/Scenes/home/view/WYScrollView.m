@@ -260,7 +260,7 @@
 
 - (void)changeImageWithOffset:(CGFloat)offsetX
 {
-    if (offsetX >= ScrollWidth * 2)
+    if (offsetX >= ScrollWidth * 2 )
     {
         _currentIndex++;
         
