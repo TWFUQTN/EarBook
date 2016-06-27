@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) BookMP3 *book;
 
+@property (nonatomic, copy) NSString *bookDetailURL;
+
 @end

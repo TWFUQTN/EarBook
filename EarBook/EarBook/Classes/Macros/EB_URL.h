@@ -25,7 +25,7 @@
 #define EB_BOOK_LIST_BASE_URL @"http://42.62.15.103/yyting/bookclient/ClientGetBookResource.action?bookId="
 
 // 书籍列表页
-#define EB_BOOK_LIST_URL @"&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&pageNum=1&pageSize=50&q=904& sc=11619c41107cf5f3017e786f37252243&sortType=0&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8%2A"
+#define EB_BOOK_LIST_URL @"&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&pageNum=1&pageSize=50&q=904&sc=11619c41107cf5f3017e786f37252243&sortType=0&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8%2A"
 
 // more按钮地址
 #define EB_MORE_EDIT_RECOMMEND_URL @"http://42.62.15.100/yyting/bookclient/ClientGetBookByTopic.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&pageNum=1&pageSize=500&q=8202&sc=4514a4e550e11cd3e48574c69c413e0d&sort=0&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCm1MERM9GQasAk6L-vqa3PqIC3t2KIXkyw%2A&topicId="

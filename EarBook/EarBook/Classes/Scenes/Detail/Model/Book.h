@@ -1,16 +1,17 @@
 //
-//  BookMP3.h
+//  Book.h
 //  EarBook
 //
-//  Created by lanou3g on 16/6/25.
+//  Created by lanou3g on 16/6/27.
 //  Copyright © 2016年 赵符壹. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface BookMP3 : NSObject
+@interface Book : NSObject
 
-#pragma mark - 书籍详情
+@property (nonatomic, copy) NSString *ID;
+
 /// 主播
 @property (nonatomic, copy) NSString *announcer;
 
@@ -40,14 +41,5 @@
 
 /// 状态 1为连载，2为完结
 @property (nonatomic, copy) NSString *state;
-
-#pragma mark - 书籍推荐
-
-/// url
-@property (nonatomic, copy) NSString *url;
-
-@property (nonatomic, copy) NSString *reason;
-
-@property (nonatomic, copy) NSString *ID;
 
 @end
