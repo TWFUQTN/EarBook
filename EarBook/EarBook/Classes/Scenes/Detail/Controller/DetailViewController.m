@@ -9,7 +9,7 @@
 #import "DetailViewController.h"
 #import "ZF_SegmentLabelView.h"
 #import "ListCell.h"
-#import "DB_COLOR.h"
+#import "EB_COLOR.h"
 
 #define kScrollWidth self.scrollView.frame.size.width
 #define kScrollHeight self.scrollView.frame.size.height

@@ -82,9 +82,14 @@
 		D6770F891D1EB5ED00AE0CFE /* 2.png in Resources */ = {isa = PBXBuildFile; fileRef = D6770F851D1EB5ED00AE0CFE /* 2.png */; };
 		D6770F8A1D1EB5ED00AE0CFE /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = D6770F861D1EB5ED00AE0CFE /* 3.png */; };
 		D6770F8B1D1EB5ED00AE0CFE /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = D6770F871D1EB5ED00AE0CFE /* 4.png */; };
+		D66582F41D1EC41C0023A7B0 /* RecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D66582F21D1EC41C0023A7B0 /* RecommendCell.m */; };
+		D66582F51D1EC41C0023A7B0 /* RecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66582F31D1EC41C0023A7B0 /* RecommendCell.xib */; };
+		D66F8F371D200E160039139A /* SpecialSubjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D66F8F351D200E160039139A /* SpecialSubjectCell.m */; };
+		D66F8F381D200E160039139A /* SpecialSubjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66F8F361D200E160039139A /* SpecialSubjectCell.xib */; };
 		D6856C2B1D1E2D1800E4F4FE /* ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6856C291D1E2D1800E4F4FE /* ListCell.m */; };
 		D6856C2C1D1E2D1800E4F4FE /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6856C2A1D1E2D1800E4F4FE /* ListCell.xib */; };
 		D69048231D1E6541000A6574 /* placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D69048221D1E6541000A6574 /* placeholderImage.png */; };
+		D6D21C3F1D1ED17E00C5FF4B /* RecommendHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D21C3E1D1ED17E00C5FF4B /* RecommendHeaderView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -203,12 +208,22 @@
 		D6770F851D1EB5ED00AE0CFE /* 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 2.png; sourceTree = "<group>"; };
 		D6770F861D1EB5ED00AE0CFE /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		D6770F871D1EB5ED00AE0CFE /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
+		D65DC00D1D1E79C1003905BA /* EfficientDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EfficientDefine.h; sourceTree = "<group>"; };
+		D65DC00E1D1E79DB003905BA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D66582F11D1EC41C0023A7B0 /* RecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendCell.h; sourceTree = "<group>"; };
+		D66582F21D1EC41C0023A7B0 /* RecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendCell.m; sourceTree = "<group>"; };
+		D66582F31D1EC41C0023A7B0 /* RecommendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendCell.xib; sourceTree = "<group>"; };
+		D66F8F341D200E160039139A /* SpecialSubjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialSubjectCell.h; sourceTree = "<group>"; };
+		D66F8F351D200E160039139A /* SpecialSubjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialSubjectCell.m; sourceTree = "<group>"; };
+		D66F8F361D200E160039139A /* SpecialSubjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialSubjectCell.xib; sourceTree = "<group>"; };
 		D6856C281D1E2D1800E4F4FE /* ListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListCell.h; sourceTree = "<group>"; };
 		D6856C291D1E2D1800E4F4FE /* ListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListCell.m; sourceTree = "<group>"; };
 		D6856C2A1D1E2D1800E4F4FE /* ListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 		D69048221D1E6541000A6574 /* placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderImage.png; sourceTree = "<group>"; };
-		D6ECF0471D1D0A92005C372A /* DB_COLOR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB_COLOR.h; sourceTree = "<group>"; };
-		D6ECF0481D1D0A92005C372A /* DB_URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DB_URL.h; sourceTree = "<group>"; };
+		D6D21C3D1D1ED17E00C5FF4B /* RecommendHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendHeaderView.h; sourceTree = "<group>"; };
+		D6D21C3E1D1ED17E00C5FF4B /* RecommendHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendHeaderView.m; sourceTree = "<group>"; };
+		D6ECF0471D1D0A92005C372A /* EB_COLOR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EB_COLOR.h; sourceTree = "<group>"; };
+		D6ECF0481D1D0A92005C372A /* EB_URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EB_URL.h; sourceTree = "<group>"; };
 		D6ECF0491D1D0A92005C372A /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		EDA54285FFE5263EE5BB3965 /* Pods-EarBook.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EarBook.release.xcconfig"; path = "Pods/Target Support Files/Pods-EarBook/Pods-EarBook.release.xcconfig"; sourceTree = "<group>"; };
 		EEA9998324EB31859CEAD3A1 /* libPods-EarBook.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-EarBook.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -411,6 +426,14 @@
 				D632AFF71D1E36D80092A6A3 /* BookCollectionCell.xib */,
 				D632AFFA1D1E5AC40092A6A3 /* BookCell.h */,
 				D632AFFB1D1E5AC40092A6A3 /* BookCell.m */,
+				D66582F11D1EC41C0023A7B0 /* RecommendCell.h */,
+				D66582F21D1EC41C0023A7B0 /* RecommendCell.m */,
+				D66582F31D1EC41C0023A7B0 /* RecommendCell.xib */,
+				D6D21C3D1D1ED17E00C5FF4B /* RecommendHeaderView.h */,
+				D6D21C3E1D1ED17E00C5FF4B /* RecommendHeaderView.m */,
+				D66F8F341D200E160039139A /* SpecialSubjectCell.h */,
+				D66F8F351D200E160039139A /* SpecialSubjectCell.m */,
+				D66F8F361D200E160039139A /* SpecialSubjectCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -637,9 +660,11 @@
 		D6ECF0461D1D0A92005C372A /* Macros */ = {
 			isa = PBXGroup;
 			children = (
-				D6ECF0471D1D0A92005C372A /* DB_COLOR.h */,
-				D6ECF0481D1D0A92005C372A /* DB_URL.h */,
+				D65DC00D1D1E79C1003905BA /* EfficientDefine.h */,
+				D6ECF0471D1D0A92005C372A /* EB_COLOR.h */,
+				D6ECF0481D1D0A92005C372A /* EB_URL.h */,
 				D6ECF0491D1D0A92005C372A /* Singleton.h */,
+				D65DC00E1D1E79DB003905BA /* PrefixHeader.pch */,
 			);
 			path = Macros;
 			sourceTree = "<group>";
@@ -711,6 +736,7 @@
 				D62B096D1D1D2FFD00128D82 /* play.png in Resources */,
 				D6770F8A1D1EB5ED00AE0CFE /* 3.png in Resources */,
 				D62B095B1D1D2DFC00128D82 /* PlayerViewController.xib in Resources */,
+				D66F8F381D200E160039139A /* SpecialSubjectCell.xib in Resources */,
 				D644AD2B1D1E34C8006BB1E3 /* RecommendViewController.xib in Resources */,
 				D631B4BC1D1C1CBC00102682 /* Assets.xcassets in Resources */,
 				D6770F831D1EAB7E00AE0CFE /* rightofcell.png in Resources */,
@@ -743,6 +769,7 @@
 				D62B09711D1D2FFD00128D82 /* volumelow@2x.png in Resources */,
 				D62B09721D1D2FFD00128D82 /* volumelow@3x.png in Resources */,
 				D632AFAC1D1E227A0092A6A3 /* RegisterViewController.xib in Resources */,
+				D66582F51D1EC41C0023A7B0 /* RecommendCell.xib in Resources */,
 				D632AFAE1D1E227A0092A6A3 /* 苹果接口.txt in Resources */,
 				D632AFD11D1E22A70092A6A3 /* textHeader.png in Resources */,
 				D6770F7C1D1EA73E00AE0CFE /* UserTableViewController.xib in Resources */,
@@ -809,12 +836,14 @@
 				D62B09261D1D20EA00128D82 /* Tool_AdaptiveHeight.m in Sources */,
 				D632AFF81D1E36D80092A6A3 /* BookCollectionCell.m in Sources */,
 				D632AFC91D1E22880092A6A3 /* TYCircleCollectionView.m in Sources */,
+				D66F8F371D200E160039139A /* SpecialSubjectCell.m in Sources */,
 				D62B09811D1D57B900128D82 /* ContextMenuCell.m in Sources */,
 				D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */,
 				D6856C2B1D1E2D1800E4F4FE /* ListCell.m in Sources */,
 				D632AFD41D1E22C70092A6A3 /* UIImage+ImageEffects.m in Sources */,
 				D632AFCA1D1E22880092A6A3 /* TYCircleCollectionViewLayout.m in Sources */,
 				D632AFC51D1E22880092A6A3 /* ARSegmentPageController.m in Sources */,
+				D66582F41D1EC41C0023A7B0 /* RecommendCell.m in Sources */,
 				D632AFC61D1E22880092A6A3 /* ARSegmentPageHeader.m in Sources */,
 				D62B097B1D1D571E00128D82 /* UIView+YALConstraints.m in Sources */,
 				D631B4B11D1C1CBC00102682 /* main.m in Sources */,
@@ -832,6 +861,7 @@
 				D644AD2A1D1E34C8006BB1E3 /* RecommendViewController.m in Sources */,
 				D632AFAB1D1E227A0092A6A3 /* RegisterViewController.m in Sources */,
 				D632AFDA1D1E22EF0092A6A3 /* HomeCustomHeader.m in Sources */,
+				D6D21C3F1D1ED17E00C5FF4B /* RecommendHeaderView.m in Sources */,
 				D644AD251D1E34A0006BB1E3 /* RankingViewController.m in Sources */,
 				D632AFC81D1E22880092A6A3 /* TYCircleCell.m in Sources */,
 				D62B095A1D1D2DFC00128D82 /* PlayerViewController.m in Sources */,
@@ -952,6 +982,7 @@
 			baseConfigurationReference = 9114F739FD6B7025008EF6B7 /* Pods-EarBook.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = EarBook/Classes/Macros/PrefixHeader.pch;
 				INFOPLIST_FILE = EarBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LO.EarBook;
@@ -964,6 +995,7 @@
 			baseConfigurationReference = EDA54285FFE5263EE5BB3965 /* Pods-EarBook.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = EarBook/Classes/Macros/PrefixHeader.pch;
 				INFOPLIST_FILE = EarBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = LO.EarBook;

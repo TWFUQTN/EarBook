@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="90" id="KGk-i7-Jjw" customClass="SpecialSubjectCell">
+            <rect key="frame" x="0.0" y="0.0" width="368" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="368" height="89"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ov-Xp-RcA">
+                        <rect key="frame" x="10" y="5" width="169" height="79"/>
+                        <state key="normal" image="text.jpg"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSP-nQ-lcV">
+                        <rect key="frame" x="189" y="5" width="169" height="79"/>
+                        <state key="normal" image="text.jpg"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="7Ov-Xp-RcA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="K2m-oI-7k0"/>
+                    <constraint firstItem="PSP-nQ-lcV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Lhg-Sh-QN6"/>
+                    <constraint firstAttribute="bottom" secondItem="PSP-nQ-lcV" secondAttribute="bottom" constant="5" id="OwX-fe-Sx3"/>
+                    <constraint firstItem="PSP-nQ-lcV" firstAttribute="width" secondItem="7Ov-Xp-RcA" secondAttribute="width" id="WWE-Xd-mcP"/>
+                    <constraint firstItem="7Ov-Xp-RcA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="jGg-A9-CVh"/>
+                    <constraint firstAttribute="bottom" secondItem="7Ov-Xp-RcA" secondAttribute="bottom" constant="5" id="mWV-da-xu1"/>
+                    <constraint firstAttribute="trailing" secondItem="PSP-nQ-lcV" secondAttribute="trailing" constant="10" id="v0A-sW-PQq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <constraints>
+                <constraint firstItem="7Ov-Xp-RcA" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="23:50" id="NTC-eP-7E4"/>
+            </constraints>
+            <connections>
+                <outlet property="SpecialSubImage1" destination="7Ov-Xp-RcA" id="HVl-eI-Ram"/>
+                <outlet property="SpecialSubImage2" destination="PSP-nQ-lcV" id="1NP-dq-SwO"/>
+            </connections>
+            <point key="canvasLocation" x="213" y="227"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="text.jpg" width="2560" height="1600"/>
+    </resources>
+</document>
