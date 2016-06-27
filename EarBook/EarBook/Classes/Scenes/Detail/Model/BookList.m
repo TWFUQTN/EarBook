@@ -1,14 +1,14 @@
 //
-//  BookMP3.m
+//  BookList.m
 //  EarBook
 //
-//  Created by lanou3g on 16/6/25.
+//  Created by lanou3g on 16/6/27.
 //  Copyright © 2016年 赵符壹. All rights reserved.
 //
 
-#import "BookMP3.h"
+#import "BookList.h"
 
-@implementation BookMP3
+@implementation BookList
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key
 {

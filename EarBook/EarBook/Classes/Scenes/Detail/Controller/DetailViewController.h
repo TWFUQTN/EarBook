@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class BookMP3;
 @interface DetailViewController : UIViewController
+
+@property (nonatomic, strong) BookMP3 *book;
+
+@property (nonatomic, copy) NSString *bookDetailURL;
 
 @end
