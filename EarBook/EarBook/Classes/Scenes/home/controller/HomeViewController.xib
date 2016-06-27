@@ -2,11 +2,19 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9531"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
+                <outlet property="tabBarListView" destination="MbY-mc-Q2Q" id="Ncu-se-VHS"/>
+                <outlet property="tabBarSlider" destination="JgU-8f-dPc" id="pnp-rQ-MzU"/>
+                <outlet property="tabBarSongAuthor" destination="J5b-uQ-DfU" id="rlz-Th-pDM"/>
+                <outlet property="tabBarSongName" destination="JgU-8f-dPc" id="or3-gW-jGV"/>
+                <outlet property="tabbarHomeView" destination="Hua-5D-N7a" id="QT0-Nr-EdC"/>
+                <outlet property="tabbarListOtherView" destination="4k9-IJ-zGj" id="16w-Hj-qRA"/>
+                <outlet property="tabbarSongImageView" destination="YjZ-2j-ZUY" id="QLk-DN-yNw"/>
+                <outlet property="tabbarSongView" destination="FA2-sG-kL3" id="wsl-Qf-ddB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,21 +23,167 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXo-Oc-7kq">
+                <view hidden="YES" alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4k9-IJ-zGj">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="518"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="2Wc-ts-7dN" appends="YES" id="0OF-56-EEt"/>
+                    </connections>
+                </view>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MbY-mc-Q2Q">
+                    <rect key="frame" x="100" y="200" width="220" height="318"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hua-5D-N7a">
                     <rect key="frame" x="0.0" y="518" width="320" height="50"/>
-                    <color key="backgroundColor" red="1" green="0.96520132810000003" blue="0.60637881339999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lub-fk-hr3">
+                            <rect key="frame" x="285" y="15" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="bsU-Ud-RCV"/>
+                                <constraint firstAttribute="height" constant="30" id="gLa-aP-1oo"/>
+                            </constraints>
+                            <state key="normal" image="tabBarup.png"/>
+                            <connections>
+                                <action selector="tabBarListButton:" destination="-1" eventType="touchUpInside" id="utW-AE-LeY"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sby-Ka-HQt">
+                            <rect key="frame" x="250" y="15" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="UXn-oH-JgA"/>
+                                <constraint firstAttribute="height" constant="30" id="oeW-Qb-IGw"/>
+                            </constraints>
+                            <state key="normal" image="tabBarnext.png"/>
+                            <connections>
+                                <action selector="tabBarLastButton:" destination="-1" eventType="touchUpInside" id="qzr-MN-FEB"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLW-k8-mGL">
+                            <rect key="frame" x="215" y="15" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="eHB-13-jnV"/>
+                                <constraint firstAttribute="width" constant="30" id="iWM-gu-ED8"/>
+                            </constraints>
+                            <state key="normal" image="tabBarplay.png"/>
+                            <connections>
+                                <action selector="tabBarPlayButton:" destination="-1" eventType="touchUpInside" id="M5L-Y2-35s"/>
+                            </connections>
+                        </button>
+                        <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="eCl-8r-aJR">
+                            <rect key="frame" x="73" y="-10" width="244" height="31"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="vJe-yr-pQF"/>
+                            </constraints>
+                        </slider>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgU-8f-dPc">
+                            <rect key="frame" x="75" y="10" width="135" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="Oge-uN-p0K"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="50" id="EKJ-oF-Haf"/>
+                        <constraint firstAttribute="trailing" secondItem="eCl-8r-aJR" secondAttribute="trailing" constant="5" id="1k5-tw-5W1"/>
+                        <constraint firstItem="lub-fk-hr3" firstAttribute="leading" secondItem="Sby-Ka-HQt" secondAttribute="trailing" constant="5" id="2VI-Zo-lFX"/>
+                        <constraint firstItem="kLW-k8-mGL" firstAttribute="leading" secondItem="JgU-8f-dPc" secondAttribute="trailing" constant="5" id="Ldj-Pf-hO9"/>
+                        <constraint firstAttribute="bottom" secondItem="kLW-k8-mGL" secondAttribute="bottom" constant="5" id="NqW-fN-WDd"/>
+                        <constraint firstAttribute="bottom" secondItem="lub-fk-hr3" secondAttribute="bottom" constant="5" id="PHO-kj-JVC"/>
+                        <constraint firstAttribute="height" constant="50" id="YN5-qC-FT5"/>
+                        <constraint firstAttribute="trailing" secondItem="lub-fk-hr3" secondAttribute="trailing" constant="5" id="g7Y-LK-bNQ"/>
+                        <constraint firstItem="eCl-8r-aJR" firstAttribute="leading" secondItem="Hua-5D-N7a" secondAttribute="leading" constant="75" id="md1-8S-y9p"/>
+                        <constraint firstItem="Sby-Ka-HQt" firstAttribute="leading" secondItem="kLW-k8-mGL" secondAttribute="trailing" constant="5" id="pLj-gH-MdJ"/>
+                        <constraint firstItem="eCl-8r-aJR" firstAttribute="top" secondItem="Hua-5D-N7a" secondAttribute="top" constant="-10" id="rQD-2X-tiu"/>
+                        <constraint firstItem="JgU-8f-dPc" firstAttribute="leading" secondItem="Hua-5D-N7a" secondAttribute="leading" constant="75" id="vha-q6-WUr"/>
+                        <constraint firstItem="JgU-8f-dPc" firstAttribute="top" secondItem="Hua-5D-N7a" secondAttribute="top" constant="10" id="x44-XA-q5j"/>
+                        <constraint firstAttribute="bottom" secondItem="Sby-Ka-HQt" secondAttribute="bottom" constant="5" id="yb0-gs-FN3"/>
                     </constraints>
                 </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FA2-sG-kL3">
+                    <rect key="frame" x="0.0" y="498" width="70" height="70"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textHeader.png" translatesAutoresizingMaskIntoConstraints="NO" id="YjZ-2j-ZUY">
+                            <rect key="frame" x="5" y="5" width="60" height="60"/>
+                            <gestureRecognizers/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <gestureRecognizers/>
+                    <constraints>
+                        <constraint firstItem="YjZ-2j-ZUY" firstAttribute="leading" secondItem="FA2-sG-kL3" secondAttribute="leading" constant="5" id="5ch-tn-L3r"/>
+                        <constraint firstAttribute="height" constant="70" id="NP2-GS-RxD"/>
+                        <constraint firstAttribute="width" constant="70" id="Ugo-ov-JW4"/>
+                        <constraint firstAttribute="trailing" secondItem="YjZ-2j-ZUY" secondAttribute="trailing" constant="5" id="aTQ-qb-fkL"/>
+                        <constraint firstAttribute="bottom" secondItem="YjZ-2j-ZUY" secondAttribute="bottom" constant="5" id="fcY-uz-c3n"/>
+                        <constraint firstItem="YjZ-2j-ZUY" firstAttribute="top" secondItem="FA2-sG-kL3" secondAttribute="top" constant="5" id="o21-c4-a5y"/>
+                    </constraints>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="aWp-TF-DpQ" appends="YES" id="TMb-Hl-3Qo"/>
+                    </connections>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="作者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5b-uQ-DfU">
+                    <rect key="frame" x="75" y="553" width="135" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="15" id="Oj0-tl-ui0"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQ2-to-iC7">
+                    <rect key="frame" x="75" y="538" width="135" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="dei-GY-ciZ"/>
+                    </constraints>
+                    <connections>
+                        <action selector="SongButton:" destination="-1" eventType="touchUpInside" id="KfN-VY-cLi"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="KXo-Oc-7kq" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="cd4-fV-yTX"/>
-                <constraint firstAttribute="trailing" secondItem="KXo-Oc-7kq" secondAttribute="trailing" id="kek-ol-C70"/>
-                <constraint firstAttribute="bottom" secondItem="KXo-Oc-7kq" secondAttribute="bottom" id="wXu-yS-UJb"/>
+                <constraint firstAttribute="trailing" secondItem="MbY-mc-Q2Q" secondAttribute="trailing" id="43e-iC-NG1"/>
+                <constraint firstAttribute="bottom" secondItem="Hua-5D-N7a" secondAttribute="bottom" id="9Dl-BH-lTS"/>
+                <constraint firstItem="4k9-IJ-zGj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9xS-1y-f8H"/>
+                <constraint firstItem="MbY-mc-Q2Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="Bnp-O5-stG"/>
+                <constraint firstItem="FA2-sG-kL3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ER9-Cb-JD2"/>
+                <constraint firstAttribute="trailing" secondItem="AQ2-to-iC7" secondAttribute="trailing" constant="110" id="F8T-3e-Iwo"/>
+                <constraint firstItem="4k9-IJ-zGj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LMm-sv-amQ"/>
+                <constraint firstAttribute="trailing" secondItem="4k9-IJ-zGj" secondAttribute="trailing" id="MXD-Ey-hPg"/>
+                <constraint firstItem="Hua-5D-N7a" firstAttribute="top" secondItem="MbY-mc-Q2Q" secondAttribute="bottom" id="O7t-OC-UoM"/>
+                <constraint firstItem="Hua-5D-N7a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="StH-pZ-9s3"/>
+                <constraint firstAttribute="trailing" secondItem="Hua-5D-N7a" secondAttribute="trailing" id="U67-mx-QAh"/>
+                <constraint firstAttribute="bottom" secondItem="J5b-uQ-DfU" secondAttribute="bottom" id="bpV-BK-ao6"/>
+                <constraint firstItem="Hua-5D-N7a" firstAttribute="top" secondItem="4k9-IJ-zGj" secondAttribute="bottom" id="efp-JR-9hm"/>
+                <constraint firstAttribute="bottom" secondItem="AQ2-to-iC7" secondAttribute="bottom" id="hjl-9C-wZP"/>
+                <constraint firstAttribute="trailing" secondItem="J5b-uQ-DfU" secondAttribute="trailing" constant="110" id="jT4-pj-jTG"/>
+                <constraint firstItem="MbY-mc-Q2Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="200" id="kok-p6-bzt"/>
+                <constraint firstAttribute="bottom" secondItem="FA2-sG-kL3" secondAttribute="bottom" id="oof-XR-EuT"/>
+                <constraint firstItem="J5b-uQ-DfU" firstAttribute="leading" secondItem="FA2-sG-kL3" secondAttribute="trailing" constant="5" id="qIi-oW-o70"/>
+                <constraint firstItem="AQ2-to-iC7" firstAttribute="leading" secondItem="FA2-sG-kL3" secondAttribute="trailing" constant="5" id="ylj-2q-2yr"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
+        <tapGestureRecognizer id="2Wc-ts-7dN">
+            <connections>
+                <action selector="tabBarListDisapperAction:" destination="-1" id="EWT-4a-k1u"/>
+            </connections>
+        </tapGestureRecognizer>
+        <tapGestureRecognizer id="aWp-TF-DpQ">
+            <connections>
+                <action selector="tabBarSongImageViewAction:" destination="-1" id="gVc-ff-M1L"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
+    <resources>
+        <image name="tabBarnext.png" width="512" height="512"/>
+        <image name="tabBarplay.png" width="512" height="512"/>
+        <image name="tabBarup.png" width="512" height="512"/>
+        <image name="textHeader.png" width="171" height="171"/>
+    </resources>
 </document>
