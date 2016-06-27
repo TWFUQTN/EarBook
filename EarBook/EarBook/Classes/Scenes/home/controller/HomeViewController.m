@@ -50,6 +50,8 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     }
     return _header;
 }
+<<<<<<< HEAD
+=======
 - (void)viewDidAppear:(BOOL)animated {
 //    _tabbarHomeView.layer.cornerRadius = 10;
 //    _tabbarHomeView.layer.masksToBounds = YES;
@@ -66,6 +68,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 - (void)selectMenuAtIndex:(NSInteger)index {
     NSLog(@"选中:%zd",index);
 }
+>>>>>>> dd05584a127ed20dad3ebcabf90f765083c49fd7
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -79,6 +82,12 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 //    self.header.headImageView.layer.borderWidth = 2;
     [self addObserver:self forKeyPath:@"segmentTopInset" options:NSKeyValueObservingOptionNew context:CustomHeaderInsetObserver];
 }
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBar.translucent = YES;
+}
+
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];

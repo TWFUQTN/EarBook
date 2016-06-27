@@ -15,36 +15,31 @@
                 <rect key="frame" x="0.0" y="0.0" width="368" height="89"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Ov-Xp-RcA">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LL3-SY-5n3">
                         <rect key="frame" x="10" y="5" width="169" height="79"/>
-                        <state key="normal" image="text.jpg"/>
-                    </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PSP-nQ-lcV">
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ofk-bX-reS">
                         <rect key="frame" x="189" y="5" width="169" height="79"/>
-                        <state key="normal" image="text.jpg"/>
-                    </button>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="7Ov-Xp-RcA" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="K2m-oI-7k0"/>
-                    <constraint firstItem="PSP-nQ-lcV" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Lhg-Sh-QN6"/>
-                    <constraint firstAttribute="bottom" secondItem="PSP-nQ-lcV" secondAttribute="bottom" constant="5" id="OwX-fe-Sx3"/>
-                    <constraint firstItem="PSP-nQ-lcV" firstAttribute="width" secondItem="7Ov-Xp-RcA" secondAttribute="width" id="WWE-Xd-mcP"/>
-                    <constraint firstItem="7Ov-Xp-RcA" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="jGg-A9-CVh"/>
-                    <constraint firstAttribute="bottom" secondItem="7Ov-Xp-RcA" secondAttribute="bottom" constant="5" id="mWV-da-xu1"/>
-                    <constraint firstAttribute="trailing" secondItem="PSP-nQ-lcV" secondAttribute="trailing" constant="10" id="v0A-sW-PQq"/>
+                    <constraint firstItem="LL3-SY-5n3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Cju-ZA-cin"/>
+                    <constraint firstItem="Ofk-bX-reS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="Gii-EY-Hc3"/>
+                    <constraint firstItem="Ofk-bX-reS" firstAttribute="width" secondItem="LL3-SY-5n3" secondAttribute="width" id="Kxx-PP-VuS"/>
+                    <constraint firstAttribute="bottom" secondItem="LL3-SY-5n3" secondAttribute="bottom" constant="5" id="LBf-gb-RL6"/>
+                    <constraint firstItem="LL3-SY-5n3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Os9-Dr-hOU"/>
+                    <constraint firstAttribute="bottom" secondItem="Ofk-bX-reS" secondAttribute="bottom" constant="5" id="f7j-FX-6Kl"/>
+                    <constraint firstAttribute="trailing" secondItem="Ofk-bX-reS" secondAttribute="trailing" constant="10" id="ser-3g-hhn"/>
                 </constraints>
             </tableViewCellContentView>
             <constraints>
-                <constraint firstItem="7Ov-Xp-RcA" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="23:50" id="NTC-eP-7E4"/>
+                <constraint firstItem="LL3-SY-5n3" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="23:50" id="DT2-w7-tGH"/>
             </constraints>
             <connections>
-                <outlet property="SpecialSubImage1" destination="7Ov-Xp-RcA" id="HVl-eI-Ram"/>
-                <outlet property="SpecialSubImage2" destination="PSP-nQ-lcV" id="1NP-dq-SwO"/>
+                <outlet property="specialSubImage1" destination="LL3-SY-5n3" id="JIM-pf-cmh"/>
+                <outlet property="specialSubImage2" destination="Ofk-bX-reS" id="prJ-MA-XvJ"/>
             </connections>
-            <point key="canvasLocation" x="213" y="227"/>
+            <point key="canvasLocation" x="349" y="229"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="text.jpg" width="2560" height="1600"/>
-    </resources>
 </document>

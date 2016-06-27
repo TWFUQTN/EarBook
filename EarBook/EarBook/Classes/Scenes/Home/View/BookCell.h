@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @class BookMP3;
+
+typedef void(^BookCellBlock)(NSString *url);
+
 @interface BookCell : UITableViewCell
 
 @property (nonatomic, strong) NSArray *bookArray;
+
+@property (nonatomic, copy) BookCellBlock block;
 
 @end

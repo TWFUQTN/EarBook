@@ -7,6 +7,7 @@
 //
 
 #import "ZF_SegmentLabelView.h"
+#import "EB_COLOR.h"
 
 #define kUpSegmentFrameX 20
 #define kUpSegmentFrameY 5

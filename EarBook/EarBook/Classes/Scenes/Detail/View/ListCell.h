@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class BookList;
 @interface ListCell : UITableViewCell
+
+@property (nonatomic, strong) BookList *bookList;
 
 @end

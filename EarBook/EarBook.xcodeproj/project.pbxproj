@@ -73,8 +73,10 @@
 		D644AD261D1E34A0006BB1E3 /* RankingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D644AD241D1E34A0006BB1E3 /* RankingViewController.xib */; };
 		D644AD2A1D1E34C8006BB1E3 /* RecommendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D644AD281D1E34C8006BB1E3 /* RecommendViewController.m */; };
 		D644AD2B1D1E34C8006BB1E3 /* RecommendViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D644AD291D1E34C8006BB1E3 /* RecommendViewController.xib */; };
+		D656751D1D210FC5000E4B26 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = D656751C1D210FC5000E4B26 /* back.png */; };
 		D66582F41D1EC41C0023A7B0 /* RecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D66582F21D1EC41C0023A7B0 /* RecommendCell.m */; };
 		D66582F51D1EC41C0023A7B0 /* RecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66582F31D1EC41C0023A7B0 /* RecommendCell.xib */; };
+		D66BF3D71D20CCC700A5A44A /* List.m in Sources */ = {isa = PBXBuildFile; fileRef = D66BF3D61D20CCC700A5A44A /* List.m */; };
 		D66F8F371D200E160039139A /* SpecialSubjectCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D66F8F351D200E160039139A /* SpecialSubjectCell.m */; };
 		D66F8F381D200E160039139A /* SpecialSubjectCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D66F8F361D200E160039139A /* SpecialSubjectCell.xib */; };
 		D675A5701D20D11300E6F999 /* PCStackMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D675A56A1D20D11300E6F999 /* PCStackMenu.m */; };
@@ -103,8 +105,15 @@
 		D6856C2B1D1E2D1800E4F4FE /* ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6856C291D1E2D1800E4F4FE /* ListCell.m */; };
 		D6856C2C1D1E2D1800E4F4FE /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6856C2A1D1E2D1800E4F4FE /* ListCell.xib */; };
 		D69048231D1E6541000A6574 /* placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D69048221D1E6541000A6574 /* placeholderImage.png */; };
+<<<<<<< HEAD
 		D69DC4471D20FA3700489DC6 /* ClassificationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D69DC4451D20FA3700489DC6 /* ClassificationCell.m */; };
 		D69DC4481D20FA3700489DC6 /* ClassificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D69DC4461D20FA3700489DC6 /* ClassificationCell.xib */; };
+=======
+		D6B248CC1D211A850082ED6A /* BookList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B248CB1D211A850082ED6A /* BookList.m */; };
+		D6B248CF1D2144E90082ED6A /* MoreListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B248CE1D2144E90082ED6A /* MoreListViewController.m */; };
+		D6B248D31D215B590082ED6A /* MoreListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B248D11D215B590082ED6A /* MoreListCell.m */; };
+		D6B248D41D215B590082ED6A /* MoreListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6B248D21D215B590082ED6A /* MoreListCell.xib */; };
+>>>>>>> 4a71637a5d9a94775078183daedde140557a6470
 		D6D21C3F1D1ED17E00C5FF4B /* RecommendHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6D21C3E1D1ED17E00C5FF4B /* RecommendHeaderView.m */; };
 /* End PBXBuildFile section */
 
@@ -213,11 +222,14 @@
 		D644AD271D1E34C8006BB1E3 /* RecommendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RecommendViewController.h; path = EarBook/Classes/Scenes/home/controller/RecommendViewController.h; sourceTree = SOURCE_ROOT; };
 		D644AD281D1E34C8006BB1E3 /* RecommendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RecommendViewController.m; path = EarBook/Classes/Scenes/home/controller/RecommendViewController.m; sourceTree = SOURCE_ROOT; };
 		D644AD291D1E34C8006BB1E3 /* RecommendViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = RecommendViewController.xib; path = EarBook/Classes/Scenes/home/controller/RecommendViewController.xib; sourceTree = SOURCE_ROOT; };
+		D656751C1D210FC5000E4B26 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		D65DC00D1D1E79C1003905BA /* EfficientDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EfficientDefine.h; sourceTree = "<group>"; };
 		D65DC00E1D1E79DB003905BA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		D66582F11D1EC41C0023A7B0 /* RecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendCell.h; sourceTree = "<group>"; };
 		D66582F21D1EC41C0023A7B0 /* RecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendCell.m; sourceTree = "<group>"; };
 		D66582F31D1EC41C0023A7B0 /* RecommendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendCell.xib; sourceTree = "<group>"; };
+		D66BF3D51D20CCC700A5A44A /* List.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = List.h; sourceTree = "<group>"; };
+		D66BF3D61D20CCC700A5A44A /* List.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = List.m; sourceTree = "<group>"; };
 		D66F8F341D200E160039139A /* SpecialSubjectCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialSubjectCell.h; sourceTree = "<group>"; };
 		D66F8F351D200E160039139A /* SpecialSubjectCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialSubjectCell.m; sourceTree = "<group>"; };
 		D66F8F361D200E160039139A /* SpecialSubjectCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialSubjectCell.xib; sourceTree = "<group>"; };
@@ -253,9 +265,19 @@
 		D6856C291D1E2D1800E4F4FE /* ListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListCell.m; sourceTree = "<group>"; };
 		D6856C2A1D1E2D1800E4F4FE /* ListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
 		D69048221D1E6541000A6574 /* placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderImage.png; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		D69DC4441D20FA3700489DC6 /* ClassificationCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassificationCell.h; sourceTree = "<group>"; };
 		D69DC4451D20FA3700489DC6 /* ClassificationCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassificationCell.m; sourceTree = "<group>"; };
 		D69DC4461D20FA3700489DC6 /* ClassificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassificationCell.xib; sourceTree = "<group>"; };
+=======
+		D6B248CA1D211A850082ED6A /* BookList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookList.h; sourceTree = "<group>"; };
+		D6B248CB1D211A850082ED6A /* BookList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookList.m; sourceTree = "<group>"; };
+		D6B248CD1D2144E90082ED6A /* MoreListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreListViewController.h; sourceTree = "<group>"; };
+		D6B248CE1D2144E90082ED6A /* MoreListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreListViewController.m; sourceTree = "<group>"; };
+		D6B248D01D215B590082ED6A /* MoreListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreListCell.h; sourceTree = "<group>"; };
+		D6B248D11D215B590082ED6A /* MoreListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreListCell.m; sourceTree = "<group>"; };
+		D6B248D21D215B590082ED6A /* MoreListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreListCell.xib; sourceTree = "<group>"; };
+>>>>>>> 4a71637a5d9a94775078183daedde140557a6470
 		D6D21C3D1D1ED17E00C5FF4B /* RecommendHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendHeaderView.h; sourceTree = "<group>"; };
 		D6D21C3E1D1ED17E00C5FF4B /* RecommendHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendHeaderView.m; sourceTree = "<group>"; };
 		D6ECF0471D1D0A92005C372A /* EB_COLOR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EB_COLOR.h; sourceTree = "<group>"; };
@@ -396,6 +418,8 @@
 			isa = PBXGroup;
 			children = (
 				D62B093E1D1D2DFC00128D82 /* 苹果接口.txt */,
+				D6B248CA1D211A850082ED6A /* BookList.h */,
+				D6B248CB1D211A850082ED6A /* BookList.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -439,6 +463,8 @@
 				D644AD271D1E34C8006BB1E3 /* RecommendViewController.h */,
 				D644AD281D1E34C8006BB1E3 /* RecommendViewController.m */,
 				D644AD291D1E34C8006BB1E3 /* RecommendViewController.xib */,
+				D6B248CD1D2144E90082ED6A /* MoreListViewController.h */,
+				D6B248CE1D2144E90082ED6A /* MoreListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -447,6 +473,8 @@
 			isa = PBXGroup;
 			children = (
 				D62B09471D1D2DFC00128D82 /* 苹果接口.txt */,
+				D66BF3D51D20CCC700A5A44A /* List.h */,
+				D66BF3D61D20CCC700A5A44A /* List.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -473,9 +501,15 @@
 				D66F8F341D200E160039139A /* SpecialSubjectCell.h */,
 				D66F8F351D200E160039139A /* SpecialSubjectCell.m */,
 				D66F8F361D200E160039139A /* SpecialSubjectCell.xib */,
+<<<<<<< HEAD
 				D69DC4441D20FA3700489DC6 /* ClassificationCell.h */,
 				D69DC4451D20FA3700489DC6 /* ClassificationCell.m */,
 				D69DC4461D20FA3700489DC6 /* ClassificationCell.xib */,
+=======
+				D6B248D01D215B590082ED6A /* MoreListCell.h */,
+				D6B248D11D215B590082ED6A /* MoreListCell.m */,
+				D6B248D21D215B590082ED6A /* MoreListCell.xib */,
+>>>>>>> 4a71637a5d9a94775078183daedde140557a6470
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -682,6 +716,7 @@
 		D632AFCD1D1E22A70092A6A3 /* HomeImage */ = {
 			isa = PBXGroup;
 			children = (
+				D656751C1D210FC5000E4B26 /* back.png */,
 				D6770F821D1EAB7E00AE0CFE /* rightofcell.png */,
 				D69048221D1E6541000A6574 /* placeholderImage.png */,
 				D632AFCE1D1E22A70092A6A3 /* text.jpg */,
@@ -828,6 +863,7 @@
 				D675A5791D20D16600E6F999 /* actions@2x.png in Resources */,
 				D6770F891D1EB5ED00AE0CFE /* 2.png in Resources */,
 				D62B09591D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
+				D656751D1D210FC5000E4B26 /* back.png in Resources */,
 				D675A5861D20D35900E6F999 /* tabBarnext.png in Resources */,
 				D62B09541D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D62B095C1D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
@@ -844,6 +880,7 @@
 				D6770F8B1D1EB5ED00AE0CFE /* 4.png in Resources */,
 				D62B096C1D1D2FFD00128D82 /* pause.png in Resources */,
 				D69048231D1E6541000A6574 /* placeholderImage.png in Resources */,
+				D6B248D41D215B590082ED6A /* MoreListCell.xib in Resources */,
 				D6770F811D1EA82600AE0CFE /* UserCell.xib in Resources */,
 				D62B09701D1D2FFD00128D82 /* volumehigh@3x.png in Resources */,
 				D632AFF91D1E36D80092A6A3 /* BookCollectionCell.xib in Resources */,
@@ -930,6 +967,7 @@
 				D632AFC91D1E22880092A6A3 /* TYCircleCollectionView.m in Sources */,
 				D66F8F371D200E160039139A /* SpecialSubjectCell.m in Sources */,
 				D62B09811D1D57B900128D82 /* ContextMenuCell.m in Sources */,
+				D66BF3D71D20CCC700A5A44A /* List.m in Sources */,
 				D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */,
 				D675A5701D20D11300E6F999 /* PCStackMenu.m in Sources */,
 				D6856C2B1D1E2D1800E4F4FE /* ListCell.m in Sources */,
@@ -942,6 +980,7 @@
 				D69DC4471D20FA3700489DC6 /* ClassificationCell.m in Sources */,
 				D631B4B11D1C1CBC00102682 /* main.m in Sources */,
 				D632AFF11D1E237D0092A6A3 /* YALNavigationBar.m in Sources */,
+				D6B248CF1D2144E90082ED6A /* MoreListViewController.m in Sources */,
 				D632AFFC1D1E5AC40092A6A3 /* BookCell.m in Sources */,
 				D632AFCB1D1E22880092A6A3 /* TYCircleMenu.m in Sources */,
 				D6770F7B1D1EA73E00AE0CFE /* UserTableViewController.m in Sources */,
@@ -955,9 +994,11 @@
 				D632AFC71D1E22880092A6A3 /* ARSegmentView.m in Sources */,
 				D644AD2A1D1E34C8006BB1E3 /* RecommendViewController.m in Sources */,
 				D632AFAB1D1E227A0092A6A3 /* RegisterViewController.m in Sources */,
+				D6B248CC1D211A850082ED6A /* BookList.m in Sources */,
 				D675A5721D20D11300E6F999 /* TBActivityView.m in Sources */,
 				D632AFDA1D1E22EF0092A6A3 /* HomeCustomHeader.m in Sources */,
 				D6D21C3F1D1ED17E00C5FF4B /* RecommendHeaderView.m in Sources */,
+				D6B248D31D215B590082ED6A /* MoreListCell.m in Sources */,
 				D644AD251D1E34A0006BB1E3 /* RankingViewController.m in Sources */,
 				D632AFC81D1E22880092A6A3 /* TYCircleCell.m in Sources */,
 				D62B095A1D1D2DFC00128D82 /* PlayerViewController.m in Sources */,
