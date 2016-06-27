@@ -23,8 +23,8 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 
 @property (nonatomic, strong) YALContextMenuTableView* contextMenuTableView;
 
-@property (nonatomic, strong) NSArray *menuTitles;
-@property (nonatomic, strong) NSArray *menuIcons;
+//@property (nonatomic, strong) NSArray *menuTitles;
+//@property (nonatomic, strong) NSArray *menuIcons;
 
 @end
 
@@ -33,7 +33,7 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self initiateMenuOptions];
+//    [self initiateMenuOptions];
     // set custom navigationBar with a bigger height
     [self.navigationController setValue:[[YALNavigationBar alloc]init] forKeyPath:@"navigationBar"];
 }
@@ -83,15 +83,15 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 
 #pragma mark - Local methods
 
-- (void)initiateMenuOptions {
-    self.menuTitles = @[@"",
-                        @"Send message",
-                        @"Like profile"];
-    
-    self.menuIcons = @[[UIImage imageNamed:@"icn_close"],
-                       [UIImage imageNamed:@"icn_1"],
-                       [UIImage imageNamed:@"icn_2"]];
-}
+//- (void)initiateMenuOptions {
+//    self.menuTitles = @[@"",
+//                        @"Send message",
+//                        @"Like profile"];
+//    
+//    self.menuIcons = @[[UIImage imageNamed:@"icn_close"],
+//                       [UIImage imageNamed:@"icn_1"],
+//                       [UIImage imageNamed:@"icn_2"]];
+//}
 
 
 #pragma mark - YALContextMenuTableViewDelegate
@@ -111,7 +111,7 @@ static NSString *const menuCellIdentifier = @"rotationCell";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.menuTitles.count;
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(YALContextMenuTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -119,8 +119,8 @@ static NSString *const menuCellIdentifier = @"rotationCell";
     ContextMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:menuCellIdentifier forIndexPath:indexPath];
     
     if (cell) {
-        cell.menuTitleLabel.text = [self.menuTitles objectAtIndex:indexPath.row];
-        cell.menuImageView.image = [self.menuIcons objectAtIndex:indexPath.row];
+//        cell.menuTitleLabel.text = [self.menuTitles objectAtIndex:indexPath.row];
+//        cell.menuImageView.image = [self.menuIcons objectAtIndex:indexPath.row];
     }
     
     return cell;
