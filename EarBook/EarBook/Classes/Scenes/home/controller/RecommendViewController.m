@@ -55,6 +55,7 @@
 {
     if(!_NetImageArray)
     {
+
         _NetImageArray = @[@"http://ws.xzhushou.cn/focusimg/201508201549023.jpg",@"http://ws.xzhushou.cn/focusimg/52.jpg",@"http://ws.xzhushou.cn/focusimg/51.jpg",@"http://ws.xzhushou.cn/focusimg/50.jpg"].mutableCopy;
 //        _NetImageArray = [NSMutableArray array];
     }
