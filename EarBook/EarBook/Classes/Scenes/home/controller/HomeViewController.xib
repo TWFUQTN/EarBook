@@ -7,12 +7,16 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
+                <outlet property="tabBarListPlayView" destination="Per-Qd-dhF" id="9A8-JT-Pys"/>
+                <outlet property="tabBarListTableView" destination="B4M-Ms-lcK" id="5Cd-vQ-sVI"/>
                 <outlet property="tabBarListView" destination="MbY-mc-Q2Q" id="Ncu-se-VHS"/>
                 <outlet property="tabBarSlider" destination="JgU-8f-dPc" id="pnp-rQ-MzU"/>
                 <outlet property="tabBarSongAuthor" destination="J5b-uQ-DfU" id="rlz-Th-pDM"/>
                 <outlet property="tabBarSongName" destination="JgU-8f-dPc" id="or3-gW-jGV"/>
                 <outlet property="tabbarHomeView" destination="Hua-5D-N7a" id="QT0-Nr-EdC"/>
+                <outlet property="tabbarListDownView" destination="6VS-LP-enc" id="9z5-2t-Ctp"/>
                 <outlet property="tabbarListOtherView" destination="4k9-IJ-zGj" id="16w-Hj-qRA"/>
+                <outlet property="tabbarListUpView" destination="lKZ-sc-A95" id="SRb-ge-Fjt"/>
                 <outlet property="tabbarSongImageView" destination="YjZ-2j-ZUY" id="QLk-DN-yNw"/>
                 <outlet property="tabbarSongView" destination="FA2-sG-kL3" id="wsl-Qf-ddB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -33,7 +37,119 @@
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MbY-mc-Q2Q">
                     <rect key="frame" x="100" y="200" width="220" height="318"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lKZ-sc-A95">
+                            <rect key="frame" x="0.0" y="0.0" width="220" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="播放列表" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ZK-CQ-2QS">
+                                    <rect key="frame" x="5" y="5" width="70" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="70" id="0il-gI-Dfi"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBe-uQ-j6J">
+                                    <rect key="frame" x="185" y="5" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="30" id="35a-yS-QmR"/>
+                                        <constraint firstAttribute="height" constant="30" id="BcH-Om-prS"/>
+                                        <constraint firstAttribute="height" constant="30" id="a1r-bY-J8K"/>
+                                        <constraint firstAttribute="width" constant="30" id="oCI-LU-ILq"/>
+                                    </constraints>
+                                    <state key="normal" image="tabBartrash.png"/>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="a1r-bY-J8K"/>
+                                            <exclude reference="oCI-LU-ILq"/>
+                                        </mask>
+                                    </variation>
+                                    <connections>
+                                        <action selector="tabBarListDelete:" destination="-1" eventType="touchUpInside" id="f7e-pA-SQx"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pQc-5t-5Pk">
+                                    <rect key="frame" x="150" y="5" width="30" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="QqN-YD-mky"/>
+                                        <constraint firstAttribute="width" constant="30" id="TqN-kl-2Jp"/>
+                                        <constraint firstAttribute="height" constant="30" id="X7X-hR-0qM"/>
+                                        <constraint firstAttribute="width" constant="30" id="tSP-Ye-g5b"/>
+                                    </constraints>
+                                    <state key="normal" image="tabBarlikes.png"/>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="QqN-YD-mky"/>
+                                            <exclude reference="TqN-kl-2Jp"/>
+                                        </mask>
+                                    </variation>
+                                    <connections>
+                                        <action selector="tabBarListLikes:" destination="-1" eventType="touchUpInside" id="dPC-Ht-8aG"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Per-Qd-dhF">
+                                    <rect key="frame" x="75" y="0.0" width="75" height="40"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="1ZK-CQ-2QS" secondAttribute="bottom" constant="5" id="04b-cp-0fH"/>
+                                <constraint firstAttribute="height" constant="40" id="7Ab-fD-Kxr"/>
+                                <constraint firstAttribute="trailing" secondItem="vBe-uQ-j6J" secondAttribute="trailing" constant="5" id="9py-mq-JWn"/>
+                                <constraint firstItem="1ZK-CQ-2QS" firstAttribute="top" secondItem="lKZ-sc-A95" secondAttribute="top" constant="5" id="B2S-0o-FtU"/>
+                                <constraint firstItem="pQc-5t-5Pk" firstAttribute="top" secondItem="lKZ-sc-A95" secondAttribute="top" constant="5" id="DBa-Ue-CzY"/>
+                                <constraint firstAttribute="bottom" secondItem="Per-Qd-dhF" secondAttribute="bottom" id="E6A-9G-t35"/>
+                                <constraint firstItem="vBe-uQ-j6J" firstAttribute="leading" secondItem="pQc-5t-5Pk" secondAttribute="trailing" constant="5" id="KQP-Wj-eDM"/>
+                                <constraint firstItem="pQc-5t-5Pk" firstAttribute="top" secondItem="lKZ-sc-A95" secondAttribute="top" constant="5" id="Q2c-wQ-E2q"/>
+                                <constraint firstItem="pQc-5t-5Pk" firstAttribute="leading" secondItem="Per-Qd-dhF" secondAttribute="trailing" id="SKz-Kh-FI7"/>
+                                <constraint firstItem="Per-Qd-dhF" firstAttribute="leading" secondItem="1ZK-CQ-2QS" secondAttribute="trailing" id="YYU-pH-cUk"/>
+                                <constraint firstItem="vBe-uQ-j6J" firstAttribute="leading" secondItem="pQc-5t-5Pk" secondAttribute="trailing" constant="5" id="ZYI-fw-vMb"/>
+                                <constraint firstItem="1ZK-CQ-2QS" firstAttribute="leading" secondItem="lKZ-sc-A95" secondAttribute="leading" constant="5" id="c3I-ho-e3v"/>
+                                <constraint firstAttribute="trailing" secondItem="vBe-uQ-j6J" secondAttribute="trailing" constant="5" id="ncv-pd-jW4"/>
+                                <constraint firstItem="vBe-uQ-j6J" firstAttribute="top" secondItem="lKZ-sc-A95" secondAttribute="top" id="nqc-R1-W8v"/>
+                                <constraint firstItem="Per-Qd-dhF" firstAttribute="top" secondItem="lKZ-sc-A95" secondAttribute="top" id="qHo-g6-zps"/>
+                                <constraint firstItem="pQc-5t-5Pk" firstAttribute="leading" secondItem="1ZK-CQ-2QS" secondAttribute="trailing" constant="5" id="rdG-LT-3fR"/>
+                                <constraint firstItem="vBe-uQ-j6J" firstAttribute="top" secondItem="lKZ-sc-A95" secondAttribute="top" constant="5" id="uOn-cK-qOP"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="DBa-Ue-CzY"/>
+                                    <exclude reference="rdG-LT-3fR"/>
+                                    <exclude reference="KQP-Wj-eDM"/>
+                                    <exclude reference="ncv-pd-jW4"/>
+                                    <exclude reference="nqc-R1-W8v"/>
+                                </mask>
+                            </variation>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6VS-LP-enc">
+                            <rect key="frame" x="0.0" y="40" width="220" height="278"/>
+                            <subviews>
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B4M-Ms-lcK">
+                                    <rect key="frame" x="0.0" y="0.0" width="220" height="278"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </tableView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="B4M-Ms-lcK" secondAttribute="bottom" id="J9p-aD-CAe"/>
+                                <constraint firstAttribute="trailing" secondItem="B4M-Ms-lcK" secondAttribute="trailing" id="lu7-Dq-1ll"/>
+                                <constraint firstItem="B4M-Ms-lcK" firstAttribute="top" secondItem="6VS-LP-enc" secondAttribute="top" id="m8y-1g-g8N"/>
+                                <constraint firstItem="B4M-Ms-lcK" firstAttribute="leading" secondItem="6VS-LP-enc" secondAttribute="leading" id="xyK-gR-aSX"/>
+                            </constraints>
+                        </view>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="6VS-LP-enc" firstAttribute="top" secondItem="lKZ-sc-A95" secondAttribute="bottom" id="7bW-KL-Edd"/>
+                        <constraint firstAttribute="bottom" secondItem="6VS-LP-enc" secondAttribute="bottom" id="Bex-Ip-kZc"/>
+                        <constraint firstAttribute="trailing" secondItem="6VS-LP-enc" secondAttribute="trailing" id="QTL-OD-N65"/>
+                        <constraint firstItem="lKZ-sc-A95" firstAttribute="leading" secondItem="MbY-mc-Q2Q" secondAttribute="leading" id="eGN-1A-K7v"/>
+                        <constraint firstAttribute="trailing" secondItem="lKZ-sc-A95" secondAttribute="trailing" id="jY1-T7-ixp"/>
+                        <constraint firstItem="6VS-LP-enc" firstAttribute="leading" secondItem="MbY-mc-Q2Q" secondAttribute="leading" id="kSX-9e-IFB"/>
+                        <constraint firstItem="lKZ-sc-A95" firstAttribute="top" secondItem="MbY-mc-Q2Q" secondAttribute="top" id="lEj-6y-3p0"/>
+                    </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hua-5D-N7a">
                     <rect key="frame" x="0.0" y="518" width="320" height="50"/>
@@ -83,7 +199,7 @@
                                 <constraint firstAttribute="height" constant="20" id="Oge-uN-p0K"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
@@ -132,7 +248,7 @@
                         <constraint firstAttribute="height" constant="15" id="Oj0-tl-ui0"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQ2-to-iC7">
@@ -168,6 +284,7 @@
                 <constraint firstItem="AQ2-to-iC7" firstAttribute="leading" secondItem="FA2-sG-kL3" secondAttribute="trailing" constant="5" id="ylj-2q-2yr"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <point key="canvasLocation" x="596" y="384"/>
         </view>
         <tapGestureRecognizer id="2Wc-ts-7dN">
             <connections>
@@ -181,8 +298,10 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
+        <image name="tabBarlikes.png" width="512" height="512"/>
         <image name="tabBarnext.png" width="512" height="512"/>
         <image name="tabBarplay.png" width="512" height="512"/>
+        <image name="tabBartrash.png" width="512" height="512"/>
         <image name="tabBarup.png" width="512" height="512"/>
         <image name="textHeader.png" width="171" height="171"/>
     </resources>

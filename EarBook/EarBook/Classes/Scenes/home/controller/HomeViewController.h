@@ -7,10 +7,11 @@
 //
 
 #import "ARSegmentPageController.h"
-
 @interface HomeViewController : ARSegmentPageController
 @property (weak, nonatomic) IBOutlet UIView *tabbarHomeView;
-@property (weak, nonatomic) IBOutlet UIView *tabbarMainView;
+@property (weak, nonatomic) IBOutlet UIView *tabbarListUpView;
+@property (weak, nonatomic) IBOutlet UIView *tabbarListDownView;
+
 @property (weak, nonatomic) IBOutlet UIView *tabbarSongView;
 @property (weak, nonatomic) IBOutlet UIImageView *tabbarSongImageView;
 
@@ -19,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *tabBarSlider;
 @property (weak, nonatomic) IBOutlet UIView *tabBarListView;
 @property (weak, nonatomic) IBOutlet UIView *tabbarListOtherView;
+@property (weak, nonatomic) IBOutlet UITableView *tabBarListTableView;
+@property (weak, nonatomic) IBOutlet UIView *tabBarListPlayView;
 @property (nonatomic, copy) NSArray *items;
 @property (nonatomic,assign) BOOL isTabBarListOpen;
 @end
