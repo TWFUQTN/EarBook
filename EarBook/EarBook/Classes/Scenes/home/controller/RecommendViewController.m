@@ -104,7 +104,7 @@
                       // 拼接
                       NSString *urlStr = [NSString stringWithFormat:@"%@%@", EB_BASE_URL, urlBody];
                       [urlArray addObject:urlStr];
-                      NSLog(@"%@", urlStr);
+//                      NSLog(@"%@", urlStr);
                   }
                   
                   // 分析section = 0的数据

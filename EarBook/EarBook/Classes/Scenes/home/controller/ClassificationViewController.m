@@ -7,12 +7,34 @@
 //
 
 #import "ClassificationViewController.h"
+#import "ClassificationCell.h"
+
+#import <AFNetworking/AFNetworking.h>
 
 @interface ClassificationViewController ()
+
+//cell高度
+@property (nonatomic, assign) CGFloat cellHeight;
+
+//网络请求
+@property (nonatomic, strong) AFHTTPSessionManager *session;
+
 
 @end
 
 @implementation ClassificationViewController
+
+// 懒加载
+- (AFHTTPSessionManager *)session
+{
+    if (!_session) {
+        _session = [AFHTTPSessionManager manager];
+        // 设置请求接口回来的时候,支持什么类型的数据
+        _session.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json", @"text/json", @"text/javascript",@"application/x-json",@"text/html", nil];
+    }
+    return _session;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,9 +44,19 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
-
+    [self.tableView registerNib:[UINib nibWithNibName:@"ClassificationCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    
+    [self requestData];
+    
 }
+
+//请求数据
+- (void)requestData {
+    
+    
+    
+}
+
 -(NSString *)segmentTitle
 {
     return @"分类";
@@ -41,20 +73,25 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
+
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
+
     return 100;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    ClassificationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"table %ld",(long)indexPath.row];
+//    cell.textLabel.text = [NSString stringWithFormat:@"table %ld",(long)indexPath.row];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    return 200;
 }
 
 /*
