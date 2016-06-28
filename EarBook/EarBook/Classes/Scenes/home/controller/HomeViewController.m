@@ -173,9 +173,10 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 - (IBAction)tabBarSongImageViewAction:(id)sender {
     PlayerViewController *playVC = [[PlayerViewController alloc]init];
 //    UINavigationController *dog = [[UINavigationController alloc]initWithRootViewController:playVC];
-//    [self presentViewController:dog animated:YES completion:nil];
-//    [self.navigationController pushViewController:playVC animated:YES];
     [self presentViewController:playVC animated:YES completion:nil];
+//    [self.navigationController pushViewController:playVC animated:YES];
+//    [self presentViewController:dog animated:YES completion:nil];
+    
 }
 - (IBAction)tabBarListPlayAction:(id)sender {
     PlayerViewController *playVC = [[PlayerViewController alloc]init];

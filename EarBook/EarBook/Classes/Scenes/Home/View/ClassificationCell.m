@@ -7,8 +7,10 @@
 //
 
 #import "ClassificationCell.h"
-#define kNumber 3
+#import "MyCollectionViewCell.h"
+#import "Classification.h"
 
+#define kNumber 3
 
 @interface ClassificationCell ()<UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -27,7 +29,22 @@
 
 @implementation ClassificationCell
 
+- (void)setCellArray:(NSMutableArray *)cellArray {
+    
+    if (_cellArray != cellArray) {
+        _cellArray = cellArray;
+    }
+    [_myCollectionView reloadData];
+}
+
 - (void)layoutSubviews {
+#pragma mark - 初始高度赋值，程序完成后删除
+    self.bottomView.frame = CGRectMake(self.bounds.size.width * 0.25, 0, self.bounds.size.width * 0.75, 300);
+    CGRect frame = self.cellView.frame;
+    frame.size.height = self.bottomView.frame.size.height;
+    self.cellView.frame = frame;
+    
+    
     //1.定义collectionView样式
     self.myFlowLayout = [UICollectionViewFlowLayout new];
     //设置属性
@@ -41,7 +58,7 @@
     self.myFlowLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
     //给定item的大小
     self.myFlowLayout.itemSize = CGSizeMake((self.bottomView.bounds.size.width - (self.myFlowLayout.sectionInset.left + (self.myFlowLayout.minimumLineSpacing * (kNumber - 1)) + self.myFlowLayout.sectionInset.right)) / kNumber - 0.0001, ((self.bottomView.bounds.size.width - (self.myFlowLayout.sectionInset.left + (self.myFlowLayout.minimumInteritemSpacing * (kNumber - 1)) + self.myFlowLayout.sectionInset.right)) / kNumber - 0.0001) / 4);
-    NSLog(@"%f, %f", self.myFlowLayout.itemSize.height, self.myFlowLayout.itemSize.width);
+//    NSLog(@"%f, %f", self.myFlowLayout.itemSize.height, self.myFlowLayout.itemSize.width);
     
     
     //布局collectionView
@@ -51,14 +68,9 @@
     
     self.myCollectionView.dataSource = self;
     self.myCollectionView.delegate = self;
-    [self.myCollectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"collecell"];
+    [self.myCollectionView registerClass:[MyCollectionViewCell class] forCellWithReuseIdentifier:@"collecell"];
     
     self.myCollectionView.backgroundColor = [UIColor whiteColor];
-    
-    self.bottomView.frame = CGRectMake(self.bounds.size.width * 0.25, 0, self.bounds.size.width * 0.75, 300);
-    CGRect frame = self.cellView.frame;
-    frame.size.height = self.bottomView.frame.size.height;
-    self.cellView.frame = frame;
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -67,13 +79,15 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 5;
+    NSLog(@"%ld", self.cellArray.count);
+    return self.cellArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collecell" forIndexPath:indexPath];
-    NSLog(@"========");
+    MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collecell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor purpleColor];
+    Classification *classification = self.cellArray[indexPath.row];
+    cell.titleLabel.text = classification.name;
     return cell;
 }
 
