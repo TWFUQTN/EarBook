@@ -9,6 +9,7 @@
 #import "ClassificationViewController.h"
 #import "ClassificationCell.h"
 #import "EB_URL.h"
+#import "Classification.h"
 
 #import <AFNetworking/AFNetworking.h>
 
@@ -20,6 +21,14 @@
 //网络请求
 @property (nonatomic, strong) AFHTTPSessionManager *session;
 
+//存分类内小分类属性对象的数组
+//@property (nonatomic, strong) NSMutableArray *allDataArray;
+
+//存分类对象的collection的字典
+@property (nonatomic, strong) NSMutableDictionary *allDataDict;
+
+//存所有分类的数组
+@property (nonatomic, strong) NSMutableArray *classificationArr;
 
 @end
 
@@ -35,7 +44,24 @@
     }
     return _session;
 }
-
+//- (NSMutableArray *)allDataArray {
+//    if (!_allDataArray) {
+//        _allDataArray = [[NSMutableArray alloc] init];
+//    }
+//    return _allDataArray;
+//}
+- (NSMutableDictionary *)allDataDict {
+    if (!_allDataDict) {
+        _allDataDict = [[NSMutableDictionary alloc] init];
+    }
+    return _allDataDict;
+}
+- (NSMutableArray *)classificationArr {
+    if (!_classificationArr) {
+        _classificationArr = [[NSMutableArray alloc] init];
+    }
+    return _classificationArr;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,25 +80,16 @@
 //请求数据
 - (void)requestData {
     
-    __weak typeof(self) recommendVC = self;
+    __weak typeof(self) classificationVC = self;
     [self.session GET:EB_CLASSIFICATION_URL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSArray *dataArray = responseObject[@"list"];
         for (NSDictionary *dict in dataArray) {
             NSString *name = dict[@"name"];
-            NSString *url = [NSString stringWithFormat:@"%@,%@", EB_BASE_URL, name];
-            
-            [self.session GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                NSDictionary *dataDict = [responseObject[@"list"] firstObject];
-                
-                
-            } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                NSLog(@"第二次网络请求失败");
-            }];
-            
-            
+            NSString *url = [NSString stringWithFormat:@"%@%@", EB_BASE_URL, name];
+            //再次进行网络请求
+            [classificationVC inRequestData:url];
         }
-        
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"网络请求失败:%@", error);
@@ -80,10 +97,41 @@
     
 }
 
+//内层数据请求
+- (void)inRequestData:(NSString *)urlString {
+    
+    __weak typeof(self) classificationVC = self;
+    [self.session GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        for (NSDictionary *dataDict in responseObject[@"list"]) {
+            NSString *key = dataDict[@"name"];
+            NSMutableArray *allDataArray = [NSMutableArray array];
+            NSArray *array = dataDict[@"subList"];
+            if ([array class] != [NSNull class]) {
+                for (NSDictionary *dict in array) {
+                    Classification *classification = [[Classification alloc] init];
+                    [classification setValuesForKeysWithDictionary:dict];
+                    [allDataArray addObject:classification];
+                }
+            }else {
+                allDataArray = NULL;
+            }
+            [classificationVC.allDataDict setValue:allDataArray forKey:key];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [classificationVC.tableView reloadData];
+        });
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"第二次网络请求失败");
+    }];
+}
+
+//设置segment的标题
 -(NSString *)segmentTitle
 {
     return @"分类";
 }
+//添加tableView到scrollView上
 -(UIScrollView *)streachScrollView
 {
     return self.tableView;
@@ -94,27 +142,36 @@
 }
 
 #pragma mark - Table view data source
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+
+    return [self.allDataDict allKeys].count;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-
-    return 100;
-}
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     ClassificationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    
-//    cell.textLabel.text = [NSString stringWithFormat:@"table %ld",(long)indexPath.row];
+//    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.typeLabel.text = [self.allDataDict allKeys][indexPath.section];
+    NSMutableArray *allDataArray = [NSMutableArray array];
+    allDataArray = self.allDataDict[[self.allDataDict allKeys][indexPath.section]];
+    cell.cellArray = allDataArray;
+    NSLog(@"%ld", allDataArray.count);
     return cell;
 }
 
+//cell高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     return 200;
+}
+
+//cell点击效果
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 /*
