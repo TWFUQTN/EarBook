@@ -29,12 +29,20 @@
 
 @implementation ClassificationCell
 
+static int i = 0;
 - (void)setCellArray:(NSMutableArray *)cellArray {
     
     if (_cellArray != cellArray) {
+        _cellArray = nil;
         _cellArray = cellArray;
     }
-    [_myCollectionView reloadData];
+//    NSLog(@"%d", i);
+//    i++;
+    self.myCollectionView.backgroundColor = [UIColor redColor];
+    NSLog(@"%@", self.myCollectionView.backgroundColor);
+  
+    [self.myCollectionView reloadData];
+    
 }
 
 - (void)layoutSubviews {
@@ -69,6 +77,7 @@
     self.myCollectionView.dataSource = self;
     self.myCollectionView.delegate = self;
     [self.myCollectionView registerClass:[MyCollectionViewCell class] forCellWithReuseIdentifier:@"collecell"];
+//    [self.myCollectionView registerNib:[UINib nibWithNibName:@"MyCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"MyCollectionViewCell"];
     
     self.myCollectionView.backgroundColor = [UIColor whiteColor];
 }
@@ -84,9 +93,12 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+//    MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collecell" forIndexPath:indexPath];
     MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collecell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor purpleColor];
     Classification *classification = self.cellArray[indexPath.row];
+    NSLog(@"%d", i);
+    i++;
     cell.titleLabel.text = classification.name;
     return cell;
 }
