@@ -399,8 +399,6 @@
                 [specialSubjectCell.specialSubImage2 sd_setImageWithURL:[NSURL URLWithString:coverStr1]];
             }
             
-            
-            
             return specialSubjectCell;
             break;
         }

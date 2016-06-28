@@ -15,19 +15,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="368" height="104"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" tag="50" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LL3-SY-5n3">
+                    <imageView tag="50" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LL3-SY-5n3">
                         <rect key="frame" x="10" y="5" width="169" height="79"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="tYV-01-K0e" appends="YES" id="8HM-Xx-vKj"/>
-                        </connections>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" tag="51" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ofk-bX-reS">
+                    <imageView tag="51" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ofk-bX-reS">
                         <rect key="frame" x="189" y="5" width="169" height="79"/>
                         <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="DeC-Or-SyO" appends="YES" id="02u-YC-Oli"/>
-                        </connections>
                     </imageView>
                 </subviews>
                 <constraints>
@@ -49,15 +43,5 @@
             </connections>
             <point key="canvasLocation" x="349" y="229"/>
         </tableViewCell>
-        <tapGestureRecognizer id="tYV-01-K0e">
-            <connections>
-                <action selector="tapAction1:" destination="KGk-i7-Jjw" id="bP0-hK-Ces"/>
-            </connections>
-        </tapGestureRecognizer>
-        <tapGestureRecognizer id="DeC-Or-SyO">
-            <connections>
-                <action selector="tapAction2:" destination="KGk-i7-Jjw" id="03X-24-Crt"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
 </document>

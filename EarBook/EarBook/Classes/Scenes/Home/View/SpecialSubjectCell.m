@@ -10,14 +10,4 @@
 
 @implementation SpecialSubjectCell
 
-- (IBAction)tapAction1:(UITapGestureRecognizer *)sender
-{
-    self.block();
-}
-
-- (IBAction)tapAction2:(UITapGestureRecognizer *)sender
-{
-    self.block();
-}
-
 @end
