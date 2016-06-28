@@ -12,6 +12,8 @@
 #import "EB_COLOR.h"
 #import "EB_URL.h"
 #import "BookMP3.h"
+#import "BookList.h"
+#import "Tool_AdaptiveHeight.h"
 
 #define kScrollWidth self.scrollView.frame.size.width
 #define kScrollHeight self.scrollView.frame.size.height
@@ -73,8 +75,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    // 请求数据
-    [self requestData];
+    if (self.pushFrom == PushFromMoreListVC) {
+        [self reloadUIWithBook:self.book];
+        [self bookListWithBook:self.book];
+    } else {
+        // 请求数据
+        [self requestData];
+    }
     
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = EB_MAIN_COLOR;
@@ -84,8 +91,7 @@
     self.listTableView.dataSource = self;
     self.listTableView.delegate = self;
     
-    self.contentHeight.constant = CGRectGetMaxY(self.descLabel.frame) + 90;
-//    NSLog(@"%f", self.contentHeight.constant);
+    
     
     [self layoutSubView];
     
@@ -116,7 +122,7 @@
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              
              [book setValuesForKeysWithDictionary:responseObject];
-             book.ID = responseObject[@"id"];
+//             book.ID = responseObject[@"id"];
              
              [detailVC bookListWithBook:book];
              
@@ -145,9 +151,9 @@
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              
              for (NSDictionary *dict in responseObject[@"list"]) {
-                 BookMP3 *book = [BookMP3 new];
-                 [book setValuesForKeysWithDictionary:dict];
-                 [self.listArray addObject:book];
+                 BookList *bookList = [BookList new];
+                 [bookList setValuesForKeysWithDictionary:dict];
+                 [self.listArray addObject:bookList];
              }
              
              dispatch_async(dispatch_get_main_queue(), ^{
@@ -174,6 +180,10 @@
     _sectionsLabel.text = [NSString stringWithFormat:@"集数：%@",book.sections];
     _playLabel.text = [NSString stringWithFormat:@"播放量：%.1f万",book.play.floatValue / 10000];
     _descLabel.text = book.desc;
+    CGFloat heightOfText = [Tool_AdaptiveHeight textHeightWithText:book.desc fontSize:14 viewWidth:_descLabel.frame.size.width];
+    self.contentHeight.constant = heightOfText + 70 + 136 + self.view.bounds.size.width * 0.28 / 105 * 150;
+    NSLog(@"%f", CGRectGetHeight(self.descLabel.frame));
+    NSLog(@"%f", self.contentHeight.constant);
     if (book.state.integerValue == 2) {
         _statusLabel.text = @"状态：完结";
     } else {

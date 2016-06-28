@@ -21,7 +21,7 @@
 // 书籍详情页
 #define EB_BOOK_DETAIL_URL @"&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&q=3104&sc=1539ffe54be9ad405307820bdcbbb4cd&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCm1MERM9GQasAk6L-vqa3PqIC3t2KIXkyw%2A"
 
-// 书籍列表页基地址（存在问题）
+// 书籍列表页基地址
 #define EB_BOOK_LIST_BASE_URL @"http://42.62.15.103/yyting/bookclient/ClientGetBookResource.action?bookId="
 
 // 书籍列表页

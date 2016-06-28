@@ -12,10 +12,12 @@
 #import "RecommendCell.h"
 #import "EB_URL.h"
 #import "BookMP3.h"
+#import "JoiningURL.h"
 #import "RecommendHeaderView.h"
 #import "SpecialSubjectCell.h"
 #import "DetailViewController.h"
 #import "MoreListViewController.h"
+#import "SpecialSubjectViewController.h"
 
 #define baseTag 100
 
@@ -110,6 +112,8 @@
                       [urlArray addObject:urlStr];
 //                      NSLog(@"%@", urlStr);
                   }
+                  // 分析section = 0的数据
+//                  [recommendVC analyzeDataWithURLString:urlArray[0] section0:@0];
                   
                   // 分析section = 0的数据
                   [recommendVC analyzeDataWithURLString:urlArray[1] section0:@0];
@@ -138,90 +142,80 @@
 - (void)analyzeDataWithURLString:(NSString *)urlString
                          section0:(NSNumber *)section
 {
-    [self.session GET:urlString
-                  parameters:nil
-                    progress:nil
-                     success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                         // 解析数据
-                         NSMutableArray *array = [NSMutableArray array];
-                         for (NSDictionary *dict in responseObject[@"list"]) {
-                             BookMP3 *book = [BookMP3 new];
-                             [book setValuesForKeysWithDictionary:dict];
-//                             NSLog(@"%@", book.name);
-                             [array addObject:book];
-//                             [self.bookArray addObject:book];
-                             [self.bookDict setObject:array forKey:section];
-                         }
-                         // 返回主线程
-                         dispatch_async(dispatch_get_main_queue(), ^{
-                             
-                             [self.tableView reloadData];
-                         });
-                         
-                     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                         NSLog(@"网络请求错误");
-                     }];
+    [self analyzeDataWithURLString:urlString block:^(id  _Nullable responseObject) {
+        // 解析数据
+        NSMutableArray *array = [NSMutableArray array];
+        for (NSDictionary *dict in responseObject[@"list"]) {
+            BookMP3 *book = [BookMP3 new];
+            [book setValuesForKeysWithDictionary:dict];
+            [array addObject:book];
+            [self.bookDict setObject:array forKey:section];
+        }
+    }];
 }
 
 #pragma mark - 分析section = 1/2的数据
 - (void)analyzeDataWithURLString:(NSString *)urlString
                          section1:(NSNumber *)section
 {
-    [self.session GET:urlString
-           parameters:nil
-             progress:nil
-              success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                  // 解析数据
-                  NSDictionary *listDict = [responseObject[@"list"] firstObject];
-                  NSArray *listArray = listDict[@"list"];
-                  
-                  [self.bookDict setObject:listDict[@"url"] forKey:listDict[@"name"]];
-                  
-                  NSMutableArray *bookArray = [NSMutableArray array];
-                  NSMutableArray *bookArr1 = [NSMutableArray array];
-                  NSMutableArray *bookArr2 = [NSMutableArray array];
-                  for (int i = 0; i < listArray.count; i++) {
-                      BookMP3 *book = [BookMP3 new];
-                      [book setValuesForKeysWithDictionary:listArray[i]];
-                      if (i < 3) {
-                          [bookArr1 addObject:book];
-                      } else {
-                          [bookArr2 addObject:book];
-                      }
-                  }
-                  [bookArray addObject:bookArr1];
-                  [bookArray addObject:bookArr2];
-                  [self.bookDict setObject:bookArray forKey:section];
-                  // 返回主线程
-                  dispatch_async(dispatch_get_main_queue(), ^{
-                      
-                      [self.tableView reloadData];
-                  });
-                  
-              } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                  NSLog(@"网络请求错误");
-              }];
+    [self analyzeDataWithURLString:urlString block:^(id  _Nullable responseObject) {
+        // 解析数据
+        NSDictionary *listDict = [responseObject[@"list"] firstObject];
+        NSArray *listArray = listDict[@"list"];
+        
+        [self.bookDict setObject:listDict[@"url"] forKey:listDict[@"name"]];
+        
+        NSMutableArray *bookArray = [NSMutableArray array];
+        NSMutableArray *bookArr1 = [NSMutableArray array];
+        NSMutableArray *bookArr2 = [NSMutableArray array];
+        for (int i = 0; i < listArray.count; i++) {
+            BookMP3 *book = [BookMP3 new];
+            [book setValuesForKeysWithDictionary:listArray[i]];
+            if (i < 3) {
+                [bookArr1 addObject:book];
+            } else {
+                [bookArr2 addObject:book];
+            }
+        }
+        [bookArray addObject:bookArr1];
+        [bookArray addObject:bookArr2];
+        [self.bookDict setObject:bookArray forKey:section];
+        
+    }];
 }
 
 #pragma mark - 分析section = 3的数据
 - (void)analyzeDataWithURLString:(NSString *)urlString
                         section3:(NSNumber *)section
 {
+    
+    [self analyzeDataWithURLString:urlString block:^(id  _Nullable responseObject) {
+        // 解析数据
+        NSMutableArray *bookArray = [NSMutableArray array];
+        if (responseObject[@"count"] > 0) {
+            for (NSDictionary *dict in responseObject[@"list"]) {
+                
+                BookMP3 *book = [BookMP3 new];
+                [book setValuesForKeysWithDictionary:dict];
+                [bookArray addObject:book];
+            }
+            [self.bookDict setObject:bookArray forKey:section];
+        }
+
+    }];
+    
+}
+
+#pragma mark - 分析section的数据
+- (void)analyzeDataWithURLString:(NSString *)urlString
+                           block:(RecommendVCBlock)block
+{
     [self.session GET:urlString
            parameters:nil
              progress:nil
               success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-                  // 解析数据
-                  NSMutableArray *bookArray = [NSMutableArray array];
-                  if (responseObject[@"count"] > 0) {
-                      for (NSDictionary *dict in responseObject[@"list"]) {
-                          
-                          BookMP3 *book = [BookMP3 new];
-                          [book setValuesForKeysWithDictionary:dict];
-                          [bookArray addObject:book];
-                      }
-                      [self.bookDict setObject:bookArray forKey:section];
-                  }
+                  
+                  block(responseObject);
                   
                   // 返回主线程
                   dispatch_async(dispatch_get_main_queue(), ^{
@@ -292,6 +286,23 @@
     return 1;
 }
 
+#pragma mark cell点击
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            DetailViewController *detailVC = [DetailViewController new];
+            
+            detailVC.book = _bookDict[@0][indexPath.row];
+            
+            detailVC.pushFrom = PushFromRecommendVC;
+            
+            [self.navigationController pushViewController:detailVC animated:YES];
+        }
+    }
+}
+
 #pragma mark cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -332,6 +343,8 @@
                 
                 detailVC.book = book;
                 
+                detailVC.pushFrom = PushFromRecommendVC;
+                
                 [recommendVC.navigationController pushViewController:detailVC animated:YES];
             };
             
@@ -360,6 +373,8 @@
                 
                 detailVC.book = book;
                 
+                detailVC.pushFrom = PushFromRecommendVC;
+                
                 [self.navigationController pushViewController:detailVC animated:YES];
             };
             
@@ -367,20 +382,24 @@
             break;
         }
         case 3: {
-//            SpecialSubjectCell *specialSubjectCell = [tableView dequeueReusableCellWithIdentifier:@"SpecialSubjectCell"];
-//            specialSubjectCell.selectionStyle = UITableViewCellSelectionStyleNone;
-//            
-//            NSArray *arr = _bookDict[@3];
-//            
-//            if (arr.count > 0) {
-//                BookMP3 *book0 = arr[0];
-//                BookMP3 *book1 = arr[1];
-//                
-//                [specialSubjectCell.specialSubImage1 sd_setImageWithURL:[NSURL URLWithString:book0.cover]];
-//                [specialSubjectCell.specialSubImage2 sd_setImageWithURL:[NSURL URLWithString:book1.cover]];
-//            }
-//            
-//            return specialSubjectCell;
+            SpecialSubjectCell *specialSubjectCell = [tableView dequeueReusableCellWithIdentifier:@"SpecialSubjectCell"];
+            
+            specialSubjectCell.selectionStyle = UITableViewCellSelectionStyleNone;
+            
+            NSArray *arr = _bookDict[@3];
+            
+            if (arr.count > 0) {
+                BookMP3 *book0 = arr[0];
+                BookMP3 *book1 = arr[1];
+                
+                NSString *coverStr0 = [JoiningURL urlWithCoverStr:book0.cover joiningStr:@"_338x170"];
+                NSString *coverStr1 = [JoiningURL urlWithCoverStr:book1.cover joiningStr:@"_338x170"];
+                
+                [specialSubjectCell.specialSubImage1 sd_setImageWithURL:[NSURL URLWithString:coverStr0]];
+                [specialSubjectCell.specialSubImage2 sd_setImageWithURL:[NSURL URLWithString:coverStr1]];
+            }
+            
+            return specialSubjectCell;
             break;
         }
             
@@ -403,9 +422,9 @@
         
         return 65;
     }
-//    if (indexPath.section == 3) {
-//        return 90;
-//    }
+    if (indexPath.section == 3) {
+        return 115;
+    }
     return 168;
 }
 
@@ -432,6 +451,8 @@
             break;
         case 3:
             headerView.titleLabel.text = @"更多专题";
+            headerView.moreButton.tag = baseTag + section;
+            [self moreActionForHeaderView:headerView];
             return headerView;
             break;
         default:
@@ -458,24 +479,34 @@
 
 - (void)moreButtonAction:(UIButton *)moreButton
 {
-    MoreListViewController *moreListVC = [MoreListViewController new];
-    
     switch (moreButton.tag) {
         case 101: {
+            MoreListViewController *moreListVC = [MoreListViewController new];
             NSString *moreListURL = [NSString stringWithFormat:@"%@%@", EB_MORE_EDIT_RECOMMEND_URL, _bookDict[@"小编推荐"]];
             moreListVC.moreListURL = moreListURL;
+            [self.navigationController pushViewController:moreListVC animated:YES];
             break;
         }
         case 102: {
+            MoreListViewController *moreListVC = [MoreListViewController new];
             NSString *moreListURL = [NSString stringWithFormat:@"%@%@", EB_MORE_EDIT_RECOMMEND_URL, _bookDict[@"新书推荐"]];
             moreListVC.moreListURL = moreListURL;
+            [self.navigationController pushViewController:moreListVC animated:YES];
+            break;
+        }
+        case 103: {
+            SpecialSubjectViewController *specialSubjectVC = [SpecialSubjectViewController new];
+            
+            specialSubjectVC.bookArray = _bookDict[@3];
+            
+            [self.navigationController pushViewController:specialSubjectVC animated:YES];
             break;
         }
         default:
             break;
     }
     
-    [self.navigationController pushViewController:moreListVC animated:YES];
+    
 }
 
 /*
