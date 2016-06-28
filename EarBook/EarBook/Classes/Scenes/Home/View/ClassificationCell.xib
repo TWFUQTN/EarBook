@@ -63,8 +63,9 @@
             <connections>
                 <outlet property="bottomView" destination="ht7-Zz-PhQ" id="vzO-qK-742"/>
                 <outlet property="cellView" destination="H2p-sc-9uM" id="LK7-fL-aYx"/>
+                <outlet property="typeLabel" destination="mtf-dg-0RV" id="mL5-Ak-rzx"/>
             </connections>
-            <point key="canvasLocation" x="740.5" y="336"/>
+            <point key="canvasLocation" x="979.5" y="341"/>
         </tableViewCell>
     </objects>
     <resources>
