@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^SpecialSubjectCellBlock)();
+
 @interface SpecialSubjectCell : UITableViewCell
 
 /// 专题图片1
@@ -16,6 +18,6 @@
 /// 专题图片2
 @property (unsafe_unretained, nonatomic) IBOutlet UIImageView *specialSubImage2;
 
-
+@property (nonatomic, copy) SpecialSubjectCellBlock block;
 
 @end

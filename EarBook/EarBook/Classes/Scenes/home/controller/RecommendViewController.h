@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+
 #import "ARSegmentPageController.h"
 
-typedef void(^RecommendViewControllerBlock)(id  _Nullable responseObject);
+typedef void(^RecommendVCBlock)(id  _Nullable responseObject);
 
 @interface RecommendViewController : UITableViewController<ARSegmentControllerDelegate>
 

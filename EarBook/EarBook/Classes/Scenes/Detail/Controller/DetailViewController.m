@@ -73,8 +73,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    // 请求数据
-    [self requestData];
+    if (self.pushFrom == PushFromMoreListVC) {
+        [self reloadUIWithBook:self.book];
+        [self bookListWithBook:self.book];
+    } else {
+        // 请求数据
+        [self requestData];
+    }
     
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = EB_MAIN_COLOR;
@@ -116,7 +121,7 @@
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              
              [book setValuesForKeysWithDictionary:responseObject];
-             book.ID = responseObject[@"id"];
+//             book.ID = responseObject[@"id"];
              
              [detailVC bookListWithBook:book];
              

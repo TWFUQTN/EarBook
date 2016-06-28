@@ -10,15 +10,14 @@
 
 @implementation SpecialSubjectCell
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    // Initialization code
+- (IBAction)tapAction1:(UITapGestureRecognizer *)sender
+{
+    self.block();
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (IBAction)tapAction2:(UITapGestureRecognizer *)sender
+{
+    self.block();
 }
 
 @end

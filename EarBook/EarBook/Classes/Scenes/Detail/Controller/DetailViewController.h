@@ -9,10 +9,18 @@
 #import <UIKit/UIKit.h>
 
 @class BookMP3;
+
+typedef NS_ENUM(NSUInteger, PushFrom) {
+    PushFromRecommendVC,
+    PushFromMoreListVC,
+};
+
 @interface DetailViewController : UIViewController
 
+/// 传来的书籍
 @property (nonatomic, strong) BookMP3 *book;
 
-@property (nonatomic, copy) NSString *bookDetailURL;
+/// 页面判断
+@property (nonatomic, assign) PushFrom pushFrom;
 
 @end

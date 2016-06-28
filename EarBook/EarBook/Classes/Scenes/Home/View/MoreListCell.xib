@@ -8,18 +8,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="117" id="KGk-i7-Jjw" customClass="MoreListCell">
-            <rect key="frame" x="0.0" y="0.0" width="422" height="117"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="108" id="KGk-i7-Jjw" customClass="MoreListCell">
+            <rect key="frame" x="0.0" y="0.0" width="422" height="108"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="422" height="116"/>
+                <rect key="frame" x="0.0" y="0.0" width="422" height="107"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VuI-mk-iib">
-                        <rect key="frame" x="10" y="5" width="84" height="106"/>
+                        <rect key="frame" x="10" y="5" width="84" height="97"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="书籍名字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FIt-yb-oS3">
-                        <rect key="frame" x="104" y="5" width="308" height="30"/>
+                        <rect key="frame" x="104" y="5" width="298" height="30"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="AAP-LC-zP3"/>
                         </constraints>
@@ -27,20 +27,75 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="播放：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h6Y-Nb-H42">
+                        <rect key="frame" x="104" y="45" width="33" height="14"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主播：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PlW-rD-uVC">
+                        <rect key="frame" x="227" y="46" width="30" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="描述" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tU-ew-gHx">
+                        <rect key="frame" x="104" y="64" width="298" height="32"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="32" id="XaI-2w-3Me"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="10"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="数字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dwb-cT-yru">
+                        <rect key="frame" x="142" y="46" width="80" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="nUH-03-7cr"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="主播名" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wr-5d-4BS">
+                        <rect key="frame" x="262" y="46" width="80" height="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="dwb-cT-yru" firstAttribute="centerY" secondItem="h6Y-Nb-H42" secondAttribute="centerY" id="3rx-wF-wp7"/>
                     <constraint firstItem="VuI-mk-iib" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="6BY-0h-oKu"/>
-                    <constraint firstAttribute="trailing" secondItem="FIt-yb-oS3" secondAttribute="trailing" constant="10" id="AeC-Ks-D0K"/>
+                    <constraint firstItem="0wr-5d-4BS" firstAttribute="width" secondItem="dwb-cT-yru" secondAttribute="width" id="6eJ-S3-ZF1"/>
+                    <constraint firstAttribute="trailing" secondItem="FIt-yb-oS3" secondAttribute="trailing" constant="20" id="AeC-Ks-D0K"/>
+                    <constraint firstItem="6tU-ew-gHx" firstAttribute="leading" secondItem="h6Y-Nb-H42" secondAttribute="leading" id="EcZ-j2-I1w"/>
                     <constraint firstItem="FIt-yb-oS3" firstAttribute="leading" secondItem="VuI-mk-iib" secondAttribute="trailing" constant="10" id="O44-Zq-eGa"/>
+                    <constraint firstAttribute="trailing" secondItem="6tU-ew-gHx" secondAttribute="trailing" constant="20" id="VJx-AV-fHh"/>
+                    <constraint firstItem="PlW-rD-uVC" firstAttribute="leading" secondItem="dwb-cT-yru" secondAttribute="trailing" constant="5" id="VQ0-IC-Am8"/>
+                    <constraint firstItem="h6Y-Nb-H42" firstAttribute="top" secondItem="FIt-yb-oS3" secondAttribute="bottom" constant="10" id="XdM-GK-ect"/>
                     <constraint firstAttribute="bottom" secondItem="VuI-mk-iib" secondAttribute="bottom" constant="5" id="ZGf-GR-tMf"/>
+                    <constraint firstItem="0wr-5d-4BS" firstAttribute="leading" secondItem="PlW-rD-uVC" secondAttribute="trailing" constant="5" id="cDY-eD-EkI"/>
                     <constraint firstItem="VuI-mk-iib" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="eZd-BR-BfG"/>
+                    <constraint firstItem="PlW-rD-uVC" firstAttribute="centerY" secondItem="dwb-cT-yru" secondAttribute="centerY" id="k2B-Ub-nbl"/>
+                    <constraint firstItem="6tU-ew-gHx" firstAttribute="top" secondItem="h6Y-Nb-H42" secondAttribute="bottom" constant="5" id="mK2-70-7DX"/>
+                    <constraint firstItem="h6Y-Nb-H42" firstAttribute="leading" secondItem="VuI-mk-iib" secondAttribute="trailing" constant="10" id="pJu-JL-Z5n"/>
+                    <constraint firstItem="dwb-cT-yru" firstAttribute="leading" secondItem="h6Y-Nb-H42" secondAttribute="trailing" constant="5" id="rOv-8z-ivt"/>
                     <constraint firstItem="FIt-yb-oS3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="tkl-cy-eXB"/>
+                    <constraint firstItem="0wr-5d-4BS" firstAttribute="centerY" secondItem="PlW-rD-uVC" secondAttribute="centerY" id="xhv-Xs-zOo"/>
                 </constraints>
             </tableViewCellContentView>
             <constraints>
                 <constraint firstItem="VuI-mk-iib" firstAttribute="width" secondItem="KGk-i7-Jjw" secondAttribute="width" multiplier="1:5" id="2HP-gN-D2e"/>
             </constraints>
-            <point key="canvasLocation" x="336" y="191.5"/>
+            <connections>
+                <outlet property="announcerLabel" destination="0wr-5d-4BS" id="KmZ-Kf-5Jg"/>
+                <outlet property="coverImageView" destination="VuI-mk-iib" id="mQ0-mh-kVA"/>
+                <outlet property="descLabel" destination="6tU-ew-gHx" id="i3D-L8-WoL"/>
+                <outlet property="nameLabel" destination="FIt-yb-oS3" id="thp-Ee-ntV"/>
+                <outlet property="playLabel" destination="dwb-cT-yru" id="WBX-Au-aUb"/>
+            </connections>
+            <point key="canvasLocation" x="369" y="298"/>
         </tableViewCell>
     </objects>
 </document>
