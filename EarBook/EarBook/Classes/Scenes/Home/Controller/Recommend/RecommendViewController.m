@@ -259,6 +259,9 @@
 -(void)didSelectedNetImageAtIndex:(NSInteger)index
 {
     NSLog(@"点中网络图片的下标是:%ld",(long)index);
+    DetailViewController *detailVC = [DetailViewController new];
+    
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 //-(UIScrollView *)streachScrollView

@@ -16,13 +16,13 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="text.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="A1r-Fm-vpg">
                     <rect key="frame" x="0.0" y="0.0" width="368" height="150"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="芳芳" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ddz-Xf-YNo">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="未登录" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ddz-Xf-YNo">
                     <rect key="frame" x="50" y="98" width="268" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textHeader.png" translatesAutoresizingMaskIntoConstraints="NO" id="Av5-IS-ncG">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultAvatar" translatesAutoresizingMaskIntoConstraints="NO" id="Av5-IS-ncG">
                     <rect key="frame" x="144" y="10" width="80" height="80"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="Av5-IS-ncG" secondAttribute="height" multiplier="1:1" id="Iir-SF-qF3"/>
@@ -54,7 +54,7 @@
         </view>
     </objects>
     <resources>
+        <image name="DefaultAvatar" width="70" height="70"/>
         <image name="text.jpg" width="2560" height="1600"/>
-        <image name="textHeader.png" width="171" height="171"/>
     </resources>
 </document>
