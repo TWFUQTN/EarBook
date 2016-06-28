@@ -8,137 +8,118 @@
 
 #import "PlayerViewController.h"
 
-#import "ContextMenuCell.h"
-#import "YALContextMenuTableView.h"
-#import "YALNavigationBar.h"
-
-static NSString *const menuCellIdentifier = @"rotationCell";
+#import <GPUImageGaussianBlurFilter.h>
 
 @interface PlayerViewController ()
-<
-    UITableViewDelegate,
-    UITableViewDataSource,
-    YALContextMenuTableViewDelegate
->
 
-@property (nonatomic, strong) YALContextMenuTableView* contextMenuTableView;
 
-//@property (nonatomic, strong) NSArray *menuTitles;
-//@property (nonatomic, strong) NSArray *menuIcons;
 
 @end
 
 @implementation PlayerViewController
 
+- (void)viewDidAppear:(BOOL)animated {
+    [self addDefaultSlider];
+    self.isPlaying = NO;
+    self.isSound = YES;
+    CIContext *context = [CIContext contextWithOptions:nil];
+    NSURL *imageURL = [NSURL URLWithString:@"http://bookpic.lrts.me/d3d2da637c634fd789b7061a2bc3de25.jpg"];
+    CIImage *image = [CIImage imageWithContentsOfURL:imageURL];
+    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+    [filter setValue:image forKey:kCIInputImageKey];
+    [filter setValue:@2.0f forKey: @"inputRadius"];
+    CIImage *result = [filter valueForKey:kCIOutputImageKey];
+    CGImageRef outImage = [context createCGImage: result fromRect:[result extent]];
+    UIImage * blurImage = [UIImage imageWithCGImage:outImage];
+    _backgroundImageView.image = blurImage;
+    _songImageView.layer.cornerRadius = 100;
+    _songImageView.layer.masksToBounds = YES;
+    _songImageView.layer.borderWidth = 1;
+    [_playButton setTintColor:[UIColor whiteColor]];
+   _nextButton;
+    _lastButton;
+    _soundButton;
+    [self beginimagerevole];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.backgroundColor= [UIColor grayColor];
+
+}
+- (void)beginimagerevole{
+    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(imageViewRevolve) userInfo:nil repeats:YES];
+}
+- (void)imageViewRevolve{
+    [UIView animateWithDuration:0.1 animations:^{
+        _songImageView.transform = CGAffineTransformRotate(_songImageView.transform, - M_PI / 100);
+    }];
+}
+- (void)stopimagerevole{
+
     
-//    [self initiateMenuOptions];
-    // set custom navigationBar with a bigger height
-    [self.navigationController setValue:[[YALNavigationBar alloc]init] forKeyPath:@"navigationBar"];
+    
+    
 }
 
-//- (void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation{
-//    //should be called after rotation animation completed
-//    [self.contextMenuTableView reloadData];
-//}
-//
-//- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-//    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-//    
-//    [self.contextMenuTableView updateAlongsideRotation];
-//}
-//
-//- (void)viewWillTransitionToSize:(CGSize)size
-//       withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
-//    
-//    [super viewWillTransitionToSize:size withTransitionCoordinator:coordinator];
-//    
-//    
-//    [coordinator animateAlongsideTransition:nil completion:^(id<UIViewControllerTransitionCoordinatorContext> context) {
-//        //should be called after rotation animation completed
-//        [self.contextMenuTableView reloadData];
-//    }];
-//    [self.contextMenuTableView updateAlongsideRotation];
-//    
-//}
+- (void)addDefaultSlider{
+    _defaultSlider = [[MTTCircularSlider alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 50, self.view.frame.size.height  - 110, 100, 100)];
+    _defaultSlider.lineWidth = 5;
+    _defaultSlider.angle = 45;
+    _defaultSlider.maxValue = 100;
+    _defaultSlider.selectColor = [UIColor blackColor];
+    _defaultSlider.unselectColor = [UIColor whiteColor];
+    _defaultSlider.tag = 1;
+    [self.view addSubview:_defaultSlider];
+    [self.view bringSubviewToFront:_playButton];
+}
 
-- (IBAction)presentMenuButtonTapped:(UIButton *)sender
-{
-    // init YALContextMenuTableView tableView
-    if (!self.contextMenuTableView) {
-        self.contextMenuTableView = [[YALContextMenuTableView alloc]initWithTableViewDelegateDataSource:self];
-        self.contextMenuTableView.animationDuration = 0.15;
-        //optional - implement custom YALContextMenuTableView custom protocol
-        self.contextMenuTableView.yalDelegate = self;
-        
-        //register nib
-        UINib *cellNib = [UINib nibWithNibName:@"ContextMenuCell" bundle:nil];
-        [self.contextMenuTableView registerNib:cellNib forCellReuseIdentifier:menuCellIdentifier];
+
+- (IBAction)backAction:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)settingAction:(id)sender {
+    
+    
+}
+- (IBAction)soundAction:(id)sender {
+    if (_isSound) {
+        [_soundButton setImage:[UIImage imageNamed:@"playnosound"] forState:UIControlStateNormal];
+        _isSound = NO;
+    }
+    else {
+        [_soundButton setImage:[UIImage imageNamed:@"playsound"] forState:UIControlStateNormal];
+        _isSound = YES;
+    
     }
     
-    // it is better to use this method only for proper animation
-    [self.contextMenuTableView showInView:self.navigationController.view withEdgeInsets:UIEdgeInsetsZero animated:YES];
 }
-
-#pragma mark - Local methods
-
-//- (void)initiateMenuOptions {
-//    self.menuTitles = @[@"",
-//                        @"Send message",
-//                        @"Like profile"];
-//    
-//    self.menuIcons = @[[UIImage imageNamed:@"icn_close"],
-//                       [UIImage imageNamed:@"icn_1"],
-//                       [UIImage imageNamed:@"icn_2"]];
-//}
-
-
-#pragma mark - YALContextMenuTableViewDelegate
-
-- (void)contextMenuTableView:(YALContextMenuTableView *)contextMenuTableView didDismissWithIndexPath:(NSIndexPath *)indexPath{
-    NSLog(@"Menu dismissed with indexpath = %@", indexPath);
-}
-
-#pragma mark - UITableViewDataSource, UITableViewDelegate
-
-- (void)tableView:(YALContextMenuTableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [tableView dismisWithIndexPath:indexPath];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 65;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
-}
-
-- (UITableViewCell *)tableView:(YALContextMenuTableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+- (IBAction)listAction:(id)sender {
     
-    ContextMenuCell *cell = [tableView dequeueReusableCellWithIdentifier:menuCellIdentifier forIndexPath:indexPath];
     
-    if (cell) {
-//        cell.menuTitleLabel.text = [self.menuTitles objectAtIndex:indexPath.row];
-//        cell.menuImageView.image = [self.menuIcons objectAtIndex:indexPath.row];
+}
+
+- (IBAction)playAction:(id)sender {
+    if (self.isPlaying) {
+        [_playButton setImage:[UIImage imageNamed:@"playPause"] forState:UIControlStateNormal];
+        _isPlaying = NO;
+    }
+    else {
+        [_playButton setImage:[UIImage imageNamed:@"playPlay"] forState:UIControlStateNormal];
+        _isPlaying = YES;
     }
     
-    return cell;
 }
+
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+
+
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
