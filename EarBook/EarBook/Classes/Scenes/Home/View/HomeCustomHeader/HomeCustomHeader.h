@@ -14,8 +14,8 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
-
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UIView *tapView;
 
 - (void)updateHeadPhotoWithTopInset:(CGFloat)inset;
 

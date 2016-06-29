@@ -15,6 +15,8 @@
 #import "PCStackMenu.h"
 #import "PlayerViewController.h"
 #import "TabBarListViewCell.h"
+#import "UserTableViewController.h"
+
 void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 
 @interface HomeViewController () <UITableViewDataSource,UITableViewDelegate>
@@ -47,10 +49,20 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 {
     if (_header == nil) {
         _header = [[[NSBundle mainBundle] loadNibNamed:@"HomeCustomHeader" owner:nil options:nil] lastObject];
-        _header.backgroundColor = [UIColor redColor];
+//        _header.backgroundColor = [UIColor redColor];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
+        [_header addGestureRecognizer:tap];
     }
     return _header;
 }
+
+- (void)tap
+{
+    UserTableViewController *userVC = [UserTableViewController new];
+    
+    [self.navigationController pushViewController:userVC animated:YES];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [self tabBarViewLoad];
 }

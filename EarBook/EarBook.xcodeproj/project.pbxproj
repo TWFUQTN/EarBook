@@ -1308,7 +1308,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ZF.JPushDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cee235d5-e48e-4f5b-b9a9-d7829d4a4e14";
+				PROVISIONING_PROFILE = "d9a4ed84-d50d-4ed8-b6a7-d42075be5102";
 			};
 			name = Debug;
 		};
@@ -1323,7 +1323,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ZF.JPushDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "cee235d5-e48e-4f5b-b9a9-d7829d4a4e14";
+				PROVISIONING_PROFILE = "d9a4ed84-d50d-4ed8-b6a7-d42075be5102";
 			};
 			name = Release;
 		};

@@ -8,6 +8,7 @@
 
 #import "UserTableViewController.h"
 #import "UserCell.h"
+#import "EB_COLOR.h"
 #import "LoginViewController.h"
 
 
@@ -22,11 +23,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    // 设置navigationBar
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = EB_MAIN_COLOR;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    // 返回按钮
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:(UIBarButtonItemStylePlain) target:self action:@selector(back)];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"UserCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
@@ -34,6 +36,12 @@
                         @"title":@[@"完善资料",@"我的收藏",@"我的下载",@"关注"]
                         };
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"登录" style:(UIBarButtonItemStylePlain) target:self action:@selector(loginAction)];
+}
+
+#pragma mark - 返回按钮
+- (void)back
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)loginAction {
