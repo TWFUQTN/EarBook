@@ -84,7 +84,7 @@
         // 请求数据
         [self requestData];
     }
-    
+    // 设置navigationBar
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = EB_MAIN_COLOR;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -93,16 +93,14 @@
     self.listTableView.dataSource = self;
     self.listTableView.delegate = self;
     
-    
-    
     [self layoutSubView];
     
     [self.listTableView registerNib:[UINib nibWithNibName:@"ListCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-    
+    // 返回按钮
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:(UIBarButtonItemStylePlain) target:self action:@selector(back)];
     
 }
-
+#pragma mark - 返回按钮
 - (void)back
 {
     [self.navigationController popViewControllerAnimated:YES];
@@ -184,8 +182,6 @@
     _descLabel.text = book.desc;
     CGFloat heightOfText = [Tool_AdaptiveHeight textHeightWithText:book.desc fontSize:14 viewWidth:_descLabel.frame.size.width];
     self.contentHeight.constant = heightOfText + 70 + 136 + self.view.bounds.size.width * 0.28 / 105 * 150;
-    NSLog(@"%f", CGRectGetHeight(self.descLabel.frame));
-    NSLog(@"%f", self.contentHeight.constant);
     if (book.state.integerValue == 2) {
         _statusLabel.text = @"状态：完结";
     } else {

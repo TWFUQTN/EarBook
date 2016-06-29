@@ -10,14 +10,15 @@
 
 @interface ClassificationCell : UITableViewCell
 
-//self.view
-@property (weak, nonatomic) IBOutlet UIView *cellView;
+//类型名
+@property (nonatomic, strong) UILabel *typeLabel;
 
-///类型名
-@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 
 //传值数组
 @property (nonatomic, strong) NSMutableArray *cellArray;
+
+
++ (CGFloat)heightOfCellByNumberFromItems:(NSInteger)number;
 
 
 @end

@@ -27,16 +27,27 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JY6-Lk-YnE">
+                    <rect key="frame" x="315" y="221" width="50" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="50" id="0Ot-2x-dW3"/>
+                    </constraints>
+                    <state key="normal" title="分享">
+                        <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="E6t-b1-xwc" firstAttribute="top" secondItem="3Nl-Uv-kWI" secondAttribute="bottom" constant="10" id="HUA-cs-450"/>
                 <constraint firstAttribute="trailing" secondItem="E6t-b1-xwc" secondAttribute="trailing" constant="10" id="MoV-fa-pTt"/>
                 <constraint firstAttribute="trailing" secondItem="3Nl-Uv-kWI" secondAttribute="trailing" id="Ng2-qI-1ZP"/>
+                <constraint firstItem="JY6-Lk-YnE" firstAttribute="top" secondItem="E6t-b1-xwc" secondAttribute="bottom" constant="20" id="Rvn-9Q-toc"/>
                 <constraint firstItem="3Nl-Uv-kWI" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="1:4" id="XBl-Gy-00H"/>
                 <constraint firstItem="E6t-b1-xwc" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="lCL-Rc-eX8"/>
                 <constraint firstItem="3Nl-Uv-kWI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="moS-pm-Khk"/>
                 <constraint firstItem="3Nl-Uv-kWI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="pBn-4q-R0F"/>
+                <constraint firstAttribute="trailing" secondItem="JY6-Lk-YnE" secondAttribute="trailing" constant="10" id="yPR-7V-tGR"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="129.5" y="302.5"/>

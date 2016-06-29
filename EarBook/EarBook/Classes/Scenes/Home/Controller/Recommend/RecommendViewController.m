@@ -19,6 +19,7 @@
 #import "MoreListViewController.h"
 #import "SpecialSubjectViewController.h"
 #import "SpecialSubjectDetailViewController.h"
+#import "VoiceDetailViewController.h"
 
 #define baseTag 100
 
@@ -58,9 +59,9 @@
 {
     if(!_NetImageArray)
     {
-
-        _NetImageArray = @[@"http://ws.xzhushou.cn/focusimg/201508201549023.jpg",@"http://ws.xzhushou.cn/focusimg/52.jpg",@"http://ws.xzhushou.cn/focusimg/51.jpg",@"http://ws.xzhushou.cn/focusimg/50.jpg"].mutableCopy;
-//        _NetImageArray = [NSMutableArray array];
+        _NetImageArray = [NSMutableArray array];
+        
+        // @[@"http://ws.xzhushou.cn/focusimg/201508201549023.jpg",@"http://ws.xzhushou.cn/focusimg/52.jpg",@"http://ws.xzhushou.cn/focusimg/51.jpg",@"http://ws.xzhushou.cn/focusimg/50.jpg"].mutableCopy;
     }
     return _NetImageArray;
 }
@@ -116,8 +117,8 @@
                       [urlArray addObject:urlStr];
 //                      NSLog(@"%@", urlStr);
                   }
-                  // 分析section = 0的数据
-//                  [recommendVC analyzeDataWithURLString:urlArray[0] section0:@0];
+                  // 分析section = 0头视图的数据
+                  [recommendVC analyzeDataWithURLString:urlArray[0] sectionHead:@"Head"];
                   
                   // 分析section = 0的数据
                   [recommendVC analyzeDataWithURLString:urlArray[1] section0:@0];
@@ -140,6 +141,27 @@
               } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                   NSLog(@"网络请求错误");
               }];
+}
+
+#pragma mark - 分析section = 0的数据
+- (void)analyzeDataWithURLString:(NSString *)urlString
+                     sectionHead:(NSString *)sectionHead
+{
+    [self analyzeDataWithURLString:urlString block:^(id  _Nullable responseObject) {
+        // 解析数据
+        NSMutableArray *array = [NSMutableArray array];
+        for (NSDictionary *dict in responseObject[@"list"]) {
+            BookMP3 *book = [BookMP3 new];
+            [book setValuesForKeysWithDictionary:dict];
+            [array addObject:book];
+            [self.bookDict setObject:array forKey:sectionHead];
+        }
+        
+        for (BookMP3 *book in _bookDict[@"Head"]) {
+            NSString *str = [JoiningURL urlWithCoverStr:book.cover joiningStr:@"_720x333"];
+            [self.NetImageArray addObject:str];
+        }
+    }];
 }
 
 #pragma mark - 分析section = 0的数据
@@ -223,7 +245,6 @@
                   
                   // 返回主线程
                   dispatch_async(dispatch_get_main_queue(), ^{
-                      
                       [self.tableView reloadData];
                   });
                   
@@ -259,23 +280,36 @@
 //    self.tableView.tableHeaderView = WYNetScrollView;
     
 }
-/** 获取网络图片的index*/
+#pragma mark 获取网络图片的index+点击跳转
 -(void)didSelectedNetImageAtIndex:(NSInteger)index
 {
-    NSLog(@"点中网络图片的下标是:%ld",(long)index);
-    DetailViewController *detailVC = [DetailViewController new];
-    
-    [self.navigationController pushViewController:detailVC animated:YES];
-}
-
-//-(UIScrollView *)streachScrollView
-//{
-//    return self.tableView;
-//}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    BookMP3 *book = _bookDict[@"Head"][index];
+    NSInteger publishType = book.publishType.integerValue;
+    switch (publishType) {
+        case 0: {
+            DetailViewController *detailVC = [DetailViewController new];
+            detailVC.book = book;
+            detailVC.pushFrom = PushFromRecommendVC;
+            [self.navigationController pushViewController:detailVC animated:YES];
+            break;
+        }
+        case 2: {
+            VoiceDetailViewController *voiceDetailVC = [VoiceDetailViewController new];
+            voiceDetailVC.book = book;
+            [self.navigationController pushViewController:voiceDetailVC animated:YES];
+            break;
+        }
+        case 3: {
+            NSLog(@"暂时无链接");
+            break;
+        }
+        case 9: {
+            NSLog(@"暂时无链接");
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 #pragma mark - Table view data source
@@ -308,7 +342,9 @@
             [self.navigationController pushViewController:detailVC animated:YES];
         }
         
-        
+        VoiceDetailViewController *voiceDetailVC = [VoiceDetailViewController new];
+        voiceDetailVC.book = _bookDict[@0][indexPath.row];
+        [self.navigationController pushViewController:voiceDetailVC animated:YES];
     }
 }
 

@@ -66,14 +66,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [self.tableView registerNib:[UINib nibWithNibName:@"ClassificationCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerClass:[ClassificationCell class] forCellReuseIdentifier:@"cell"];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     [self requestData];
+    
+    self.tableView.sectionHeaderHeight = 0;
     
 }
 
@@ -158,20 +156,28 @@
     NSMutableArray *allDataArray = [NSMutableArray array];
     allDataArray = self.allDataDict[[self.allDataDict allKeys][indexPath.section]];
     cell.cellArray = allDataArray;
-    NSLog(@"%ld", allDataArray.count);
     return cell;
 }
 
 //cell高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    return 400;
+    if(indexPath.section == 12) {
+        return [ClassificationCell heightOfCellByNumberFromItems:[self.allDataDict[[self.allDataDict allKeys][indexPath.section]] count]] + 20;
+    }
+    return [ClassificationCell heightOfCellByNumberFromItems:[self.allDataDict[[self.allDataDict allKeys][indexPath.section]] count]];
 }
 
 //cell点击效果
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section == 0) {
+        return 17;
+    }
+    return 0.01;
 }
 
 /*
