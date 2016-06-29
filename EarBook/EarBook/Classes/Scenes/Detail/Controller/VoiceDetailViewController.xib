@@ -9,7 +9,19 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VoiceDetailViewController">
             <connections>
+                <outlet property="announcerLabel" destination="lKo-HD-u4V" id="xd8-dr-srE"/>
+                <outlet property="authorLabel" destination="fVP-oh-6g4" id="eiE-as-ml8"/>
+                <outlet property="bottomScrollView" destination="qRS-pt-fWp" id="3xS-wU-AGN"/>
+                <outlet property="contentHeight" destination="XXW-BT-cwy" id="wUM-eC-z6V"/>
+                <outlet property="coverImageView" destination="ghS-2V-Dul" id="UpW-1K-tbL"/>
+                <outlet property="descLabel" destination="bz5-CK-eVN" id="ZXC-Zy-IQh"/>
+                <outlet property="listTableView" destination="7NC-0O-fFk" id="aZk-b1-AXj"/>
+                <outlet property="nameLabel" destination="lOH-a9-NLt" id="7x7-zZ-Anw"/>
+                <outlet property="playLabel" destination="Ff1-sG-15n" id="KPg-sR-Ryy"/>
+                <outlet property="typeLabel" destination="OiG-yx-11O" id="YTK-zN-UB0"/>
+                <outlet property="updateLabel" destination="dBR-af-ITg" id="uky-Yb-Kua"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="voicesLabel" destination="RpC-yl-uwC" id="ENa-Kw-eFh"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -216,7 +228,7 @@
                 <constraint firstAttribute="bottom" secondItem="qRS-pt-fWp" secondAttribute="bottom" id="vnD-Cd-yKL"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-            <point key="canvasLocation" x="321.5" y="386.5"/>
+            <point key="canvasLocation" x="403.5" y="385.5"/>
         </view>
     </objects>
 </document>

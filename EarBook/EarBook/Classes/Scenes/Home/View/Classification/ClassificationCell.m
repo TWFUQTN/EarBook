@@ -29,7 +29,7 @@
 
 @implementation ClassificationCell
 
-static int i = 0;
+//static int i = 0;
 - (void)setCellArray:(NSMutableArray *)cellArray {
     
     if (_cellArray != cellArray) {
@@ -38,19 +38,19 @@ static int i = 0;
     }
 //    NSLog(@"%d", i);
 //    i++;
-    self.myCollectionView.backgroundColor = [UIColor redColor];
-    NSLog(@"%@", self.myCollectionView.backgroundColor);
+//    self.myCollectionView.backgroundColor = [UIColor redColor];
+//    NSLog(@"%@", self.myCollectionView.backgroundColor);
   
     [self.myCollectionView reloadData];
     
 }
 
 - (void)layoutSubviews {
-#pragma mark - 初始高度赋值，程序完成后删除
-    self.bottomView.frame = CGRectMake(self.bounds.size.width * 0.25, 0, self.bounds.size.width * 0.75, 300);
-    CGRect frame = self.cellView.frame;
-    frame.size.height = self.bottomView.frame.size.height;
-    self.cellView.frame = frame;
+//#pragma mark - 初始高度赋值，程序完成后删除
+//    self.bottomView.frame = CGRectMake(self.bounds.size.width * 0.25, 0, self.bounds.size.width * 0.75, 300);
+//    CGRect frame = self.cellView.frame;
+//    frame.size.height = self.bottomView.frame.size.height;
+//    self.cellView.frame = frame;
     
     
     //1.定义collectionView样式
@@ -97,11 +97,26 @@ static int i = 0;
     MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collecell" forIndexPath:indexPath];
     cell.backgroundColor = [UIColor purpleColor];
     Classification *classification = self.cellArray[indexPath.row];
-    NSLog(@"%d", i);
-    i++;
+//    NSLog(@"%d", i);
+//    i++;
     cell.titleLabel.text = classification.name;
     return cell;
 }
+
+
++ (CGFloat)heightOfCellByNumberFromItems:(NSInteger)number {
+    NSInteger i = 0;
+    if (number % 3 == 0) {
+        i = number / 3;
+    } else {
+        i = (number / 3) + 1;
+    }
+    
+    CGFloat itemsHeight = number * ([UIScreen mainScreen].bounds.size.width / 16);
+    CGFloat spaceHeight = (number - 1);
+    return itemsHeight;
+}
+
 
 - (void)awakeFromNib {
     // Initialization code
