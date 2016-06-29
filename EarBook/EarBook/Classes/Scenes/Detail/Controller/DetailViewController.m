@@ -82,16 +82,14 @@
         // 请求数据
         [self requestData];
     }
-    
+    // 设置navigationBar
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = EB_MAIN_COLOR;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    
+    // 返回按钮
     self.bottomScrollView.delegate = self;
     self.listTableView.dataSource = self;
     self.listTableView.delegate = self;
-    
-    
     
     [self layoutSubView];
     
@@ -100,7 +98,7 @@
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:(UIBarButtonItemStylePlain) target:self action:@selector(back)];
     
 }
-
+#pragma mark - 返回按钮
 - (void)back
 {
     [self.navigationController popViewControllerAnimated:YES];
