@@ -8,6 +8,7 @@
 
 #import "SpecialSubjectDetailViewController.h"
 #import "JoiningURL.h"
+#import "EB_COLOR.h"
 #import "BookMP3.h"
 
 @interface SpecialSubjectDetailViewController ()
@@ -24,12 +25,25 @@
     
     self.title = _book.name;
     
+    // 设置navigationBar
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = EB_MAIN_COLOR;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    // 返回按钮
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:(UIBarButtonItemStylePlain) target:self action:@selector(back)];
+    
     NSURL *url = [NSURL URLWithString:[JoiningURL urlWithCoverStr:_book.cover joiningStr:@"_338x170"]];
     
     [self.coverImageView sd_setImageWithURL:url placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
     
     self.descLabel.text = _book.desc;
     
+}
+
+#pragma mark - 返回按钮
+- (void)back
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
