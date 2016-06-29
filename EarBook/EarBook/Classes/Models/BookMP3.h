@@ -45,9 +45,11 @@
 
 /// url
 @property (nonatomic, copy) NSString *url;
-
+/// 原因叙述
 @property (nonatomic, copy) NSString *reason;
-
+/// id
 @property (nonatomic, copy) NSString *ID;
+///
+@property (nonatomic, copy) NSString *publishType;
 
 @end

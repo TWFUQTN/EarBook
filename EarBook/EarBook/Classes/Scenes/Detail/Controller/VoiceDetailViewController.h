@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+@class BookMP3;
 @interface VoiceDetailViewController : UIViewController
+
+@property (nonatomic, strong) BookMP3 *book;
 
 @end

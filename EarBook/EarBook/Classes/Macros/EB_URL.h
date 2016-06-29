@@ -30,6 +30,17 @@
 // more按钮地址
 #define EB_MORE_EDIT_RECOMMEND_URL @"http://42.62.15.100/yyting/bookclient/ClientGetBookByTopic.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&pageNum=1&pageSize=500&q=8202&sc=4514a4e550e11cd3e48574c69c413e0d&sort=0&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCm1MERM9GQasAk6L-vqa3PqIC3t2KIXkyw%2A&topicId="
 
+// 声音详情页基地址
+#define EB_VOICE_BASE_URL @"http://42.62.15.101/yyting/snsresource/getAblumnDetail.action?id="
+
+// 声音详情页
+#define EB_VOICE_URL @"&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&q=1103&sc=901846794747c2fa095c33302378fb5c&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCm1MERM9GQasAk6L-vqa3PqIC3t2KIXkyw%2A"
+
+// 声音列表页基地址
+#define EB_VOICE_LIST_BASE_URL @"http://117.25.143.74/yyting/snsresource/getAblumnAudios.action?ablumnId=" // 19450
+
+// 声音列表页
+#define EB_VOICE_LIST_URL @"&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&q=13313&sc=952e4b45ce4ca13c350ffe61ed65d58f&sortType=1&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCm1MERM9GQasAk6L-vqa3PqIC3t2KIXkyw%2A"
 
 // 分类页面地址
 #define EB_CLASSIFICATION_URL @"http://apis.mting.info/yyting/gateway/batchOperation.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8*&pfunction=1&nwt=1&operations=%5B%22%2Fyyting%2Fbookclient%2FgetCategory.action%3Fopen%3D2%26pt%3D24%22%2C%22%2Fyyting%2Fbookclient%2FClientGetBookType.action%3Ffid%3D1000%26open%3D2%22%2C%22%2Fyyting%2Fbookclient%2FClientGetBookType.action%3Ffid%3D0%26open%3D1%22%5D&q=202&sc=6d2b176aa087e09b31e18d4a912b817a"

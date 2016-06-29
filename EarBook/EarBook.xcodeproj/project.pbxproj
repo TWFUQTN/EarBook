@@ -103,6 +103,7 @@
 		D6CE72AF1D23578300B6E108 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6CE72AD1D23578300B6E108 /* MyCollectionViewCell.xib */; };
 		D6CE72B31D23583400B6E108 /* VoiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CE72B11D23583400B6E108 /* VoiceDetailViewController.m */; };
 		D6CE72B41D23583400B6E108 /* VoiceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6CE72B21D23583400B6E108 /* VoiceDetailViewController.xib */; };
+		D6E334001D23A7FC006052D6 /* VoiceProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E333FF1D23A7FC006052D6 /* VoiceProgram.m */; };
 		D6F611161D22CA53002B4506 /* ClassificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F610D31D22CA53002B4506 /* ClassificationViewController.m */; };
 		D6F611171D22CA53002B4506 /* ClassificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F610D41D22CA53002B4506 /* ClassificationViewController.xib */; };
 		D6F611181D22CA53002B4506 /* HomeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F610D61D22CA53002B4506 /* HomeNavigationController.m */; };
@@ -276,6 +277,8 @@
 		D6CE72B01D23583400B6E108 /* VoiceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceDetailViewController.h; sourceTree = "<group>"; };
 		D6CE72B11D23583400B6E108 /* VoiceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceDetailViewController.m; sourceTree = "<group>"; };
 		D6CE72B21D23583400B6E108 /* VoiceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoiceDetailViewController.xib; sourceTree = "<group>"; };
+		D6E333FE1D23A7FC006052D6 /* VoiceProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceProgram.h; sourceTree = "<group>"; };
+		D6E333FF1D23A7FC006052D6 /* VoiceProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceProgram.m; sourceTree = "<group>"; };
 		D6ECF0471D1D0A92005C372A /* EB_COLOR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EB_COLOR.h; sourceTree = "<group>"; };
 		D6ECF0481D1D0A92005C372A /* EB_URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EB_URL.h; sourceTree = "<group>"; };
 		D6ECF0491D1D0A92005C372A /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
@@ -716,6 +719,8 @@
 			children = (
 				D632AFFE1D1E615B0092A6A3 /* BookMP3.h */,
 				D632AFFF1D1E615B0092A6A3 /* BookMP3.m */,
+				D6E333FE1D23A7FC006052D6 /* VoiceProgram.h */,
+				D6E333FF1D23A7FC006052D6 /* VoiceProgram.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1158,6 +1163,7 @@
 				D61699461D22269E006E7FB6 /* DOPNavbarMenu.m in Sources */,
 				D6F611241D22CA53002B4506 /* BookCell.m in Sources */,
 				D6F611361D22CA53002B4506 /* TabBarListViewCell.m in Sources */,
+				D6E334001D23A7FC006052D6 /* VoiceProgram.m in Sources */,
 				D632AFC51D1E22880092A6A3 /* ARSegmentPageController.m in Sources */,
 				D632AFC61D1E22880092A6A3 /* ARSegmentPageHeader.m in Sources */,
 				D631B4B11D1C1CBC00102682 /* main.m in Sources */,
