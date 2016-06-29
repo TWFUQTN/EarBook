@@ -18,6 +18,7 @@
 #import "DetailViewController.h"
 #import "MoreListViewController.h"
 #import "SpecialSubjectViewController.h"
+#import "SpecialSubjectDetailViewController.h"
 
 #define baseTag 100
 
@@ -303,6 +304,8 @@
             
             [self.navigationController pushViewController:detailVC animated:YES];
         }
+        
+        
     }
 }
 
@@ -426,11 +429,16 @@
 
 - (void)tap1
 {
-    
+    SpecialSubjectDetailViewController *detailVC = [SpecialSubjectDetailViewController new];
+    detailVC.book = _bookDict[@3][0];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
+
 - (void)tap2
 {
-    
+    SpecialSubjectDetailViewController *detailVC = [SpecialSubjectDetailViewController new];
+    detailVC.book = _bookDict[@3][1];
+    [self.navigationController pushViewController:detailVC animated:YES];
 }
 
 #pragma mark 高度
