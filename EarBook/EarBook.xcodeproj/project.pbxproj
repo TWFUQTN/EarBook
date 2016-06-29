@@ -99,6 +99,10 @@
 		D6856C2C1D1E2D1800E4F4FE /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6856C2A1D1E2D1800E4F4FE /* ListCell.xib */; };
 		D69048231D1E6541000A6574 /* placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D69048221D1E6541000A6574 /* placeholderImage.png */; };
 		D6B248CC1D211A850082ED6A /* BookList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B248CB1D211A850082ED6A /* BookList.m */; };
+		D6CE72AE1D23578300B6E108 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CE72AC1D23578300B6E108 /* MyCollectionViewCell.m */; };
+		D6CE72AF1D23578300B6E108 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6CE72AD1D23578300B6E108 /* MyCollectionViewCell.xib */; };
+		D6CE72B31D23583400B6E108 /* VoiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CE72B11D23583400B6E108 /* VoiceDetailViewController.m */; };
+		D6CE72B41D23583400B6E108 /* VoiceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6CE72B21D23583400B6E108 /* VoiceDetailViewController.xib */; };
 		D6F611161D22CA53002B4506 /* ClassificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F610D31D22CA53002B4506 /* ClassificationViewController.m */; };
 		D6F611171D22CA53002B4506 /* ClassificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F610D41D22CA53002B4506 /* ClassificationViewController.xib */; };
 		D6F611181D22CA53002B4506 /* HomeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F610D61D22CA53002B4506 /* HomeNavigationController.m */; };
@@ -122,8 +126,6 @@
 		D6F6112A1D22CA53002B4506 /* HomeCustomHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F610FA1D22CA53002B4506 /* HomeCustomHeader.xib */; };
 		D6F6112B1D22CA53002B4506 /* MoreListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F610FD1D22CA53002B4506 /* MoreListCell.m */; };
 		D6F6112C1D22CA53002B4506 /* MoreListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F610FE1D22CA53002B4506 /* MoreListCell.xib */; };
-		D6F6112D1D22CA53002B4506 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F611001D22CA53002B4506 /* MyCollectionViewCell.m */; };
-		D6F6112E1D22CA53002B4506 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F611011D22CA53002B4506 /* MyCollectionViewCell.xib */; };
 		D6F6112F1D22CA53002B4506 /* RecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F611041D22CA53002B4506 /* RecommendCell.m */; };
 		D6F611301D22CA53002B4506 /* RecommendCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F611051D22CA53002B4506 /* RecommendCell.xib */; };
 		D6F611311D22CA53002B4506 /* RecommendHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F611071D22CA53002B4506 /* RecommendHeaderView.m */; };
@@ -268,6 +270,12 @@
 		D69048221D1E6541000A6574 /* placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderImage.png; sourceTree = "<group>"; };
 		D6B248CA1D211A850082ED6A /* BookList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookList.h; sourceTree = "<group>"; };
 		D6B248CB1D211A850082ED6A /* BookList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookList.m; sourceTree = "<group>"; };
+		D6CE72AB1D23578300B6E108 /* MyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
+		D6CE72AC1D23578300B6E108 /* MyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
+		D6CE72AD1D23578300B6E108 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
+		D6CE72B01D23583400B6E108 /* VoiceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceDetailViewController.h; sourceTree = "<group>"; };
+		D6CE72B11D23583400B6E108 /* VoiceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceDetailViewController.m; sourceTree = "<group>"; };
+		D6CE72B21D23583400B6E108 /* VoiceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoiceDetailViewController.xib; sourceTree = "<group>"; };
 		D6ECF0471D1D0A92005C372A /* EB_COLOR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EB_COLOR.h; sourceTree = "<group>"; };
 		D6ECF0481D1D0A92005C372A /* EB_URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EB_URL.h; sourceTree = "<group>"; };
 		D6ECF0491D1D0A92005C372A /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
@@ -308,9 +316,6 @@
 		D6F610FC1D22CA53002B4506 /* MoreListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreListCell.h; sourceTree = "<group>"; };
 		D6F610FD1D22CA53002B4506 /* MoreListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreListCell.m; sourceTree = "<group>"; };
 		D6F610FE1D22CA53002B4506 /* MoreListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreListCell.xib; sourceTree = "<group>"; };
-		D6F610FF1D22CA53002B4506 /* MyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
-		D6F611001D22CA53002B4506 /* MyCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionViewCell.m; sourceTree = "<group>"; };
-		D6F611011D22CA53002B4506 /* MyCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyCollectionViewCell.xib; sourceTree = "<group>"; };
 		D6F611031D22CA53002B4506 /* RecommendCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecommendCell.h; sourceTree = "<group>"; };
 		D6F611041D22CA53002B4506 /* RecommendCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecommendCell.m; sourceTree = "<group>"; };
 		D6F611051D22CA53002B4506 /* RecommendCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendCell.xib; sourceTree = "<group>"; };
@@ -482,6 +487,9 @@
 				D647618D1D22A7F5004A8262 /* SpecialSubjectDetailViewController.h */,
 				D647618E1D22A7F5004A8262 /* SpecialSubjectDetailViewController.m */,
 				D647618F1D22A7F5004A8262 /* SpecialSubjectDetailViewController.xib */,
+				D6CE72B01D23583400B6E108 /* VoiceDetailViewController.h */,
+				D6CE72B11D23583400B6E108 /* VoiceDetailViewController.m */,
+				D6CE72B21D23583400B6E108 /* VoiceDetailViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -779,12 +787,12 @@
 		D6F610D01D22CA53002B4506 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D6F610D11D22CA53002B4506 /* Classification */,
 				D6F610D51D22CA53002B4506 /* HomeNavigationController.h */,
 				D6F610D61D22CA53002B4506 /* HomeNavigationController.m */,
 				D6F610D71D22CA53002B4506 /* HomeViewController.h */,
 				D6F610D81D22CA53002B4506 /* HomeViewController.m */,
 				D6F610D91D22CA53002B4506 /* HomeViewController.xib */,
+				D6F610D11D22CA53002B4506 /* Classification */,
 				D6F610DA1D22CA53002B4506 /* Ranking */,
 				D6F610DE1D22CA53002B4506 /* Recommend */,
 			);
@@ -844,9 +852,6 @@
 				D6F610F31D22CA53002B4506 /* Classification */,
 				D6F610F71D22CA53002B4506 /* HomeCustomHeader */,
 				D6F610FB1D22CA53002B4506 /* MoreList */,
-				D6F610FF1D22CA53002B4506 /* MyCollectionViewCell.h */,
-				D6F611001D22CA53002B4506 /* MyCollectionViewCell.m */,
-				D6F611011D22CA53002B4506 /* MyCollectionViewCell.xib */,
 				D6F611021D22CA53002B4506 /* Recommend */,
 				D6F611081D22CA53002B4506 /* SpecialSubject */,
 				D6F6110F1D22CA53002B4506 /* TabBarList */,
@@ -872,6 +877,9 @@
 		D6F610F31D22CA53002B4506 /* Classification */ = {
 			isa = PBXGroup;
 			children = (
+				D6CE72AB1D23578300B6E108 /* MyCollectionViewCell.h */,
+				D6CE72AC1D23578300B6E108 /* MyCollectionViewCell.m */,
+				D6CE72AD1D23578300B6E108 /* MyCollectionViewCell.xib */,
 				D6F610F41D22CA53002B4506 /* ClassificationCell.h */,
 				D6F610F51D22CA53002B4506 /* ClassificationCell.m */,
 				D6F610F61D22CA53002B4506 /* ClassificationCell.xib */,
@@ -1015,6 +1023,7 @@
 				D675A5791D20D16600E6F999 /* actions@2x.png in Resources */,
 				D6F611171D22CA53002B4506 /* ClassificationViewController.xib in Resources */,
 				D61699581D224F99006E7FB6 /* PlayRight.png in Resources */,
+				D6CE72AF1D23578300B6E108 /* MyCollectionViewCell.xib in Resources */,
 				D6770F891D1EB5ED00AE0CFE /* 2.png in Resources */,
 				D656751D1D210FC5000E4B26 /* back.png in Resources */,
 				D675A5861D20D35900E6F999 /* tabBarnext.png in Resources */,
@@ -1032,6 +1041,7 @@
 				D632AFAA1D1E227A0092A6A3 /* LoginViewController.xib in Resources */,
 				D6F611371D22CA53002B4506 /* TabBarListViewCell.xib in Resources */,
 				D61699711D226D3E006E7FB6 /* playsound.png in Resources */,
+				D6CE72B41D23583400B6E108 /* VoiceDetailViewController.xib in Resources */,
 				D631B4BA1D1C1CBC00102682 /* Main.storyboard in Resources */,
 				D61699561D224F99006E7FB6 /* playPause.png in Resources */,
 				D675A57A1D20D16600E6F999 /* gear@2x.png in Resources */,
@@ -1049,7 +1059,6 @@
 				D61699641D224FCA006E7FB6 /* playSettingdownload.png in Resources */,
 				D6856C2C1D1E2D1800E4F4FE /* ListCell.xib in Resources */,
 				D616995B1D224F99006E7FB6 /* volume.png in Resources */,
-				D6F6112E1D22CA53002B4506 /* MyCollectionViewCell.xib in Resources */,
 				D61699731D226E87006E7FB6 /* playlturneft.png in Resources */,
 				D61699701D226D3E006E7FB6 /* playreduce.png in Resources */,
 				D64761911D22A7F5004A8262 /* SpecialSubjectDetailViewController.xib in Resources */,
@@ -1134,11 +1143,13 @@
 				D675A5701D20D11300E6F999 /* PCStackMenu.m in Sources */,
 				D6F611161D22CA53002B4506 /* ClassificationViewController.m in Sources */,
 				D6F611271D22CA53002B4506 /* ClassificationCell.m in Sources */,
+				D6CE72AE1D23578300B6E108 /* MyCollectionViewCell.m in Sources */,
 				D6F611291D22CA53002B4506 /* HomeCustomHeader.m in Sources */,
 				D6F611221D22CA53002B4506 /* List.m in Sources */,
 				D6856C2B1D1E2D1800E4F4FE /* ListCell.m in Sources */,
 				D632AFD41D1E22C70092A6A3 /* UIImage+ImageEffects.m in Sources */,
 				D6F611251D22CA53002B4506 /* BookCollectionCell.m in Sources */,
+				D6CE72B31D23583400B6E108 /* VoiceDetailViewController.m in Sources */,
 				D64761901D22A7F5004A8262 /* SpecialSubjectDetailViewController.m in Sources */,
 				D6F611181D22CA53002B4506 /* HomeNavigationController.m in Sources */,
 				D6F6112F1D22CA53002B4506 /* RecommendCell.m in Sources */,
@@ -1174,7 +1185,6 @@
 				D62B095A1D1D2DFC00128D82 /* PlayerViewController.m in Sources */,
 				D60A541D1D1D2FDC00ECF173 /* DetailViewController.m in Sources */,
 				D632AFCC1D1E22880092A6A3 /* TYCircleView.m in Sources */,
-				D6F6112D1D22CA53002B4506 /* MyCollectionViewCell.m in Sources */,
 				D6F611321D22CA53002B4506 /* SpecialSubjectCell.m in Sources */,
 				D6F611341D22CA53002B4506 /* SpecialSubjectListCell.m in Sources */,
 				D6F611201D22CA53002B4506 /* SpecialSubjectViewController.m in Sources */,
