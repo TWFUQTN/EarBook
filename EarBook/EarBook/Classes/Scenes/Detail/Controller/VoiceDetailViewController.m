@@ -8,8 +8,12 @@
 
 #import "VoiceDetailViewController.h"
 #import "ZF_SegmentLabelView.h"
+#import "BookMP3.h"
+#import "BookList.h"
+#import "VoiceProgram.h"
 #import "ListCell.h"
 #import "EB_COLOR.h"
+#import "EB_URL.h"
 
 @interface VoiceDetailViewController ()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -67,18 +71,109 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    // 请求详情数据
+    [self requestDetailData];
+    // 请求列表数据
+    [self requestListData];
+    
+    // 设置navigationBar
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = EB_MAIN_COLOR;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    // 返回按钮
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:(UIBarButtonItemStylePlain) target:self action:@selector(back)];
+    
     self.bottomScrollView.delegate = self;
     self.listTableView.dataSource = self;
     self.listTableView.delegate = self;
     
-    
-    
     [self layoutSubView];
     
+    // 注册cell
     [self.listTableView registerNib:[UINib nibWithNibName:@"ListCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
 }
 
+#pragma mark - 请求详情数据
+- (void)requestDetailData
+{
+    NSString *urlString = [NSString stringWithFormat:@"%@%@%@", EB_VOICE_BASE_URL, _book.url, EB_VOICE_URL];
+    
+    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+    __weak typeof(self) voiceDetailVC = self;
+    [session GET:urlString
+      parameters:nil
+        progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             
+             NSDictionary *dict = responseObject[@"ablumn"];
+             VoiceProgram *voice = [VoiceProgram new];
+             [voice setValuesForKeysWithDictionary:dict];
+             
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 // 刷新列表
+                 [voiceDetailVC reloadUIWithVoice:voice];
+             });
+    }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             
+    }];
+}
+
+#pragma mark - 请求播放列表数据
+- (void)requestListData
+{
+    NSString *urlString = [NSString stringWithFormat:@"%@%@%@", EB_VOICE_LIST_BASE_URL, _book.url, EB_VOICE_LIST_URL];
+    
+    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+    __weak typeof(self) voiceDetailVC = self;
+    [session GET:urlString
+      parameters:nil
+        progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+
+             for (NSDictionary *dict in responseObject[@"list"]) {
+                 BookList *list = [BookList new];
+                 [list setValuesForKeysWithDictionary:dict];
+                 [voiceDetailVC.listArray addObject:list];
+             }
+             
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 // 刷新列表
+                 [voiceDetailVC.listTableView reloadData];
+             });
+         }
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             
+         }];
+}
+
+#pragma mark - 刷新列表
+- (void)reloadUIWithVoice:(VoiceProgram *)voice
+{
+    self.title = voice.name;
+    
+    self.nameLabel.text = voice.name;
+    self.typeLabel.text = [NSString stringWithFormat:@"类别：%@", voice.typeName];
+    self.voicesLabel.text = [NSString stringWithFormat:@"声音：%@", voice.sections];
+    self.authorLabel.text = [NSString stringWithFormat:@"作者：%@", voice.author];
+    self.playLabel.text = [NSString stringWithFormat:@"播放：%.1f万", voice.playCount. floatValue / 10000];
+    self.announcerLabel.text = [NSString stringWithFormat:@"主播：%@", voice.announcer];
+    self.descLabel.text = voice.Description;
+    [self.coverImageView sd_setImageWithURL:[NSURL URLWithString:voice.cover] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
+    // 时间戳转为时间
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    NSTimeInterval time = [voice.updateTime doubleValue] / 1000;
+    NSDate *updateTime = [NSDate dateWithTimeIntervalSince1970:time];
+    [formatter setDateFormat:@"YYYY.MM.dd"];
+    self.updateLabel.text = [NSString stringWithFormat:@"更新日期：%@", [formatter stringFromDate:updateTime]];
+}
+
+#pragma mark - 返回按钮
+- (void)back
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 //页面布局
 - (void)layoutSubView {
