@@ -28,9 +28,15 @@
                         <constraint firstAttribute="width" secondItem="Av5-IS-ncG" secondAttribute="height" multiplier="1:1" id="Iir-SF-qF3"/>
                     </constraints>
                 </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l6k-Hr-I90">
+                    <rect key="frame" x="0.0" y="0.0" width="368" height="150"/>
+                    <gestureRecognizers/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="l6k-Hr-I90" secondAttribute="trailing" id="4ei-3D-i0n"/>
+                <constraint firstAttribute="bottom" secondItem="l6k-Hr-I90" secondAttribute="bottom" id="7jC-Dm-Q3P"/>
                 <constraint firstItem="Av5-IS-ncG" firstAttribute="height" secondItem="A1r-Fm-vpg" secondAttribute="height" multiplier="8:15" id="9Yw-NM-IeA"/>
                 <constraint firstItem="Av5-IS-ncG" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="JDD-Kc-GAE"/>
                 <constraint firstItem="Ddz-Xf-YNo" firstAttribute="top" secondItem="Av5-IS-ncG" secondAttribute="bottom" constant="8" id="MZm-WY-xuF"/>
@@ -42,6 +48,8 @@
                 <constraint firstItem="A1r-Fm-vpg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="eak-sh-7wn"/>
                 <constraint firstAttribute="bottom" secondItem="Av5-IS-ncG" secondAttribute="bottom" constant="60" id="ekm-RT-tAA"/>
                 <constraint firstAttribute="bottom" secondItem="A1r-Fm-vpg" secondAttribute="bottom" id="fpd-h6-3DS"/>
+                <constraint firstItem="l6k-Hr-I90" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="g7v-cO-NP8"/>
+                <constraint firstItem="l6k-Hr-I90" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kev-Vx-Dpj"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
@@ -49,6 +57,7 @@
                 <outlet property="headImageView" destination="Av5-IS-ncG" id="Mhm-8T-0m5"/>
                 <outlet property="imageView" destination="A1r-Fm-vpg" id="ap5-HP-DzO"/>
                 <outlet property="nameLabel" destination="Ddz-Xf-YNo" id="pex-1u-94y"/>
+                <outlet property="tapView" destination="l6k-Hr-I90" id="gTP-Xz-YBz"/>
             </connections>
             <point key="canvasLocation" x="291" y="157"/>
         </view>
