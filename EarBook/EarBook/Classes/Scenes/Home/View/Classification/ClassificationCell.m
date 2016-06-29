@@ -151,7 +151,7 @@
     [self.myCollectionView registerClass:[MyCollectionViewCell class] forCellWithReuseIdentifier:@"collecell"];
     //    [self.myCollectionView registerNib:[UINib nibWithNibName:@"MyCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"MyCollectionViewCell"];
     
-    self.myCollectionView.backgroundColor = EB_RANDOM_COLOR;
+    self.myCollectionView.backgroundColor = [UIColor whiteColor];
 }
 
 
@@ -181,7 +181,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
 //    MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collecell" forIndexPath:indexPath];
     MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collecell" forIndexPath:indexPath];
-    cell.backgroundColor = [UIColor purpleColor];
+//    cell.backgroundColor = [UIColor purpleColor];
     Classification *classification = self.cellArray[indexPath.row];
 //    NSLog(@"%d", i);
 //    i++;
@@ -192,10 +192,10 @@
 
 + (CGFloat)heightOfCellByNumberFromItems:(NSInteger)number {
     NSInteger i = 0;
-    if (number % 3 == 0) {
-        i = number / 3;
+    if (number % kNumber == 0) {
+        i = number / kNumber;
     } else {
-        i = (number / 3) + 1;
+        i = (number / kNumber) + 1;
     }
     
     CGFloat itemsHeight = i * ((((([UIScreen mainScreen].bounds.size.width * 3 / 4) - (10 + (10 * (kNumber - 1)) + 10)) / kNumber - 1) / 4));

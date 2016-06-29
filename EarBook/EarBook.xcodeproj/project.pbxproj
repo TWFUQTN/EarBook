@@ -103,6 +103,10 @@
 		D6CE72AF1D23578300B6E108 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6CE72AD1D23578300B6E108 /* MyCollectionViewCell.xib */; };
 		D6CE72B31D23583400B6E108 /* VoiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CE72B11D23583400B6E108 /* VoiceDetailViewController.m */; };
 		D6CE72B41D23583400B6E108 /* VoiceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6CE72B21D23583400B6E108 /* VoiceDetailViewController.xib */; };
+		D6DA8ABB1D23CB9D0067E813 /* NetWorkRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DA8ABA1D23CB9D0067E813 /* NetWorkRequestManager.m */; };
+		D6DA8ABE1D240FBC0067E813 /* AVPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DA8ABD1D240FBC0067E813 /* AVPlayerManager.m */; };
+		D6DA8AC11D240FD60067E813 /* BookInfosHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DA8AC01D240FD60067E813 /* BookInfosHandle.m */; };
+		D6DA8AC41D241AB80067E813 /* NSString+TimeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DA8AC31D241AB80067E813 /* NSString+TimeFormatter.m */; };
 		D6E334001D23A7FC006052D6 /* VoiceProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E333FF1D23A7FC006052D6 /* VoiceProgram.m */; };
 		D6F611161D22CA53002B4506 /* ClassificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F610D31D22CA53002B4506 /* ClassificationViewController.m */; };
 		D6F611171D22CA53002B4506 /* ClassificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F610D41D22CA53002B4506 /* ClassificationViewController.xib */; };
@@ -277,6 +281,14 @@
 		D6CE72B01D23583400B6E108 /* VoiceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceDetailViewController.h; sourceTree = "<group>"; };
 		D6CE72B11D23583400B6E108 /* VoiceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceDetailViewController.m; sourceTree = "<group>"; };
 		D6CE72B21D23583400B6E108 /* VoiceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoiceDetailViewController.xib; sourceTree = "<group>"; };
+		D6DA8AB91D23CB9D0067E813 /* NetWorkRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkRequestManager.h; sourceTree = "<group>"; };
+		D6DA8ABA1D23CB9D0067E813 /* NetWorkRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkRequestManager.m; sourceTree = "<group>"; };
+		D6DA8ABC1D240FBC0067E813 /* AVPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPlayerManager.h; sourceTree = "<group>"; };
+		D6DA8ABD1D240FBC0067E813 /* AVPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPlayerManager.m; sourceTree = "<group>"; };
+		D6DA8ABF1D240FD60067E813 /* BookInfosHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookInfosHandle.h; sourceTree = "<group>"; };
+		D6DA8AC01D240FD60067E813 /* BookInfosHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookInfosHandle.m; sourceTree = "<group>"; };
+		D6DA8AC21D241AB80067E813 /* NSString+TimeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TimeFormatter.h"; sourceTree = "<group>"; };
+		D6DA8AC31D241AB80067E813 /* NSString+TimeFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TimeFormatter.m"; sourceTree = "<group>"; };
 		D6E333FE1D23A7FC006052D6 /* VoiceProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceProgram.h; sourceTree = "<group>"; };
 		D6E333FF1D23A7FC006052D6 /* VoiceProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceProgram.m; sourceTree = "<group>"; };
 		D6ECF0471D1D0A92005C372A /* EB_COLOR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EB_COLOR.h; sourceTree = "<group>"; };
@@ -416,6 +428,8 @@
 		D62B090A1D1CC90700128D82 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				D6DA8AC21D241AB80067E813 /* NSString+TimeFormatter.h */,
+				D6DA8AC31D241AB80067E813 /* NSString+TimeFormatter.m */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -429,6 +443,12 @@
 				D62B09251D1D20EA00128D82 /* Tool_AdaptiveHeight.m */,
 				D684EEC11D229385002D2AF6 /* JoiningURL.h */,
 				D684EEC21D229385002D2AF6 /* JoiningURL.m */,
+				D6DA8AB91D23CB9D0067E813 /* NetWorkRequestManager.h */,
+				D6DA8ABA1D23CB9D0067E813 /* NetWorkRequestManager.m */,
+				D6DA8ABC1D240FBC0067E813 /* AVPlayerManager.h */,
+				D6DA8ABD1D240FBC0067E813 /* AVPlayerManager.m */,
+				D6DA8ABF1D240FD60067E813 /* BookInfosHandle.h */,
+				D6DA8AC01D240FD60067E813 /* BookInfosHandle.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1142,6 +1162,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6DA8ABB1D23CB9D0067E813 /* NetWorkRequestManager.m in Sources */,
 				D62B09261D1D20EA00128D82 /* Tool_AdaptiveHeight.m in Sources */,
 				D632AFC91D1E22880092A6A3 /* TYCircleCollectionView.m in Sources */,
 				D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */,
@@ -1172,6 +1193,7 @@
 				D6770F7B1D1EA73E00AE0CFE /* UserTableViewController.m in Sources */,
 				D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */,
 				D6F6111D1D22CA53002B4506 /* MoreListViewController.m in Sources */,
+				D6DA8AC41D241AB80067E813 /* NSString+TimeFormatter.m in Sources */,
 				D61699401D221EEE006E7FB6 /* MTTCircularSlider.m in Sources */,
 				D60A54211D1D51B400ECF173 /* ZF_SegmentLabelView.m in Sources */,
 				D632AFA91D1E227A0092A6A3 /* LoginViewController.m in Sources */,
@@ -1186,11 +1208,13 @@
 				D6F611191D22CA53002B4506 /* HomeViewController.m in Sources */,
 				D6F611381D22CA53002B4506 /* WYScrollView.m in Sources */,
 				D675A5721D20D11300E6F999 /* TBActivityView.m in Sources */,
+				D6DA8ABE1D240FBC0067E813 /* AVPlayerManager.m in Sources */,
 				D684EEC31D229385002D2AF6 /* JoiningURL.m in Sources */,
 				D632AFC81D1E22880092A6A3 /* TYCircleCell.m in Sources */,
 				D62B095A1D1D2DFC00128D82 /* PlayerViewController.m in Sources */,
 				D60A541D1D1D2FDC00ECF173 /* DetailViewController.m in Sources */,
 				D632AFCC1D1E22880092A6A3 /* TYCircleView.m in Sources */,
+				D6DA8AC11D240FD60067E813 /* BookInfosHandle.m in Sources */,
 				D6F611321D22CA53002B4506 /* SpecialSubjectCell.m in Sources */,
 				D6F611341D22CA53002B4506 /* SpecialSubjectListCell.m in Sources */,
 				D6F611201D22CA53002B4506 /* SpecialSubjectViewController.m in Sources */,

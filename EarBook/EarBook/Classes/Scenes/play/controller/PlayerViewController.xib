@@ -9,6 +9,8 @@
             <connections>
                 <outlet property="backgroundImageView" destination="SoA-0u-y6K" id="jh4-0q-AQC"/>
                 <outlet property="beginTimeLabel" destination="ELe-bo-emp" id="ofD-5p-jj9"/>
+                <outlet property="bookCurrent" destination="NOw-3R-Sf7" id="wrV-iD-qbM"/>
+                <outlet property="bookName" destination="EOb-1V-vW1" id="Oou-68-ZMh"/>
                 <outlet property="endTimeLabel" destination="co9-Bv-FV5" id="65A-T3-oTL"/>
                 <outlet property="lastButton" destination="9BX-8Z-V5Q" id="BsI-i3-Eh9"/>
                 <outlet property="nextButton" destination="Mto-Ks-gdh" id="XS3-xp-5jZ"/>
@@ -116,6 +118,9 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="4s1-jG-yxF"/>
                     </constraints>
+                    <connections>
+                        <action selector="progressChange:" destination="-1" eventType="valueChanged" id="Us6-d6-qWk"/>
+                    </connections>
                 </slider>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELe-bo-emp">
                     <rect key="frame" x="0.0" y="428" width="50" height="30"/>

@@ -19,6 +19,8 @@
 
 - (void)initLayout {
     self.titleLabel = [[UILabel alloc] initWithFrame:self.bounds];
+    self.titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.titleLabel.font = [UIFont systemFontOfSize:15];
     [self.contentView addSubview:self.titleLabel];
 }
 
