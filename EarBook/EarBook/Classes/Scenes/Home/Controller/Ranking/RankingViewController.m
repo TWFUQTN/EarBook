@@ -7,54 +7,176 @@
 //
 
 #import "RankingViewController.h"
+#import "BookCell.h"
+#import "BookMP3.h"
+#import "List.h"
+#import "EB_URL.h"
 
 @interface RankingViewController ()
+
+/// 列表数组
+@property (nonatomic, strong) NSMutableArray *listArray;
+
+/// 数据字典
+@property (nonatomic, strong) NSMutableDictionary *bookDict;
 
 @end
 
 @implementation RankingViewController
 
+- (NSMutableDictionary *)bookDict
+{
+    if (!_bookDict) {
+        _bookDict = [NSMutableDictionary dictionary];
+    }
+    return _bookDict;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
+    // 请求数据
+    [self requestData];
     
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    [self.tableView registerClass:[BookCell class] forCellReuseIdentifier:@"BookCell"];
 
 }
+
+#pragma mark - 请求数据
+- (void)requestData
+{
+    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+    __weak typeof(self) rankingVC = self;
+    [session GET:EB_RANKING_URL
+      parameters:nil
+        progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             // 解析数据
+             NSString *urlString = @"";
+             NSArray *resultArray = responseObject[@"list"];
+             if (resultArray.count > 0) {
+                 for (NSDictionary *dict in resultArray) {
+                     urlString = [NSString stringWithFormat:@"%@%@", EB_BASE_URL, dict[@"name"]];
+//                     NSLog(@"%@", urlString);
+                     [rankingVC requestDataTowWithURLString:urlString];
+                 }
+             }
+             
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [rankingVC.tableView reloadData];
+             });
+         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             
+         }];
+}
+
+#pragma mark - 二次请求数据
+- (void)requestDataTowWithURLString:(NSString *)urlString
+{
+    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+    __weak typeof(self) rankingVC = self;
+    [session GET:urlString
+      parameters:nil
+        progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             
+             // 解析数据
+             NSArray *resultArray = responseObject[@"list"];
+             if (resultArray.count > 0) {
+                 for (NSDictionary *dict in resultArray) {
+                     List *bookList = [List new];
+                     [bookList setValuesForKeysWithDictionary:dict];
+                     [rankingVC.listArray addObject:bookList];
+                     
+                     NSMutableArray *bookArray = [NSMutableArray array];
+                     if (bookList.list.count > 0) {
+                         for (NSDictionary *dict in bookList.list) {
+                             BookMP3 *book = [BookMP3 new];
+                             [book setValuesForKeysWithDictionary:dict];
+                             [bookArray addObject:book];
+                         }
+                         [rankingVC.bookDict setObject:bookArray forKey:bookList.name];
+                     } else {
+                         for (NSDictionary *dict in bookList.bookList) {
+                             BookMP3 *book = [BookMP3 new];
+                             [book setValuesForKeysWithDictionary:dict];
+                             [bookArray addObject:book];
+                         }
+                         [rankingVC.bookDict setObject:bookArray forKey:bookList.rankName];
+                     }
+                 }
+             }
+             
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [rankingVC.tableView reloadData];
+             });
+         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+             
+         }];
+    
+}
+
+#pragma mark - 请求数据封装
+//- (void)getData
+
 -(NSString *)segmentTitle
 {
     return @"榜单";
 }
--(UIScrollView *)streachScrollView
-{
-    return self.tableView;
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 1;
+
+    return self.bookDict.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 100;
+
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     
-    cell.textLabel.text = [NSString stringWithFormat:@"table %ld",(long)indexPath.row];
+    BookCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BookCell"];
+    if (_bookDict.count > 0) {
+        
+        switch (indexPath.section) {
+            case 0: {
+                cell.bookArray = _bookDict[@"热门榜"];
+                break;
+            }
+            case 1: {
+                cell.bookArray = _bookDict[@"好评榜"];
+                break;
+            }
+            case 2: {
+                cell.bookArray = _bookDict[@"搜索榜"];
+                break;
+            }
+            case 3: {
+                cell.bookArray = _bookDict[@"下载榜"];
+                break;
+            }
+            case 4: {
+                cell.bookArray = _bookDict[@"男生必听"];
+                break;
+            }
+            case 5: {
+                cell.bookArray = _bookDict[@"女生爱听"];
+                break;
+            }
+            default:
+                break;
+        }
+    }
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 336;
 }
 
 /*

@@ -45,4 +45,7 @@
 // 分类页面地址
 #define EB_CLASSIFICATION_URL @"http://apis.mting.info/yyting/gateway/batchOperation.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8*&pfunction=1&nwt=1&operations=%5B%22%2Fyyting%2Fbookclient%2FgetCategory.action%3Fopen%3D2%26pt%3D24%22%2C%22%2Fyyting%2Fbookclient%2FClientGetBookType.action%3Ffid%3D1000%26open%3D2%22%2C%22%2Fyyting%2Fbookclient%2FClientGetBookType.action%3Ffid%3D0%26open%3D1%22%5D&q=202&sc=6d2b176aa087e09b31e18d4a912b817a"
 
+// 榜单页
+#define EB_RANKING_URL @"http://apis.mting.info/yyting/gateway/batchOperation.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8*&pfunction=1&nwt=1&operations=%5B%22%2Fyyting%2Fbookclient%2FgetRecommendTypes.action%3Fsize%3D8%26type%3D5%26typeId%3D0%22%2C%22%2Fyyting%2Fbookclient%2FgetRecommendTypes.action%3Fsize%3D8%26type%3D6%26typeId%3D0%22%2C%22%2Fyyting%2Fbookclient%2FClientRankingsDir.action%3FpageSize%3D8%22%5D&q=203&sc=a55b5189fb8bee61df3230dbd722816c"
+
 #endif /* EB_URL_h */

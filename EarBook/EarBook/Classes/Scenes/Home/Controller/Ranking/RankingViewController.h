@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ARSegmentPageController.h"
 
+typedef void(^RankingVCBlock)(id  _Nullable responseObject);
 @interface RankingViewController : UITableViewController<ARSegmentControllerDelegate>
 
 @end

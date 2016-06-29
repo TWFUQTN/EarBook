@@ -340,11 +340,11 @@
             detailVC.pushFrom = PushFromRecommendVC;
             
             [self.navigationController pushViewController:detailVC animated:YES];
+        } else {
+            VoiceDetailViewController *voiceDetailVC = [VoiceDetailViewController new];
+            voiceDetailVC.book = _bookDict[@0][indexPath.row];
+            [self.navigationController pushViewController:voiceDetailVC animated:YES];
         }
-        
-        VoiceDetailViewController *voiceDetailVC = [VoiceDetailViewController new];
-        voiceDetailVC.book = _bookDict[@0][indexPath.row];
-        [self.navigationController pushViewController:voiceDetailVC animated:YES];
     }
 }
 
@@ -570,8 +570,6 @@
         default:
             break;
     }
-    
-    
 }
 
 /*
