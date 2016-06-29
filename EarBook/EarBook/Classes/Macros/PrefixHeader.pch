@@ -12,5 +12,6 @@
 #import "EfficientDefine.h"
 #import <AFNetworking/AFNetworking.h>
 #import <UIImageView+WebCache.h>
+#import <Masonry.h>
 
 #endif /* PrefixHeader_pch */
