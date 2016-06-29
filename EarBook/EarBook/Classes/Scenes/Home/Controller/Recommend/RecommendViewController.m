@@ -72,6 +72,10 @@
     }
     return _bookDict;
 }
+- (void)viewWillLayoutSubviews{
+    // 添加轮播图
+    [self createNetScrollView];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -87,8 +91,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"RecommendCell" bundle:nil] forCellReuseIdentifier:@"recommendCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"SpecialSubjectCell" bundle:nil] forCellReuseIdentifier:@"SpecialSubjectCell"];
     
-    // 添加轮播图
-    [self createNetScrollView];
+    
 }
 
 #pragma mark - 加载数据
