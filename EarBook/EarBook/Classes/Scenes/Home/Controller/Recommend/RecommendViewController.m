@@ -402,6 +402,12 @@
                 [specialSubjectCell.specialSubImage2 sd_setImageWithURL:[NSURL URLWithString:coverStr1]];
             }
             
+            UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap1)];
+            UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap2)];
+            
+            [specialSubjectCell.specialSubImage1 addGestureRecognizer:tap1];
+            [specialSubjectCell.specialSubImage2 addGestureRecognizer:tap2];
+            
             return specialSubjectCell;
             break;
         }
@@ -416,6 +422,15 @@
     bookCell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return bookCell;
+}
+
+- (void)tap1
+{
+    
+}
+- (void)tap2
+{
+    
 }
 
 #pragma mark 高度
