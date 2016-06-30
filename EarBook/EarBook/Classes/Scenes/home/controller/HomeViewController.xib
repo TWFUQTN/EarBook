@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
@@ -10,6 +9,7 @@
                 <outlet property="tabBarListPlayView" destination="Per-Qd-dhF" id="9A8-JT-Pys"/>
                 <outlet property="tabBarListTableView" destination="B4M-Ms-lcK" id="5Cd-vQ-sVI"/>
                 <outlet property="tabBarListView" destination="MbY-mc-Q2Q" id="Ncu-se-VHS"/>
+                <outlet property="tabBarPlayButton" destination="kLW-k8-mGL" id="PWO-v6-uVf"/>
                 <outlet property="tabBarSlider" destination="JgU-8f-dPc" id="pnp-rQ-MzU"/>
                 <outlet property="tabBarSongAuthor" destination="J5b-uQ-DfU" id="rlz-Th-pDM"/>
                 <outlet property="tabBarSongName" destination="JgU-8f-dPc" id="or3-gW-jGV"/>

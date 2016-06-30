@@ -54,7 +54,10 @@
     NSDictionary *userDict = @{
                                @"account" : _accountTextField.text,
                                @"nickname" : _nicknameTextField.text,
-                               @"pwd" : _pwdTextField.text
+                               @"pwd" : _pwdTextField.text,
+                               @"imei" : @"=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx",
+                               @"token" : @"iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8*",
+                               @"nwt" : @"1"
                                };
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
     __weak typeof(self)registerVC = self;
@@ -66,18 +69,26 @@
               User *user = [User new];
               [user setValuesForKeysWithDictionary:responseObject];
             
-              if (user.userId) {
-                  NSLog(@"注册成功");
-                  
-                  dispatch_async(dispatch_get_main_queue(), ^{
-                      [registerVC.navigationController popViewControllerAnimated:YES];
-                  });
-                  
-              } else {
-                  if (user.status == 1002) {
-                      [registerVC errorAlertWithMessage:user.msg];
-                  }
-              }
+//              if (user.userId) { &token=
+//                  NSLog(@"注册成功");
+//                  
+//                  dispatch_async(dispatch_get_main_queue(), ^{
+//                      [registerVC.navigationController popViewControllerAnimated:YES];
+//                  });
+//
+//              } else {
+//                  if (user.status == 1002) {
+//                      [registerVC errorAlertWithMessage:user.msg];
+//                  }
+//              }
+              
+              NSLog(@"%@", responseObject);
+              
+              dispatch_async(dispatch_get_main_queue(), ^{
+                  [registerVC.navigationController popViewControllerAnimated:YES];
+              });
+
+              
           } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
               
           }];

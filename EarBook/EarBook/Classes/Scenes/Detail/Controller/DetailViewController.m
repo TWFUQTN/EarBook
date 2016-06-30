@@ -15,13 +15,13 @@
 #import "BookList.h"
 #import "Tool_AdaptiveHeight.h"
 #import "PlayerViewController.h"
-#define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
-
 #define kScrollWidth self.scrollView.frame.size.width
 #define kScrollHeight self.scrollView.frame.size.height
 
 @interface DetailViewController ()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
-
+//{
+//    NSInteger *page;
+//}
 //segment及滑动的label视图
 @property (nonatomic, strong) ZF_SegmentLabelView *SLView;
 
@@ -59,6 +59,7 @@
 //装目录列表信息
 @property (nonatomic, strong) NSMutableArray *listArray;
 
+@property (nonatomic, assign) NSInteger pageNum;
 
 @end
 
@@ -75,13 +76,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    self.pageNum = 1;
     if (self.pushFrom == PushFromMoreListVC) {
+        
         [self reloadUIWithBook:self.book];
         [self bookListWithBook:self.book];
+        
+        // 下拉刷新
+        __weak typeof(self) detailVC = self;
+        self.listTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+            detailVC.pageNum += 1;
+            [detailVC bookListWithBook:_book];
+            // 结束刷新
+            [detailVC.listTableView.mj_footer endRefreshing];
+        }];
+        
     } else {
         // 请求数据
         [self requestData];
+        // 下拉刷新
+        __weak typeof(self) detailVC = self;
+        self.listTableView.mj_footer = [MJRefreshBackNormalFooter footerWithRefreshingBlock:^{
+            detailVC.pageNum += 1;
+            [detailVC requestData];
+            // 结束刷新
+            [detailVC.listTableView.mj_footer endRefreshing];
+        }];
     }
     // 设置navigationBar
     self.navigationController.navigationBar.translucent = NO;
@@ -114,7 +134,7 @@
         bookDetailURL = [NSString stringWithFormat:@"%@%@%@", EB_BOOK_DETAIL_BASE_URL, _book.url, EB_BOOK_DETAIL_URL];
     }
     
-    if (_book.ID) {
+    if (_joiningURLString == JoiningURLStringByID && _book.ID) {
         // 详情页数据加载
         bookDetailURL = [NSString stringWithFormat:@"%@%@%@", EB_BOOK_DETAIL_BASE_URL, _book.ID, EB_BOOK_DETAIL_URL];
     }
@@ -143,8 +163,6 @@
 #warning Alert
              NSLog(@"请求出错");
          }];
-    
-    
 }
 
 #pragma mark - 加载列表数据
@@ -152,7 +170,7 @@
 {
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
     // 列表页数据加载
-    NSString *bookListURL = [NSString stringWithFormat:@"%@%@%@", EB_BOOK_LIST_BASE_URL, book.ID, EB_BOOK_LIST_URL];
+    NSString *bookListURL = [NSString stringWithFormat:@"%@%@%@%ld%@", EB_BOOK_LIST_BASE_URL, book.ID, EB_BOOK_LIST_URL1, self.pageNum, EB_BOOK_LIST_URL2];
     [session GET:bookListURL
       parameters:nil
         progress:nil
@@ -224,9 +242,6 @@
     
     return cell;
 }
-
-
-
 
 #pragma mark - scrollView代理方法
 //已经结束滚动的方法

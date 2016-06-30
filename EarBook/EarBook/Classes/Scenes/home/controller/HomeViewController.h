@@ -7,7 +7,10 @@
 //
 
 #import "ARSegmentPageController.h"
+#import "BookMP3.h"
+#import "BookList.h"
 @interface HomeViewController : ARSegmentPageController
+
 @property (weak, nonatomic) IBOutlet UIView *tabbarHomeView;
 @property (weak, nonatomic) IBOutlet UIView *tabbarListUpView;
 @property (weak, nonatomic) IBOutlet UIView *tabbarListDownView;
@@ -24,4 +27,20 @@
 @property (weak, nonatomic) IBOutlet UIView *tabBarListPlayView;
 @property (nonatomic, copy) NSArray *items;
 @property (nonatomic,assign) BOOL isTabBarListOpen;
+
+
+//tabBarView
+//获取当前对应的集数下标
+@property (nonatomic,assign)NSInteger index;
+//当前对应的model
+@property (nonatomic,strong)BookList *bookList;
+@property (nonatomic,strong)BookMP3 *bookInformation;
+
+//播放列表
+@property (nonatomic,copy) NSMutableArray *playList;
+
+@property (weak, nonatomic) IBOutlet UIButton *tabBarPlayButton;
+
+
+
 @end
