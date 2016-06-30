@@ -24,8 +24,11 @@
 // 书籍列表页基地址
 #define EB_BOOK_LIST_BASE_URL @"http://42.62.15.103/yyting/bookclient/ClientGetBookResource.action?bookId="
 
-// 书籍列表页
-#define EB_BOOK_LIST_URL @"&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&pageNum=1&pageSize=50&q=904&sc=11619c41107cf5f3017e786f37252243&sortType=0&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8%2A"
+// 书籍列表页1
+#define EB_BOOK_LIST_URL1 @"&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&pageNum="
+
+// 书籍列表页2
+#define EB_BOOK_LIST_URL2 @"&pageSize=50&q=904&sc=11619c41107cf5f3017e786f37252243&sortType=0&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8%2A"
 
 // more按钮地址
 #define EB_MORE_EDIT_RECOMMEND_URL @"http://42.62.15.100/yyting/bookclient/ClientGetBookByTopic.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&pageNum=1&pageSize=500&q=8202&sc=4514a4e550e11cd3e48574c69c413e0d&sort=0&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCm1MERM9GQasAk6L-vqa3PqIC3t2KIXkyw%2A&topicId="
@@ -49,9 +52,9 @@
 #define EB_RANKING_URL @"http://apis.mting.info/yyting/gateway/batchOperation.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8*&pfunction=1&nwt=1&operations=%5B%22%2Fyyting%2Fbookclient%2FgetRecommendTypes.action%3Fsize%3D8%26type%3D5%26typeId%3D0%22%2C%22%2Fyyting%2Fbookclient%2FgetRecommendTypes.action%3Fsize%3D8%26type%3D6%26typeId%3D0%22%2C%22%2Fyyting%2Fbookclient%2FClientRankingsDir.action%3FpageSize%3D8%22%5D&q=203&sc=a55b5189fb8bee61df3230dbd722816c"
 
 // 注册
-#define EB_REGISTER_URL @"http://api.mting.info/yyting/usercenter/ManualRegister.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8*"
+#define EB_REGISTER_URL @"http://api.mting.info/yyting/usercenter/ManualRegister.action"
 
 // 登录
-#define EB_LOGIN_URL @"http://api.mting.info/yyting/usercenter/ClientLogon.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCkVMCR9zULlfUzbvMzS8fQI0OXcAQGcIb4*"
+#define EB_LOGIN_URL @"http://api.mting.info/yyting/usercenter/ClientLogon.action"
 
 #endif /* EB_URL_h */
