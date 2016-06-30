@@ -179,6 +179,7 @@
         DetailViewController *detailVC = [DetailViewController new];
         detailVC.book = book;
         detailVC.pushFrom = PushFromRecommendVC;
+        detailVC.joiningURLString = JoiningURLStringByID;
         [self.navigationController pushViewController:detailVC animated:YES];
     };
     

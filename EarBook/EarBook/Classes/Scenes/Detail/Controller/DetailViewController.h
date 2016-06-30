@@ -16,6 +16,11 @@ typedef NS_ENUM(NSUInteger, PushFrom) {
     PushFromRankingVC
 };
 
+typedef NS_ENUM(NSUInteger, JoiningURLString) {
+    JoiningURLStringByURL,
+    JoiningURLStringByID
+};
+
 @interface DetailViewController : UIViewController
 
 /// 传来的书籍
@@ -23,5 +28,8 @@ typedef NS_ENUM(NSUInteger, PushFrom) {
 
 /// 页面判断
 @property (nonatomic, assign) PushFrom pushFrom;
+
+/// 拼接URL判断
+@property (nonatomic, assign) JoiningURLString joiningURLString;
 
 @end

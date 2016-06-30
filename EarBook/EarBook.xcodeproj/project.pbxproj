@@ -107,6 +107,11 @@
 		D6DA8AC41D241AB80067E813 /* NSString+TimeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DA8AC31D241AB80067E813 /* NSString+TimeFormatter.m */; };
 		D6E334001D23A7FC006052D6 /* VoiceProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E333FF1D23A7FC006052D6 /* VoiceProgram.m */; };
 		D6E4F9411D24B12C0035C332 /* placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E4F9401D24B12C0035C332 /* placeholderImage.png */; };
+		D6E4F9681D254F9D0035C332 /* MryScrollPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4F95F1D254F9D0035C332 /* MryScrollPageVC.m */; };
+		D6E4F9691D254F9D0035C332 /* MryPageTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4F9631D254F9D0035C332 /* MryPageTable.m */; };
+		D6E4F96A1D254F9D0035C332 /* MryScrollMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4F9651D254F9D0035C332 /* MryScrollMenu.m */; };
+		D6E4F96B1D254F9D0035C332 /* MryScrollPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4F9671D254F9D0035C332 /* MryScrollPageCell.m */; };
+		D6E4F96E1D25538A0035C332 /* MRYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4F96D1D25538A0035C332 /* MRYViewController.m */; };
 		D6F611161D22CA53002B4506 /* ClassificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F610D31D22CA53002B4506 /* ClassificationViewController.m */; };
 		D6F611171D22CA53002B4506 /* ClassificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F610D41D22CA53002B4506 /* ClassificationViewController.xib */; };
 		D6F611181D22CA53002B4506 /* HomeNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F610D61D22CA53002B4506 /* HomeNavigationController.m */; };
@@ -289,6 +294,16 @@
 		D6E333FE1D23A7FC006052D6 /* VoiceProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceProgram.h; sourceTree = "<group>"; };
 		D6E333FF1D23A7FC006052D6 /* VoiceProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceProgram.m; sourceTree = "<group>"; };
 		D6E4F9401D24B12C0035C332 /* placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderImage.png; sourceTree = "<group>"; };
+		D6E4F95E1D254F9D0035C332 /* MryScrollPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryScrollPageVC.h; sourceTree = "<group>"; };
+		D6E4F95F1D254F9D0035C332 /* MryScrollPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryScrollPageVC.m; sourceTree = "<group>"; };
+		D6E4F9621D254F9D0035C332 /* MryPageTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryPageTable.h; sourceTree = "<group>"; };
+		D6E4F9631D254F9D0035C332 /* MryPageTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryPageTable.m; sourceTree = "<group>"; };
+		D6E4F9641D254F9D0035C332 /* MryScrollMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryScrollMenu.h; sourceTree = "<group>"; };
+		D6E4F9651D254F9D0035C332 /* MryScrollMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryScrollMenu.m; sourceTree = "<group>"; };
+		D6E4F9661D254F9D0035C332 /* MryScrollPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryScrollPageCell.h; sourceTree = "<group>"; };
+		D6E4F9671D254F9D0035C332 /* MryScrollPageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryScrollPageCell.m; sourceTree = "<group>"; };
+		D6E4F96C1D25538A0035C332 /* MRYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRYViewController.h; sourceTree = "<group>"; };
+		D6E4F96D1D25538A0035C332 /* MRYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRYViewController.m; sourceTree = "<group>"; };
 		D6ECF0471D1D0A92005C372A /* EB_COLOR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EB_COLOR.h; sourceTree = "<group>"; };
 		D6ECF0481D1D0A92005C372A /* EB_URL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EB_URL.h; sourceTree = "<group>"; };
 		D6ECF0491D1D0A92005C372A /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
@@ -477,6 +492,7 @@
 		D62B09391D1D2DFC00128D82 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				D6E4F95C1D254F9D0035C332 /* Mry */,
 				D6F610CF1D22CA53002B4506 /* Home */,
 				D632AF9D1D1E227A0092A6A3 /* User */,
 				D62B093A1D1D2DFC00128D82 /* Detail */,
@@ -789,6 +805,47 @@
 				D675A5831D20D35900E6F999 /* tabBarup.png */,
 			);
 			path = tabBarimage;
+			sourceTree = "<group>";
+		};
+		D6E4F95C1D254F9D0035C332 /* Mry */ = {
+			isa = PBXGroup;
+			children = (
+				D6E4F95D1D254F9D0035C332 /* Controller */,
+				D6E4F9601D254F9D0035C332 /* Model */,
+				D6E4F9611D254F9D0035C332 /* View */,
+			);
+			path = Mry;
+			sourceTree = "<group>";
+		};
+		D6E4F95D1D254F9D0035C332 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D6E4F95E1D254F9D0035C332 /* MryScrollPageVC.h */,
+				D6E4F95F1D254F9D0035C332 /* MryScrollPageVC.m */,
+				D6E4F96C1D25538A0035C332 /* MRYViewController.h */,
+				D6E4F96D1D25538A0035C332 /* MRYViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D6E4F9601D254F9D0035C332 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D6E4F9611D254F9D0035C332 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6E4F9621D254F9D0035C332 /* MryPageTable.h */,
+				D6E4F9631D254F9D0035C332 /* MryPageTable.m */,
+				D6E4F9641D254F9D0035C332 /* MryScrollMenu.h */,
+				D6E4F9651D254F9D0035C332 /* MryScrollMenu.m */,
+				D6E4F9661D254F9D0035C332 /* MryScrollPageCell.h */,
+				D6E4F9671D254F9D0035C332 /* MryScrollPageCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		D6ECF0461D1D0A92005C372A /* Macros */ = {
@@ -1168,9 +1225,11 @@
 				D62B09261D1D20EA00128D82 /* Tool_AdaptiveHeight.m in Sources */,
 				D632AFC91D1E22880092A6A3 /* TYCircleCollectionView.m in Sources */,
 				D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */,
+				D6E4F9681D254F9D0035C332 /* MryScrollPageVC.m in Sources */,
 				D675A5701D20D11300E6F999 /* PCStackMenu.m in Sources */,
 				D6F611161D22CA53002B4506 /* ClassificationViewController.m in Sources */,
 				D6F611271D22CA53002B4506 /* ClassificationCell.m in Sources */,
+				D6E4F96E1D25538A0035C332 /* MRYViewController.m in Sources */,
 				D6CE72AE1D23578300B6E108 /* MyCollectionViewCell.m in Sources */,
 				D67313E31D24B92B00386E91 /* RankingHeader.m in Sources */,
 				D6F611291D22CA53002B4506 /* HomeCustomHeader.m in Sources */,
@@ -1197,6 +1256,7 @@
 				D6770F7B1D1EA73E00AE0CFE /* UserTableViewController.m in Sources */,
 				D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */,
 				D6F6111D1D22CA53002B4506 /* MoreListViewController.m in Sources */,
+				D6E4F96A1D254F9D0035C332 /* MryScrollMenu.m in Sources */,
 				D6DA8AC41D241AB80067E813 /* NSString+TimeFormatter.m in Sources */,
 				D61699401D221EEE006E7FB6 /* MTTCircularSlider.m in Sources */,
 				D60A54211D1D51B400ECF173 /* ZF_SegmentLabelView.m in Sources */,
@@ -1206,6 +1266,7 @@
 				D6F6111E1D22CA53002B4506 /* RecommendViewController.m in Sources */,
 				D632AFC71D1E22880092A6A3 /* ARSegmentView.m in Sources */,
 				D61699471D22269E006E7FB6 /* UIView+DOPExtension.m in Sources */,
+				D6E4F9691D254F9D0035C332 /* MryPageTable.m in Sources */,
 				D632AFAB1D1E227A0092A6A3 /* RegisterViewController.m in Sources */,
 				D6F6111B1D22CA53002B4506 /* RankingViewController.m in Sources */,
 				D6B248CC1D211A850082ED6A /* BookList.m in Sources */,
@@ -1220,6 +1281,7 @@
 				D632AFCC1D1E22880092A6A3 /* TYCircleView.m in Sources */,
 				D6F611321D22CA53002B4506 /* SpecialSubjectCell.m in Sources */,
 				D6F611341D22CA53002B4506 /* SpecialSubjectListCell.m in Sources */,
+				D6E4F96B1D254F9D0035C332 /* MryScrollPageCell.m in Sources */,
 				D6F611201D22CA53002B4506 /* SpecialSubjectViewController.m in Sources */,
 				D6770F801D1EA82600AE0CFE /* UserCell.m in Sources */,
 				D632B0001D1E615B0092A6A3 /* BookMP3.m in Sources */,
