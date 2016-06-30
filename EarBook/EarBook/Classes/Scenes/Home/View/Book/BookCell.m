@@ -90,7 +90,9 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     BookMP3 *book = self.bookArray[indexPath.row];
-    self.block(book);
+    if (self.block) {
+        self.block(book);
+    }
 }
 
 - (void)awakeFromNib {

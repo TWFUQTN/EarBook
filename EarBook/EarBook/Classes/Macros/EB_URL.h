@@ -48,4 +48,10 @@
 // 榜单页
 #define EB_RANKING_URL @"http://apis.mting.info/yyting/gateway/batchOperation.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8*&pfunction=1&nwt=1&operations=%5B%22%2Fyyting%2Fbookclient%2FgetRecommendTypes.action%3Fsize%3D8%26type%3D5%26typeId%3D0%22%2C%22%2Fyyting%2Fbookclient%2FgetRecommendTypes.action%3Fsize%3D8%26type%3D6%26typeId%3D0%22%2C%22%2Fyyting%2Fbookclient%2FClientRankingsDir.action%3FpageSize%3D8%22%5D&q=203&sc=a55b5189fb8bee61df3230dbd722816c"
 
+// 注册
+#define EB_REGISTER_URL @"http://api.mting.info/yyting/usercenter/ManualRegister.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8*"
+
+// 登录
+#define EB_LOGIN_URL @"http://api.mting.info/yyting/usercenter/ClientLogon.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCkVMCR9zULlfUzbvMzS8fQI0OXcAQGcIb4*"
+
 #endif /* EB_URL_h */

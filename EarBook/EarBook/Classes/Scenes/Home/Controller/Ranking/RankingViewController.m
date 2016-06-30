@@ -7,10 +7,12 @@
 //
 
 #import "RankingViewController.h"
+#import "DetailViewController.h"
 #import "BookCell.h"
 #import "BookMP3.h"
 #import "List.h"
 #import "EB_URL.h"
+#import "RankingHeader.h"
 
 @interface RankingViewController ()
 
@@ -19,6 +21,9 @@
 
 /// 数据字典
 @property (nonatomic, strong) NSMutableDictionary *bookDict;
+
+/// title数组
+@property (nonatomic, strong) NSMutableArray *titleArray;
 
 @end
 
@@ -32,14 +37,31 @@
     return _bookDict;
 }
 
+- (NSMutableArray *)listArray
+{
+    if (!_listArray) {
+        _listArray = [NSMutableArray array];
+    }
+    return _listArray;
+}
+
+- (NSMutableArray *)titleArray
+{
+    if (!_titleArray) {
+        _titleArray = @[@"热门榜", @"好评榜", @"搜索榜", @"下载榜", @"男生必听", @"女生爱听"].mutableCopy;
+    }
+    return _titleArray;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // 请求数据
     [self requestData];
-    
+    // 注册cell
     [self.tableView registerClass:[BookCell class] forCellReuseIdentifier:@"BookCell"];
-
+    // 注册头视图
+    [self.tableView registerClass:[RankingHeader class] forHeaderFooterViewReuseIdentifier:@"RankingHeader"];
 }
 
 #pragma mark - 请求数据
@@ -57,7 +79,7 @@
              if (resultArray.count > 0) {
                  for (NSDictionary *dict in resultArray) {
                      urlString = [NSString stringWithFormat:@"%@%@", EB_BASE_URL, dict[@"name"]];
-//                     NSLog(@"%@", urlString);
+                     NSLog(@"%@", urlString);
                      [rankingVC requestDataTowWithURLString:urlString];
                  }
              }
@@ -87,7 +109,6 @@
                      List *bookList = [List new];
                      [bookList setValuesForKeysWithDictionary:dict];
                      [rankingVC.listArray addObject:bookList];
-                     
                      NSMutableArray *bookArray = [NSMutableArray array];
                      if (bookList.list.count > 0) {
                          for (NSDictionary *dict in bookList.list) {
@@ -137,46 +158,44 @@
     return 1;
 }
 
+#pragma mark - cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     BookCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BookCell"];
-    if (_bookDict.count > 0) {
-        
-        switch (indexPath.section) {
-            case 0: {
-                cell.bookArray = _bookDict[@"热门榜"];
-                break;
-            }
-            case 1: {
-                cell.bookArray = _bookDict[@"好评榜"];
-                break;
-            }
-            case 2: {
-                cell.bookArray = _bookDict[@"搜索榜"];
-                break;
-            }
-            case 3: {
-                cell.bookArray = _bookDict[@"下载榜"];
-                break;
-            }
-            case 4: {
-                cell.bookArray = _bookDict[@"男生必听"];
-                break;
-            }
-            case 5: {
-                cell.bookArray = _bookDict[@"女生爱听"];
-                break;
-            }
-            default:
-                break;
-        }
+    if (_bookDict.count > 0 && self.titleArray.count > 0) {
+
+        NSString *key = self.titleArray[indexPath.section];
+        cell.bookArray = _bookDict[key];
     }
+    
+    cell.block = ^void(BookMP3 *book) {
+        DetailViewController *detailVC = [DetailViewController new];
+        detailVC.book = book;
+        detailVC.pushFrom = PushFromRecommendVC;
+        [self.navigationController pushViewController:detailVC animated:YES];
+    };
+    
     return cell;
+}
+
+#pragma mark - header
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    RankingHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"RankingHeader"];
+    
+    header.title = _titleArray[section];
+    
+    return header;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 336;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 30;
 }
 
 /*

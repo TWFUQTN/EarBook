@@ -91,8 +91,6 @@
     [self.tableView registerClass:[BookCell class] forCellReuseIdentifier:@"bookCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"RecommendCell" bundle:nil] forCellReuseIdentifier:@"recommendCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"SpecialSubjectCell" bundle:nil] forCellReuseIdentifier:@"SpecialSubjectCell"];
-    
-    
 }
 
 #pragma mark - 加载数据
@@ -202,6 +200,7 @@
             } else {
                 [bookArr2 addObject:book];
             }
+//            [bookArray addObject:book];
         }
         [bookArray addObject:bookArr1];
         [bookArray addObject:bookArr2];

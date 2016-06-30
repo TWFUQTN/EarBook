@@ -50,7 +50,6 @@
 		D632AFAA1D1E227A0092A6A3 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D632AFA11D1E227A0092A6A3 /* LoginViewController.xib */; };
 		D632AFAB1D1E227A0092A6A3 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFA31D1E227A0092A6A3 /* RegisterViewController.m */; };
 		D632AFAC1D1E227A0092A6A3 /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D632AFA41D1E227A0092A6A3 /* RegisterViewController.xib */; };
-		D632AFAD1D1E227A0092A6A3 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D632AFA61D1E227A0092A6A3 /* 苹果接口.txt */; };
 		D632AFAE1D1E227A0092A6A3 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D632AFA81D1E227A0092A6A3 /* 苹果接口.txt */; };
 		D632AFC51D1E22880092A6A3 /* ARSegmentPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFB21D1E22880092A6A3 /* ARSegmentPageController.m */; };
 		D632AFC61D1E22880092A6A3 /* ARSegmentPageHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFB51D1E22880092A6A3 /* ARSegmentPageHeader.m */; };
@@ -67,6 +66,8 @@
 		D64761901D22A7F5004A8262 /* SpecialSubjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D647618E1D22A7F5004A8262 /* SpecialSubjectDetailViewController.m */; };
 		D64761911D22A7F5004A8262 /* SpecialSubjectDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D647618F1D22A7F5004A8262 /* SpecialSubjectDetailViewController.xib */; };
 		D656751D1D210FC5000E4B26 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = D656751C1D210FC5000E4B26 /* back.png */; };
+		D67313E31D24B92B00386E91 /* RankingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D67313E21D24B92B00386E91 /* RankingHeader.m */; };
+		D67313E61D2503A100386E91 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D67313E51D2503A100386E91 /* User.m */; };
 		D675A5701D20D11300E6F999 /* PCStackMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D675A56A1D20D11300E6F999 /* PCStackMenu.m */; };
 		D675A5711D20D11300E6F999 /* PCStackMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D675A56C1D20D11300E6F999 /* PCStackMenuItem.m */; };
 		D675A5721D20D11300E6F999 /* TBActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = D675A56F1D20D11300E6F999 /* TBActivityView.m */; };
@@ -201,7 +202,6 @@
 		D632AFA21D1E227A0092A6A3 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		D632AFA31D1E227A0092A6A3 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		D632AFA41D1E227A0092A6A3 /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
-		D632AFA61D1E227A0092A6A3 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
 		D632AFA81D1E227A0092A6A3 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
 		D632AFB01D1E22880092A6A3 /* ARSegmentControllerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentControllerDelegate.h; sourceTree = "<group>"; };
 		D632AFB11D1E22880092A6A3 /* ARSegmentPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARSegmentPageController.h; sourceTree = "<group>"; };
@@ -235,6 +235,10 @@
 		D656751C1D210FC5000E4B26 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		D65DC00D1D1E79C1003905BA /* EfficientDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EfficientDefine.h; sourceTree = "<group>"; };
 		D65DC00E1D1E79DB003905BA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D67313E11D24B92B00386E91 /* RankingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingHeader.h; sourceTree = "<group>"; };
+		D67313E21D24B92B00386E91 /* RankingHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingHeader.m; sourceTree = "<group>"; };
+		D67313E41D2503A100386E91 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
+		D67313E51D2503A100386E91 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D675A5691D20D11300E6F999 /* PCStackMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCStackMenu.h; sourceTree = "<group>"; };
 		D675A56A1D20D11300E6F999 /* PCStackMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCStackMenu.m; sourceTree = "<group>"; };
 		D675A56B1D20D11300E6F999 /* PCStackMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCStackMenuItem.h; sourceTree = "<group>"; };
@@ -672,7 +676,8 @@
 		D632AFA51D1E227A0092A6A3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D632AFA61D1E227A0092A6A3 /* 苹果接口.txt */,
+				D67313E41D2503A100386E91 /* User.h */,
+				D67313E51D2503A100386E91 /* User.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -743,6 +748,15 @@
 				D6E333FF1D23A7FC006052D6 /* VoiceProgram.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D67313E01D24B8E900386E91 /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				D67313E11D24B92B00386E91 /* RankingHeader.h */,
+				D67313E21D24B92B00386E91 /* RankingHeader.m */,
+			);
+			path = Ranking;
 			sourceTree = "<group>";
 		};
 		D675A5681D20D11300E6F999 /* PCStackMenu */ = {
@@ -873,6 +887,7 @@
 		D6F610EC1D22CA53002B4506 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D67313E01D24B8E900386E91 /* Ranking */,
 				D6F610ED1D22CA53002B4506 /* Book */,
 				D6F610F31D22CA53002B4506 /* Classification */,
 				D6F610F71D22CA53002B4506 /* HomeCustomHeader */,
@@ -1033,7 +1048,6 @@
 				D6F611391D22CA53002B4506 /* 苹果接口.txt in Resources */,
 				D60A541E1D1D2FDC00ECF173 /* DetailViewController.xib in Resources */,
 				D61699591D224F99006E7FB6 /* playSetting.png in Resources */,
-				D632AFAD1D1E227A0092A6A3 /* 苹果接口.txt in Resources */,
 				D6770F8A1D1EB5ED00AE0CFE /* 3.png in Resources */,
 				D62B095B1D1D2DFC00128D82 /* PlayerViewController.xib in Resources */,
 				D61699621D224FCA006E7FB6 /* palySettingshare.png in Resources */,
@@ -1170,6 +1184,7 @@
 				D6F611161D22CA53002B4506 /* ClassificationViewController.m in Sources */,
 				D6F611271D22CA53002B4506 /* ClassificationCell.m in Sources */,
 				D6CE72AE1D23578300B6E108 /* MyCollectionViewCell.m in Sources */,
+				D67313E31D24B92B00386E91 /* RankingHeader.m in Sources */,
 				D6F611291D22CA53002B4506 /* HomeCustomHeader.m in Sources */,
 				D6F611221D22CA53002B4506 /* List.m in Sources */,
 				D6856C2B1D1E2D1800E4F4FE /* ListCell.m in Sources */,
@@ -1181,6 +1196,7 @@
 				D6F6112F1D22CA53002B4506 /* RecommendCell.m in Sources */,
 				D6F611311D22CA53002B4506 /* RecommendHeaderView.m in Sources */,
 				D632AFCA1D1E22880092A6A3 /* TYCircleCollectionViewLayout.m in Sources */,
+				D67313E61D2503A100386E91 /* User.m in Sources */,
 				D61699461D22269E006E7FB6 /* DOPNavbarMenu.m in Sources */,
 				D6F611241D22CA53002B4506 /* BookCell.m in Sources */,
 				D6F611361D22CA53002B4506 /* TabBarListViewCell.m in Sources */,

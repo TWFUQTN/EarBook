@@ -13,6 +13,7 @@
 typedef NS_ENUM(NSUInteger, PushFrom) {
     PushFromRecommendVC,
     PushFromMoreListVC,
+    PushFromRankingVC
 };
 
 @interface DetailViewController : UIViewController

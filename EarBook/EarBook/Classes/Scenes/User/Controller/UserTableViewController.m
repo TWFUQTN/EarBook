@@ -23,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.title = @"我的";
+    
     // 设置navigationBar
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = EB_MAIN_COLOR;

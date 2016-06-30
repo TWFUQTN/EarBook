@@ -109,8 +109,17 @@
 #pragma mark - 加载详情数据
 - (void)requestData
 {
-    // 详情页数据加载
-    NSString *bookDetailURL = [NSString stringWithFormat:@"%@%@%@", EB_BOOK_DETAIL_BASE_URL, _book.url, EB_BOOK_DETAIL_URL];
+    NSString *bookDetailURL = @"";
+    if (_book.url) {
+        // 详情页数据加载
+        bookDetailURL = [NSString stringWithFormat:@"%@%@%@", EB_BOOK_DETAIL_BASE_URL, _book.url, EB_BOOK_DETAIL_URL];
+    }
+    
+    if (_book.ID) {
+        // 详情页数据加载
+        bookDetailURL = [NSString stringWithFormat:@"%@%@%@", EB_BOOK_DETAIL_BASE_URL, _book.ID, EB_BOOK_DETAIL_URL];
+    }
+    
     
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
     BookMP3 *book = [BookMP3 new];
