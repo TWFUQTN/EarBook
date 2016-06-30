@@ -77,6 +77,8 @@
     __weak typeof(self) classificationVC = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [classificationVC requestData];
+        // 结束刷新
+        [classificationVC.tableView.mj_footer endRefreshing];
     }];
     
 }

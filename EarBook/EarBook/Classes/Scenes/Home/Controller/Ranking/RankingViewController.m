@@ -13,6 +13,7 @@
 #import "List.h"
 #import "EB_URL.h"
 #import "RankingHeader.h"
+#import "RankingListViewController.h"
 
 @interface RankingViewController ()
 
@@ -67,6 +68,8 @@
     __weak typeof(self) rankingVC = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [rankingVC requestData];
+        // 结束刷新
+        [rankingVC.tableView.mj_footer endRefreshing];
     }];
     
 }
@@ -193,7 +196,17 @@
     
     header.title = _titleArray[section];
     
+    [header.weekRankingBtn addTarget:self action:@selector(weekRankingBtnAction:) forControlEvents:(UIControlEventTouchUpInside)];
+    
     return header;
+}
+
+- (void)weekRankingBtnAction:(UIButton *)sender
+{
+    RankingListViewController *rankingListVC = [RankingListViewController new];
+    
+//    [self presentViewController:rankingListVC animated:YES completion:nil];
+    [self.navigationController pushViewController:rankingListVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

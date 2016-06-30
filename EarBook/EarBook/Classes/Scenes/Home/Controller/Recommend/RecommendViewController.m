@@ -96,6 +96,8 @@
     __weak typeof(self) recommendVC = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [recommendVC requestData];
+        // 结束刷新
+        [recommendVC.tableView.mj_footer endRefreshing];
     }];
 }
 
