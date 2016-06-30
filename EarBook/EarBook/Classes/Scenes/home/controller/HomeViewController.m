@@ -16,11 +16,16 @@
 #import "PlayerViewController.h"
 #import "TabBarListViewCell.h"
 #import "UserTableViewController.h"
+#import "AVPlayerManager.h"
+// AVPlayerManager的单例
+#define kAVPlayerManager [AVPlayerManager shareAVPlayerManager]
 
 void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 
-@interface HomeViewController () <UITableViewDataSource,UITableViewDelegate>
+@interface HomeViewController () <UITableViewDataSource,UITableViewDelegate,AVPlayerManagerDelegate>
+//透视图
 @property (nonatomic, strong) HomeCustomHeader *header;
+
 
 @end
 
@@ -29,6 +34,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 
 -(instancetype)init
 {
+//    页面 登录
     RecommendViewController *recommendVC = [[RecommendViewController alloc] initWithNibName:@"RecommendViewController" bundle:nil];
     ClassificationViewController *classificationVC = [[ClassificationViewController alloc] initWithNibName:@"ClassificationViewController" bundle:nil];
     RankingViewController *rankingVC = [[RankingViewController alloc] initWithNibName:@"RankingViewController" bundle:nil];
@@ -56,6 +62,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     return _header;
 }
 
+
 - (void)tap
 {
     UserTableViewController *userVC = [UserTableViewController new];
@@ -66,6 +73,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 - (void)viewDidAppear:(BOOL)animated {
     [self tabBarViewLoad];
 }
+//tabbar 加载
 -(void)tabBarViewLoad{
     _tabbarHomeView.userInteractionEnabled = YES;
     _tabbarSongView.layer.cornerRadius = 35;
@@ -80,8 +88,15 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     
 }
 - (IBAction)tabBarListDelete:(id)sender {
+    
+    
 }
 - (IBAction)tabBarListLikes:(id)sender {
+    
+    
+    
+    
+    
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 100;
@@ -113,9 +128,20 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 
 - (void)viewWillAppear:(BOOL)animated
 {
+//    自定义navigationController
     self.navigationController.navigationBar.translucent = YES;
 }
+#pragma mark view
+// 播放并设置view上所有子视图
+- (void)playAndSetUpViews {
+    _bookList = _playList[_index];
+    [kAVPlayerManager playWithUrl:_bookList.path currentIndex:self.index];
+    // 改变播放按钮的状态
+    [_tabBarPlayButton setImage:[UIImage imageNamed:@"tabBarpause"] forState:UIControlStateNormal];
+    
 
+
+}
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
@@ -138,6 +164,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+//弹出按钮
 - (IBAction)SongButton:(id)sender {
     UIButton *button = (UIButton *)sender;
     PCStackMenu *stackMenu = [[PCStackMenu alloc] initWithTitles:[NSArray arrayWithObjects:@"Setting", @"Search", @"Twitter", @"Message", @"Share", @"More ...", nil]
@@ -155,6 +182,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 
     
 }
+//tabBar 列表按钮
 - (IBAction)tabBarListButton:(id)sender {
     if (self.isTabBarListOpen) {
         [UIView animateWithDuration:1 animations:^{
@@ -170,7 +198,6 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
             _tabbarListOtherView.hidden = NO;
             _isTabBarListOpen = YES;
         }];
-  
     }
 }
 - (IBAction)tabBarLastButton:(id)sender {
@@ -182,12 +209,11 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     _tabbarListOtherView.hidden = YES;
     _isTabBarListOpen = NO;
 }
+
 - (IBAction)tabBarSongImageViewAction:(id)sender {
     PlayerViewController *playVC = [[PlayerViewController alloc]init];
-//    UINavigationController *dog = [[UINavigationController alloc]initWithRootViewController:playVC];
     [self presentViewController:playVC animated:YES completion:nil];
-//    [self.navigationController pushViewController:playVC animated:YES];
-//    [self presentViewController:dog animated:YES completion:nil];
+
     
 }
 - (IBAction)tabBarListPlayAction:(id)sender {

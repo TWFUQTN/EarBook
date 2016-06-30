@@ -9,12 +9,9 @@
 #import "PlayerViewController.h"
 #import "AVPlayerManager.h"
 #import <UIImageView+WebCache.h>
-
 #import "NSString+TimeFormatter.h"
-
 // AVPlayerManager的单例
 #define kAVPlayerManager [AVPlayerManager shareAVPlayerManager]
-// BookInfoHandle单例
 @interface PlayerViewController () <AVPlayerManagerDelegate>
 //音量控制器
 @property (nonatomic, strong) MTTCircularSlider* defaultSlider;
@@ -36,8 +33,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *progressSlider;
 //声音按🐂
 @property (weak, nonatomic) IBOutlet UIButton *soundButton;
-//是否播放
-//@property (nonatomic,assign)BOOL isPlaying;
+
 //是否有声音
 @property (nonatomic,assign)BOOL isSound;
 //书名
@@ -65,18 +61,17 @@
     // 播放并设置view上所有子视图
     [self playAndSetUpViews];
     
-    //   转动中心图
-//    [self beginimagerevole];
-
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 设置代理
     
+    
 }
 // 播放并设置view上所有子视图
 - (void)playAndSetUpViews {
+    _bookList = _playList[_index];
     [kAVPlayerManager playWithUrl:_bookList.path currentIndex:self.index];
     // 改变播放按钮的状态
     [_playButton setImage:[UIImage imageNamed:@"playPause"] forState:UIControlStateNormal];
@@ -103,8 +98,12 @@
     // 设置timeSlider
     _progressSlider.minimumValue = 0.0;
     _mp3Time = [kAVPlayerManager getMp3TimeOfurl:_bookList.path];
+    
     _progressSlider.maximumValue = _mp3Time / 1000;
     _progressSlider.value = 0;
+    
+//    NSLog(@"长度%f",);
+
 }
 #pragma mark - 开始转动
 - (void)beginimagerevole{
@@ -113,7 +112,7 @@
 }
 - (void)imageViewRevolve{
     [UIView animateWithDuration:0.1 animations:^{
-        _songImageView.transform = CGAffineTransformRotate(_songImageView.transform, - M_PI / 100);
+        _songImageView.transform = CGAffineTransformRotate(_songImageView.transform,  -M_PI / 100);
     }];
 }
 #pragma mark - 进度条slider
@@ -121,11 +120,7 @@
     [kAVPlayerManager seekToTime:_progressSlider.value];
     
 }
-#pragma mark - 停止转动
-- (void)stopimagerevole{
-    
-    
-}
+
 #pragma mark - 声音加载
 - (void)addDefaultSlider{
     
@@ -179,16 +174,7 @@
 }
 #pragma mark - 播放按钮
 - (IBAction)playAction:(id)sender {
-//    if (kAVPlayerManager.status == isPaused) {
-////        [kAVPlayerManager play];
-//        [_playButton setImage:[UIImage imageNamed:@"playPause"] forState:UIControlStateNormal];
-////        _isPlaying = NO;
-//    }
-//    else {
-////        [kAVPlayerManager pause];
-//        [_playButton setImage:[UIImage imageNamed:@"playPlay"] forState:UIControlStateNormal];
-////        _isPlaying = YES;
-//    }
+
     if (kAVPlayerManager.status == isPaused || kAVPlayerManager.status == isStoped) {
         [kAVPlayerManager play];
         [_playButton setImage:[UIImage imageNamed:@"playPause"] forState:UIControlStateNormal];
@@ -204,7 +190,8 @@
 #pragma waring 刷新
     }
     else {
-        self.bookList = self.playList[self.index + 1];
+        self.index ++;
+       
     }
     
     
@@ -216,7 +203,7 @@
         
     }
     else {
-        self.bookList = self.playList[self.index -1];
+        self.index -- ;
     }
     [self playAndSetUpViews];
 }

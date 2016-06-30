@@ -15,8 +15,6 @@
 #import "BookList.h"
 #import "Tool_AdaptiveHeight.h"
 #import "PlayerViewController.h"
-#define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
-
 #define kScrollWidth self.scrollView.frame.size.width
 #define kScrollHeight self.scrollView.frame.size.height
 
