@@ -30,6 +30,10 @@
 //存所有分类的数组
 @property (nonatomic, strong) NSMutableArray *classificationArr;
 
+//类型排序数组
+@property (nonatomic, strong) NSArray *typeArray;
+
+
 @end
 
 @implementation ClassificationViewController
@@ -66,6 +70,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.typeArray = @[@"热门频道", @"主播电台", @"有声小说", @"文学名著", @"曲艺戏曲", @"相声评书", @"少儿天地", @"外语学习", @"娱乐综艺", @"人文社科", @"商业财经", @"健康养生", @"职业技能"];
+    
     [self.tableView registerClass:[ClassificationCell class] forCellReuseIdentifier:@"cell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
@@ -78,6 +84,8 @@
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [classificationVC requestData];
     }];
+    
+    
     
 }
 
@@ -120,7 +128,9 @@
             }else {
                 allDataArray = NULL;
             }
-            [classificationVC.allDataDict setValue:allDataArray forKey:key];
+            if (allDataArray != NULL) {
+                [classificationVC.allDataDict setValue:allDataArray forKey:key];
+            }
         }
         dispatch_async(dispatch_get_main_queue(), ^{
             [classificationVC.tableView reloadData];
@@ -156,11 +166,12 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     ClassificationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
 //    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.typeLabel.text = [self.allDataDict allKeys][indexPath.section];
+    cell.typeLabel.text = self.typeArray[indexPath.section];
     NSMutableArray *allDataArray = [NSMutableArray array];
-    allDataArray = self.allDataDict[[self.allDataDict allKeys][indexPath.section]];
+    allDataArray = self.allDataDict[self.typeArray[indexPath.section]];
     cell.cellArray = allDataArray;
     return cell;
 }
@@ -168,9 +179,9 @@
 //cell高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section == 12) {
-        return [ClassificationCell heightOfCellByNumberFromItems:[self.allDataDict[[self.allDataDict allKeys][indexPath.section]] count]] + 20;
+        return [ClassificationCell heightOfCellByNumberFromItems:[self.allDataDict[self.typeArray[indexPath.section]] count]] + 20;
     }
-    return [ClassificationCell heightOfCellByNumberFromItems:[self.allDataDict[[self.allDataDict allKeys][indexPath.section]] count]];
+    return [ClassificationCell heightOfCellByNumberFromItems:[self.allDataDict[self.typeArray[indexPath.section]] count]];
 }
 
 //cell点击效果
