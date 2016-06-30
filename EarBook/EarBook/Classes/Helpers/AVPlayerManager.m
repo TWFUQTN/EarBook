@@ -15,6 +15,7 @@
 
 @property (nonatomic, strong) NSTimer *timer;
 
+@property (nonatomic, strong) AVAudioPlayer *audioPlayer;
 @end
 @implementation AVPlayerManager
 singleton_implementation(AVPlayerManager)
@@ -73,7 +74,9 @@ singleton_implementation(AVPlayerManager)
         [_avPlayer replaceCurrentItemWithPlayerItem:playerItem];
     }
     // 播放
+    
     [self play];
+    
     self.index = currentIndex;
 }
 //当前播放书籍的时长
@@ -107,8 +110,14 @@ singleton_implementation(AVPlayerManager)
     _avPlayer.volume = _volume;
 }
 - (CGFloat)getMp3TimeOfurl:(NSString *)urlString {
-   AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL URLWithString:urlString] error:nil];
-   return  audioPlayer.duration;
+   _audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL URLWithString:urlString] error:nil ];
+    NSLog(@"%@",_audioPlayer);
+   return  (CGFloat)_audioPlayer.duration;
+    
+//    AVURLAsset* audioAsset =[AVURLAssetURLAssetWithURL:[NSURL URLWithString:urlString] options:nil];
+//    CMTime audioDuration = audioAsset.duration;
+//    
+//    float audioDurationSeconds =CMTimeGetSeconds(audioDuration);
 }
 
 
