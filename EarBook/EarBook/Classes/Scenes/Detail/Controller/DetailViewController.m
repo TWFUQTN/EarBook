@@ -15,8 +15,7 @@
 #import "BookList.h"
 #import "Tool_AdaptiveHeight.h"
 #import "PlayerViewController.h"
-#import "BookInfosHandle.h"
-#define kBookInfosHandle [BookInfosHandle shareMusicInfosHandle]
+#define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
 
 #define kScrollWidth self.scrollView.frame.size.width
 #define kScrollHeight self.scrollView.frame.size.height
@@ -289,26 +288,19 @@
     
     PlayerViewController * playerViewVC = [[PlayerViewController alloc]init];
     
-//    BookList *bookList = [kBookInfosHandle musicInfoForRowInIndexPath:indexPath];
-//    playerViewVC.bookList = bookList;
+    BookList *bookList = self.listArray[indexPath.row];
+    playerViewVC.bookList = bookList;
+    
+    playerViewVC.bookList = bookList;
     playerViewVC.index = indexPath.row;
-    [playerViewVC.songImageView sd_setImageWithURL:[NSURL URLWithString:_book.cover]];
-    playerViewVC.bookName.text = _book.name;
-    CIContext *context = [CIContext contextWithOptions:nil];
-    NSURL *imageURL = [NSURL URLWithString:_book.cover];
-    CIImage *image = [CIImage imageWithContentsOfURL:imageURL];
-    CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
-    [filter setValue:image forKey:kCIInputImageKey];
-    [filter setValue:@2.0f forKey: @"inputRadius"];
-    CIImage *result = [filter valueForKey:kCIOutputImageKey];
-    CGImageRef outImage = [context createCGImage: result fromRect:[result extent]];
-    UIImage * blurImage = [UIImage imageWithCGImage:outImage];
-    playerViewVC.backgroundImageView.image = blurImage;
+    
+    playerViewVC.bookInformation = _book;
+    
+    playerViewVC.playList = _listArray;
+
     [self presentViewController:playerViewVC animated:YES completion:nil];
 
-
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
