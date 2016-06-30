@@ -16,9 +16,7 @@
 @property (nonatomic, strong) NSTimer *timer;
 
 @end
-
 @implementation AVPlayerManager
-
 singleton_implementation(AVPlayerManager)
 
 - (instancetype)init {
@@ -69,15 +67,16 @@ singleton_implementation(AVPlayerManager)
         // 创建新的进行播放
         _avPlayer = [[AVPlayer alloc] initWithPlayerItem:playerItem];
         _avPlayer.volume = 0.5;
+        
     } else {
         // 替换当前播放item
         [_avPlayer replaceCurrentItemWithPlayerItem:playerItem];
     }
-    
     // 播放
     [self play];
     self.index = currentIndex;
 }
+//当前播放书籍的时长
 
 // 播放音乐
 - (void)play {
@@ -107,7 +106,10 @@ singleton_implementation(AVPlayerManager)
     _volume = volume;
     _avPlayer.volume = _volume;
 }
-
+- (CGFloat)getMp3TimeOfurl:(NSString *)urlString {
+   AVAudioPlayer *audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL URLWithString:urlString] error:nil];
+   return  audioPlayer.duration;
+}
 
 
 @end
