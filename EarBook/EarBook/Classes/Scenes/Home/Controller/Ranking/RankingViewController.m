@@ -62,6 +62,13 @@
     [self.tableView registerClass:[BookCell class] forCellReuseIdentifier:@"BookCell"];
     // 注册头视图
     [self.tableView registerClass:[RankingHeader class] forHeaderFooterViewReuseIdentifier:@"RankingHeader"];
+    
+    // 下拉刷新
+    __weak typeof(self) rankingVC = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [rankingVC requestData];
+    }];
+    
 }
 
 #pragma mark - 请求数据

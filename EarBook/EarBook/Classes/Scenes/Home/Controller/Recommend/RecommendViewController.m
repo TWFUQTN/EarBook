@@ -91,6 +91,12 @@
     [self.tableView registerClass:[BookCell class] forCellReuseIdentifier:@"bookCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"RecommendCell" bundle:nil] forCellReuseIdentifier:@"recommendCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"SpecialSubjectCell" bundle:nil] forCellReuseIdentifier:@"SpecialSubjectCell"];
+    
+    // 下拉刷新
+    __weak typeof(self) recommendVC = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [recommendVC requestData];
+    }];
 }
 
 #pragma mark - 加载数据

@@ -73,6 +73,12 @@
     
     self.tableView.sectionHeaderHeight = 0;
     
+    // 下拉刷新
+    __weak typeof(self) classificationVC = self;
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [classificationVC requestData];
+    }];
+    
 }
 
 //请求数据
