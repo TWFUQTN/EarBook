@@ -1,0 +1,13 @@
+//
+//  MRYViewController.h
+//  EarBook
+//
+//  Created by lanou3g on 16/6/30.
+//  Copyright © 2016年 赵符壹. All rights reserved.
+//
+
+#import "MryScrollPageVC.h"
+
+@interface MRYViewController : MryScrollPageVC
+
+@end
