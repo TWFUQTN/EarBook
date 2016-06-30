@@ -128,7 +128,8 @@
 }
 #pragma mark - 声音加载
 - (void)addDefaultSlider{
-    _defaultSlider = [[MTTCircularSlider alloc] initWithFrame:CGRectMake(self.view.frame.size.width / 2 - 50, self.view.frame.size.height  - 110, 100, 100)];
+    
+    _defaultSlider = [MTTCircularSlider new];
     _defaultSlider.lineWidth = 5;
     _defaultSlider.angle = 45;
     _defaultSlider.maxValue = 1;
@@ -142,6 +143,12 @@
     [self.view addSubview:_defaultSlider];
     [self.view bringSubviewToFront:_playButton];
     [_defaultSlider addTarget:self action:@selector(sliderValueChanged) forControlEvents:UIControlEventValueChanged];
+    [_defaultSlider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerX.equalTo(_playButton.mas_centerX);
+        make.centerY.equalTo(_playButton.mas_centerY);
+        make.width.mas_equalTo(100);
+        make.height.mas_equalTo(100);
+    }];
 }
 
 #pragma mark - 回到上一层
