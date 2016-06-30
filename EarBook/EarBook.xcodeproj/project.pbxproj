@@ -1037,7 +1037,6 @@
 				D6F611391D22CA53002B4506 /* 苹果接口.txt in Resources */,
 				D60A541E1D1D2FDC00ECF173 /* DetailViewController.xib in Resources */,
 				D61699591D224F99006E7FB6 /* playSetting.png in Resources */,
-				D632AFAD1D1E227A0092A6A3 /* 苹果接口.txt in Resources */,
 				D6E4F9411D24B12C0035C332 /* placeholderImage.png in Resources */,
 				D6770F8A1D1EB5ED00AE0CFE /* 3.png in Resources */,
 				D62B095B1D1D2DFC00128D82 /* PlayerViewController.xib in Resources */,
