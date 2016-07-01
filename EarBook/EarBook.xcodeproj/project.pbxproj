@@ -68,6 +68,8 @@
 		D656751D1D210FC5000E4B26 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = D656751C1D210FC5000E4B26 /* back.png */; };
 		D67313E31D24B92B00386E91 /* RankingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D67313E21D24B92B00386E91 /* RankingHeader.m */; };
 		D67313E61D2503A100386E91 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D67313E51D2503A100386E91 /* User.m */; };
+		D674E0A61D26BE4900E11919 /* Voice.m in Sources */ = {isa = PBXBuildFile; fileRef = D674E0A51D26BE4900E11919 /* Voice.m */; };
+		D674E0A91D26BE6300E11919 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = D674E0A81D26BE6300E11919 /* Book.m */; };
 		D675A5701D20D11300E6F999 /* PCStackMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D675A56A1D20D11300E6F999 /* PCStackMenu.m */; };
 		D675A5711D20D11300E6F999 /* PCStackMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D675A56C1D20D11300E6F999 /* PCStackMenuItem.m */; };
 		D675A5721D20D11300E6F999 /* TBActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = D675A56F1D20D11300E6F999 /* TBActivityView.m */; };
@@ -110,7 +112,6 @@
 		D6E334001D23A7FC006052D6 /* VoiceProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E333FF1D23A7FC006052D6 /* VoiceProgram.m */; };
 		D6E4F9411D24B12C0035C332 /* placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E4F9401D24B12C0035C332 /* placeholderImage.png */; };
 		D6E4F9681D254F9D0035C332 /* MryScrollPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4F95F1D254F9D0035C332 /* MryScrollPageVC.m */; };
-		D6E4F9691D254F9D0035C332 /* MryPageTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4F9631D254F9D0035C332 /* MryPageTable.m */; };
 		D6E4F96A1D254F9D0035C332 /* MryScrollMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4F9651D254F9D0035C332 /* MryScrollMenu.m */; };
 		D6E4F96B1D254F9D0035C332 /* MryScrollPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4F9671D254F9D0035C332 /* MryScrollPageCell.m */; };
 		D6E4F96E1D25538A0035C332 /* MRYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4F96D1D25538A0035C332 /* MRYViewController.m */; };
@@ -244,6 +245,10 @@
 		D67313E21D24B92B00386E91 /* RankingHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingHeader.m; sourceTree = "<group>"; };
 		D67313E41D2503A100386E91 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		D67313E51D2503A100386E91 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
+		D674E0A41D26BE4900E11919 /* Voice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Voice.h; sourceTree = "<group>"; };
+		D674E0A51D26BE4900E11919 /* Voice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Voice.m; sourceTree = "<group>"; };
+		D674E0A71D26BE6300E11919 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
+		D674E0A81D26BE6300E11919 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
 		D675A5691D20D11300E6F999 /* PCStackMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCStackMenu.h; sourceTree = "<group>"; };
 		D675A56A1D20D11300E6F999 /* PCStackMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCStackMenu.m; sourceTree = "<group>"; };
 		D675A56B1D20D11300E6F999 /* PCStackMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCStackMenuItem.h; sourceTree = "<group>"; };
@@ -302,8 +307,6 @@
 		D6E4F9401D24B12C0035C332 /* placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderImage.png; sourceTree = "<group>"; };
 		D6E4F95E1D254F9D0035C332 /* MryScrollPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryScrollPageVC.h; sourceTree = "<group>"; };
 		D6E4F95F1D254F9D0035C332 /* MryScrollPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryScrollPageVC.m; sourceTree = "<group>"; };
-		D6E4F9621D254F9D0035C332 /* MryPageTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryPageTable.h; sourceTree = "<group>"; };
-		D6E4F9631D254F9D0035C332 /* MryPageTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryPageTable.m; sourceTree = "<group>"; };
 		D6E4F9641D254F9D0035C332 /* MryScrollMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryScrollMenu.h; sourceTree = "<group>"; };
 		D6E4F9651D254F9D0035C332 /* MryScrollMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryScrollMenu.m; sourceTree = "<group>"; };
 		D6E4F9661D254F9D0035C332 /* MryScrollPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryScrollPageCell.h; sourceTree = "<group>"; };
@@ -839,6 +842,10 @@
 		D6E4F9601D254F9D0035C332 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D674E0A41D26BE4900E11919 /* Voice.h */,
+				D674E0A51D26BE4900E11919 /* Voice.m */,
+				D674E0A71D26BE6300E11919 /* Book.h */,
+				D674E0A81D26BE6300E11919 /* Book.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -846,8 +853,6 @@
 		D6E4F9611D254F9D0035C332 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D6E4F9621D254F9D0035C332 /* MryPageTable.h */,
-				D6E4F9631D254F9D0035C332 /* MryPageTable.m */,
 				D6E4F9641D254F9D0035C332 /* MryScrollMenu.h */,
 				D6E4F9651D254F9D0035C332 /* MryScrollMenu.m */,
 				D6E4F9661D254F9D0035C332 /* MryScrollPageCell.h */,
@@ -1232,6 +1237,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D674E0A91D26BE6300E11919 /* Book.m in Sources */,
 				D62B09261D1D20EA00128D82 /* Tool_AdaptiveHeight.m in Sources */,
 				D632AFC91D1E22880092A6A3 /* TYCircleCollectionView.m in Sources */,
 				D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */,
@@ -1256,6 +1262,7 @@
 				D67313E61D2503A100386E91 /* User.m in Sources */,
 				D61699461D22269E006E7FB6 /* DOPNavbarMenu.m in Sources */,
 				D6F611241D22CA53002B4506 /* BookCell.m in Sources */,
+				D674E0A61D26BE4900E11919 /* Voice.m in Sources */,
 				D6F611361D22CA53002B4506 /* TabBarListViewCell.m in Sources */,
 				D6E334001D23A7FC006052D6 /* VoiceProgram.m in Sources */,
 				D632AFC51D1E22880092A6A3 /* ARSegmentPageController.m in Sources */,
@@ -1278,7 +1285,6 @@
 				D6F6111E1D22CA53002B4506 /* RecommendViewController.m in Sources */,
 				D632AFC71D1E22880092A6A3 /* ARSegmentView.m in Sources */,
 				D61699471D22269E006E7FB6 /* UIView+DOPExtension.m in Sources */,
-				D6E4F9691D254F9D0035C332 /* MryPageTable.m in Sources */,
 				D632AFAB1D1E227A0092A6A3 /* RegisterViewController.m in Sources */,
 				D6F6111B1D22CA53002B4506 /* RankingViewController.m in Sources */,
 				D6B248CC1D211A850082ED6A /* BookList.m in Sources */,
@@ -1410,13 +1416,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Yang (F2N9DLANA4)";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = EarBook/Classes/Macros/PrefixHeader.pch;
 				INFOPLIST_FILE = EarBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lanou.TvT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZLZ.EarBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e73291dc-934a-4799-8679-85d1d500e76c";
+				PROVISIONING_PROFILE = "da693ba3-6fdd-4f40-90f2-92b11b786fc5";
 			};
 			name = Debug;
 		};
@@ -1426,13 +1433,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Yang (F2N9DLANA4)";
+				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = EarBook/Classes/Macros/PrefixHeader.pch;
 				INFOPLIST_FILE = EarBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.lanou.TvT;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ZLZ.EarBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "e73291dc-934a-4799-8679-85d1d500e76c";
+				PROVISIONING_PROFILE = "da693ba3-6fdd-4f40-90f2-92b11b786fc5";
 			};
 			name = Release;
 		};

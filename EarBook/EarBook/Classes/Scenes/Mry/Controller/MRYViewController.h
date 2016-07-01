@@ -8,6 +8,12 @@
 
 #import "MryScrollPageVC.h"
 
+@class Classification;
+
 @interface MRYViewController : MryScrollPageVC
+
+//传值model
+@property (nonatomic, strong) Classification *classification;
+
 
 @end

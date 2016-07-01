@@ -10,6 +10,7 @@
 #import "MyCollectionViewCell.h"
 #import "Classification.h"
 #import "EB_COLOR.h"
+#import "EB_URL.h"
 
 #define kNumber 3
 #define kWidth (([UIScreen mainScreen].bounds.size.width * 3 / 4) - (self.myFlowLayout.sectionInset.left + (self.myFlowLayout.minimumLineSpacing * (kNumber - 1)) + self.myFlowLayout.sectionInset.right)) / kNumber - 1
@@ -202,6 +203,21 @@
     CGFloat spaceHeight = ((i - 1) * 10);
     CGFloat allHeight = itemsHeight + spaceHeight + 10 + 10;
     return allHeight;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+//    MRYViewController *mryVC = [[MRYViewController alloc] init];
+//    NSString *url = [[NSString alloc] init];
+//    if (classification.url) {
+//        url = classification.url;
+//    } else {
+//        url = classification.ID;
+//    }
+//    mryVC.url = url;
+    Classification *classification = self.cellArray[indexPath.row];
+    self.block(classification);
+    
 }
 
 

@@ -72,4 +72,33 @@
 // 登录
 #define EB_LOGIN_URL @"http://api.mting.info/yyting/usercenter/ClientLogon.action"
 
+//分类书籍类详情页基地址
+#define EB_CLASSIFICATION_BOOK_DETAIL_BASE_URL @"http://117.25.143.79/yyting/gateway/batchOperation.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=O6VpOdQ4AZ10P28At3e7sXsQ0shEf6PPdJ4gpDt0dCqP6T9pzPD1vEwbDV3QnEO-xu_4lg7PEJQ*&"
+
+//分类书籍类详情页body1
+#define EB_CLASSIFICATION_BOOK_DETAIL_BODY1_URL @"nwt=1&operations=%5B%22%2Fyyting%2Fbookclient%2FgetBookList.action%3Fdsize%3D10%26p%3D1%26sort%3D1%26t%3D0%26typeId%3D"
+
+//分类书籍类详情页body2
+#define EB_CLASSIFICATION_BOOK_DETAIL_BODY2_URL @"%22%2C%22%2Fyyting%2Fbookclient%2FgetBookList.action%3Fdsize%3D20%26p%3D1%26sort%3D2%26t%3D0%26typeId%3D"
+
+//分类书籍类详情页body3
+#define EB_CLASSIFICATION_BOOK_DETAIL_BODY3_URL @"%22%5D&q=4202&sc=1d02bf4fc46245f109fbaed37c08be88"
+
+
+
+//分类声音详情页基地址
+#define EB_CLASSIFICATION_VOICE_DETAIL_BASE_URL @"http://117.25.143.74/yyting/gateway/batchOperation.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCm1MERM9GQasAk6L-vqa3PqIC3t2KIXkyw*&"
+
+//分类声音详情页body1
+#define EB_CLASSIFICATION_VOICE_DETAIL_BODY1_URL @"nwt=1&operations=%5B%22%2Fyyting%2Fsnsresource%2FgetRecommendUsers.action%3FneedAlbum%3D0%26needFollow%3D0%26opType%3DH%26referId%3D0%26size%3D10%26type%3D1%26typeId%3D"
+
+//分类声音详情页body2
+#define EB_CLASSIFICATION_VOICE_DETAIL_BODY2_URL @"%22%2C%22%2Fyyting%2Fsnsresource%2FgetRecommendAblumns.action%3FneedFlag%3D0%26opType%3DH%26referId%3D0%26size%3D20%26type%3D1%26typeId%3D"
+
+//分类声音详情页body3
+#define EB_CLASSIFICATION_VOICE_DETAIL_BODY3_URL @"%22%2C%22%2Fyyting%2Fsnsresource%2FgetRecommendAblumns.action%3FneedFlag%3D0%26opType%3DH%26referId%3D0%26size%3D20%26type%3D2%26typeId%3D"
+
+//分类声音详情页body4
+#define EB_CLASSIFICATION_VOICE_DETAIL_BODY4_URL @"%22%5D&q=13702&sc=655b668ce3e8bd91bc42cfc9ef336101"
+
 #endif /* EB_URL_h */

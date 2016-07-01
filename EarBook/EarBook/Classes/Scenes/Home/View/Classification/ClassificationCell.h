@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@class Classification;
 
+typedef void(^classificationCellBlock)(Classification *classification);
 @interface ClassificationCell : UITableViewCell
 
 //类型名
@@ -19,6 +21,10 @@
 
 
 + (CGFloat)heightOfCellByNumberFromItems:(NSInteger)number;
+
+
+//block
+@property (nonatomic, copy) classificationCellBlock block;
 
 
 @end

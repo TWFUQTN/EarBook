@@ -10,7 +10,7 @@
 
 #import "MryScrollMenu.h"
 #import "MryScrollPageCell.h"
-#import "MryPageTable.h"
+
 
 @interface MryScrollPageVC : UIViewController
 
