@@ -16,11 +16,16 @@
 #import "Tool_AdaptiveHeight.h"
 #import "PlayerViewController.h"
 #import "BookInfosHandle.h"
+
+#import <UMSocial.h>
+
+
+
 #define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
 #define kScrollWidth self.scrollView.frame.size.width
 #define kScrollHeight self.scrollView.frame.size.height
 
-@interface DetailViewController ()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface DetailViewController ()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, UMSocialUIDelegate>
 //{
 //    NSInteger *page;
 //}
@@ -327,10 +332,21 @@
 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - 分享
+- (IBAction)shareAction:(UIButton *)sender
+{
+    //分享gif图片
+//    [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:@"http://www.baidu.com/img/bdlogo.gif"];
+    [UMSocialData defaultData].extConfig.title = _nameLabel.text;
+//    [UMSocialData defaultData].extConfig.qqData.url = @"http://baidu.com";
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"57767a3667e58e180b0006c2"
+                                      shareText:[_descLabel.text substringToIndex:140]
+                                     shareImage:_coverImageView.image
+                                shareToSnsNames:@[UMShareToWechatSession,UMShareToSina,UMShareToQQ,UMShareToQzone]
+                                       delegate:self];
 }
+
 
 /*
 #pragma mark - Navigation
