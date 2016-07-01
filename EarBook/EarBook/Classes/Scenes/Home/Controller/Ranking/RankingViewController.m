@@ -13,7 +13,7 @@
 #import "List.h"
 #import "EB_URL.h"
 #import "RankingHeader.h"
-#import "RankingListViewController.h"
+//#import "RankingListViewController.h"
 
 @interface RankingViewController ()
 
@@ -203,10 +203,10 @@
 
 - (void)weekRankingBtnAction:(UIButton *)sender
 {
-    RankingListViewController *rankingListVC = [RankingListViewController new];
+//    RankingListViewController *rankingListVC = [RankingListViewController new];
     
 //    [self presentViewController:rankingListVC animated:YES completion:nil];
-    [self.navigationController pushViewController:rankingListVC animated:YES];
+//    [self.navigationController pushViewController:rankingListVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

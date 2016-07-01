@@ -98,6 +98,7 @@
 		D684EEC31D229385002D2AF6 /* JoiningURL.m in Sources */ = {isa = PBXBuildFile; fileRef = D684EEC21D229385002D2AF6 /* JoiningURL.m */; };
 		D6856C2B1D1E2D1800E4F4FE /* ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6856C291D1E2D1800E4F4FE /* ListCell.m */; };
 		D6856C2C1D1E2D1800E4F4FE /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6856C2A1D1E2D1800E4F4FE /* ListCell.xib */; };
+		D6ADC1051D25F9E500B3AF67 /* RankingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ADC1041D25F9E500B3AF67 /* RankingListViewController.m */; };
 		D6B248CC1D211A850082ED6A /* BookList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B248CB1D211A850082ED6A /* BookList.m */; };
 		D6CE72AE1D23578300B6E108 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CE72AC1D23578300B6E108 /* MyCollectionViewCell.m */; };
 		D6CE72AF1D23578300B6E108 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6CE72AD1D23578300B6E108 /* MyCollectionViewCell.xib */; };
@@ -279,6 +280,8 @@
 		D6856C281D1E2D1800E4F4FE /* ListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListCell.h; sourceTree = "<group>"; };
 		D6856C291D1E2D1800E4F4FE /* ListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListCell.m; sourceTree = "<group>"; };
 		D6856C2A1D1E2D1800E4F4FE /* ListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
+		D6ADC1031D25F9E500B3AF67 /* RankingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingListViewController.h; sourceTree = "<group>"; };
+		D6ADC1041D25F9E500B3AF67 /* RankingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingListViewController.m; sourceTree = "<group>"; };
 		D6B248CA1D211A850082ED6A /* BookList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookList.h; sourceTree = "<group>"; };
 		D6B248CB1D211A850082ED6A /* BookList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookList.m; sourceTree = "<group>"; };
 		D6CE72AB1D23578300B6E108 /* MyCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionViewCell.h; sourceTree = "<group>"; };
@@ -901,6 +904,8 @@
 				D6F610DB1D22CA53002B4506 /* RankingViewController.h */,
 				D6F610DC1D22CA53002B4506 /* RankingViewController.m */,
 				D6F610DD1D22CA53002B4506 /* RankingViewController.xib */,
+				D6ADC1031D25F9E500B3AF67 /* RankingListViewController.h */,
+				D6ADC1041D25F9E500B3AF67 /* RankingListViewController.m */,
 			);
 			path = Ranking;
 			sourceTree = "<group>";
@@ -1249,6 +1254,7 @@
 				D6F611361D22CA53002B4506 /* TabBarListViewCell.m in Sources */,
 				D6E334001D23A7FC006052D6 /* VoiceProgram.m in Sources */,
 				D632AFC51D1E22880092A6A3 /* ARSegmentPageController.m in Sources */,
+				D6ADC1051D25F9E500B3AF67 /* RankingListViewController.m in Sources */,
 				D632AFC61D1E22880092A6A3 /* ARSegmentPageHeader.m in Sources */,
 				D631B4B11D1C1CBC00102682 /* main.m in Sources */,
 				D6F611211D22CA53002B4506 /* Classification.m in Sources */,
