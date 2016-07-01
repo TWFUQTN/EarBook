@@ -1,14 +1,14 @@
 //
-//  Classification.m
+//  Voice.m
 //  EarBook
 //
-//  Created by lanou3g on 16/6/28.
+//  Created by lanou3g on 16/7/1.
 //  Copyright © 2016年 赵符壹. All rights reserved.
 //
 
-#import "Classification.h"
+#import "Voice.h"
 
-@implementation Classification
+@implementation Voice
 
 - (void)setValue:(id)value forUndefinedKey:(NSString *)key {
     
@@ -17,7 +17,5 @@
     }
     
 }
-
-
 
 @end

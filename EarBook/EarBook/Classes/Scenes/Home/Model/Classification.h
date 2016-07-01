@@ -19,4 +19,7 @@
 //url
 @property (nonatomic, strong) NSString *url;
 
+//id
+@property (nonatomic, strong) NSString *ID;
+
 @end

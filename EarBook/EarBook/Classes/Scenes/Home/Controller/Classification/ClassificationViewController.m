@@ -10,6 +10,8 @@
 #import "ClassificationCell.h"
 #import "EB_URL.h"
 #import "Classification.h"
+#import "MRYViewController.h"
+
 
 #import <AFNetworking/AFNetworking.h>
 
@@ -175,6 +177,15 @@
     NSMutableArray *allDataArray = [NSMutableArray array];
     allDataArray = self.allDataDict[self.typeArray[indexPath.section]];
     cell.cellArray = allDataArray;
+    
+    cell.block = ^(Classification *classification){
+        
+        MRYViewController *mryVC = [[MRYViewController alloc] init];
+        mryVC.classification = classification;
+        [self.navigationController pushViewController:mryVC animated:YES];
+        
+    };
+    
     return cell;
 }
 
