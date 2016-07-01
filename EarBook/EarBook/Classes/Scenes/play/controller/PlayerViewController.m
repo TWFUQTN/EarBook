@@ -10,6 +10,10 @@
 #import "AVPlayerManager.h"
 #import <UIImageView+WebCache.h>
 #import "NSString+TimeFormatter.h"
+#import "BookInfosHandle.h"
+//BookInfoHandle的单例
+#define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
+
 // AVPlayerManager的单例
 #define kAVPlayerManager [AVPlayerManager shareAVPlayerManager]
 @interface PlayerViewController () <AVPlayerManagerDelegate>
@@ -71,7 +75,9 @@
 }
 // 播放并设置view上所有子视图
 - (void)playAndSetUpViews {
-    _bookList = _playList[_index];
+    _bookList = kBookInfosHandle.bookInfosArray[_index];
+//    _bookList = _playList[_index];
+    _bookInformation = kBookInfosHandle.bookMP3;
     [kAVPlayerManager playWithUrl:_bookList.path currentIndex:self.index];
     // 改变播放按钮的状态
     [_playButton setImage:[UIImage imageNamed:@"playPause"] forState:UIControlStateNormal];
@@ -98,12 +104,11 @@
     // 设置timeSlider
     _progressSlider.minimumValue = 0.0;
     _mp3Time = [kAVPlayerManager getMp3TimeOfurl:_bookList.path];
-    
-    _progressSlider.maximumValue = _mp3Time / 1000;
+    _progressSlider.maximumValue = _mp3Time;
     _progressSlider.value = 0;
     
-//    NSLog(@"长度%f",);
 
+    
 }
 #pragma mark - 开始转动
 - (void)beginimagerevole{
@@ -117,6 +122,7 @@
 }
 #pragma mark - 进度条slider
 - (IBAction)progressChange:(id)sender {
+    
     [kAVPlayerManager seekToTime:_progressSlider.value];
     
 }
@@ -157,7 +163,7 @@
 }
 #pragma mark - 声音按钮
 - (IBAction)soundAction:(id)sender {
-    if (_isSound) {
+    if (_defaultSlider.value > 0) {
         [_soundButton setImage:[UIImage imageNamed:@"playnosound"] forState:UIControlStateNormal];
         _isSound = NO;
         _defaultSlider.value = 0;
@@ -186,46 +192,63 @@
 }
 #pragma mark 上一首
 - (IBAction)nextButton:(id)sender {
-    if (self.index == self.playList.count) {
-#pragma waring 刷新
-    }
-    else {
-        self.index ++;
-       
-    }
-    
+
+    _bookList = [kBookInfosHandle bookInfoPreviousWithIndex:&_index];
     
     [self playAndSetUpViews];
+
 }
 #pragma mark 下一首
 - (IBAction)lastButton:(id)sender {
-    if (self.index == 0) {
-        
-    }
-    else {
-        self.index -- ;
-    }
+   
+    _bookList = [kBookInfosHandle bookInfoNextWithIndex:&_index];
+  
     [self playAndSetUpViews];
 }
 
 #pragma mark 声音调节
+
 - (void)sliderValueChanged{
     kAVPlayerManager.volume = _defaultSlider.value;
 }
+
 - (void)playDidFinished {
     // 根据模式取出下一首播放的music
+    [self getMusicByLoopMode];
 }
+
 #pragma mark - 定时器改变时间
 - (void)changeTime:(CGFloat)time {
     // 改变silder的位置
     _progressSlider.value = time;
     _beginTimeLabel.text = [NSString getStringWithTime:time];
-    _endTimeLabel.text = [NSString getStringWithTime:_mp3Time / 1000 - time];
+    _endTimeLabel.text = [NSString getStringWithTime:_mp3Time ];
     // 转动imageView
     [UIView animateWithDuration:0.1 animations:^{
         _songImageView.transform = CGAffineTransformRotate(_songImageView.transform, 0.05);
     }];
 }
+
+#pragma mark - 根据播放模式取出下一首播放的music
+- (void)getMusicByLoopMode {
+    switch (kAVPlayerManager.loopMode) {
+        case LoopModeOrderMode:
+            _bookList = [kBookInfosHandle bookInfoNextWithIndex:&_index];
+            [self playAndSetUpViews];
+            break;
+        case LoopModeSingleMond:
+            [self playAndSetUpViews];
+            break;
+        case LoopModeRandomMode:
+            [self playAndSetUpViews];
+            break;
+        default:
+            NSLog(@"未知播放模式，请设置");
+            break;
+    }
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }

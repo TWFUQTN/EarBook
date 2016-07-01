@@ -6,12 +6,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
+                <outlet property="progressSlider" destination="eCl-8r-aJR" id="3W6-4l-A0K"/>
                 <outlet property="tabBarListPlayView" destination="Per-Qd-dhF" id="9A8-JT-Pys"/>
                 <outlet property="tabBarListTableView" destination="B4M-Ms-lcK" id="5Cd-vQ-sVI"/>
                 <outlet property="tabBarListView" destination="MbY-mc-Q2Q" id="Ncu-se-VHS"/>
                 <outlet property="tabBarPlayButton" destination="kLW-k8-mGL" id="PWO-v6-uVf"/>
                 <outlet property="tabBarSlider" destination="JgU-8f-dPc" id="pnp-rQ-MzU"/>
-                <outlet property="tabBarSongAuthor" destination="J5b-uQ-DfU" id="rlz-Th-pDM"/>
+                <outlet property="tabBarSongAuthor" destination="jeX-A5-PVh" id="Rtg-X1-RRC"/>
                 <outlet property="tabBarSongName" destination="JgU-8f-dPc" id="or3-gW-jGV"/>
                 <outlet property="tabbarHomeView" destination="Hua-5D-N7a" id="QT0-Nr-EdC"/>
                 <outlet property="tabbarListDownView" destination="6VS-LP-enc" id="9z5-2t-Ctp"/>
@@ -192,13 +193,13 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="vJe-yr-pQF"/>
                             </constraints>
+                            <connections>
+                                <action selector="progressButton:" destination="-1" eventType="valueChanged" id="GWg-G3-pfA"/>
+                            </connections>
                         </slider>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgU-8f-dPc">
-                            <rect key="frame" x="75" y="10" width="135" height="20"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="20" id="Oge-uN-p0K"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgU-8f-dPc">
+                            <rect key="frame" x="75" y="10" width="135" height="14"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -242,16 +243,13 @@
                         <outletCollection property="gestureRecognizers" destination="aWp-TF-DpQ" appends="YES" id="TMb-Hl-3Qo"/>
                     </connections>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="作者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J5b-uQ-DfU">
-                    <rect key="frame" x="75" y="553" width="135" height="15"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="15" id="Oj0-tl-ui0"/>
-                    </constraints>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="作者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeX-A5-PVh">
+                    <rect key="frame" x="78" y="542" width="142" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQ2-to-iC7">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQ2-to-iC7">
                     <rect key="frame" x="75" y="538" width="135" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="dei-GY-ciZ"/>
@@ -269,18 +267,18 @@
                 <constraint firstItem="MbY-mc-Q2Q" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="100" id="Bnp-O5-stG"/>
                 <constraint firstItem="FA2-sG-kL3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ER9-Cb-JD2"/>
                 <constraint firstAttribute="trailing" secondItem="AQ2-to-iC7" secondAttribute="trailing" constant="110" id="F8T-3e-Iwo"/>
+                <constraint firstAttribute="bottom" secondItem="jeX-A5-PVh" secondAttribute="bottom" constant="5" id="INQ-wK-1Jq"/>
                 <constraint firstItem="4k9-IJ-zGj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LMm-sv-amQ"/>
                 <constraint firstAttribute="trailing" secondItem="4k9-IJ-zGj" secondAttribute="trailing" id="MXD-Ey-hPg"/>
                 <constraint firstItem="Hua-5D-N7a" firstAttribute="top" secondItem="MbY-mc-Q2Q" secondAttribute="bottom" id="O7t-OC-UoM"/>
                 <constraint firstItem="Hua-5D-N7a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="StH-pZ-9s3"/>
                 <constraint firstAttribute="trailing" secondItem="Hua-5D-N7a" secondAttribute="trailing" id="U67-mx-QAh"/>
-                <constraint firstAttribute="bottom" secondItem="J5b-uQ-DfU" secondAttribute="bottom" id="bpV-BK-ao6"/>
                 <constraint firstItem="Hua-5D-N7a" firstAttribute="top" secondItem="4k9-IJ-zGj" secondAttribute="bottom" id="efp-JR-9hm"/>
+                <constraint firstItem="jeX-A5-PVh" firstAttribute="leading" secondItem="FA2-sG-kL3" secondAttribute="trailing" constant="8" id="fcV-jw-khX"/>
                 <constraint firstAttribute="bottom" secondItem="AQ2-to-iC7" secondAttribute="bottom" id="hjl-9C-wZP"/>
-                <constraint firstAttribute="trailing" secondItem="J5b-uQ-DfU" secondAttribute="trailing" constant="110" id="jT4-pj-jTG"/>
                 <constraint firstItem="MbY-mc-Q2Q" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="200" id="kok-p6-bzt"/>
+                <constraint firstAttribute="trailing" secondItem="jeX-A5-PVh" secondAttribute="trailing" constant="100" id="nDU-Pc-YDK"/>
                 <constraint firstAttribute="bottom" secondItem="FA2-sG-kL3" secondAttribute="bottom" id="oof-XR-EuT"/>
-                <constraint firstItem="J5b-uQ-DfU" firstAttribute="leading" secondItem="FA2-sG-kL3" secondAttribute="trailing" constant="5" id="qIi-oW-o70"/>
                 <constraint firstItem="AQ2-to-iC7" firstAttribute="leading" secondItem="FA2-sG-kL3" secondAttribute="trailing" constant="5" id="ylj-2q-2yr"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>

@@ -15,6 +15,8 @@
 #import "BookList.h"
 #import "Tool_AdaptiveHeight.h"
 #import "PlayerViewController.h"
+#import "BookInfosHandle.h"
+#define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
 #define kScrollWidth self.scrollView.frame.size.width
 #define kScrollHeight self.scrollView.frame.size.height
 
@@ -60,6 +62,8 @@
 @property (nonatomic, strong) NSMutableArray *listArray;
 
 @property (nonatomic, assign) NSInteger pageNum;
+
+@property (nonatomic, strong) BookMP3 *detailBook;
 
 @end
 
@@ -151,6 +155,8 @@
              
              [book setValuesForKeysWithDictionary:responseObject];
 //             book.ID = responseObject[@"id"];
+             
+             detailVC.detailBook = book;
              
              [detailVC bookListWithBook:book];
              
@@ -300,18 +306,22 @@
 }
 #pragma mark - 点击cell
 - (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath{
+    kBookInfosHandle.bookInfosArray = _listArray;
+    
+    
+    if (self.pushFrom == PushFromMoreListVC) {
+        kBookInfosHandle.bookMP3 = _book;
+    } else {
+        kBookInfosHandle.bookMP3 = _detailBook;
+        
+    }
     
     PlayerViewController * playerViewVC = [[PlayerViewController alloc]init];
-    
     BookList *bookList = self.listArray[indexPath.row];
     playerViewVC.bookList = bookList;
-    
-    playerViewVC.bookList = bookList;
     playerViewVC.index = indexPath.row;
-    
-    playerViewVC.bookInformation = _book;
-    
-    playerViewVC.playList = _listArray;
+//    playerViewVC.bookInformation = _book;
+//    playerViewVC.playList = _listArray;
 
     [self presentViewController:playerViewVC animated:YES completion:nil];
 
