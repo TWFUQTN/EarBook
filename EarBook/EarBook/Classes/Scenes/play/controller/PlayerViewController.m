@@ -75,6 +75,7 @@
 }
 // 播放并设置view上所有子视图
 - (void)playAndSetUpViews {
+    _index = kBookInfosHandle.indexout;
     _bookList = kBookInfosHandle.bookInfosArray[_index];
 //    _bookList = _playList[_index];
     _bookInformation = kBookInfosHandle.bookMP3;
@@ -192,17 +193,17 @@
 }
 #pragma mark 上一首
 - (IBAction)nextButton:(id)sender {
+    _bookList = [kBookInfosHandle bookInfoNextWithIndex:&_index];
 
-    _bookList = [kBookInfosHandle bookInfoPreviousWithIndex:&_index];
     
     [self playAndSetUpViews];
 
 }
 #pragma mark 下一首
 - (IBAction)lastButton:(id)sender {
-   
-    _bookList = [kBookInfosHandle bookInfoNextWithIndex:&_index];
-  
+    _bookList = [kBookInfosHandle bookInfoPreviousWithIndex:&_index];
+
+
     [self playAndSetUpViews];
 }
 

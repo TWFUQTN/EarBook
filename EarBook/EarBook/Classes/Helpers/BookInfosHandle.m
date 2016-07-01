@@ -31,10 +31,12 @@ singleton_implementation(BookInfosHandle)
 - (BookList *)bookInfoPreviousWithIndex:(NSInteger *)index {
     if (*index == 0) {
         *index = self.bookInfosArray.count - 1;
+        _indexout = *index;
         return self.bookInfosArray[*index];
     }
     (*index)--;
     NSLog(@"上一首index = %ld", *index);
+    _indexout = *index;
     return self.bookInfosArray[*index];
     
 }
@@ -43,10 +45,12 @@ singleton_implementation(BookInfosHandle)
 - (BookList *)bookInfoNextWithIndex:(NSInteger *)index {
     if (*index == self.bookInfosArray.count - 1) {
         *index = 0;
+        _indexout = *index;
         return self.bookInfosArray[0];
     }
     (*index)++;
     NSLog(@"下一首index = %ld", *index);
+    _indexout = *index;
     return self.bookInfosArray[*index];
     
 }

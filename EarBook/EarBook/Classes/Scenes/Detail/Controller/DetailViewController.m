@@ -313,13 +313,13 @@
         kBookInfosHandle.bookMP3 = _book;
     } else {
         kBookInfosHandle.bookMP3 = _detailBook;
-        
     }
     
     PlayerViewController * playerViewVC = [[PlayerViewController alloc]init];
     BookList *bookList = self.listArray[indexPath.row];
     playerViewVC.bookList = bookList;
     playerViewVC.index = indexPath.row;
+    kBookInfosHandle.indexout  = indexPath.row;
 //    playerViewVC.bookInformation = _book;
 //    playerViewVC.playList = _listArray;
 

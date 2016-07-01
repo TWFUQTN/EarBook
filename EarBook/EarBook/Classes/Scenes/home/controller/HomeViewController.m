@@ -92,6 +92,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     self.tabBarListTableView.dataSource = self;
     self.tabBarListTableView.delegate = self;
     if (kBookInfosHandle.bookInfosArray != nil  && kBookInfosHandle.bookMP3 != nil) {
+        _index = kBookInfosHandle.indexout;
         _bookList = kBookInfosHandle.bookInfosArray[_index];
         _bookInformation = kBookInfosHandle.bookMP3;
         [kAVPlayerManager playWithUrl:_bookList.path currentIndex:self.index];
@@ -164,6 +165,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 #pragma mark view
 // 更新并设置view上所有子视图
 - (void)playAndSetUpViews {
+    _index = kBookInfosHandle.indexout;
     _bookList = kBookInfosHandle.bookInfosArray[_index];
     _bookInformation = kBookInfosHandle.bookMP3;
     [kAVPlayerManager playWithUrl:_bookList.path currentIndex:self.index];
@@ -213,7 +215,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 - (IBAction)SongButton:(id)sender {
     UIButton *button = (UIButton *)sender;
     PCStackMenu *stackMenu = [[PCStackMenu alloc] initWithTitles:[NSArray arrayWithObjects:@"Setting", @"Search", @"Twitter", @"Message", @"Share", @"More ...", nil]
-                                                      withImages:[NSArray arrayWithObjects:[UIImage imageNamed:@"gear@2x.png"], [UIImage imageNamed:@"magnifier@2x.png"], [UIImage imageNamed:@"twitter@2x.png"], [UIImage imageNamed:@"speech@2x.png"], [UIImage imageNamed:@"actions@2x"], nil]
+                                                withImages:[NSArray arrayWithObjects:[UIImage imageNamed:@"gear@2x.png"], [UIImage imageNamed:@"magnifier@2x.png"], [UIImage imageNamed:@"twitter@2x.png"], [UIImage imageNamed:@"speech@2x.png"], [UIImage imageNamed:@"actions@2x"], nil]
                                                     atStartPoint:CGPointMake(button.frame.origin.x, button.frame.origin.y)
                                                           inView:self.view
                                                       itemHeight:40

@@ -18,6 +18,8 @@
 @property (nonatomic, strong) NSMutableArray *bookInfosArray;
 //Book 信息
 @property (nonatomic, strong) BookMP3 * bookMP3;
+//book index
+@property (nonatomic, assign) NSInteger indexout;
 // 声明单例
 singleton_interface(BookInfosHandle)
 
