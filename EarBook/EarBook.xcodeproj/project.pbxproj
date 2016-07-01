@@ -98,6 +98,7 @@
 		D684EEC31D229385002D2AF6 /* JoiningURL.m in Sources */ = {isa = PBXBuildFile; fileRef = D684EEC21D229385002D2AF6 /* JoiningURL.m */; };
 		D6856C2B1D1E2D1800E4F4FE /* ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6856C291D1E2D1800E4F4FE /* ListCell.m */; };
 		D6856C2C1D1E2D1800E4F4FE /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6856C2A1D1E2D1800E4F4FE /* ListCell.xib */; };
+		D6973BA81D2659A1008FEDD2 /* BookInfosHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6973BA71D2659A1008FEDD2 /* BookInfosHandle.m */; };
 		D6ADC1051D25F9E500B3AF67 /* RankingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ADC1041D25F9E500B3AF67 /* RankingListViewController.m */; };
 		D6B248CC1D211A850082ED6A /* BookList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B248CB1D211A850082ED6A /* BookList.m */; };
 		D6CE72AE1D23578300B6E108 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CE72AC1D23578300B6E108 /* MyCollectionViewCell.m */; };
@@ -280,6 +281,8 @@
 		D6856C281D1E2D1800E4F4FE /* ListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListCell.h; sourceTree = "<group>"; };
 		D6856C291D1E2D1800E4F4FE /* ListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListCell.m; sourceTree = "<group>"; };
 		D6856C2A1D1E2D1800E4F4FE /* ListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
+		D6973BA61D2659A1008FEDD2 /* BookInfosHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookInfosHandle.h; sourceTree = "<group>"; };
+		D6973BA71D2659A1008FEDD2 /* BookInfosHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookInfosHandle.m; sourceTree = "<group>"; };
 		D6ADC1031D25F9E500B3AF67 /* RankingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingListViewController.h; sourceTree = "<group>"; };
 		D6ADC1041D25F9E500B3AF67 /* RankingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingListViewController.m; sourceTree = "<group>"; };
 		D6B248CA1D211A850082ED6A /* BookList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookList.h; sourceTree = "<group>"; };
@@ -461,6 +464,8 @@
 				D684EEC21D229385002D2AF6 /* JoiningURL.m */,
 				D6DA8ABC1D240FBC0067E813 /* AVPlayerManager.h */,
 				D6DA8ABD1D240FBC0067E813 /* AVPlayerManager.m */,
+				D6973BA61D2659A1008FEDD2 /* BookInfosHandle.h */,
+				D6973BA71D2659A1008FEDD2 /* BookInfosHandle.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1257,6 +1262,7 @@
 				D6ADC1051D25F9E500B3AF67 /* RankingListViewController.m in Sources */,
 				D632AFC61D1E22880092A6A3 /* ARSegmentPageHeader.m in Sources */,
 				D631B4B11D1C1CBC00102682 /* main.m in Sources */,
+				D6973BA81D2659A1008FEDD2 /* BookInfosHandle.m in Sources */,
 				D6F611211D22CA53002B4506 /* Classification.m in Sources */,
 				D632AFCB1D1E22880092A6A3 /* TYCircleMenu.m in Sources */,
 				D6770F7B1D1EA73E00AE0CFE /* UserTableViewController.m in Sources */,

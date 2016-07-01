@@ -17,14 +17,19 @@
 #import "TabBarListViewCell.h"
 #import "UserTableViewController.h"
 #import "AVPlayerManager.h"
+#import "BookInfosHandle.h"
 // AVPlayerManager的单例
 #define kAVPlayerManager [AVPlayerManager shareAVPlayerManager]
+//BookInfoHandle的单例
+#define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
 
 void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 
 @interface HomeViewController () <UITableViewDataSource,UITableViewDelegate,AVPlayerManagerDelegate>
 //透视图
 @property (nonatomic, strong) HomeCustomHeader *header;
+//mp3time
+@property (nonatomic, assign) CGFloat mp3Time;
 
 
 @end
@@ -71,10 +76,12 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
-    [self tabBarViewLoad];
 }
+
 //tabbar 加载
 -(void)tabBarViewLoad{
+    
+    
     _tabbarHomeView.userInteractionEnabled = YES;
     _tabbarSongView.layer.cornerRadius = 35;
     _tabbarSongView.layer.masksToBounds = YES;
@@ -84,7 +91,29 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     _tabbarListUpView.layer.borderWidth = 2;
     self.tabBarListTableView.dataSource = self;
     self.tabBarListTableView.delegate = self;
+    if (kBookInfosHandle.bookInfosArray != nil  && kBookInfosHandle.bookMP3 != nil) {
+        _bookList = kBookInfosHandle.bookInfosArray[_index];
+        _bookInformation = kBookInfosHandle.bookMP3;
+        [kAVPlayerManager playWithUrl:_bookList.path currentIndex:self.index];
+        // 改变播放按钮的状态
+        [_tabBarPlayButton setImage:[UIImage imageNamed:@"tabBarpause"] forState:UIControlStateNormal];
+        // tabbar image
+        _tabbarSongImageView.layer.cornerRadius = 30;
+        _tabbarSongImageView.layer.masksToBounds = YES;
+        _tabbarSongImageView.layer.borderWidth = 1;
+        [_tabbarSongImageView sd_setImageWithURL:[NSURL URLWithString:_bookInformation.cover]];
+        //    tabBar name
+        _tabBarSongName.text = _bookList.name;
+        //tabBar deit
+        _tabBarSongAuthor.text  = _bookInformation.announcer;
+        // 设置timeSlider
+        _progressSlider.minimumValue = 0.0;
+        _mp3Time = [kAVPlayerManager getMp3TimeOfurl:_bookList.path];
+        _progressSlider.maximumValue = _mp3Time;
+    }
     [self.tabBarListTableView registerNib:[UINib nibWithNibName:@"TabBarListViewCell" bundle:nil] forCellReuseIdentifier:@"listcell"];
+    NSLog(@"%@",_bookInformation.announcer);
+ 
     
 }
 - (IBAction)tabBarListDelete:(id)sender {
@@ -94,12 +123,11 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 - (IBAction)tabBarListLikes:(id)sender {
     
     
-    
-    
-    
 }
+
+//列表
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 100;
+    return kBookInfosHandle.bookInfosArray.count;
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -107,15 +135,17 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TabBarListViewCell *listCell = [self.tabBarListTableView dequeueReusableCellWithIdentifier:@"listcell"];
+    BookList * book = kBookInfosHandle.bookInfosArray[indexPath.row];
+    listCell.listLabel.text = book.name;
     return listCell;
 }
 - (void)selectMenuAtIndex:(NSInteger)index {
     NSLog(@"选中:%zd",index);
 }
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     // Do any additional setup after loading the view.
     // 设置头像图
 //    self.header.headImageView.layer.cornerRadius = self.header.headImageView.frame.size.width / 4;
@@ -128,31 +158,46 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 
 - (void)viewWillAppear:(BOOL)animated
 {
-//    自定义navigationController
+    [self tabBarViewLoad];
     self.navigationController.navigationBar.translucent = YES;
 }
 #pragma mark view
-// 播放并设置view上所有子视图
+// 更新并设置view上所有子视图
 - (void)playAndSetUpViews {
-    _bookList = _playList[_index];
+    _bookList = kBookInfosHandle.bookInfosArray[_index];
+    _bookInformation = kBookInfosHandle.bookMP3;
     [kAVPlayerManager playWithUrl:_bookList.path currentIndex:self.index];
     // 改变播放按钮的状态
     [_tabBarPlayButton setImage:[UIImage imageNamed:@"tabBarpause"] forState:UIControlStateNormal];
-    
-
-
+    // tabbar image
+    _tabbarSongImageView.layer.cornerRadius = 30;
+    _tabbarSongImageView.layer.masksToBounds = YES;
+    _tabbarSongImageView.layer.borderWidth = 1;
+    [_tabbarSongImageView sd_setImageWithURL:[NSURL URLWithString:_bookInformation.cover]];
+//    tabBar name
+    _tabBarSongName.text = _bookList.name;
+//tabBar deit
+    _tabBarSongAuthor.text  = _bookInformation.author;
+    // 设置timeSlider
+    _progressSlider.minimumValue = 0.0;
+    _mp3Time = [kAVPlayerManager getMp3TimeOfurl:_bookList.path];
+    _progressSlider.maximumValue = _mp3Time;
+    _progressSlider.value = 0;
 }
+#pragma mark progress按钮
+- (IBAction)progressButton:(id)sender {
+    [kAVPlayerManager seekToTime:_progressSlider.value];
+}
+
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
 {
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     if (context == CustomHeaderInsetObserver) {
         CGFloat inset = [change[NSKeyValueChangeNewKey] floatValue];
         [self.header updateHeadPhotoWithTopInset:inset];
-        
         // 设置头像图
         self.header.headImageView.layer.cornerRadius = self.header.headImageView.frame.size.width / 2;
         self.header.headImageView.layer.masksToBounds = YES;
-        
     }
 }
 
@@ -184,6 +229,8 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 }
 //tabBar 列表按钮
 - (IBAction)tabBarListButton:(id)sender {
+    [self.tabBarListTableView reloadData];
+    self.tabBarListTableView.contentOffset = CGPointMake(0, 100);
     if (self.isTabBarListOpen) {
         [UIView animateWithDuration:1 animations:^{
             _tabbarListOtherView.hidden = YES;
@@ -200,28 +247,71 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
         }];
     }
 }
+#pragma mark 下一曲
 - (IBAction)tabBarLastButton:(id)sender {
+    _bookList = [kBookInfosHandle bookInfoNextWithIndex:&_index];
+    [self playAndSetUpViews];
+    
 }
+#pragma mark 播放
 - (IBAction)tabBarPlayButton:(id)sender {
+    
+    if (kAVPlayerManager.status == isPaused || kAVPlayerManager.status == isStoped) {
+        [kAVPlayerManager play];
+        [_tabBarPlayButton setImage:[UIImage imageNamed:@"playPause"] forState:UIControlStateNormal];
+    } else if (kAVPlayerManager.status == isPlaying) {
+        [kAVPlayerManager pause];
+        [_tabBarPlayButton setImage:[UIImage imageNamed:@"playPlay"] forState:UIControlStateNormal];
+    }
+    
+}
+#pragma mark - 定时器改变时间
+- (void)changeTime:(CGFloat)time {
+    // 改变silder的位置
+    _progressSlider.value = time;
+
+    // 转动imageView
+    [UIView animateWithDuration:0.1 animations:^{
+        _tabbarSongImageView.transform = CGAffineTransformRotate(_tabbarSongImageView.transform, 0.05);
+    }];
 }
 - (IBAction)tabBarListDisapperAction:(id)sender {
+    
     _tabBarListView.hidden = YES;
     _tabbarListOtherView.hidden = YES;
     _isTabBarListOpen = NO;
 }
 
 - (IBAction)tabBarSongImageViewAction:(id)sender {
+    
     PlayerViewController *playVC = [[PlayerViewController alloc]init];
     [self presentViewController:playVC animated:YES completion:nil];
 
     
 }
-- (IBAction)tabBarListPlayAction:(id)sender {
-    PlayerViewController *playVC = [[PlayerViewController alloc]init];
-    [self presentViewController:playVC animated:YES completion:nil];
-    
-}
 
+#pragma mark - 根据播放模式取出下一首播放的music
+- (void)getMusicByLoopMode {
+    switch (kAVPlayerManager.loopMode) {
+        case LoopModeOrderMode:
+            _bookList = [kBookInfosHandle bookInfoNextWithIndex:&_index];
+            [self playAndSetUpViews];
+            break;
+        case LoopModeSingleMond:
+            [self playAndSetUpViews];
+            break;
+        case LoopModeRandomMode:
+            [self playAndSetUpViews];
+            break;
+        default:
+            NSLog(@"未知播放模式，请设置");
+            break;
+    }
+}
+- (void)playDidFinished {
+    // 根据模式取出下一首播放的music
+    [self getMusicByLoopMode];
+}
 /*
 #pragma mark - Navigation
 
