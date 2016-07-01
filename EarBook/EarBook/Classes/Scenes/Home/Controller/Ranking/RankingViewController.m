@@ -8,14 +8,21 @@
 
 #import "RankingViewController.h"
 #import "DetailViewController.h"
+#import "RankingListViewController.h"
+#import "MoreListViewController.h"
 #import "BookCell.h"
 #import "BookMP3.h"
 #import "List.h"
 #import "EB_URL.h"
 #import "RankingHeader.h"
-//#import "RankingListViewController.h"
+#import "RecommendHeaderView.h"
+
+#define kRankingListTag 542308
 
 @interface RankingViewController ()
+
+/// 榜单列表数组
+@property (nonatomic, strong) NSMutableArray *rankingListArray;
 
 /// 列表数组
 @property (nonatomic, strong) NSMutableArray *listArray;
@@ -23,12 +30,32 @@
 /// 数据字典
 @property (nonatomic, strong) NSMutableDictionary *bookDict;
 
+/// 列表字典
+@property (nonatomic, strong) NSMutableDictionary *listDict;
+
 /// title数组
 @property (nonatomic, strong) NSMutableArray *titleArray;
+
+//@property (nonatomic, assign) NSInteger flag;
+
+@property (nonatomic, strong) RankingHeader *header1;
+@property (nonatomic, strong) RankingHeader *header2;
+@property (nonatomic, strong) RankingHeader *header3;
+@property (nonatomic, strong) RankingHeader *header4;
+//@property (nonatomic, strong) RecommendHeaderView *header5;
+//@property (nonatomic, strong) RecommendHeaderView *header6;
 
 @end
 
 @implementation RankingViewController
+
+- (NSMutableDictionary *)listDict
+{
+    if (!_listDict) {
+        _listDict = [NSMutableDictionary dictionary];
+    }
+    return _listDict;
+}
 
 - (NSMutableDictionary *)bookDict
 {
@@ -36,6 +63,14 @@
         _bookDict = [NSMutableDictionary dictionary];
     }
     return _bookDict;
+}
+
+- (NSMutableArray *)rankingListArray
+{
+    if (!_rankingListArray) {
+        _rankingListArray = [NSMutableArray array];
+    }
+    return _rankingListArray;
 }
 
 - (NSMutableArray *)listArray
@@ -118,9 +153,11 @@
                  for (NSDictionary *dict in resultArray) {
                      List *bookList = [List new];
                      [bookList setValuesForKeysWithDictionary:dict];
-                     [rankingVC.listArray addObject:bookList];
+//                     [rankingVC.listDict setObject:bookList forKey:bookList.name];
+                     
                      NSMutableArray *bookArray = [NSMutableArray array];
                      if (bookList.list.count > 0) {
+                         [rankingVC.listArray addObject:bookList];
                          for (NSDictionary *dict in bookList.list) {
                              BookMP3 *book = [BookMP3 new];
                              [book setValuesForKeysWithDictionary:dict];
@@ -128,6 +165,7 @@
                          }
                          [rankingVC.bookDict setObject:bookArray forKey:bookList.name];
                      } else {
+                         [rankingVC.rankingListArray addObject:bookList];
                          for (NSDictionary *dict in bookList.bookList) {
                              BookMP3 *book = [BookMP3 new];
                              [book setValuesForKeysWithDictionary:dict];
@@ -192,21 +230,117 @@
 #pragma mark - header
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+//    self.flag = section;
+    
+    if (section == 4 || section == 5) {
+        RecommendHeaderView *header = [RecommendHeaderView new];
+        
+        header.titleLabel.text = _titleArray[section];
+        
+        header.moreButton.tag = kRankingListTag + section;
+        
+        [header.moreButton addTarget:self action:@selector(moreButtonAction:) forControlEvents:(UIControlEventTouchUpInside)];
+        
+        return header;
+    }
+    
     RankingHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"RankingHeader"];
     
     header.title = _titleArray[section];
+    header.tag = kRankingListTag + section;
     
-    [header.weekRankingBtn addTarget:self action:@selector(weekRankingBtnAction:) forControlEvents:(UIControlEventTouchUpInside)];
+    switch (section) {
+        case 0:
+            self.header1 = header;
+            break;
+        case 1:
+            self.header2 = header;
+            break;
+        case 2:
+            self.header3 = header;
+            break;
+        case 3:
+            self.header4 = header;
+            break;
+            
+        default:
+            break;
+    }
+    
+    // 周榜
+    header.weekRankingBtn.tag = kRankingListTag + 10;
+    [header.weekRankingBtn addTarget:self action:@selector(rankingBtnAction:) forControlEvents:(UIControlEventTouchUpInside)];
+    // 月榜
+    header.monthRankingBtn.tag = kRankingListTag + 20;
+    [header.monthRankingBtn addTarget:self action:@selector(rankingBtnAction:) forControlEvents:(UIControlEventTouchUpInside)];
+    // 总榜
+    header.totalRankingBtn.tag = kRankingListTag + 30;
+    [header.totalRankingBtn addTarget:self action:@selector(rankingBtnAction:) forControlEvents:(UIControlEventTouchUpInside)];
     
     return header;
 }
 
-- (void)weekRankingBtnAction:(UIButton *)sender
+#pragma mark - 更多按钮的点击事件
+- (void)moreButtonAction:(UIButton *)sender
 {
-//    RankingListViewController *rankingListVC = [RankingListViewController new];
+    MoreListViewController *moreListVC = [MoreListViewController new];
     
-//    [self presentViewController:rankingListVC animated:YES completion:nil];
-//    [self.navigationController pushViewController:rankingListVC animated:YES];
+    List *bookList = [List new];
+    
+    if (sender.tag == kRankingListTag + 4) {
+        bookList = _listArray[0];
+    }
+    if (sender.tag == kRankingListTag + 5) {
+        bookList = _listArray[1];
+    }
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@%@", EB_MORE_EDIT_RECOMMEND_URL, bookList.url];
+    moreListVC.moreListURL = urlString;
+    
+    [self.navigationController pushViewController:moreListVC animated:YES];
+}
+
+#pragma mark - 榜单Button的点击事件
+- (void)rankingBtnAction:(UIButton *)sender
+{
+    RankingListViewController *rankingListVC = [RankingListViewController new];
+
+    // 取出数组中的值
+    switch ([[sender superview] superview].tag) {
+        case kRankingListTag:
+            rankingListVC.bookList = _rankingListArray[0];
+            break;
+        case kRankingListTag + 1:
+            rankingListVC.bookList = _rankingListArray[1];
+            break;
+        case kRankingListTag + 2:
+            rankingListVC.bookList = _rankingListArray[2];
+            break;
+        case kRankingListTag + 3:
+            rankingListVC.bookList = _rankingListArray[3];
+            break;
+            
+        default:
+            break;
+    }
+    
+    
+//    rankingListVC.bookList = _rankingListArray[_flag - 1];
+    
+    // 周榜
+    if (sender.tag == kRankingListTag + 10) {
+        rankingListVC.rangeType = 1;
+    }
+    // 月榜
+    if (sender.tag == kRankingListTag + 20) {
+        rankingListVC.rangeType = 2;
+    }
+    // 总榜
+    if (sender.tag == kRankingListTag + 30) {
+        rankingListVC.rangeType = 3;
+    }
+    
+    [self.navigationController pushViewController:rankingListVC animated:YES];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

@@ -15,10 +15,17 @@
 #import "BookList.h"
 #import "Tool_AdaptiveHeight.h"
 #import "PlayerViewController.h"
+#import "BookInfosHandle.h"
+
+#import <UMSocial.h>
+
+
+
+#define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
 #define kScrollWidth self.scrollView.frame.size.width
 #define kScrollHeight self.scrollView.frame.size.height
 
-@interface DetailViewController ()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface DetailViewController ()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, UMSocialUIDelegate>
 //{
 //    NSInteger *page;
 //}
@@ -60,6 +67,8 @@
 @property (nonatomic, strong) NSMutableArray *listArray;
 
 @property (nonatomic, assign) NSInteger pageNum;
+
+@property (nonatomic, strong) BookMP3 *detailBook;
 
 @end
 
@@ -151,6 +160,8 @@
              
              [book setValuesForKeysWithDictionary:responseObject];
 //             book.ID = responseObject[@"id"];
+             
+             detailVC.detailBook = book;
              
              [detailVC bookListWithBook:book];
              
@@ -300,27 +311,42 @@
 }
 #pragma mark - 点击cell
 - (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath{
+    kBookInfosHandle.bookInfosArray = _listArray;
+    
+    
+    if (self.pushFrom == PushFromMoreListVC) {
+        kBookInfosHandle.bookMP3 = _book;
+    } else {
+        kBookInfosHandle.bookMP3 = _detailBook;
+        
+    }
     
     PlayerViewController * playerViewVC = [[PlayerViewController alloc]init];
-    
     BookList *bookList = self.listArray[indexPath.row];
     playerViewVC.bookList = bookList;
-    
-    playerViewVC.bookList = bookList;
     playerViewVC.index = indexPath.row;
-    
-    playerViewVC.bookInformation = _book;
-    
-    playerViewVC.playList = _listArray;
+//    playerViewVC.bookInformation = _book;
+//    playerViewVC.playList = _listArray;
 
     [self presentViewController:playerViewVC animated:YES completion:nil];
 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+#pragma mark - 分享
+- (IBAction)shareAction:(UIButton *)sender
+{
+    //分享gif图片
+//    [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:@"http://www.baidu.com/img/bdlogo.gif"];
+    [UMSocialData defaultData].extConfig.title = _nameLabel.text;
+//    [UMSocialData defaultData].extConfig.qqData.url = @"http://baidu.com";
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"57767a3667e58e180b0006c2"
+                                      shareText:[_descLabel.text substringToIndex:140]
+                                     shareImage:_coverImageView.image
+                                shareToSnsNames:@[UMShareToWechatSession,UMShareToSina,UMShareToQQ,UMShareToQzone]
+                                       delegate:self];
 }
+
 
 /*
 #pragma mark - Navigation

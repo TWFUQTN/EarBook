@@ -72,6 +72,7 @@ singleton_implementation(AVPlayerManager)
     } else {
         // 替换当前播放item
         [_avPlayer replaceCurrentItemWithPlayerItem:playerItem];
+        
     }
     // 播放
     
@@ -88,6 +89,8 @@ singleton_implementation(AVPlayerManager)
     _timer.fireDate = [NSDate distantPast];
     // 改变播放状态
     _status = isPlaying;
+    
+    
 }
 
 // 暂停
@@ -101,7 +104,7 @@ singleton_implementation(AVPlayerManager)
 // 跳到指定位置播放
 - (void)seekToTime:(CGFloat)time {
     // value = seconds * timescale
-    [_avPlayer seekToTime:CMTimeMake(time * _avPlayer.currentTime.timescale, _avPlayer.currentTime.timescale)];
+    [_avPlayer seekToTime:CMTimeMake(time *   _avPlayer.currentTime.timescale, _avPlayer.currentTime.timescale)];
 }
 
 // 改变音量 (用户滑动slider操作，使用set方法)
@@ -110,14 +113,16 @@ singleton_implementation(AVPlayerManager)
     _avPlayer.volume = _volume;
 }
 - (CGFloat)getMp3TimeOfurl:(NSString *)urlString {
-   _audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL URLWithString:urlString] error:nil ];
-    NSLog(@"%@",_audioPlayer);
-   return  (CGFloat)_audioPlayer.duration;
-    
-//    AVURLAsset* audioAsset =[AVURLAssetURLAssetWithURL:[NSURL URLWithString:urlString] options:nil];
-//    CMTime audioDuration = audioAsset.duration;
+//   _audioPlayer = [[AVAudioPlayer alloc]initWithContentsOfURL:[NSURL URLWithString:urlString] error:nil ];
+//    NSLog(@"%@",_audioPlayer);
 //    
-//    float audioDurationSeconds =CMTimeGetSeconds(audioDuration);
+//   return  (CGFloat)_audioPlayer.duration;
+    
+    AVURLAsset* audioAsset =[AVURLAsset URLAssetWithURL:[NSURL URLWithString:urlString] options:nil];
+    CMTime audioDuration = audioAsset.duration;
+    
+    float audioDurationSeconds = CMTimeGetSeconds(audioDuration);
+    return audioDurationSeconds;
 }
 
 

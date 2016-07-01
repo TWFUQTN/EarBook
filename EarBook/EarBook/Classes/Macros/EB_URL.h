@@ -51,6 +51,21 @@
 // 榜单页
 #define EB_RANKING_URL @"http://apis.mting.info/yyting/gateway/batchOperation.action?imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&token=iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8*&pfunction=1&nwt=1&operations=%5B%22%2Fyyting%2Fbookclient%2FgetRecommendTypes.action%3Fsize%3D8%26type%3D5%26typeId%3D0%22%2C%22%2Fyyting%2Fbookclient%2FgetRecommendTypes.action%3Fsize%3D8%26type%3D6%26typeId%3D0%22%2C%22%2Fyyting%2Fbookclient%2FClientRankingsDir.action%3FpageSize%3D8%22%5D&q=203&sc=a55b5189fb8bee61df3230dbd722816c"
 
+// 周榜
+#define EB_WEEK_BASE_URL @"http://42.62.15.103/yyting/bookclient/ClientRankingsItemList.action?PageNum=1&PageSize=100&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&q=7405&rangeType=1&rankType="
+
+#define EB_WEEK_RANKING_URL @"&sc=26e7614980b18c5cd060916d4a807232&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCm1MERM9GQasAk6L-vqa3PqIC3t2KIXkyw%2A"
+
+// 月榜
+#define EB_MONTH_BASE_URL @"http://42.62.15.103/yyting/bookclient/ClientRankingsItemList.action?PageNum=1&PageSize=100&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&q=7405&rangeType=2&rankType="
+
+#define EB_MONTH_RANKING_URL @"&sc=26e7614980b18c5cd060916d4a807232&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCm1MERM9GQasAk6L-vqa3PqIC3t2KIXkyw%2A"
+
+// 总榜
+#define EB_TOTAL_BASE_URL @"http://42.62.15.103/yyting/bookclient/ClientRankingsItemList.action?PageNum=1&PageSize=100&imei=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx&nwt=1&q=7405&rangeType=3&rankType="
+
+#define EB_TOTAL_RANKING_URL @"&sc=26e7614980b18c5cd060916d4a807232&token=DgTQ7ezdIpVKGFBKFx32v4k18V20K33yMb9vJH6cMCm1MERM9GQasAk6L-vqa3PqIC3t2KIXkyw%2A"
+
 // 注册
 #define EB_REGISTER_URL @"http://api.mting.info/yyting/usercenter/ManualRegister.action"
 

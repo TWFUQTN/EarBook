@@ -8,6 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class List;
+
+typedef void(^RankingListVCBlock)(id responseObject);
+
 @interface RankingListViewController : UIViewController
+
+@property (nonatomic, strong) List *bookList;
+
+@property (nonatomic, assign) NSInteger rangeType;
 
 @end

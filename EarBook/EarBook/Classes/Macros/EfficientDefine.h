@@ -9,6 +9,8 @@
 #ifndef EfficientDefine_h
 #define EfficientDefine_h
 
+#import <Foundation/Foundation.h>
+
 //-------------------获取设备大小-------------------------
 //NavBar高度
 #define NavigationBar_HEIGHT 44

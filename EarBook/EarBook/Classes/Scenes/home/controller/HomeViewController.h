@@ -40,6 +40,7 @@
 @property (nonatomic,copy) NSMutableArray *playList;
 
 @property (weak, nonatomic) IBOutlet UIButton *tabBarPlayButton;
+@property (weak, nonatomic) IBOutlet UISlider *progressSlider;
 
 
 
