@@ -10,8 +10,6 @@
 
 @interface BookInfosHandle ()
 
-
-
 @end
 
 @implementation BookInfosHandle
@@ -25,6 +23,18 @@ singleton_implementation(BookInfosHandle)
         _bookInfosArray = [NSMutableArray array];
     }
     return _bookInfosArray;
+}
+- (NSMutableArray *)bookCrentlyArray {
+    if (!_bookCrentlyArray) {
+        _bookCrentlyArray = [ NSMutableArray array];
+    }
+    return _bookCrentlyArray;
+}
+- (NSMutableArray *)bookLikeArray {
+    if (!_bookLikeArray) {
+        _bookLikeArray = [NSMutableArray array];
+    }
+    return _bookLikeArray;
 }
 #pragma mark - 配置播放音乐数据源相关操作
 // 上一首数据源
@@ -52,7 +62,11 @@ singleton_implementation(BookInfosHandle)
     NSLog(@"下一首index = %ld", *index);
     _indexout = *index;
     return self.bookInfosArray[*index];
-    
 }
+
+
+
+
+
 
 @end
