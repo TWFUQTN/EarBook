@@ -47,6 +47,8 @@
 //当前MP3的长度
 @property (nonatomic ,assign) CGFloat mp3Time;
 
+
+
 @end
 
 @implementation PlayerViewController
@@ -168,6 +170,7 @@
         [_soundButton setImage:[UIImage imageNamed:@"playnosound"] forState:UIControlStateNormal];
         _isSound = NO;
         _defaultSlider.value = 0;
+        kAVPlayerManager.volume = _defaultSlider.value;
     }
     else {
         [_soundButton setImage:[UIImage imageNamed:@"playsound"] forState:UIControlStateNormal];
@@ -211,6 +214,10 @@
 
 - (void)sliderValueChanged{
     kAVPlayerManager.volume = _defaultSlider.value;
+    if (kAVPlayerManager.volume > 0 ) {
+        [_soundButton setImage:[UIImage imageNamed:@"playsound"] forState:UIControlStateNormal];
+        _isSound = YES;
+    }
 }
 
 - (void)playDidFinished {
@@ -224,6 +231,7 @@
     _progressSlider.value = time;
     _beginTimeLabel.text = [NSString getStringWithTime:time];
     _endTimeLabel.text = [NSString getStringWithTime:_mp3Time ];
+    
     // 转动imageView
     [UIView animateWithDuration:0.1 animations:^{
         _songImageView.transform = CGAffineTransformRotate(_songImageView.transform, 0.05);

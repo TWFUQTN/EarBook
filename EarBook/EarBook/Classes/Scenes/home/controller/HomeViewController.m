@@ -113,7 +113,8 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
         _progressSlider.maximumValue = _mp3Time;
     }
     [self.tabBarListTableView registerNib:[UINib nibWithNibName:@"TabBarListViewCell" bundle:nil] forCellReuseIdentifier:@"listcell"];
-    NSLog(@"%@",_bookInformation.announcer);
+    // 设置代理
+    kAVPlayerManager.delegate = self;
  
     
 }
@@ -274,6 +275,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 
     // 转动imageView
     [UIView animateWithDuration:0.1 animations:^{
+        
         _tabbarSongImageView.transform = CGAffineTransformRotate(_tabbarSongImageView.transform, 0.05);
     }];
 }
@@ -309,11 +311,13 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
             NSLog(@"未知播放模式，请设置");
             break;
     }
-}
+} 
 - (void)playDidFinished {
     // 根据模式取出下一首播放的music
     [self getMusicByLoopMode];
 }
+
+
 /*
 #pragma mark - Navigation
 
