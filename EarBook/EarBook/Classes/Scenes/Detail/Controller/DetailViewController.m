@@ -336,12 +336,19 @@
 - (IBAction)shareAction:(UIButton *)sender
 {
     //分享gif图片
-//    [[UMSocialData defaultData].urlResource setResourceType:UMSocialUrlResourceTypeImage url:@"http://www.baidu.com/img/bdlogo.gif"];
+
     [UMSocialData defaultData].extConfig.title = _nameLabel.text;
-//    [UMSocialData defaultData].extConfig.qqData.url = @"http://baidu.com";
+
+    NSString *shareText = @"";
+    if (_descLabel.text.length > 140) {
+        shareText = [_descLabel.text substringToIndex:140];
+    } else {
+        shareText = _descLabel.text;
+    }
+    
     [UMSocialSnsService presentSnsIconSheetView:self
                                          appKey:@"57767a3667e58e180b0006c2"
-                                      shareText:[_descLabel.text substringToIndex:140]
+                                      shareText:shareText
                                      shareImage:_coverImageView.image
                                 shareToSnsNames:@[UMShareToWechatSession,UMShareToSina,UMShareToQQ,UMShareToQzone]
                                        delegate:self];

@@ -14,6 +14,7 @@
 #import <UMSocialWechatHandler.h>
 #import <UMSocialSinaSSOHandler.h>
 #import <UMSocialQQHandler.h>
+//#import <AVOSCloud/AVOSCloud.h>
 
 @interface AppDelegate ()
 
@@ -41,6 +42,21 @@
     self.window.rootViewController = nav;
     
 #pragma mark - 友盟
+    [self shareUM];
+    
+#pragma mark - leanCloud
+    // applicationId 即 App Id，clientKey 是 App Key。
+//    [AVOSCloud setApplicationId:@"Ms8SKLbB5oEPS5vSMNAHQCsc-gzGzoHsz"
+//                      clientKey:@"ix79U7yFCqWgyLU8oFv44VuS"];
+    
+    
+    
+    return YES;
+}
+
+#pragma mark - 友盟
+- (void)shareUM
+{
     [UMSocialData setAppKey:@"57767a3667e58e180b0006c2"];
     //设置微信AppId、appSecret，分享url
     [UMSocialWechatHandler setWXAppId:@"wxd930ea5d5a258f4f" appSecret:@"db426a9829e4b49a0dcac7b4162da6b6" url:@"http://www.umeng.com/social"];
@@ -50,12 +66,9 @@
     [UMSocialSinaSSOHandler openNewSinaSSOWithAppKey:@"2189813254"
                                               secret:@"5d718c1ec72a8e273e5291207f45bc30"
                                          RedirectURL:@"http://sns.whalecloud.com/sina2/callback"];
-    
-    
-    return YES;
 }
 
-#pragma mark - 配置系统回调
+#pragma mark - 友盟配置系统回调
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
     BOOL result = [UMSocialSnsService handleOpenURL:url];

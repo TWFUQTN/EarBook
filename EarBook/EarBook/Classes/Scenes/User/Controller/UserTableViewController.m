@@ -7,9 +7,11 @@
 //
 
 #import "UserTableViewController.h"
+#import "LoginViewController.h"
+#import "PersonalDataViewController.h"
 #import "UserCell.h"
 #import "EB_COLOR.h"
-#import "LoginViewController.h"
+#import "FileManagerHandle.h"
 
 
 @interface UserTableViewController ()
@@ -34,8 +36,8 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"UserCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
-    self.dictionary = @{@"image":@[@"1",@"2",@"3",@"4"],
-                        @"title":@[@"完善资料",@"我的收藏",@"我的下载",@"关注"]
+    self.dictionary = @{@"image":@[@"1", @"2", @"3", @"4", @"1"],
+                        @"title":@[@"完善资料", @"我的收藏", @"我的下载", @"清除缓存", @"最近播放"]
                         };
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"登录" style:(UIBarButtonItemStylePlain) target:self action:@selector(loginAction)];
 }
@@ -62,26 +64,86 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
+
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 4;
+
+    return [_dictionary[@"title"] count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     UserCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
     [cell cellBindWithDictionary:self.dictionary Index:indexPath.row];
-    // Configure the cell...
+    
+    if (indexPath.row == 3) {
+        // caches文件夹路径
+        NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+        // 获取caches文件夹的大小
+        float size = [FileManagerHandle folderSizeAtPath:cachesPath];
+        
+        cell.cacheLabel.text = [NSString stringWithFormat:@"%.2fM", size];
+    }
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 70;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.row) {
+        case 0: {
+            
+            PersonalDataViewController *personalDataVC = [PersonalDataViewController new];
+            
+            
+            [self.navigationController pushViewController:personalDataVC animated:YES];
+            
+            break;
+        }
+        case 1: {
+            break;
+        }
+        case 2: {
+            break;
+        }
+        case 3: {
+            
+            // 清除缓存
+            // caches文件夹路径
+            NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+            // 获取caches文件夹的大小
+            float size = [FileManagerHandle folderSizeAtPath:cachesPath];
+            
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"是否清除大小为%.2fM的缓存", size] preferredStyle:UIAlertControllerStyleAlert];
+            
+            __weak typeof(self)userListVC = self;
+            UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"是" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+                // 清除缓存
+                [FileManagerHandle clearCache:cachesPath];
+                [userListVC.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+            }];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"否" style:UIAlertActionStyleCancel handler:nil];
+            [alert addAction:sureAction];
+            [alert addAction:cancelAction];
+            [self presentViewController:alert animated:YES completion:nil];
+            
+            break;
+        }
+        case 4: {
+            break;
+        }
+        default:
+            break;
+    }
 }
 
 
