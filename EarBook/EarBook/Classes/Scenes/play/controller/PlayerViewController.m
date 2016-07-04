@@ -109,7 +109,8 @@
     _mp3Time = [kAVPlayerManager getMp3TimeOfurl:_bookList.path];
     _progressSlider.maximumValue = _mp3Time;
     _progressSlider.value = 0;
-    
+    [kBookInfosHandle getNowDate];
+    NSLog(@"%@",kBookInfosHandle.nowDate);
 
     
 }

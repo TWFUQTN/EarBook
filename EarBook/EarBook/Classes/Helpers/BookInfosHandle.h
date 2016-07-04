@@ -21,10 +21,14 @@
 @property (nonatomic, strong) BookMP3 * bookMP3;
 //book index
 @property (nonatomic, assign) NSInteger indexout;
-//存储最近播放名字
+//存储最近列表
 @property (nonatomic, strong) NSMutableArray *bookCrentlyArray;
 //喜欢的收藏名字
 @property (nonatomic, strong) NSMutableArray *bookLikeArray;
+//当前的时间
+@property (nonatomic, strong) NSString *nowDate;
+//时间戳
+@property (nonatomic, assign) NSInteger allSecond;
 
 // 声明单例
 singleton_interface(BookInfosHandle)
@@ -36,5 +40,9 @@ singleton_interface(BookInfosHandle)
 // 下一首数据源
 - (BookList *)bookInfoNextWithIndex:(NSInteger *)index;
 
-// 记录播放数据
+//获取当前时间及其时间戳
+- (void)getNowDate;
+
+
+
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "BookInfosHandle.h"
-
+#import "DocumentsHandle.h"
 @interface BookInfosHandle ()
 
 @end
@@ -16,12 +16,14 @@
 
 // 实现单例
 singleton_implementation(BookInfosHandle)
-
+//BookInfoHandle的单例
+#define kDocumentsHandle [DocumentsHandle sharedocumentsHandle]
 // 懒加载
 - (NSMutableArray *)bookInfosArray {
     if (!_bookInfosArray) {
         _bookInfosArray = [NSMutableArray array];
     }
+    
     return _bookInfosArray;
 }
 - (NSMutableArray *)bookCrentlyArray {
@@ -63,7 +65,16 @@ singleton_implementation(BookInfosHandle)
     _indexout = *index;
     return self.bookInfosArray[*index];
 }
+//获取当前时间
 
+- (void)getNowDate {
+    NSDate *  senddate=[NSDate date];
+    NSDateFormatter  *dateformatter=[[NSDateFormatter alloc] init];
+    [dateformatter setDateFormat:@"YYYY-MM-dd-HH-mm-ss"];
+    _nowDate =[dateformatter stringFromDate:senddate];
+    NSDate *localDate = [NSDate date]; //获取当前时间
+    _allSecond = [localDate timeIntervalSince1970];
+}
 
 
 

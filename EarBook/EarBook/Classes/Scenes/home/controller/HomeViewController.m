@@ -21,10 +21,13 @@
 #import "AVUserManager.h"
 #import "LoginViewController.h"
 
+
 // AVPlayerManager的单例
 #define kAVPlayerManager [AVPlayerManager shareAVPlayerManager]
 //BookInfoHandle的单例
 #define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
+
+
 
 void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 
