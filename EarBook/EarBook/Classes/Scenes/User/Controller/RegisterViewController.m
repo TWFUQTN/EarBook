@@ -11,15 +11,13 @@
 #import "EB_URL.h"
 #import "User.h"
 
-//#import <AVOSCloud.h>
-
 @interface RegisterViewController ()
 
 /// 账号
-@property (weak, nonatomic) IBOutlet UITextField *accountTextField;
+@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 
 /// 昵称
-@property (weak, nonatomic) IBOutlet UITextField *nicknameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
 
 /// 密码
 @property (weak, nonatomic) IBOutlet UITextField *pwdTextField;
@@ -27,12 +25,16 @@
 /// 确认密码
 @property (weak, nonatomic) IBOutlet UITextField *rePWDTextField;
 
+@property (nonatomic, strong) AVUserManager *user;
+
 @end
 
 @implementation RegisterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = @"注册";
     
     // 设置navigationBar
     self.navigationController.navigationBar.translucent = NO;
@@ -53,33 +55,36 @@
 {
     [self validateInput];
     
-//    AVUser *user = [AVUser user];// 新建 AVUser 对象实例
-//    user.username = _accountTextField.text;// 设置用户名
-//    user.password =  _pwdTextField.text;// 设置密码
-//    user.email = _accountTextField.text;// 设置邮箱
+    self.user = [AVUserManager user];// 新建 AVUser 对象实例
+    _user.username = _usernameTextField.text;// 设置用户名
+    _user.password =  _pwdTextField.text;// 设置密码
+    _user.email = _emailTextField.text;// 设置邮箱
 //    user.nickname = _nicknameTextField.text; // 设置昵称
-//    
-//    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (succeeded) {
-//            // 注册成功
-//            NSLog(@"haha");
-//        } else {
-//            // 失败的原因可能有多种，常见的是用户名已经存在。
-//        }
-//    }];
+    
+    [_user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (succeeded) {
+            // 注册成功
+            
+            self.block(_user);
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        } else {
+            // 失败的原因可能有多种，常见的是用户名已经存在。
+        }
+    }];
 }
 
 #pragma mark - 验证输入的值
 - (void)validateInput
 {
-    if (self.accountTextField.text.length <= 0) {
+    if (self.usernameTextField.text.length <= 0) {
+        [self errorAlertWithMessage:@"用户名不能为空"];
+    }
+    if (self.usernameTextField.text.length <= 0) {
         [self errorAlertWithMessage:@"邮箱不能为空"];
     }
-    if ([self isEmail:_accountTextField.text]) {
+    if ([self isEmail:_emailTextField.text]) {
         [self errorAlertWithMessage:@"邮箱格式不正确"];
-    }
-    if (self.nicknameTextField.text.length <= 0) {
-        [self errorAlertWithMessage:@"昵称不能为空"];
     }
     if (self.pwdTextField.text.length <= 0) {
         [self errorAlertWithMessage:@"密码不能为空"];

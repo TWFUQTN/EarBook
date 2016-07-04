@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+//typedef void(^LoginVCBlock)(AVUser *user);
 @interface LoginViewController : UIViewController
+
+//@property (nonatomic, copy) LoginVCBlock block;
 
 @end

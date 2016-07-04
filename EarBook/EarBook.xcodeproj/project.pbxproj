@@ -71,6 +71,7 @@
 		D632AFD11D1E22A70092A6A3 /* textHeader.png in Resources */ = {isa = PBXBuildFile; fileRef = D632AFCF1D1E22A70092A6A3 /* textHeader.png */; };
 		D632AFD41D1E22C70092A6A3 /* UIImage+ImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFD31D1E22C70092A6A3 /* UIImage+ImageEffects.m */; };
 		D632B0001D1E615B0092A6A3 /* BookMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFFF1D1E615B0092A6A3 /* BookMP3.m */; };
+		D64677EA1D2A9BC1006D7CB4 /* AVUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D64677E91D2A9BC1006D7CB4 /* AVUserManager.m */; };
 		D64761901D22A7F5004A8262 /* SpecialSubjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D647618E1D22A7F5004A8262 /* SpecialSubjectDetailViewController.m */; };
 		D64761911D22A7F5004A8262 /* SpecialSubjectDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D647618F1D22A7F5004A8262 /* SpecialSubjectDetailViewController.xib */; };
 		D6488AF21D27747B00ABA6FD /* MryPageTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D6488AED1D27747B00ABA6FD /* MryPageTable.m */; };
@@ -255,6 +256,8 @@
 		D632AFD31D1E22C70092A6A3 /* UIImage+ImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ImageEffects.m"; sourceTree = "<group>"; };
 		D632AFFE1D1E615B0092A6A3 /* BookMP3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookMP3.h; sourceTree = "<group>"; };
 		D632AFFF1D1E615B0092A6A3 /* BookMP3.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookMP3.m; sourceTree = "<group>"; };
+		D64677E81D2A9BC1006D7CB4 /* AVUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVUserManager.h; sourceTree = "<group>"; };
+		D64677E91D2A9BC1006D7CB4 /* AVUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVUserManager.m; sourceTree = "<group>"; };
 		D647618D1D22A7F5004A8262 /* SpecialSubjectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialSubjectDetailViewController.h; sourceTree = "<group>"; };
 		D647618E1D22A7F5004A8262 /* SpecialSubjectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialSubjectDetailViewController.m; sourceTree = "<group>"; };
 		D647618F1D22A7F5004A8262 /* SpecialSubjectDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialSubjectDetailViewController.xib; sourceTree = "<group>"; };
@@ -508,6 +511,8 @@
 				D62D4E081D27C10700939B13 /* FileManagerHandle.m */,
 				D65C34B81D27DF5800CBC367 /* DocumentsHandle.h */,
 				D65C34B91D27DF5800CBC367 /* DocumentsHandle.m */,
+				D64677E81D2A9BC1006D7CB4 /* AVUserManager.h */,
+				D64677E91D2A9BC1006D7CB4 /* AVUserManager.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1297,6 +1302,7 @@
 				D632AFD41D1E22C70092A6A3 /* UIImage+ImageEffects.m in Sources */,
 				D6F611251D22CA53002B4506 /* BookCollectionCell.m in Sources */,
 				D6CE72B31D23583400B6E108 /* VoiceDetailViewController.m in Sources */,
+				D64677EA1D2A9BC1006D7CB4 /* AVUserManager.m in Sources */,
 				D64761901D22A7F5004A8262 /* SpecialSubjectDetailViewController.m in Sources */,
 				D6F611181D22CA53002B4506 /* HomeNavigationController.m in Sources */,
 				D6F6112F1D22CA53002B4506 /* RecommendCell.m in Sources */,
@@ -1532,9 +1538,6 @@
 					"\"TwitterKit\"",
 					"-framework",
 					"\"UIKit\"",
-					"-lc++",
-					"-licucore",
-					"-lz",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZLZ.EarBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1618,9 +1621,6 @@
 					"\"TwitterKit\"",
 					"-framework",
 					"\"UIKit\"",
-					"-lc++",
-					"-licucore",
-					"-lz",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZLZ.EarBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";

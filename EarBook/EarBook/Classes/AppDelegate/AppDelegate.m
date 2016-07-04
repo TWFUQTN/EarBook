@@ -14,7 +14,7 @@
 #import <UMSocialWechatHandler.h>
 #import <UMSocialSinaSSOHandler.h>
 #import <UMSocialQQHandler.h>
-//#import <AVOSCloud/AVOSCloud.h>
+#import <AVOSCloud/AVOSCloud.h>
 
 @interface AppDelegate ()
 
@@ -46,8 +46,8 @@
     
 #pragma mark - leanCloud
     // applicationId 即 App Id，clientKey 是 App Key。
-//    [AVOSCloud setApplicationId:@"Ms8SKLbB5oEPS5vSMNAHQCsc-gzGzoHsz"
-//                      clientKey:@"ix79U7yFCqWgyLU8oFv44VuS"];
+    [AVOSCloud setApplicationId:@"Ms8SKLbB5oEPS5vSMNAHQCsc-gzGzoHsz"
+                      clientKey:@"ix79U7yFCqWgyLU8oFv44VuS"];
     
     
     

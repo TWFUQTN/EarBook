@@ -21,7 +21,7 @@
 #import "SpecialSubjectDetailViewController.h"
 #import "VoiceDetailViewController.h"
 
-//#import <AVOSCloud.h>
+#import <AVOSCloud.h>
 
 #define baseTag 100
 
@@ -102,6 +102,7 @@
         [recommendVC.tableView.mj_footer endRefreshing];
     }];
     
+    // 测试代码
 //    AVObject *post = [AVObject objectWithClassName:@"TestObject"];
 //    [post setObject:@"Hello World!" forKey:@"words"];
 //    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {

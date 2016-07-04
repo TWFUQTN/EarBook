@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import "AVUserManager.h"
 
+//typedef void(^UserVCBlock)(AVUserManager *user);
+typedef void(^UserVCBlock)();
 @interface UserTableViewController : UITableViewController
+
+//@property (nonatomic, strong) AVUserManager *user;
+
+@property (nonatomic, copy) UserVCBlock block;
 
 @end

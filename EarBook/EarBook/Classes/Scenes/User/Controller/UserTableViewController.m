@@ -9,10 +9,11 @@
 #import "UserTableViewController.h"
 #import "LoginViewController.h"
 #import "PersonalDataViewController.h"
+#import "HomeViewController.h"
 #import "UserCell.h"
 #import "EB_COLOR.h"
 #import "FileManagerHandle.h"
-
+#import "AVUserManager.h"
 
 @interface UserTableViewController ()
 
@@ -31,29 +32,69 @@
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = EB_MAIN_COLOR;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-    // 返回按钮
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:(UIBarButtonItemStylePlain) target:self action:@selector(back)];
+    
     
     [self.tableView registerNib:[UINib nibWithNibName:@"UserCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
     self.dictionary = @{@"image":@[@"1", @"2", @"3", @"4", @"1"],
                         @"title":@[@"完善资料", @"我的收藏", @"我的下载", @"清除缓存", @"最近播放"]
                         };
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"登录" style:(UIBarButtonItemStylePlain) target:self action:@selector(loginAction)];
+    
+    // 判断用户是否登录
+    [self isLogin];
+    
+    // 返回按钮
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:(UIBarButtonItemStylePlain) target:self action:@selector(back)];
+}
+
+#pragma mark - 判断用户是否登录
+- (void)isLogin
+{
+    AVUserManager *currentUser = [AVUserManager currentUser];
+    if (currentUser != nil) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"注销" style:(UIBarButtonItemStylePlain) target:self action:@selector(logoutAction)];
+//        self.user = currentUser;
+    }
+//    else {
+//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"登录" style:(UIBarButtonItemStylePlain) target:self action:@selector(loginAction)];
+//    }
 }
 
 #pragma mark - 返回按钮
 - (void)back
 {
-    [self.navigationController popViewControllerAnimated:YES];
+//    if (self.block) {
+//        self.block(self.user);
+//    }
+    
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-- (void)loginAction {
-    
-    LoginViewController *loginVC = [[LoginViewController alloc] init];
-    
-    [self.navigationController pushViewController:loginVC animated:YES];
-    
+#pragma mark - 登录
+//- (void)loginAction {
+//    
+//    AVUserManager *currentUser = [AVUserManager currentUser];
+//    if (currentUser != nil) {
+//        
+//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"注销" style:(UIBarButtonItemStylePlain) target:self action:@selector(logoutAction)];
+//        
+//    } else {
+//        //缓存用户对象为空时，可打开用户注册界面…
+//        LoginViewController *loginVC = [LoginViewController new];
+//        
+//        [self.navigationController pushViewController:loginVC animated:YES];
+//    }
+//    
+//}
+
+#pragma mark - 注销
+- (void)logoutAction
+{
+    [AVUserManager logOut];  //清除缓存用户对象
+    if (self.block) {
+        self.block();
+    }
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

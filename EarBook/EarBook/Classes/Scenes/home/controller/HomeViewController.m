@@ -18,6 +18,9 @@
 #import "UserTableViewController.h"
 #import "AVPlayerManager.h"
 #import "BookInfosHandle.h"
+#import "AVUserManager.h"
+#import "LoginViewController.h"
+
 // AVPlayerManager的单例
 #define kAVPlayerManager [AVPlayerManager shareAVPlayerManager]
 //BookInfoHandle的单例
@@ -60,9 +63,10 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 {
     if (_header == nil) {
         _header = [[[NSBundle mainBundle] loadNibNamed:@"HomeCustomHeader" owner:nil options:nil] lastObject];
-//        _header.backgroundColor = [UIColor redColor];
+
         UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tap)];
         [_header addGestureRecognizer:tap];
+        
     }
     return _header;
 }
@@ -70,9 +74,25 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 
 - (void)tap
 {
-    UserTableViewController *userVC = [UserTableViewController new];
-    
-    [self.navigationController pushViewController:userVC animated:YES];
+    AVUserManager *currentUser = [AVUserManager currentUser];
+    if (currentUser != nil) {
+        // 跳转到用户管理界面
+        UserTableViewController *userVC = [UserTableViewController new];
+        userVC.block = ^(AVUserManager *user) {
+            if (user) {
+                _header.nameLabel.text = user.username;
+            } else {
+                _header.nameLabel.text = @"未登录";
+            }
+        };
+        [self.navigationController pushViewController:userVC animated:YES];
+        
+    } else {
+        //缓存用户对象为空时，可打开用户注册界面…
+        LoginViewController *loginVC = [LoginViewController new];
+        
+        [self.navigationController pushViewController:loginVC animated:YES];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -162,6 +182,13 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 {
     [self tabBarViewLoad];
     self.navigationController.navigationBar.translucent = YES;
+    
+    // 判断
+    AVUserManager *currentUser = [AVUserManager currentUser];
+    if (currentUser != nil) {
+        
+        _header.nameLabel.text = currentUser.username;
+    }
 }
 #pragma mark view
 // 更新并设置view上所有子视图
