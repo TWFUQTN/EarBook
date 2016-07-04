@@ -18,10 +18,13 @@
 #import "UserTableViewController.h"
 #import "AVPlayerManager.h"
 #import "BookInfosHandle.h"
+
 // AVPlayerManager的单例
 #define kAVPlayerManager [AVPlayerManager shareAVPlayerManager]
 //BookInfoHandle的单例
 #define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
+
+
 
 void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 
