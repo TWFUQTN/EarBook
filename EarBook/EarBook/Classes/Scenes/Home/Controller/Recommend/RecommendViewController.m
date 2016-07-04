@@ -21,6 +21,8 @@
 #import "SpecialSubjectDetailViewController.h"
 #import "VoiceDetailViewController.h"
 
+//#import <AVOSCloud.h>
+
 #define baseTag 100
 
 @interface RecommendViewController ()<WYScrollViewNetDelegate>
@@ -99,6 +101,15 @@
         // 结束刷新
         [recommendVC.tableView.mj_footer endRefreshing];
     }];
+    
+//    AVObject *post = [AVObject objectWithClassName:@"TestObject"];
+//    [post setObject:@"Hello World!" forKey:@"words"];
+//    [post saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            // 保存成功了！
+//            NSLog(@"haha");
+//        }
+//    }];
 }
 
 #pragma mark - 加载数据

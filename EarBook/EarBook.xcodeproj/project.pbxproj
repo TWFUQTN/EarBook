@@ -41,6 +41,14 @@
 		D62B095A1D1D2DFC00128D82 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B094D1D1D2DFC00128D82 /* PlayerViewController.m */; };
 		D62B095B1D1D2DFC00128D82 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62B094E1D1D2DFC00128D82 /* PlayerViewController.xib */; };
 		D62B095C1D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B09501D1D2DFC00128D82 /* 苹果接口.txt */; };
+		D62D4E091D27C10700939B13 /* FileManagerHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D62D4E081D27C10700939B13 /* FileManagerHandle.m */; };
+		D62D4E0D1D27C41F00939B13 /* PersonalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62D4E0B1D27C41F00939B13 /* PersonalDataViewController.m */; };
+		D62D4E0E1D27C41F00939B13 /* PersonalDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62D4E0C1D27C41F00939B13 /* PersonalDataViewController.xib */; };
+		D62D4F701D27FFF400939B13 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D62D4F6F1D27FFF400939B13 /* SystemConfiguration.framework */; };
+		D62D4F721D28000100939B13 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D62D4F711D28000100939B13 /* MobileCoreServices.framework */; };
+		D62D4F741D28000C00939B13 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D62D4F731D28000C00939B13 /* CoreTelephony.framework */; };
+		D62D4F761D28001700939B13 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D62D4F751D28001700939B13 /* CoreLocation.framework */; };
+		D62D4F781D28002400939B13 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D62D4F771D28002400939B13 /* libicucore.tbd */; };
 		D631B4B11D1C1CBC00102682 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D631B4B01D1C1CBC00102682 /* main.m */; };
 		D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D631B4B61D1C1CBC00102682 /* ViewController.m */; };
 		D631B4BA1D1C1CBC00102682 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D631B4B81D1C1CBC00102682 /* Main.storyboard */; };
@@ -69,6 +77,8 @@
 		D6488AF31D27747B00ABA6FD /* MryScrollMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D6488AEF1D27747B00ABA6FD /* MryScrollMenu.m */; };
 		D6488AF41D27747B00ABA6FD /* MryScrollPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6488AF11D27747B00ABA6FD /* MryScrollPageCell.m */; };
 		D656751D1D210FC5000E4B26 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = D656751C1D210FC5000E4B26 /* back.png */; };
+		D65C34BA1D27DF5800CBC367 /* DocumentsHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D65C34B91D27DF5800CBC367 /* DocumentsHandle.m */; };
+		D65C34BC1D27EF8D00CBC367 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D65C34BB1D27EF8D00CBC367 /* libsqlite3.0.tbd */; };
 		D67313E31D24B92B00386E91 /* RankingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D67313E21D24B92B00386E91 /* RankingHeader.m */; };
 		D67313E61D2503A100386E91 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D67313E51D2503A100386E91 /* User.m */; };
 		D674E0A61D26BE4900E11919 /* Voice.m in Sources */ = {isa = PBXBuildFile; fileRef = D674E0A51D26BE4900E11919 /* Voice.m */; };
@@ -194,6 +204,16 @@
 		D62B094D1D1D2DFC00128D82 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		D62B094E1D1D2DFC00128D82 /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
 		D62B09501D1D2DFC00128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
+		D62D4E071D27C10700939B13 /* FileManagerHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManagerHandle.h; sourceTree = "<group>"; };
+		D62D4E081D27C10700939B13 /* FileManagerHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManagerHandle.m; sourceTree = "<group>"; };
+		D62D4E0A1D27C41F00939B13 /* PersonalDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalDataViewController.h; sourceTree = "<group>"; };
+		D62D4E0B1D27C41F00939B13 /* PersonalDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PersonalDataViewController.m; sourceTree = "<group>"; };
+		D62D4E0C1D27C41F00939B13 /* PersonalDataViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PersonalDataViewController.xib; sourceTree = "<group>"; };
+		D62D4F6F1D27FFF400939B13 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D62D4F711D28000100939B13 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D62D4F731D28000C00939B13 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		D62D4F751D28001700939B13 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		D62D4F771D28002400939B13 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
 		D631B4AC1D1C1CBC00102682 /* EarBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EarBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D631B4B01D1C1CBC00102682 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D631B4B51D1C1CBC00102682 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -245,6 +265,9 @@
 		D6488AF01D27747B00ABA6FD /* MryScrollPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryScrollPageCell.h; sourceTree = "<group>"; };
 		D6488AF11D27747B00ABA6FD /* MryScrollPageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryScrollPageCell.m; sourceTree = "<group>"; };
 		D656751C1D210FC5000E4B26 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		D65C34B81D27DF5800CBC367 /* DocumentsHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentsHandle.h; sourceTree = "<group>"; };
+		D65C34B91D27DF5800CBC367 /* DocumentsHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentsHandle.m; sourceTree = "<group>"; };
+		D65C34BB1D27EF8D00CBC367 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		D65DC00D1D1E79C1003905BA /* EfficientDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EfficientDefine.h; sourceTree = "<group>"; };
 		D65DC00E1D1E79DB003905BA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		D67313E11D24B92B00386E91 /* RankingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingHeader.h; sourceTree = "<group>"; };
@@ -379,6 +402,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D62D4F781D28002400939B13 /* libicucore.tbd in Frameworks */,
+				D62D4F761D28001700939B13 /* CoreLocation.framework in Frameworks */,
+				D62D4F741D28000C00939B13 /* CoreTelephony.framework in Frameworks */,
+				D62D4F721D28000100939B13 /* MobileCoreServices.framework in Frameworks */,
+				D62D4F701D27FFF400939B13 /* SystemConfiguration.framework in Frameworks */,
+				D65C34BC1D27EF8D00CBC367 /* libsqlite3.0.tbd in Frameworks */,
 				853991E37D48CED5FBF1F1E4 /* libPods-EarBook.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,6 +427,12 @@
 		AFB473BCB4BE4E0E4B2B1812 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D62D4F771D28002400939B13 /* libicucore.tbd */,
+				D62D4F751D28001700939B13 /* CoreLocation.framework */,
+				D62D4F731D28000C00939B13 /* CoreTelephony.framework */,
+				D62D4F711D28000100939B13 /* MobileCoreServices.framework */,
+				D62D4F6F1D27FFF400939B13 /* SystemConfiguration.framework */,
+				D65C34BB1D27EF8D00CBC367 /* libsqlite3.0.tbd */,
 				EEA9998324EB31859CEAD3A1 /* libPods-EarBook.a */,
 			);
 			name = Frameworks;
@@ -469,6 +504,10 @@
 				D6DA8ABD1D240FBC0067E813 /* AVPlayerManager.m */,
 				D6973BA61D2659A1008FEDD2 /* BookInfosHandle.h */,
 				D6973BA71D2659A1008FEDD2 /* BookInfosHandle.m */,
+				D62D4E071D27C10700939B13 /* FileManagerHandle.h */,
+				D62D4E081D27C10700939B13 /* FileManagerHandle.m */,
+				D65C34B81D27DF5800CBC367 /* DocumentsHandle.h */,
+				D65C34B91D27DF5800CBC367 /* DocumentsHandle.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -686,6 +725,9 @@
 				D6770F781D1EA73E00AE0CFE /* UserTableViewController.h */,
 				D6770F791D1EA73E00AE0CFE /* UserTableViewController.m */,
 				D6770F7A1D1EA73E00AE0CFE /* UserTableViewController.xib */,
+				D62D4E0A1D27C41F00939B13 /* PersonalDataViewController.h */,
+				D62D4E0B1D27C41F00939B13 /* PersonalDataViewController.m */,
+				D62D4E0C1D27C41F00939B13 /* PersonalDataViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1172,6 +1214,7 @@
 				D675A5891D20D35900E6F999 /* tabBarup.png in Resources */,
 				D632AFD11D1E22A70092A6A3 /* textHeader.png in Resources */,
 				D675A5851D20D35900E6F999 /* tabBarlast.png in Resources */,
+				D62D4E0E1D27C41F00939B13 /* PersonalDataViewController.xib in Resources */,
 				D6F611301D22CA53002B4506 /* RecommendCell.xib in Resources */,
 				D6770F7C1D1EA73E00AE0CFE /* UserTableViewController.xib in Resources */,
 				D675A5841D20D35900E6F999 /* tabBardown.png in Resources */,
@@ -1271,7 +1314,9 @@
 				D632AFC61D1E22880092A6A3 /* ARSegmentPageHeader.m in Sources */,
 				D6488AF31D27747B00ABA6FD /* MryScrollMenu.m in Sources */,
 				D631B4B11D1C1CBC00102682 /* main.m in Sources */,
+				D62D4E0D1D27C41F00939B13 /* PersonalDataViewController.m in Sources */,
 				D6973BA81D2659A1008FEDD2 /* BookInfosHandle.m in Sources */,
+				D65C34BA1D27DF5800CBC367 /* DocumentsHandle.m in Sources */,
 				D6F611211D22CA53002B4506 /* Classification.m in Sources */,
 				D632AFCB1D1E22880092A6A3 /* TYCircleMenu.m in Sources */,
 				D6770F7B1D1EA73E00AE0CFE /* UserTableViewController.m in Sources */,
@@ -1303,6 +1348,7 @@
 				D6F611201D22CA53002B4506 /* SpecialSubjectViewController.m in Sources */,
 				D6770F801D1EA82600AE0CFE /* UserCell.m in Sources */,
 				D632B0001D1E615B0092A6A3 /* BookMP3.m in Sources */,
+				D62D4E091D27C10700939B13 /* FileManagerHandle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1421,6 +1467,75 @@
 				INFOPLIST_FILE = EarBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"APOpenSdk\"",
+					"-l\"LWApiSDK\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"SDWebImage\"",
+					"-l\"SocialAlipayShare\"",
+					"-l\"SocialFacebook\"",
+					"-l\"SocialInstagram\"",
+					"-l\"SocialLaiWang\"",
+					"-l\"SocialLine\"",
+					"-l\"SocialQQ\"",
+					"-l\"SocialSinaSSO\"",
+					"-l\"SocialTumblr\"",
+					"-l\"SocialTwitter\"",
+					"-l\"SocialWechat\"",
+					"-l\"SocialWhatsapp\"",
+					"-l\"UMSocial_Sdk_5.2.1\"",
+					"-l\"UMSocial_Sdk_Comment_5.2.1\"",
+					"-l\"WeChatSDK\"",
+					"-l\"WeiboSDK\"",
+					"-l\"iconv\"",
+					"-l\"sqlite3\"",
+					"-l\"stdc++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accounts\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FBSDKShareKit\"",
+					"-framework",
+					"\"Fabric\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"Social\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TencentOpenAPI\"",
+					"-framework",
+					"\"TwitterCore\"",
+					"-framework",
+					"\"TwitterKit\"",
+					"-framework",
+					"\"UIKit\"",
+					"-lc++",
+					"-licucore",
+					"-lz",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZLZ.EarBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "da693ba3-6fdd-4f40-90f2-92b11b786fc5";
@@ -1438,6 +1553,75 @@
 				INFOPLIST_FILE = EarBook/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"AFNetworking\"",
+					"-l\"APOpenSdk\"",
+					"-l\"LWApiSDK\"",
+					"-l\"MBProgressHUD\"",
+					"-l\"MJRefresh\"",
+					"-l\"Masonry\"",
+					"-l\"SDWebImage\"",
+					"-l\"SocialAlipayShare\"",
+					"-l\"SocialFacebook\"",
+					"-l\"SocialInstagram\"",
+					"-l\"SocialLaiWang\"",
+					"-l\"SocialLine\"",
+					"-l\"SocialQQ\"",
+					"-l\"SocialSinaSSO\"",
+					"-l\"SocialTumblr\"",
+					"-l\"SocialTwitter\"",
+					"-l\"SocialWechat\"",
+					"-l\"SocialWhatsapp\"",
+					"-l\"UMSocial_Sdk_5.2.1\"",
+					"-l\"UMSocial_Sdk_Comment_5.2.1\"",
+					"-l\"WeChatSDK\"",
+					"-l\"WeiboSDK\"",
+					"-l\"iconv\"",
+					"-l\"sqlite3\"",
+					"-l\"stdc++\"",
+					"-l\"z\"",
+					"-framework",
+					"\"Accounts\"",
+					"-framework",
+					"\"CoreData\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"FBSDKCoreKit\"",
+					"-framework",
+					"\"FBSDKLoginKit\"",
+					"-framework",
+					"\"FBSDKShareKit\"",
+					"-framework",
+					"\"Fabric\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"ImageIO\"",
+					"-framework",
+					"\"MobileCoreServices\"",
+					"-framework",
+					"\"Security\"",
+					"-framework",
+					"\"Social\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"TencentOpenAPI\"",
+					"-framework",
+					"\"TwitterCore\"",
+					"-framework",
+					"\"TwitterKit\"",
+					"-framework",
+					"\"UIKit\"",
+					"-lc++",
+					"-licucore",
+					"-lz",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZLZ.EarBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "da693ba3-6fdd-4f40-90f2-92b11b786fc5";

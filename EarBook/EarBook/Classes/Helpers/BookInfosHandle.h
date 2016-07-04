@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 #import "BookList.h"
 #import "BookMP3.h"
+
 // 获取数据源接口的反馈结果
 
 @interface BookInfosHandle : NSObject
@@ -20,6 +21,11 @@
 @property (nonatomic, strong) BookMP3 * bookMP3;
 //book index
 @property (nonatomic, assign) NSInteger indexout;
+//存储最近播放名字
+@property (nonatomic, strong) NSMutableArray *bookCrentlyArray;
+//喜欢的收藏名字
+@property (nonatomic, strong) NSMutableArray *bookLikeArray;
+
 // 声明单例
 singleton_interface(BookInfosHandle)
 
@@ -30,4 +36,5 @@ singleton_interface(BookInfosHandle)
 // 下一首数据源
 - (BookList *)bookInfoNextWithIndex:(NSInteger *)index;
 
+// 记录播放数据
 @end

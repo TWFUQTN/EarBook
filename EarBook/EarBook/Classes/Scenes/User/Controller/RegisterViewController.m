@@ -11,6 +11,8 @@
 #import "EB_URL.h"
 #import "User.h"
 
+//#import <AVOSCloud.h>
+
 @interface RegisterViewController ()
 
 /// 账号
@@ -51,47 +53,20 @@
 {
     [self validateInput];
     
-    NSDictionary *userDict = @{
-                               @"account" : _accountTextField.text,
-                               @"nickname" : _nicknameTextField.text,
-                               @"pwd" : _pwdTextField.text,
-                               @"imei" : @"=MEFFQTExOTMtMDlGRi00OTlBLTlGNjgtQjk2NjEzNjc2NzIx",
-                               @"token" : @"iEd4QgrcSw1-rXvkr8xNcXuanaVqazN3Qb63ToXOFc8*",
-                               @"nwt" : @"1"
-                               };
-    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
-    __weak typeof(self)registerVC = self;
-    [session POST:EB_REGISTER_URL
-       parameters:userDict
-         progress:nil
-          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-              
-              User *user = [User new];
-              [user setValuesForKeysWithDictionary:responseObject];
-            
-//              if (user.userId) { &token=
-//                  NSLog(@"注册成功");
-//                  
-//                  dispatch_async(dispatch_get_main_queue(), ^{
-//                      [registerVC.navigationController popViewControllerAnimated:YES];
-//                  });
-//
-//              } else {
-//                  if (user.status == 1002) {
-//                      [registerVC errorAlertWithMessage:user.msg];
-//                  }
-//              }
-              
-              NSLog(@"%@", responseObject);
-              
-              dispatch_async(dispatch_get_main_queue(), ^{
-                  [registerVC.navigationController popViewControllerAnimated:YES];
-              });
-
-              
-          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-              
-          }];
+//    AVUser *user = [AVUser user];// 新建 AVUser 对象实例
+//    user.username = _accountTextField.text;// 设置用户名
+//    user.password =  _pwdTextField.text;// 设置密码
+//    user.email = _accountTextField.text;// 设置邮箱
+//    user.nickname = _nicknameTextField.text; // 设置昵称
+//    
+//    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            // 注册成功
+//            NSLog(@"haha");
+//        } else {
+//            // 失败的原因可能有多种，常见的是用户名已经存在。
+//        }
+//    }];
 }
 
 #pragma mark - 验证输入的值
@@ -111,6 +86,9 @@
     }
     if (self.rePWDTextField.text.length <= 0) {
         [self errorAlertWithMessage:@"确认密码不能为空"];
+    }
+    if (self.rePWDTextField.text.length <= 6) {
+        [self errorAlertWithMessage:@"确认密码不能少于6位"];
     }
     if (![self.pwdTextField.text isEqualToString:self.rePWDTextField.text]) {
         [self errorAlertWithMessage:@"两次密码输入不匹配"];
