@@ -17,12 +17,16 @@
 @property (nonatomic, strong) NSString *nickName;
 
 //描述
-@property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *Description;
 
 //播放量
 @property (nonatomic, strong) NSString *playCount;
 
 //id
 @property (nonatomic, strong) NSString *ID;
+
+//图片
+@property (nonatomic, strong) NSString *cover;
+
 
 @end

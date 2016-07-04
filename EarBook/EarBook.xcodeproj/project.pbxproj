@@ -65,11 +65,13 @@
 		D632B0001D1E615B0092A6A3 /* BookMP3.m in Sources */ = {isa = PBXBuildFile; fileRef = D632AFFF1D1E615B0092A6A3 /* BookMP3.m */; };
 		D64761901D22A7F5004A8262 /* SpecialSubjectDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D647618E1D22A7F5004A8262 /* SpecialSubjectDetailViewController.m */; };
 		D64761911D22A7F5004A8262 /* SpecialSubjectDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D647618F1D22A7F5004A8262 /* SpecialSubjectDetailViewController.xib */; };
+		D6488AF21D27747B00ABA6FD /* MryPageTable.m in Sources */ = {isa = PBXBuildFile; fileRef = D6488AED1D27747B00ABA6FD /* MryPageTable.m */; };
+		D6488AF31D27747B00ABA6FD /* MryScrollMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D6488AEF1D27747B00ABA6FD /* MryScrollMenu.m */; };
+		D6488AF41D27747B00ABA6FD /* MryScrollPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6488AF11D27747B00ABA6FD /* MryScrollPageCell.m */; };
 		D656751D1D210FC5000E4B26 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = D656751C1D210FC5000E4B26 /* back.png */; };
 		D67313E31D24B92B00386E91 /* RankingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D67313E21D24B92B00386E91 /* RankingHeader.m */; };
 		D67313E61D2503A100386E91 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D67313E51D2503A100386E91 /* User.m */; };
 		D674E0A61D26BE4900E11919 /* Voice.m in Sources */ = {isa = PBXBuildFile; fileRef = D674E0A51D26BE4900E11919 /* Voice.m */; };
-		D674E0A91D26BE6300E11919 /* Book.m in Sources */ = {isa = PBXBuildFile; fileRef = D674E0A81D26BE6300E11919 /* Book.m */; };
 		D675A5701D20D11300E6F999 /* PCStackMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D675A56A1D20D11300E6F999 /* PCStackMenu.m */; };
 		D675A5711D20D11300E6F999 /* PCStackMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = D675A56C1D20D11300E6F999 /* PCStackMenuItem.m */; };
 		D675A5721D20D11300E6F999 /* TBActivityView.m in Sources */ = {isa = PBXBuildFile; fileRef = D675A56F1D20D11300E6F999 /* TBActivityView.m */; };
@@ -112,8 +114,6 @@
 		D6E334001D23A7FC006052D6 /* VoiceProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E333FF1D23A7FC006052D6 /* VoiceProgram.m */; };
 		D6E4F9411D24B12C0035C332 /* placeholderImage.png in Resources */ = {isa = PBXBuildFile; fileRef = D6E4F9401D24B12C0035C332 /* placeholderImage.png */; };
 		D6E4F9681D254F9D0035C332 /* MryScrollPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4F95F1D254F9D0035C332 /* MryScrollPageVC.m */; };
-		D6E4F96A1D254F9D0035C332 /* MryScrollMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4F9651D254F9D0035C332 /* MryScrollMenu.m */; };
-		D6E4F96B1D254F9D0035C332 /* MryScrollPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4F9671D254F9D0035C332 /* MryScrollPageCell.m */; };
 		D6E4F96E1D25538A0035C332 /* MRYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E4F96D1D25538A0035C332 /* MRYViewController.m */; };
 		D6F611161D22CA53002B4506 /* ClassificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6F610D31D22CA53002B4506 /* ClassificationViewController.m */; };
 		D6F611171D22CA53002B4506 /* ClassificationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6F610D41D22CA53002B4506 /* ClassificationViewController.xib */; };
@@ -238,6 +238,12 @@
 		D647618D1D22A7F5004A8262 /* SpecialSubjectDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpecialSubjectDetailViewController.h; sourceTree = "<group>"; };
 		D647618E1D22A7F5004A8262 /* SpecialSubjectDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpecialSubjectDetailViewController.m; sourceTree = "<group>"; };
 		D647618F1D22A7F5004A8262 /* SpecialSubjectDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SpecialSubjectDetailViewController.xib; sourceTree = "<group>"; };
+		D6488AEC1D27747B00ABA6FD /* MryPageTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryPageTable.h; sourceTree = "<group>"; };
+		D6488AED1D27747B00ABA6FD /* MryPageTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryPageTable.m; sourceTree = "<group>"; };
+		D6488AEE1D27747B00ABA6FD /* MryScrollMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryScrollMenu.h; sourceTree = "<group>"; };
+		D6488AEF1D27747B00ABA6FD /* MryScrollMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryScrollMenu.m; sourceTree = "<group>"; };
+		D6488AF01D27747B00ABA6FD /* MryScrollPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryScrollPageCell.h; sourceTree = "<group>"; };
+		D6488AF11D27747B00ABA6FD /* MryScrollPageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryScrollPageCell.m; sourceTree = "<group>"; };
 		D656751C1D210FC5000E4B26 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		D65DC00D1D1E79C1003905BA /* EfficientDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EfficientDefine.h; sourceTree = "<group>"; };
 		D65DC00E1D1E79DB003905BA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -247,8 +253,6 @@
 		D67313E51D2503A100386E91 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		D674E0A41D26BE4900E11919 /* Voice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Voice.h; sourceTree = "<group>"; };
 		D674E0A51D26BE4900E11919 /* Voice.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Voice.m; sourceTree = "<group>"; };
-		D674E0A71D26BE6300E11919 /* Book.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Book.h; sourceTree = "<group>"; };
-		D674E0A81D26BE6300E11919 /* Book.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Book.m; sourceTree = "<group>"; };
 		D675A5691D20D11300E6F999 /* PCStackMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCStackMenu.h; sourceTree = "<group>"; };
 		D675A56A1D20D11300E6F999 /* PCStackMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCStackMenu.m; sourceTree = "<group>"; };
 		D675A56B1D20D11300E6F999 /* PCStackMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCStackMenuItem.h; sourceTree = "<group>"; };
@@ -307,10 +311,6 @@
 		D6E4F9401D24B12C0035C332 /* placeholderImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholderImage.png; sourceTree = "<group>"; };
 		D6E4F95E1D254F9D0035C332 /* MryScrollPageVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryScrollPageVC.h; sourceTree = "<group>"; };
 		D6E4F95F1D254F9D0035C332 /* MryScrollPageVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryScrollPageVC.m; sourceTree = "<group>"; };
-		D6E4F9641D254F9D0035C332 /* MryScrollMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryScrollMenu.h; sourceTree = "<group>"; };
-		D6E4F9651D254F9D0035C332 /* MryScrollMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryScrollMenu.m; sourceTree = "<group>"; };
-		D6E4F9661D254F9D0035C332 /* MryScrollPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryScrollPageCell.h; sourceTree = "<group>"; };
-		D6E4F9671D254F9D0035C332 /* MryScrollPageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryScrollPageCell.m; sourceTree = "<group>"; };
 		D6E4F96C1D25538A0035C332 /* MRYViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRYViewController.h; sourceTree = "<group>"; };
 		D6E4F96D1D25538A0035C332 /* MRYViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRYViewController.m; sourceTree = "<group>"; };
 		D6ECF0471D1D0A92005C372A /* EB_COLOR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EB_COLOR.h; sourceTree = "<group>"; };
@@ -767,6 +767,19 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		D6488AEB1D27747B00ABA6FD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D6488AEC1D27747B00ABA6FD /* MryPageTable.h */,
+				D6488AED1D27747B00ABA6FD /* MryPageTable.m */,
+				D6488AEE1D27747B00ABA6FD /* MryScrollMenu.h */,
+				D6488AEF1D27747B00ABA6FD /* MryScrollMenu.m */,
+				D6488AF01D27747B00ABA6FD /* MryScrollPageCell.h */,
+				D6488AF11D27747B00ABA6FD /* MryScrollPageCell.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		D67313E01D24B8E900386E91 /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
@@ -823,7 +836,7 @@
 			children = (
 				D6E4F95D1D254F9D0035C332 /* Controller */,
 				D6E4F9601D254F9D0035C332 /* Model */,
-				D6E4F9611D254F9D0035C332 /* View */,
+				D6488AEB1D27747B00ABA6FD /* View */,
 			);
 			path = Mry;
 			sourceTree = "<group>";
@@ -844,21 +857,8 @@
 			children = (
 				D674E0A41D26BE4900E11919 /* Voice.h */,
 				D674E0A51D26BE4900E11919 /* Voice.m */,
-				D674E0A71D26BE6300E11919 /* Book.h */,
-				D674E0A81D26BE6300E11919 /* Book.m */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		D6E4F9611D254F9D0035C332 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				D6E4F9641D254F9D0035C332 /* MryScrollMenu.h */,
-				D6E4F9651D254F9D0035C332 /* MryScrollMenu.m */,
-				D6E4F9661D254F9D0035C332 /* MryScrollPageCell.h */,
-				D6E4F9671D254F9D0035C332 /* MryScrollPageCell.m */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		D6ECF0461D1D0A92005C372A /* Macros */ = {
@@ -1237,13 +1237,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D674E0A91D26BE6300E11919 /* Book.m in Sources */,
 				D62B09261D1D20EA00128D82 /* Tool_AdaptiveHeight.m in Sources */,
 				D632AFC91D1E22880092A6A3 /* TYCircleCollectionView.m in Sources */,
 				D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */,
 				D6E4F9681D254F9D0035C332 /* MryScrollPageVC.m in Sources */,
 				D675A5701D20D11300E6F999 /* PCStackMenu.m in Sources */,
 				D6F611161D22CA53002B4506 /* ClassificationViewController.m in Sources */,
+				D6488AF21D27747B00ABA6FD /* MryPageTable.m in Sources */,
 				D6F611271D22CA53002B4506 /* ClassificationCell.m in Sources */,
 				D6E4F96E1D25538A0035C332 /* MRYViewController.m in Sources */,
 				D6CE72AE1D23578300B6E108 /* MyCollectionViewCell.m in Sources */,
@@ -1266,8 +1266,10 @@
 				D6F611361D22CA53002B4506 /* TabBarListViewCell.m in Sources */,
 				D6E334001D23A7FC006052D6 /* VoiceProgram.m in Sources */,
 				D632AFC51D1E22880092A6A3 /* ARSegmentPageController.m in Sources */,
+				D6488AF41D27747B00ABA6FD /* MryScrollPageCell.m in Sources */,
 				D6ADC1051D25F9E500B3AF67 /* RankingListViewController.m in Sources */,
 				D632AFC61D1E22880092A6A3 /* ARSegmentPageHeader.m in Sources */,
+				D6488AF31D27747B00ABA6FD /* MryScrollMenu.m in Sources */,
 				D631B4B11D1C1CBC00102682 /* main.m in Sources */,
 				D6973BA81D2659A1008FEDD2 /* BookInfosHandle.m in Sources */,
 				D6F611211D22CA53002B4506 /* Classification.m in Sources */,
@@ -1275,7 +1277,6 @@
 				D6770F7B1D1EA73E00AE0CFE /* UserTableViewController.m in Sources */,
 				D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */,
 				D6F6111D1D22CA53002B4506 /* MoreListViewController.m in Sources */,
-				D6E4F96A1D254F9D0035C332 /* MryScrollMenu.m in Sources */,
 				D6DA8AC41D241AB80067E813 /* NSString+TimeFormatter.m in Sources */,
 				D61699401D221EEE006E7FB6 /* MTTCircularSlider.m in Sources */,
 				D60A54211D1D51B400ECF173 /* ZF_SegmentLabelView.m in Sources */,
@@ -1299,7 +1300,6 @@
 				D632AFCC1D1E22880092A6A3 /* TYCircleView.m in Sources */,
 				D6F611321D22CA53002B4506 /* SpecialSubjectCell.m in Sources */,
 				D6F611341D22CA53002B4506 /* SpecialSubjectListCell.m in Sources */,
-				D6E4F96B1D254F9D0035C332 /* MryScrollPageCell.m in Sources */,
 				D6F611201D22CA53002B4506 /* SpecialSubjectViewController.m in Sources */,
 				D6770F801D1EA82600AE0CFE /* UserCell.m in Sources */,
 				D632B0001D1E615B0092A6A3 /* BookMP3.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "MoreListCell.h"
 #import "BookMP3.h"
+#import "Voice.h"
 
 @interface MoreListCell ()
 
@@ -60,5 +61,39 @@
         
     }
 }
+
+- (void)setClassifyVoice:(Voice *)classifyVoice {
+    
+    if (_classifyVoice != classifyVoice) {
+        _classifyVoice = nil;
+        _classifyVoice = classifyVoice;
+        
+        [_coverImageView sd_setImageWithURL:[NSURL URLWithString:_classifyVoice.cover] placeholderImage:[UIImage imageNamed:@"placeholderImage"]];
+        _nameLabel.text = _classifyVoice.name;
+        _announcerLabel.text = _classifyVoice.nickName;
+        _descLabel.text = _classifyVoice.Description;
+        
+        CGFloat play = _classifyVoice.playCount.integerValue;
+        
+        NSInteger numForTenThousand = play / 10000;
+        NSInteger numForHundredMillion = play / (10000 * 10000);
+        
+        if (numForTenThousand < 0) {
+            _playLabel.text = _classifyVoice.playCount;
+        }
+        
+        if (numForTenThousand > 0 && numForHundredMillion <= 0) {
+            _playLabel.text = [NSString stringWithFormat:@"%.1f万", play / 10000.0];
+        }
+        
+        if (numForHundredMillion >= 1) {
+            _playLabel.text = [NSString stringWithFormat:@"%.1f亿", play / (10000.0 * 10000)];
+        }
+        
+    }
+    
+}
+
+
 
 @end

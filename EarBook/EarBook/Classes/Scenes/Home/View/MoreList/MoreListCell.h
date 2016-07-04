@@ -9,8 +9,12 @@
 #import <UIKit/UIKit.h>
 
 @class BookMP3;
+@class Voice;
+
 @interface MoreListCell : UITableViewCell
 
 @property (nonatomic, strong) BookMP3 *book;
+
+@property (nonatomic, strong) Voice *classifyVoice;
 
 @end

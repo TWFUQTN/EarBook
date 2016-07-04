@@ -182,6 +182,11 @@
         
         MRYViewController *mryVC = [[MRYViewController alloc] init];
         mryVC.classification = classification;
+        mryVC.menuArray = [NSMutableArray array];
+        [mryVC.menuArray removeAllObjects];
+        for (Classification *classiFCT in allDataArray) {
+            [mryVC.menuArray addObject:classiFCT.name];
+        }
         [self.navigationController pushViewController:mryVC animated:YES];
         
     };

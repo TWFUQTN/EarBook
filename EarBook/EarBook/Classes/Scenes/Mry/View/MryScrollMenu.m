@@ -27,6 +27,8 @@
         self.scrollView = scrollView;
         [self addSubview:scrollView];
         
+        self.scrollView.backgroundColor = [UIColor yellowColor];
+        
         UIView *breakline = [[UIView alloc]initWithFrame:CGRectMake(0, frame.size.height - 0.5f, frame.size.width, 0.5f)];
         breakline.backgroundColor = [UIColor lightGrayColor];
         self.breakline = breakline;

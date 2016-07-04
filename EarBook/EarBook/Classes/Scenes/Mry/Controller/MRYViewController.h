@@ -6,6 +6,7 @@
 //  Copyright © 2016年 赵符壹. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
 #import "MryScrollPageVC.h"
 
 @class Classification;

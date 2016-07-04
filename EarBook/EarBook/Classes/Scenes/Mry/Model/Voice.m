@@ -15,6 +15,9 @@
     if ([key isEqualToString:@"id"]) {
         self.ID = value;
     }
+    if ([key isEqualToString:@"description"]) {
+        self.Description = value;
+    }
     
 }
 
