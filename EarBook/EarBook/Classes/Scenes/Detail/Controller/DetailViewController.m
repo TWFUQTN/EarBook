@@ -20,10 +20,11 @@
 #import <UMSocial.h>
 
 
-
 #define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
 #define kScrollWidth self.scrollView.frame.size.width
 #define kScrollHeight self.scrollView.frame.size.height
+
+#define kButtonTag 9891
 
 @interface DetailViewController ()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, UMSocialUIDelegate>
 //{
@@ -250,8 +251,16 @@
     if (_listArray.count > 0) {
         cell.bookList = _listArray[indexPath.row];
     }
+    cell.uploadButton.tag = kButtonTag + indexPath.row;
+    [cell.uploadButton addTarget:self action:@selector(uploadButtonAction:) forControlEvents:(UIControlEventTouchUpInside)];
     
     return cell;
+}
+
+#pragma mark - 下载
+- (void)uploadButtonAction:(UIButton *)sender
+{
+    
 }
 
 #pragma mark - scrollView代理方法
@@ -309,6 +318,7 @@
         
     }];
 }
+
 #pragma mark - 点击cell
 - (void)tableView:(UITableView *)tableView didUnhighlightRowAtIndexPath:(NSIndexPath *)indexPath{
     kBookInfosHandle.bookInfosArray = _listArray;

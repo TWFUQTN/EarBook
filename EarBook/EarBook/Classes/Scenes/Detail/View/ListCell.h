@@ -13,4 +13,7 @@
 
 @property (nonatomic, strong) BookList *bookList;
 
+@property (weak, nonatomic) IBOutlet UIButton *uploadButton;
+
+
 @end
