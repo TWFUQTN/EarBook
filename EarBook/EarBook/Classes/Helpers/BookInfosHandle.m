@@ -59,6 +59,7 @@ singleton_implementation(BookInfosHandle)
         *index = 0;
         _indexout = *index;
         return self.bookInfosArray[0];
+        
     }
     (*index)++;
     NSLog(@"下一首index = %ld", *index);
@@ -66,7 +67,6 @@ singleton_implementation(BookInfosHandle)
     return self.bookInfosArray[*index];
 }
 //获取当前时间
-
 - (void)getNowDate {
     NSDate *  senddate=[NSDate date];
     NSDateFormatter  *dateformatter=[[NSDateFormatter alloc] init];

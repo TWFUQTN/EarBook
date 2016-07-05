@@ -10,6 +10,7 @@
 #import "BookMP3.h"
 #import "BookList.h"
 #import "Singleton.h"
+#import "BaseModel.h"
 @interface DocumentsHandle : NSObject
 //booklist 对象
 @property (nonatomic, strong)BookList *bookList;

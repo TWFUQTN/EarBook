@@ -43,6 +43,7 @@ singleton_interface(BookInfosHandle)
 //获取当前时间及其时间戳
 - (void)getNowDate;
 
-
+//读取数据库
+//- (void)get
 
 @end

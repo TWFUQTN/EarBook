@@ -11,6 +11,7 @@
 		D60A541D1D1D2FDC00ECF173 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60A541B1D1D2FDC00ECF173 /* DetailViewController.m */; };
 		D60A541E1D1D2FDC00ECF173 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D60A541C1D1D2FDC00ECF173 /* DetailViewController.xib */; };
 		D60A54211D1D51B400ECF173 /* ZF_SegmentLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = D60A54201D1D51B400ECF173 /* ZF_SegmentLabelView.m */; };
+		D60F13F31D2B9237009E9793 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F13F21D2B9237009E9793 /* BaseModel.m */; };
 		D61699401D221EEE006E7FB6 /* MTTCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D616993F1D221EEE006E7FB6 /* MTTCircularSlider.m */; };
 		D61699461D22269E006E7FB6 /* DOPNavbarMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D61699431D22269E006E7FB6 /* DOPNavbarMenu.m */; };
 		D61699471D22269E006E7FB6 /* UIView+DOPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D61699451D22269E006E7FB6 /* UIView+DOPExtension.m */; };
@@ -169,6 +170,8 @@
 		D60A541C1D1D2FDC00ECF173 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		D60A541F1D1D51B400ECF173 /* ZF_SegmentLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZF_SegmentLabelView.h; sourceTree = "<group>"; };
 		D60A54201D1D51B400ECF173 /* ZF_SegmentLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZF_SegmentLabelView.m; sourceTree = "<group>"; };
+		D60F13F11D2B9237009E9793 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		D60F13F21D2B9237009E9793 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
 		D616993E1D221EEE006E7FB6 /* MTTCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTCircularSlider.h; sourceTree = "<group>"; };
 		D616993F1D221EEE006E7FB6 /* MTTCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTCircularSlider.m; sourceTree = "<group>"; };
 		D61699421D22269E006E7FB6 /* DOPNavbarMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPNavbarMenu.h; sourceTree = "<group>"; };
@@ -810,6 +813,8 @@
 				D632AFFF1D1E615B0092A6A3 /* BookMP3.m */,
 				D6E333FE1D23A7FC006052D6 /* VoiceProgram.h */,
 				D6E333FF1D23A7FC006052D6 /* VoiceProgram.m */,
+				D60F13F11D2B9237009E9793 /* BaseModel.h */,
+				D60F13F21D2B9237009E9793 /* BaseModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1292,6 +1297,7 @@
 				D675A5701D20D11300E6F999 /* PCStackMenu.m in Sources */,
 				D6F611161D22CA53002B4506 /* ClassificationViewController.m in Sources */,
 				D6488AF21D27747B00ABA6FD /* MryPageTable.m in Sources */,
+				D60F13F31D2B9237009E9793 /* BaseModel.m in Sources */,
 				D6F611271D22CA53002B4506 /* ClassificationCell.m in Sources */,
 				D6E4F96E1D25538A0035C332 /* MRYViewController.m in Sources */,
 				D6CE72AE1D23578300B6E108 /* MyCollectionViewCell.m in Sources */,
