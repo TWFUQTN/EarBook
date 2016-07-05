@@ -20,13 +20,15 @@
 #import "BookInfosHandle.h"
 #import "AVUserManager.h"
 #import "LoginViewController.h"
+#import "DocumentsHandle.h"
 
 
 // AVPlayerManager的单例
 #define kAVPlayerManager [AVPlayerManager shareAVPlayerManager]
 //BookInfoHandle的单例
 #define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
-
+//Documentbase的单例
+#define kDocumentsHandle [DocumentsHandle shareDocumentsHandle]
 
 
 void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
@@ -106,7 +108,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     
     
     _tabbarHomeView.userInteractionEnabled = YES;
-    _tabbarSongView.layer.cornerRadius = 35;
+    _tabbarSongView.layer.cornerRadius = 31;
     _tabbarSongView.layer.masksToBounds = YES;
     _tabbarSongImageView.layer.cornerRadius = 30;
     _tabbarSongImageView.layer.masksToBounds = YES;
@@ -138,7 +140,10 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     [self.tabBarListTableView registerNib:[UINib nibWithNibName:@"TabBarListViewCell" bundle:nil] forCellReuseIdentifier:@"listcell"];
     // 设置代理
     kAVPlayerManager.delegate = self;
- 
+    [_progressSlider setThumbImage:[UIImage imageNamed:@"thumb.png"] forState:UIControlStateNormal];
+    _progressSlider.maximumTrackTintColor = [UIColor whiteColor];
+    _progressSlider.minimumTrackTintColor = [UIColor redColor];
+
     
 }
 - (IBAction)tabBarListDelete:(id)sender {
@@ -192,6 +197,10 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
         
         _header.nameLabel.text = currentUser.username;
     }
+}
+- (void)createTable{
+    [kDocumentsHandle createLikeTable];
+    [kDocumentsHandle createRecentTable];
 }
 #pragma mark view
 // 更新并设置view上所有子视图

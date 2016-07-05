@@ -11,6 +11,9 @@
 #import <UIImageView+WebCache.h>
 #import "NSString+TimeFormatter.h"
 #import "BookInfosHandle.h"
+#import "DetailViewController.h"
+#import "HomeViewController.h"
+
 //BookInfoHandle的单例
 #define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
 
@@ -46,7 +49,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *bookCurrent;
 //当前MP3的长度
 @property (nonatomic ,assign) CGFloat mp3Time;
-
+//设置是否隐藏
+@property (nonatomic, assign) BOOL isSettingHide;
 
 
 @end
@@ -58,22 +62,32 @@
     
 }
 - (void)viewWillAppear:(BOOL)animated {
+    self.navigationController.navigationBarHidden = YES;
     // 设置代理
     kAVPlayerManager.delegate = self;
-    
+
     //    声音加载
     [self addDefaultSlider];
 
     // 播放并设置view上所有子视图
     [self playAndSetUpViews];
+    [self otherSetting];
     
 }
-
+//其他设置
+- (void)otherSetting{
+    [_progressSlider setThumbImage:[UIImage imageNamed:@"thumb.png"] forState:UIControlStateNormal];
+    _progressSlider.maximumTrackTintColor = [UIColor whiteColor];
+    _progressSlider.minimumTrackTintColor = [UIColor redColor];
+    _playSettingView.layer.cornerRadius = 20;
+    _playSettingView.layer.masksToBounds = YES;
+    _playSettingView.hidden = YES;
+    _isSettingHide = YES;
+   
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // 设置代理
-    
-    
 }
 // 播放并设置view上所有子视图
 - (void)playAndSetUpViews {
@@ -101,6 +115,7 @@
     CIImage *result = [filter valueForKey:kCIOutputImageKey];
     CGImageRef outImage = [context createCGImage: result fromRect:[result extent]];
     UIImage * blurImage = [UIImage imageWithCGImage:outImage];
+
     _backgroundImageView.image = blurImage;
 //   集数
     _bookCurrent.text = _bookList.name;
@@ -109,6 +124,7 @@
     _mp3Time = [kAVPlayerManager getMp3TimeOfurl:_bookList.path];
     _progressSlider.maximumValue = _mp3Time;
     _progressSlider.value = 0;
+    
     [kBookInfosHandle getNowDate];
     NSLog(@"%@",kBookInfosHandle.nowDate);
 
@@ -139,7 +155,7 @@
     _defaultSlider.angle = 45;
     _defaultSlider.maxValue = 1;
     _defaultSlider.minValue = 0;
-    _defaultSlider.selectColor = [UIColor blackColor];
+    _defaultSlider.selectColor = [UIColor redColor];
     _defaultSlider.unselectColor = [UIColor whiteColor];
     _defaultSlider.tag = 1;
     _defaultSlider.minValue = 0.0;
@@ -154,15 +170,23 @@
         make.width.mas_equalTo(100);
         make.height.mas_equalTo(100);
     }];
+    
 }
 
 #pragma mark - 回到上一层
 - (IBAction)backAction:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 #pragma mark - 设置按钮
 - (IBAction)settingAction:(id)sender {
-    
+    if (_isSettingHide == YES) {
+        _playSettingView.hidden = NO;
+        _isSettingHide = NO;
+    }
+    else {
+        _playSettingView.hidden = YES;
+        _isSettingHide = YES;
+    }
     
 }
 #pragma mark - 声音按钮
@@ -179,10 +203,37 @@
     }
     
 }
-#pragma mark - 列表按钮
-- (IBAction)listAction:(id)sender {
+#pragma mark - 查找
+- (IBAction)searchAction:(id)sender {
 
 }
+#pragma mark - 收藏
+- (IBAction)likeAction:(id)sender {
+    
+}
+#pragma mark - 删除
+- (IBAction)trashAction:(id)sender {
+    
+}
+#pragma mark - 分享
+- (IBAction)shareAction:(id)sender {
+
+}
+
+#pragma mark - 列表按钮
+- (IBAction)listAction:(id)sender {
+    DetailViewController *detaVC = [[DetailViewController alloc]init];
+    detaVC.book = kBookInfosHandle.bookMP3;
+    
+    detaVC.pushFrom = PushFromMoreListVC;
+    detaVC.pageNum = 1;
+    detaVC.listTableView.contentOffset = CGPointMake(0, 200);
+    detaVC.bottomScrollView.contentOffset = CGPointMake(detaVC.view.frame.size.width, 0);
+    [self.navigationController pushViewController:detaVC animated:YES];
+
+}
+
+
 #pragma mark - 播放按钮
 - (IBAction)playAction:(id)sender {
 
@@ -199,7 +250,6 @@
 - (IBAction)nextButton:(id)sender {
     _bookList = [kBookInfosHandle bookInfoNextWithIndex:&_index];
 
-    
     [self playAndSetUpViews];
 
 }

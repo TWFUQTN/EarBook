@@ -7,7 +7,7 @@
 //
 
 #import "BookInfosHandle.h"
-#import "DocumentsHandle.h"
+#import "EB_URL.h"
 @interface BookInfosHandle ()
 
 @end
@@ -17,7 +17,7 @@
 // 实现单例
 singleton_implementation(BookInfosHandle)
 //BookInfoHandle的单例
-#define kDocumentsHandle [DocumentsHandle sharedocumentsHandle]
+#define kDocumentsHandle [DocumentsHandle shareDocumentsHandle]
 // 懒加载
 - (NSMutableArray *)bookInfosArray {
     if (!_bookInfosArray) {
@@ -49,6 +49,9 @@ singleton_implementation(BookInfosHandle)
     (*index)--;
     NSLog(@"上一首index = %ld", *index);
     _indexout = *index;
+    [self getNowDate];
+    _bookCrentlyArray = nil;
+_bookCrentlyArray = [kDocumentsHandle recentlyTableWithBookID:_bookMP3.ID index:_indexout second:_allSecond value:0];
     return self.bookInfosArray[*index];
     
 }
@@ -64,7 +67,11 @@ singleton_implementation(BookInfosHandle)
     (*index)++;
     NSLog(@"下一首index = %ld", *index);
     _indexout = *index;
+    [self getNowDate];
+    _bookCrentlyArray = nil;
+    _bookCrentlyArray = [kDocumentsHandle recentlyTableWithBookID:_bookMP3.ID index:_indexout second:_allSecond value:0];
     return self.bookInfosArray[*index];
+    
 }
 //获取当前时间
 - (void)getNowDate {
@@ -75,6 +82,34 @@ singleton_implementation(BookInfosHandle)
     NSDate *localDate = [NSDate date]; //获取当前时间
     _allSecond = [localDate timeIntervalSince1970];
 }
+//读取数据库
+- (void)makeOutRecentlyBaseWithBookID:(NSString *)ID index:(NSInteger )index second:(NSInteger)second value:(CGFloat)value {
+    NSString *URL = @"";
+
+    URL = [NSString stringWithFormat:@"%@%@%@", EB_BOOK_DETAIL_BASE_URL, ID, EB_BOOK_DETAIL_URL];
+    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
+    BookMP3 *book = [BookMP3 new];
+    [session GET:URL
+      parameters:nil
+        progress:nil
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             
+             [book setValuesForKeysWithDictionary:responseObject];
+             
+//             [detailVC bookListWithBook:book];
+             
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 // 刷新详情界面
+//                 [detailVC reloadUIWithBook:book];
+             });
+             
+         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+#warning Alert
+             NSLog(@"请求出错");
+         }];
+}
+
+
 
 
 

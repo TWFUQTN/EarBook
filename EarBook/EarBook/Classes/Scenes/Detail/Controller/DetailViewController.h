@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZF_SegmentLabelView.h"
 
 @class BookMP3;
 
@@ -31,5 +32,11 @@ typedef NS_ENUM(NSUInteger, JoiningURLString) {
 
 /// 拼接URL判断
 @property (nonatomic, assign) JoiningURLString joiningURLString;
-
+@property (nonatomic, assign) NSInteger pageNum;
+//tableView目录列表
+@property (weak, nonatomic) IBOutlet UITableView *listTableView;
+//segment及滑动的label视图
+@property (nonatomic, strong) ZF_SegmentLabelView *SLView;
+//底层scroll
+@property (weak, nonatomic) IBOutlet UIScrollView *bottomScrollView;
 @end
