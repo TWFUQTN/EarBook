@@ -7,7 +7,6 @@
 //
 
 #import "DetailViewController.h"
-#import "ZF_SegmentLabelView.h"
 #import "ListCell.h"
 #import "EB_COLOR.h"
 #import "EB_URL.h"
@@ -30,8 +29,8 @@
 //{
 //    NSInteger *page;
 //}
-//segment及滑动的label视图
-@property (nonatomic, strong) ZF_SegmentLabelView *SLView;
+
+
 
 //装标题的数组
 @property (nonatomic, strong) NSArray *itemArr;
@@ -58,16 +57,14 @@
 //内层scrollView高度（自适应高）
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;
 
-//底层scroll
-@property (weak, nonatomic) IBOutlet UIScrollView *bottomScrollView;
 
-//tableView目录列表
-@property (weak, nonatomic) IBOutlet UITableView *listTableView;
+
+
 
 //装目录列表信息
 @property (nonatomic, strong) NSMutableArray *listArray;
 
-@property (nonatomic, assign) NSInteger pageNum;
+
 
 @property (nonatomic, strong) BookMP3 *detailBook;
 
@@ -82,7 +79,9 @@
     }
     return _listArray;
 }
-
+- (void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBarHidden = NO;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -338,7 +337,8 @@
 //    playerViewVC.bookInformation = _book;
 //    playerViewVC.playList = _listArray;
 
-    [self presentViewController:playerViewVC animated:YES completion:nil];
+//    [self presentViewController:playerViewVC animated:YES completion:nil];
+    [self.navigationController pushViewController:playerViewVC animated:YES];
 
 }
 

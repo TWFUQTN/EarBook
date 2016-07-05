@@ -11,6 +11,7 @@
 #import <UIKit/UIKit.h>
 #import "BookList.h"
 #import "BookMP3.h"
+#import "DocumentsHandle.h"
 
 // 获取数据源接口的反馈结果
 
@@ -43,6 +44,8 @@ singleton_interface(BookInfosHandle)
 //获取当前时间及其时间戳
 - (void)getNowDate;
 
+//读取数据库
+- (void)makeOutRecentlyBaseWithBookID:(NSString *)ID index:(NSInteger )index second:(NSInteger)second value:(CGFloat)value;
 
 
 @end

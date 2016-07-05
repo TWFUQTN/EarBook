@@ -236,17 +236,16 @@ singleton_implementation(DocumentsHandle)
     if (resultSet) {
         // 遍历出需要的结果内容
         while ([resultSet next]) {
-            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
             NSString *ID = [resultSet stringForColumn:@"ID"];
             NSInteger index = [resultSet intForColumn:@"index"];
             NSInteger second = [resultSet intForColumn:@"time"];
             CGFloat value = [resultSet doubleForColumn:@"value"];
-            [dic setObject:ID forKey:@"ID"];
-            [dic setObject:[NSNumber numberWithInteger:index] forKey:@"index"];
-            [dic setObject:[NSNumber numberWithInteger:second] forKey:@"time"];
-            [dic setObject:[NSNumber numberWithFloat:value] forKey:@"value"];
-            [array addObject:dic];
-//            NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:@{@"ID" : ID, @"index" : index, @"time" :second ,@"value" : value}];
+            BaseModel *model = [[BaseModel alloc]init];
+            model.ID = ID;
+            model.index = index;
+            model.time = second;
+            model.value = value;
+            [array addObject:model];
         }
     } else {
         NSLog(@"查询失败");
@@ -260,23 +259,21 @@ singleton_implementation(DocumentsHandle)
     if (resultSet) {
         // 遍历出需要的结果内容
         while ([resultSet next]) {
-            NSMutableDictionary *dic = [NSMutableDictionary dictionary];
             NSString *ID = [resultSet stringForColumn:@"ID"];
             NSInteger index = [resultSet intForColumn:@"index"];
             NSInteger second = [resultSet intForColumn:@"time"];
             CGFloat value = [resultSet doubleForColumn:@"value"];
-            [dic setObject:ID forKey:@"ID"];
-            [dic setObject:[NSNumber numberWithInteger:index] forKey:@"index"];
-            [dic setObject:[NSNumber numberWithInteger:second] forKey:@"time"];
-            [dic setObject:[NSNumber numberWithFloat:value] forKey:@"value"];
-            [array addObject:dic];
-            //            NSMutableDictionary *dic = [NSMutableDictionary dictionaryWithDictionary:@{@"ID" : ID, @"index" : index, @"time" :second ,@"value" : value}];
+            BaseModel *model = [[BaseModel alloc]init];
+            model.ID = ID;
+            model.index = index;
+            model.time = second;
+            model.value = value;
+            [array addObject:model];
         }
     } else {
         NSLog(@"查询失败");
     }
     return array;
-
 }
 //
 //NSString *document = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0];

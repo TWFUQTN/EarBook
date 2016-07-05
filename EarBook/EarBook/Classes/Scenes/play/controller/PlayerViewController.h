@@ -21,5 +21,7 @@
 
 //播放列表
 @property (nonatomic,copy) NSMutableArray *playList;
+//设置的视图
+@property (weak, nonatomic) IBOutlet UIView *playSettingView;
 
 @end

@@ -11,6 +11,34 @@
 		D60A541D1D1D2FDC00ECF173 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D60A541B1D1D2FDC00ECF173 /* DetailViewController.m */; };
 		D60A541E1D1D2FDC00ECF173 /* DetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D60A541C1D1D2FDC00ECF173 /* DetailViewController.xib */; };
 		D60A54211D1D51B400ECF173 /* ZF_SegmentLabelView.m in Sources */ = {isa = PBXBuildFile; fileRef = D60A54201D1D51B400ECF173 /* ZF_SegmentLabelView.m */; };
+		D60F13F31D2B9237009E9793 /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D60F13F21D2B9237009E9793 /* BaseModel.m */; };
+		D60F13F71D2BBB61009E9793 /* thumb.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F13F61D2BBB61009E9793 /* thumb.png */; };
+		D60F14091D2BD3CA009E9793 /* Mainsearch.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F13F91D2BD3CA009E9793 /* Mainsearch.png */; };
+		D60F140A1D2BD3CA009E9793 /* palySettingshare.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F13FA1D2BD3CA009E9793 /* palySettingshare.png */; };
+		D60F140B1D2BD3CA009E9793 /* platSettinghome.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F13FB1D2BD3CA009E9793 /* platSettinghome.png */; };
+		D60F140C1D2BD3CA009E9793 /* playBack.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F13FC1D2BD3CA009E9793 /* playBack.png */; };
+		D60F140D1D2BD3CA009E9793 /* playLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F13FD1D2BD3CA009E9793 /* playLeft.png */; };
+		D60F140E1D2BD3CA009E9793 /* playList.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F13FE1D2BD3CA009E9793 /* playList.png */; };
+		D60F140F1D2BD3CA009E9793 /* playPause.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F13FF1D2BD3CA009E9793 /* playPause.png */; };
+		D60F14101D2BD3CA009E9793 /* playPlay.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F14001D2BD3CA009E9793 /* playPlay.png */; };
+		D60F14111D2BD3CA009E9793 /* PlayRight.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F14011D2BD3CA009E9793 /* PlayRight.png */; };
+		D60F14121D2BD3CA009E9793 /* playSetting.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F14021D2BD3CA009E9793 /* playSetting.png */; };
+		D60F14131D2BD3CA009E9793 /* playSettingdownload.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F14031D2BD3CA009E9793 /* playSettingdownload.png */; };
+		D60F14141D2BD3CA009E9793 /* playSettinglike.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F14041D2BD3CA009E9793 /* playSettinglike.png */; };
+		D60F14151D2BD3CA009E9793 /* playSettingsearch.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F14051D2BD3CA009E9793 /* playSettingsearch.png */; };
+		D60F14161D2BD3CA009E9793 /* playSettingtrash.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F14061D2BD3CA009E9793 /* playSettingtrash.png */; };
+		D60F14171D2BD3CA009E9793 /* playvolume.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F14071D2BD3CA009E9793 /* playvolume.png */; };
+		D60F14181D2BD3CA009E9793 /* volume.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F14081D2BD3CA009E9793 /* volume.png */; };
+		D60F141B1D2C00FD009E9793 /* tabBarPause1.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F14191D2C00FD009E9793 /* tabBarPause1.png */; };
+		D60F141C1D2C00FD009E9793 /* tabBarplay1.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F141A1D2C00FD009E9793 /* tabBarplay1.png */; };
+		D60F141E1D2C0156009E9793 /* ltist.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F141D1D2C0156009E9793 /* ltist.png */; };
+		D60F14251D2C0272009E9793 /* tabBarfolder.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F141F1D2C0272009E9793 /* tabBarfolder.png */; };
+		D60F14261D2C0272009E9793 /* tabBarstar.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F14201D2C0272009E9793 /* tabBarstar.png */; };
+		D60F14271D2C0272009E9793 /* tabBarrecycle.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F14211D2C0272009E9793 /* tabBarrecycle.png */; };
+		D60F14281D2C0272009E9793 /* tabBarskip.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F14221D2C0272009E9793 /* tabBarskip.png */; };
+		D60F14291D2C0272009E9793 /* tabBarpause2.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F14231D2C0272009E9793 /* tabBarpause2.png */; };
+		D60F142A1D2C0272009E9793 /* tabBarplay2.png in Resources */ = {isa = PBXBuildFile; fileRef = D60F14241D2C0272009E9793 /* tabBarplay2.png */; };
+		D60F142C1D2C049D009E9793 /* tabBarback.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D60F142B1D2C049D009E9793 /* tabBarback.jpg */; };
 		D61699401D221EEE006E7FB6 /* MTTCircularSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = D616993F1D221EEE006E7FB6 /* MTTCircularSlider.m */; };
 		D61699461D22269E006E7FB6 /* DOPNavbarMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D61699431D22269E006E7FB6 /* DOPNavbarMenu.m */; };
 		D61699471D22269E006E7FB6 /* UIView+DOPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D61699451D22269E006E7FB6 /* UIView+DOPExtension.m */; };
@@ -169,6 +197,35 @@
 		D60A541C1D1D2FDC00ECF173 /* DetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailViewController.xib; sourceTree = "<group>"; };
 		D60A541F1D1D51B400ECF173 /* ZF_SegmentLabelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZF_SegmentLabelView.h; sourceTree = "<group>"; };
 		D60A54201D1D51B400ECF173 /* ZF_SegmentLabelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZF_SegmentLabelView.m; sourceTree = "<group>"; };
+		D60F13F11D2B9237009E9793 /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		D60F13F21D2B9237009E9793 /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		D60F13F61D2BBB61009E9793 /* thumb.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thumb.png; sourceTree = "<group>"; };
+		D60F13F91D2BD3CA009E9793 /* Mainsearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mainsearch.png; sourceTree = "<group>"; };
+		D60F13FA1D2BD3CA009E9793 /* palySettingshare.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = palySettingshare.png; sourceTree = "<group>"; };
+		D60F13FB1D2BD3CA009E9793 /* platSettinghome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = platSettinghome.png; sourceTree = "<group>"; };
+		D60F13FC1D2BD3CA009E9793 /* playBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playBack.png; sourceTree = "<group>"; };
+		D60F13FD1D2BD3CA009E9793 /* playLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playLeft.png; sourceTree = "<group>"; };
+		D60F13FE1D2BD3CA009E9793 /* playList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playList.png; sourceTree = "<group>"; };
+		D60F13FF1D2BD3CA009E9793 /* playPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playPause.png; sourceTree = "<group>"; };
+		D60F14001D2BD3CA009E9793 /* playPlay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playPlay.png; sourceTree = "<group>"; };
+		D60F14011D2BD3CA009E9793 /* PlayRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayRight.png; sourceTree = "<group>"; };
+		D60F14021D2BD3CA009E9793 /* playSetting.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playSetting.png; sourceTree = "<group>"; };
+		D60F14031D2BD3CA009E9793 /* playSettingdownload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playSettingdownload.png; sourceTree = "<group>"; };
+		D60F14041D2BD3CA009E9793 /* playSettinglike.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playSettinglike.png; sourceTree = "<group>"; };
+		D60F14051D2BD3CA009E9793 /* playSettingsearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playSettingsearch.png; sourceTree = "<group>"; };
+		D60F14061D2BD3CA009E9793 /* playSettingtrash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playSettingtrash.png; sourceTree = "<group>"; };
+		D60F14071D2BD3CA009E9793 /* playvolume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playvolume.png; sourceTree = "<group>"; };
+		D60F14081D2BD3CA009E9793 /* volume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = volume.png; sourceTree = "<group>"; };
+		D60F14191D2C00FD009E9793 /* tabBarPause1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarPause1.png; sourceTree = "<group>"; };
+		D60F141A1D2C00FD009E9793 /* tabBarplay1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarplay1.png; sourceTree = "<group>"; };
+		D60F141D1D2C0156009E9793 /* ltist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ltist.png; sourceTree = "<group>"; };
+		D60F141F1D2C0272009E9793 /* tabBarfolder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarfolder.png; sourceTree = "<group>"; };
+		D60F14201D2C0272009E9793 /* tabBarstar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarstar.png; sourceTree = "<group>"; };
+		D60F14211D2C0272009E9793 /* tabBarrecycle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarrecycle.png; sourceTree = "<group>"; };
+		D60F14221D2C0272009E9793 /* tabBarskip.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarskip.png; sourceTree = "<group>"; };
+		D60F14231D2C0272009E9793 /* tabBarpause2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarpause2.png; sourceTree = "<group>"; };
+		D60F14241D2C0272009E9793 /* tabBarplay2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tabBarplay2.png; sourceTree = "<group>"; };
+		D60F142B1D2C049D009E9793 /* tabBarback.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = tabBarback.jpg; sourceTree = "<group>"; };
 		D616993E1D221EEE006E7FB6 /* MTTCircularSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTCircularSlider.h; sourceTree = "<group>"; };
 		D616993F1D221EEE006E7FB6 /* MTTCircularSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTCircularSlider.m; sourceTree = "<group>"; };
 		D61699421D22269E006E7FB6 /* DOPNavbarMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOPNavbarMenu.h; sourceTree = "<group>"; };
@@ -441,6 +498,29 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D60F13F81D2BD3CA009E9793 /* playSetingImage */ = {
+			isa = PBXGroup;
+			children = (
+				D60F13F91D2BD3CA009E9793 /* Mainsearch.png */,
+				D60F13FA1D2BD3CA009E9793 /* palySettingshare.png */,
+				D60F13FB1D2BD3CA009E9793 /* platSettinghome.png */,
+				D60F13FC1D2BD3CA009E9793 /* playBack.png */,
+				D60F13FD1D2BD3CA009E9793 /* playLeft.png */,
+				D60F13FE1D2BD3CA009E9793 /* playList.png */,
+				D60F13FF1D2BD3CA009E9793 /* playPause.png */,
+				D60F14001D2BD3CA009E9793 /* playPlay.png */,
+				D60F14011D2BD3CA009E9793 /* PlayRight.png */,
+				D60F14021D2BD3CA009E9793 /* playSetting.png */,
+				D60F14031D2BD3CA009E9793 /* playSettingdownload.png */,
+				D60F14041D2BD3CA009E9793 /* playSettinglike.png */,
+				D60F14051D2BD3CA009E9793 /* playSettingsearch.png */,
+				D60F14061D2BD3CA009E9793 /* playSettingtrash.png */,
+				D60F14071D2BD3CA009E9793 /* playvolume.png */,
+				D60F14081D2BD3CA009E9793 /* volume.png */,
+			);
+			path = playSetingImage;
+			sourceTree = "<group>";
+		};
 		D616993D1D221EEE006E7FB6 /* MTTCircularSlider */ = {
 			isa = PBXGroup;
 			children = (
@@ -520,6 +600,7 @@
 		D62B090D1D1CC90700128D82 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				D60F13F81D2BD3CA009E9793 /* playSetingImage */,
 				D675A5731D20D16600E6F999 /* tabBarimage */,
 				D6770F841D1EB5ED00AE0CFE /* 1.png */,
 				D6770F851D1EB5ED00AE0CFE /* 2.png */,
@@ -794,6 +875,7 @@
 		D632AFCD1D1E22A70092A6A3 /* HomeImage */ = {
 			isa = PBXGroup;
 			children = (
+				D60F13F61D2BBB61009E9793 /* thumb.png */,
 				D656751C1D210FC5000E4B26 /* back.png */,
 				D6770F821D1EAB7E00AE0CFE /* rightofcell.png */,
 				D6E4F9401D24B12C0035C332 /* placeholderImage.png */,
@@ -810,6 +892,8 @@
 				D632AFFF1D1E615B0092A6A3 /* BookMP3.m */,
 				D6E333FE1D23A7FC006052D6 /* VoiceProgram.h */,
 				D6E333FF1D23A7FC006052D6 /* VoiceProgram.m */,
+				D60F13F11D2B9237009E9793 /* BaseModel.h */,
+				D60F13F21D2B9237009E9793 /* BaseModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -859,6 +943,16 @@
 		D675A5731D20D16600E6F999 /* tabBarimage */ = {
 			isa = PBXGroup;
 			children = (
+				D60F142B1D2C049D009E9793 /* tabBarback.jpg */,
+				D60F141F1D2C0272009E9793 /* tabBarfolder.png */,
+				D60F14201D2C0272009E9793 /* tabBarstar.png */,
+				D60F14211D2C0272009E9793 /* tabBarrecycle.png */,
+				D60F14221D2C0272009E9793 /* tabBarskip.png */,
+				D60F14231D2C0272009E9793 /* tabBarpause2.png */,
+				D60F14241D2C0272009E9793 /* tabBarplay2.png */,
+				D60F141D1D2C0156009E9793 /* ltist.png */,
+				D60F14191D2C00FD009E9793 /* tabBarPause1.png */,
+				D60F141A1D2C00FD009E9793 /* tabBarplay1.png */,
 				D675A5BA1D21496A00E6F999 /* tabBarlikes.png */,
 				D675A5B81D2146E900E6F999 /* tabBarplay.png */,
 				D675A5B01D21469100E6F999 /* tabBardownload.png */,
@@ -1157,43 +1251,56 @@
 				D60A541E1D1D2FDC00ECF173 /* DetailViewController.xib in Resources */,
 				D61699591D224F99006E7FB6 /* playSetting.png in Resources */,
 				D6E4F9411D24B12C0035C332 /* placeholderImage.png in Resources */,
+				D60F14251D2C0272009E9793 /* tabBarfolder.png in Resources */,
 				D6770F8A1D1EB5ED00AE0CFE /* 3.png in Resources */,
 				D62B095B1D1D2DFC00128D82 /* PlayerViewController.xib in Resources */,
+				D60F140F1D2BD3CA009E9793 /* playPause.png in Resources */,
 				D61699621D224FCA006E7FB6 /* palySettingshare.png in Resources */,
 				D61699571D224F99006E7FB6 /* playPlay.png in Resources */,
 				D675A5BB1D21496A00E6F999 /* tabBarlikes.png in Resources */,
 				D631B4BC1D1C1CBC00102682 /* Assets.xcassets in Resources */,
 				D6770F831D1EAB7E00AE0CFE /* rightofcell.png in Resources */,
+				D60F13F71D2BBB61009E9793 /* thumb.png in Resources */,
 				D675A5B41D21469100E6F999 /* tabBardownload.png in Resources */,
 				D6F611231D22CA53002B4506 /* 苹果接口.txt in Resources */,
 				D675A5B91D2146E900E6F999 /* tabBarplay.png in Resources */,
+				D60F14101D2BD3CA009E9793 /* playPlay.png in Resources */,
 				D61699651D224FCA006E7FB6 /* playSettinglike.png in Resources */,
 				D675A5791D20D16600E6F999 /* actions@2x.png in Resources */,
 				D6F611171D22CA53002B4506 /* ClassificationViewController.xib in Resources */,
 				D61699581D224F99006E7FB6 /* PlayRight.png in Resources */,
+				D60F141C1D2C00FD009E9793 /* tabBarplay1.png in Resources */,
 				D6CE72AF1D23578300B6E108 /* MyCollectionViewCell.xib in Resources */,
 				D6770F891D1EB5ED00AE0CFE /* 2.png in Resources */,
 				D656751D1D210FC5000E4B26 /* back.png in Resources */,
 				D675A5861D20D35900E6F999 /* tabBarnext.png in Resources */,
 				D675A5B71D21469100E6F999 /* tabBartrash.png in Resources */,
+				D60F14091D2BD3CA009E9793 /* Mainsearch.png in Resources */,
 				D6F611261D22CA53002B4506 /* BookCollectionCell.xib in Resources */,
+				D60F14131D2BD3CA009E9793 /* playSettingdownload.png in Resources */,
 				D62B09541D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D62B095C1D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D6770F881D1EB5ED00AE0CFE /* 1.png in Resources */,
 				D616996F1D226D3E006E7FB6 /* playnosound.png in Resources */,
 				D6F6111C1D22CA53002B4506 /* RankingViewController.xib in Resources */,
+				D60F142A1D2C0272009E9793 /* tabBarplay2.png in Resources */,
 				D6F611351D22CA53002B4506 /* SpecialSubjectListCell.xib in Resources */,
+				D60F140A1D2BD3CA009E9793 /* palySettingshare.png in Resources */,
 				D61699551D224F99006E7FB6 /* playList.png in Resources */,
 				D616996D1D226D3E006E7FB6 /* playadd.png in Resources */,
 				D61699521D224F99006E7FB6 /* Mainsearch.png in Resources */,
 				D632AFAA1D1E227A0092A6A3 /* LoginViewController.xib in Resources */,
 				D6F611371D22CA53002B4506 /* TabBarListViewCell.xib in Resources */,
+				D60F140D1D2BD3CA009E9793 /* playLeft.png in Resources */,
 				D61699711D226D3E006E7FB6 /* playsound.png in Resources */,
 				D6CE72B41D23583400B6E108 /* VoiceDetailViewController.xib in Resources */,
 				D631B4BA1D1C1CBC00102682 /* Main.storyboard in Resources */,
 				D61699561D224F99006E7FB6 /* playPause.png in Resources */,
 				D675A57A1D20D16600E6F999 /* gear@2x.png in Resources */,
+				D60F14111D2BD3CA009E9793 /* PlayRight.png in Resources */,
 				D675A57B1D20D16600E6F999 /* magnifier@2x.png in Resources */,
+				D60F14291D2C0272009E9793 /* tabBarpause2.png in Resources */,
+				D60F140B1D2BD3CA009E9793 /* platSettinghome.png in Resources */,
 				D61699671D224FCA006E7FB6 /* playSettingtrash.png in Resources */,
 				D6770F8B1D1EB5ED00AE0CFE /* 4.png in Resources */,
 				D6F6111F1D22CA53002B4506 /* RecommendViewController.xib in Resources */,
@@ -1204,26 +1311,40 @@
 				D6770F811D1EA82600AE0CFE /* UserCell.xib in Resources */,
 				D675A57C1D20D16600E6F999 /* speech@2x.png in Resources */,
 				D61699641D224FCA006E7FB6 /* playSettingdownload.png in Resources */,
+				D60F14161D2BD3CA009E9793 /* playSettingtrash.png in Resources */,
+				D60F14261D2C0272009E9793 /* tabBarstar.png in Resources */,
 				D6856C2C1D1E2D1800E4F4FE /* ListCell.xib in Resources */,
+				D60F14121D2BD3CA009E9793 /* playSetting.png in Resources */,
 				D616995B1D224F99006E7FB6 /* volume.png in Resources */,
+				D60F140C1D2BD3CA009E9793 /* playBack.png in Resources */,
 				D61699731D226E87006E7FB6 /* playlturneft.png in Resources */,
 				D61699701D226D3E006E7FB6 /* playreduce.png in Resources */,
+				D60F14281D2C0272009E9793 /* tabBarskip.png in Resources */,
+				D60F14141D2BD3CA009E9793 /* playSettinglike.png in Resources */,
 				D64761911D22A7F5004A8262 /* SpecialSubjectDetailViewController.xib in Resources */,
 				D632AFD01D1E22A70092A6A3 /* text.jpg in Resources */,
 				D675A5B51D21469100E6F999 /* tabBarheart.png in Resources */,
+				D60F14151D2BD3CA009E9793 /* playSettingsearch.png in Resources */,
 				D632AFAC1D1E227A0092A6A3 /* RegisterViewController.xib in Resources */,
+				D60F141E1D2C0156009E9793 /* ltist.png in Resources */,
 				D6F6111A1D22CA53002B4506 /* HomeViewController.xib in Resources */,
+				D60F14181D2BD3CA009E9793 /* volume.png in Resources */,
 				D675A5AE1D210C8C00E6F999 /* tabBarpause.png in Resources */,
+				D60F140E1D2BD3CA009E9793 /* playList.png in Resources */,
 				D6F6112A1D22CA53002B4506 /* HomeCustomHeader.xib in Resources */,
+				D60F14171D2BD3CA009E9793 /* playvolume.png in Resources */,
 				D632AFAE1D1E227A0092A6A3 /* 苹果接口.txt in Resources */,
 				D675A5891D20D35900E6F999 /* tabBarup.png in Resources */,
 				D632AFD11D1E22A70092A6A3 /* textHeader.png in Resources */,
 				D675A5851D20D35900E6F999 /* tabBarlast.png in Resources */,
 				D62D4E0E1D27C41F00939B13 /* PersonalDataViewController.xib in Resources */,
+				D60F142C1D2C049D009E9793 /* tabBarback.jpg in Resources */,
 				D6F611301D22CA53002B4506 /* RecommendCell.xib in Resources */,
 				D6770F7C1D1EA73E00AE0CFE /* UserTableViewController.xib in Resources */,
 				D675A5841D20D35900E6F999 /* tabBardown.png in Resources */,
 				D616995A1D224F99006E7FB6 /* playvolume.png in Resources */,
+				D60F141B1D2C00FD009E9793 /* tabBarPause1.png in Resources */,
+				D60F14271D2C0272009E9793 /* tabBarrecycle.png in Resources */,
 				D6F6112C1D22CA53002B4506 /* MoreListCell.xib in Resources */,
 				D61699631D224FCA006E7FB6 /* platSettinghome.png in Resources */,
 				D675A57D1D20D16600E6F999 /* twitter@2x.png in Resources */,
@@ -1292,6 +1413,7 @@
 				D675A5701D20D11300E6F999 /* PCStackMenu.m in Sources */,
 				D6F611161D22CA53002B4506 /* ClassificationViewController.m in Sources */,
 				D6488AF21D27747B00ABA6FD /* MryPageTable.m in Sources */,
+				D60F13F31D2B9237009E9793 /* BaseModel.m in Sources */,
 				D6F611271D22CA53002B4506 /* ClassificationCell.m in Sources */,
 				D6E4F96E1D25538A0035C332 /* MRYViewController.m in Sources */,
 				D6CE72AE1D23578300B6E108 /* MyCollectionViewCell.m in Sources */,
