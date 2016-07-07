@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 @class Classification;
 
-typedef void(^classificationCellBlock)(Classification *classification);
+typedef void(^classificationCellBlock)(NSInteger indexPath, Classification *classification);
 @interface ClassificationCell : UITableViewCell
 
 //类型名

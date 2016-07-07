@@ -13,8 +13,15 @@
 
 @interface MRYViewController : MryScrollPageVC
 
+//
+//@property (nonatomic, strong) MryScrollMenu *mryMenu;
+
 //传值model
 @property (nonatomic, strong) Classification *classification;
+
+//传该tablecell上的所有数据的数组
+@property (nonatomic, strong) NSMutableArray *allDataArray;
+
 
 
 @end

@@ -24,6 +24,9 @@
 @property (nonatomic,strong) NSMutableArray *menuArray;
 @property (nonatomic,assign) BOOL isShowBreakline;
 
+//点击位置传值
+@property (nonatomic, assign) NSInteger myIndexPath;
+
 - (void)setbBreaklineColor:(UIColor *)color;
 - (void)setselectedIndex:(NSInteger)index;
 
