@@ -31,7 +31,7 @@
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.frame];
     imageView.image = [UIImage imageNamed:@"back12.jpg"];
     self.tableView.backgroundView =imageView;
-    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     // 设置navigationBar
     self.navigationController.navigationBar.translucent = NO;

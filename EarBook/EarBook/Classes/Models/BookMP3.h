@@ -23,19 +23,19 @@
 /// 书籍名称
 @property (nonatomic, copy) NSString *name;
 
-/// 类型
+/// 类型  从外面引入类型
 @property (nonatomic, copy) NSString *type;
 
 /// 集数
 @property (nonatomic, copy) NSString *sections;
 
-/// 内容简介
+/// 内容简介    Description
 @property (nonatomic, copy) NSString *desc;
 
-/// 播放次数
+/// 播放次数    playCount
 @property (nonatomic, copy) NSString *play;
 
-/// 更新时间
+/// 更新时间    updateTime
 @property (nonatomic, copy) NSString *update;
 
 /// 状态 1为连载，2为完结

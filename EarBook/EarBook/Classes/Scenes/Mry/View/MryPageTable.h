@@ -12,7 +12,7 @@
 @class Voice;
 
 typedef void(^BookBlock)(BookMP3 *bookMp3);
-typedef void(^VoiceBlock)(Voice *voice);
+typedef void(^VoiceBlock)(BookMP3 *bookMp3);
 
 
 @interface MryPageTable : UITableView

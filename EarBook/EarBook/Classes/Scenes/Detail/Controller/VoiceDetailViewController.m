@@ -14,9 +14,20 @@
 #import "ListCell.h"
 #import "EB_COLOR.h"
 #import "EB_URL.h"
+#import "LoginViewController.h"
+#import "DownloadFile.h"
 #import "Voice.h"
+#import "BookInfosHandle.h"
+#import "PlayerViewController.h"
 
-@interface VoiceDetailViewController ()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
+#define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
+
+#import <AVOSCloud.h>
+#import <UMSocial.h>
+
+#define kButtonTag 989132
+
+@interface VoiceDetailViewController ()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, UMSocialUIDelegate>
 
 //segment及滑动的label视图
 @property (nonatomic, strong) ZF_SegmentLabelView *SLView;
@@ -55,6 +66,10 @@
 //装目录列表信息
 @property (nonatomic, strong) NSMutableArray *listArray;
 
+@property (nonatomic, strong) NSProgress *progress;
+@property (nonatomic, strong) VoiceProgram *detailVoice;
+
+
 @end
 
 @implementation VoiceDetailViewController
@@ -67,7 +82,10 @@
     return _listArray;
 }
 
-
+- (void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.translucent = NO;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -78,7 +96,8 @@
     [self requestListData];
     
     // 设置navigationBar
-    self.navigationController.navigationBar.translucent = NO;
+//    self.navigationController.navigationBarHidden = NO;
+//    self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = EB_MAIN_COLOR;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     // 返回按钮
@@ -95,11 +114,20 @@
     
 }
 
-- (void)setVoice:(Voice *)voice {
-    if (_voice != voice) {
-        _voice = voice;
+//- (void)setVoice:(Voice *)voice {
+//    if (_voice != voice) {
+//        _voice = voice;
+//    }
+//    _book.url = _voice.ID;
+//}
+
+- (void)setBook:(BookMP3 *)book {
+    if (_book != book) {
+        _book = book;
     }
-    _book.url = _voice.ID;
+    if (!_book.url) {
+        _book.url = _book.ID;
+    }
 }
 
 #pragma mark - 请求详情数据
@@ -117,7 +145,7 @@
              NSDictionary *dict = responseObject[@"ablumn"];
              VoiceProgram *voice = [VoiceProgram new];
              [voice setValuesForKeysWithDictionary:dict];
-             
+             voiceDetailVC.detailVoice = voice;
              dispatch_async(dispatch_get_main_queue(), ^{
                  // 刷新列表
                  [voiceDetailVC reloadUIWithVoice:voice];
@@ -207,8 +235,101 @@
     if (_listArray.count > 0) {
         cell.bookList = _listArray[indexPath.row];
     }
+    cell.uploadButton.tag = kButtonTag + indexPath.row;
+    
+    [cell.uploadButton addTarget:self action:@selector(uploadButtonAction:) forControlEvents:(UIControlEventTouchUpInside)];
     
     return cell;
+}
+
+#pragma mark - 下载按钮点击方法
+- (void)uploadButtonAction:(UIButton *)sender
+{
+    [sender setTitle:@"已下载" forState:(UIControlStateNormal)];
+    
+    NSInteger index = sender.tag - kButtonTag;
+    
+    BookList *bookList = _listArray[index];
+    
+    AVUser *currentUser = [AVUser currentUser];
+    
+    if (currentUser != nil) {
+        [self uploadWithBookList:bookList CurrentUser:currentUser];
+
+    } else {
+        //缓存用户对象为空时，可打开用户注册界面…
+        LoginViewController *loginVC = [LoginViewController new];
+        loginVC.flag = 1;
+        [self.navigationController pushViewController:loginVC animated:YES];
+    }
+}
+
+#pragma mark - 下载
+- (void)uploadWithBookList:(BookList *)bookList
+               CurrentUser:(AVUser *)currentUser
+{
+    DownloadFile *downloadFile = [DownloadFile shareDownloadFile];
+    
+    //下载
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    
+    NSURL *URL = [NSURL URLWithString:bookList.path];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    __weak typeof(self) voiceVC = self;
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+        NSLog(@"%@", downloadProgress);
+        voiceVC.progress = downloadProgress;
+        [downloadProgress addObserver:self forKeyPath:@"fractionCompleted" options:(NSKeyValueObservingOptionNew) context:NULL];
+        
+    } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+        
+        // 下载到沙盒的位置
+        NSURL *documentsDirectoryURL = [[[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil] URLByAppendingPathComponent:[response suggestedFilename]];
+        //        NSLog(@"documentsDirectoryURL = %@", documentsDirectoryURL);
+        
+        // 将NSURL转为NSString
+        NSString *documentsPath = [[documentsDirectoryURL absoluteString] substringFromIndex:7];
+        
+        [downloadFile saveToleanCloudWithdocumentsPath:documentsPath BookList:bookList Book:_book User:currentUser ClassName:@"DownloadBook"];
+        
+        // 移除观察者
+        [voiceVC.progress removeObserver:self forKeyPath:@"fractionCompleted"];
+        
+        return documentsDirectoryURL;
+        
+    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        NSLog(@"File downloaded to: %@", filePath);
+    }];
+    //重新开始下载
+    [downloadTask resume];
+    
+}
+
+#pragma mark - 拿到进度
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
+    //拿到进度
+    //    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    
+    if ([keyPath isEqualToString:@"fractionCompleted"] && [object isKindOfClass:[NSProgress class]]) {
+        NSProgress *progress = (NSProgress *)object;
+        if (progress.fractionCompleted == 1.0) {
+            [self errorAlertWithMessage:@"下载完成！"];
+        }
+    }
+}
+
+#pragma mark - 错误提示的alert
+- (void)errorAlertWithMessage:(NSString *)message
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:nil];
+    
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - scrollView代理方法
@@ -266,6 +387,70 @@
     }];
 }
 
+#pragma mark - 分享
+- (IBAction)shareAction:(UIButton *)sender
+{
+    [UMSocialData defaultData].extConfig.title = _nameLabel.text;
+    
+    NSString *shareText = @"";
+    if (_descLabel.text.length > 140) {
+        shareText = [_descLabel.text substringToIndex:140];
+    } else {
+        shareText = _descLabel.text;
+    }
+    
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"57767a3667e58e180b0006c2"
+                                      shareText:shareText
+                                     shareImage:_coverImageView.image
+                                shareToSnsNames:@[UMShareToWechatSession,UMShareToSina,UMShareToQQ,UMShareToQzone]
+                                       delegate:self];
+}
+
+#pragma mark - 收藏
+- (IBAction)collectionAction:(UIButton *)sender
+{
+//    AVUser *currentUser = [AVUser currentUser];
+//    
+//    if (currentUser != nil) {
+//        [[DownloadFile shareDownloadFile] saveToleanCloudWithdocumentsPath:nil BookList:nil Book:_book User:currentUser ClassName:@""];
+//        
+//    } else {
+//        //缓存用户对象为空时，可打开用户注册界面…
+//        LoginViewController *loginVC = [LoginViewController new];
+//        loginVC.flag = 1;
+//        [self.navigationController pushViewController:loginVC animated:YES];
+//    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    kBookInfosHandle.bookInfosArray = _listArray;
+    
+    if (self.pushFrom == PushFromMoreListVC1) {
+        kBookInfosHandle.bookMP3 = _book;
+    } else {
+        
+        kBookInfosHandle.bookMP3.announcer = _detailVoice.announcer;
+        kBookInfosHandle.bookMP3.cover = _detailVoice.cover;
+        kBookInfosHandle.bookMP3.name = _detailVoice.name;
+        kBookInfosHandle.bookMP3.type = _detailVoice.typeName;
+        kBookInfosHandle.bookMP3.sections = _detailVoice.sections;
+        kBookInfosHandle.bookMP3.desc = _detailVoice.Description;
+        kBookInfosHandle.bookMP3.play = _detailVoice.playCount;
+        kBookInfosHandle.bookMP3.update = _detailVoice.updateTime;
+        
+    }
+    PlayerViewController * playerViewVC = [[PlayerViewController alloc]init];
+    BookList *bookList = self.listArray[indexPath.row];
+    playerViewVC.bookList = bookList;
+    playerViewVC.index = indexPath.row;
+    kBookInfosHandle.indexout  = indexPath.row;
+    //    playerViewVC.bookInformation = _book;
+    //    playerViewVC.playList = _listArray;
+    
+    //    [self presentViewController:playerViewVC animated:YES completion:nil];
+    [self.navigationController pushViewController:playerViewVC animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

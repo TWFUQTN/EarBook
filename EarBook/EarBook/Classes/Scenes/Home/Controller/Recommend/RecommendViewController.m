@@ -164,7 +164,7 @@
               }];
 }
 
-#pragma mark - 分析section = 0的数据
+#pragma mark - 分析section = 0头视图的数据
 - (void)analyzeDataWithURLString:(NSString *)urlString
                      sectionHead:(NSString *)sectionHead
 {
@@ -213,20 +213,11 @@
         [self.bookDict setObject:listDict[@"url"] forKey:listDict[@"name"]];
         
         NSMutableArray *bookArray = [NSMutableArray array];
-        NSMutableArray *bookArr1 = [NSMutableArray array];
-        NSMutableArray *bookArr2 = [NSMutableArray array];
         for (int i = 0; i < listArray.count; i++) {
             BookMP3 *book = [BookMP3 new];
             [book setValuesForKeysWithDictionary:listArray[i]];
-            if (i < 3) {
-                [bookArr1 addObject:book];
-            } else {
-                [bookArr2 addObject:book];
-            }
-//            [bookArray addObject:book];
+            [bookArray addObject:book];
         }
-        [bookArray addObject:bookArr1];
-        [bookArray addObject:bookArr2];
         [self.bookDict setObject:bookArray forKey:section];
         
     }];
@@ -343,7 +334,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 
-    if (section == 0 || section == 1 || section == 2) {
+    if (section == 0) {
         return 2;
     }
     return 1;
@@ -408,12 +399,7 @@
             NSArray *arr = _bookDict[@1];
             
             if (arr.count > 0) {
-                if (indexPath.row == 0) {
-                    bookCell.bookArray = arr[0];
-                }
-                if (indexPath.row == 1) {
-                    bookCell.bookArray = arr[1];
-                }
+                bookCell.bookArray = arr;
             }
             
             bookCell.block = ^void(BookMP3 *book) {
@@ -438,12 +424,7 @@
             NSArray *arr = _bookDict[@2];
             
             if (arr.count > 0) {
-                if (indexPath.row == 0) {
-                    bookCell.bookArray = arr[0];
-                }
-                if (indexPath.row == 1) {
-                    bookCell.bookArray = arr[1];
-                }
+                bookCell.bookArray = arr;
             }
             
             bookCell.block = ^void(BookMP3 *book) {
@@ -524,7 +505,7 @@
     if (indexPath.section == 3) {
         return 115;
     }
-    return 168;
+    return 336;
 }
 
 #pragma mark 头视图

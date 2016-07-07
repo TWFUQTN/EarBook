@@ -103,9 +103,9 @@
     [session GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSArray *dataArray = responseObject[@"list"];
         for (NSDictionary *dict in dataArray) {
-            Voice *voice = [[Voice alloc] init];
-            [voice setValuesForKeysWithDictionary:dict];
-            [mryVC.dataArray addObject:voice];
+            BookMP3 *book = [[BookMP3 alloc] init];
+            [book setValuesForKeysWithDictionary:dict];
+            [mryVC.dataArray addObject:book];
         }
 //        NSString *number = [NSString stringWithFormat:@"%ld", self.i];
 //        [self.allDataDict setValue:self.dataArray forKey:number];
@@ -191,11 +191,13 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if ([self.dataArray[indexPath.row] class] == [BookMP3 class]) {
-        self.bookBlock(self.dataArray[indexPath.row]);
+    BookMP3 *book = self.dataArray[indexPath.row];
+    
+    if (book.state) {
+        self.bookBlock(book);
     }
-    else if ([self.dataArray[indexPath.row] class] == [Voice class]) {
-        self.voiceBlock(self.dataArray[indexPath.row]);
+    else {
+        self.voiceBlock(book);
     }
     
 }

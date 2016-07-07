@@ -11,6 +11,8 @@
 #import "BookMP3.h"
 #import "DownloadModel.h"
 #import "EB_COLOR.h"
+#import "DownloadFile.h"
+
 #import <AVOSCloud.h>
 
 @interface DownloadListViewController ()
@@ -56,7 +58,7 @@
     [super viewDidLoad];
     
     self.title = @"我的下载";
-    
+
     // 获取数据
     [self loadData];
     
@@ -89,21 +91,14 @@
         
         if (!error) {
             for (AVObject *oneObject in objects) {
-                
-//                NSData *bookListData = [oneObject objectForKey:@"bookList"];
-//                NSData *bookData = [oneObject objectForKey:@"book"];
-//                
-//                BookList *bookList = [self unarchiverWithData:bookListData key:@"bookList"];
-//                [downloadVC.bookListArray addObject:bookList];
-//                
-//                BookMP3 *book = [self unarchiverWithData:bookData key:@"book"];
-//                [downloadVC.bookArray addObject:book];
-                
+
                 DownloadModel *downloadModel = [DownloadModel new];
                 
+                // 从云端取出数据
                 downloadModel.bookName = [oneObject objectForKey:@"bookName"];
                 downloadModel.bookListName = [oneObject objectForKey:@"bookListName"];
                 downloadModel.ID = [oneObject objectForKey:@"ID"];
+                downloadModel.url = [oneObject objectForKey:@"url"];
                 downloadModel.path = [oneObject objectForKey:@"path"];
                 
                 downloadModel.downloadTime = oneObject.createdAt;
@@ -118,16 +113,16 @@
 }
 
 #pragma mark - 解挡
-- (id)unarchiverWithData:(NSData *)data
-                     key:(NSString *)key
-{
-    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
-    id object = [unarchiver decodeObjectForKey:key];
-    
-    [unarchiver finishDecoding];
-    
-    return object;
-}
+//- (id)unarchiverWithData:(NSData *)data
+//                     key:(NSString *)key
+//{
+//    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+//    id object = [unarchiver decodeObjectForKey:key];
+//    
+//    [unarchiver finishDecoding];
+//    
+//    return object;
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -155,13 +150,21 @@
         DownloadModel *model = _downloadPathArray[indexPath.row];
         
         NSDateFormatter *formatter = [NSDateFormatter new];
-//        [formatter setDateFormat:@""];
         
         cell.textLabel.text = model.bookListName;
         cell.detailTextLabel.text = [formatter stringFromDate:model.downloadTime];
     }
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    DownloadModel *model = _downloadPathArray[indexPath.row];
+    
+    if (model.url) {
+        
+    }
 }
 
 /*

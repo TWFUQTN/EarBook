@@ -74,7 +74,7 @@
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     imageView.image = [UIImage imageNamed:@"back3.jpg"];
     self.tableView.backgroundView = imageView;
-    self.typeArray = @[@"热门频道", @"主播电台", @"有声小说", @"文学名著", @"曲艺戏曲", @"相声评书", @"少儿天地", @"外语学习", @"娱乐综艺", @"人文社科", @"商业财经", @"健康养生", @"职业技能"];
+    self.typeArray = @[@"主播电台", @"有声小说", @"文学名著", @"曲艺戏曲", @"相声评书", @"少儿天地", @"外语学习", @"娱乐综艺", @"人文社科", @"商业财经", @"健康养生", @"职业技能"];
     
     [self.tableView registerClass:[ClassificationCell class] forCellReuseIdentifier:@"cell"];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -102,12 +102,19 @@
     [self.session GET:EB_CLASSIFICATION_URL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         NSArray *dataArray = responseObject[@"list"];
-        for (NSDictionary *dict in dataArray) {
+        for (int i = 1; i < dataArray.count; i++) {
+            NSDictionary *dict = dataArray[i];
             NSString *name = dict[@"name"];
             NSString *url = [NSString stringWithFormat:@"%@%@", EB_BASE_URL, name];
             //再次进行网络请求
             [classificationVC inRequestData:url];
         }
+//        for (NSDictionary *dict in dataArray) {
+//            NSString *name = dict[@"name"];
+//            NSString *url = [NSString stringWithFormat:@"%@%@", EB_BASE_URL, name];
+//            //再次进行网络请求
+//            [classificationVC inRequestData:url];
+//        }
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"网络请求失败:%@", error);
@@ -137,11 +144,11 @@
                 allDataArray = NULL;
             }
             if (allDataArray != NULL) {
-                NSLog(@"%ld", allDataArray.count);
+//                NSLog(@"%ld", allDataArray.count);
                 [classificationVC.allDataDict setValue:allDataArray forKey:key];
             }
         }
-        NSLog(@"%ld", classificationVC.allDataDict.count);
+//        NSLog(@"%ld", classificationVC.allDataDict.count);
         dispatch_async(dispatch_get_main_queue(), ^{
             [classificationVC.tableView reloadData];
         });
