@@ -74,16 +74,23 @@
         menuBtn.frame = CGRectMake(menuBtnX, 0, btnRect.size.width, self.scrollView.frame.size.height);
         
         [self.scrollView addSubview:menuBtn];
-        
+        NSLog(@"___________%ld", self.myIndexPath);
         if (i == 0) {
-            //默认第一个选中
             self.selectedBtn = menuBtn;
         }
+//        if (i == self.myIndexPath) {
+//            //默认第一个选中
+////            self.selectedBtn = menuBtn;
+//            UIButton *button = [self.scrollView viewWithTag:tagIndex + self.myIndexPath];
+//            [self menuBtnClick:button];
+//        }
     }
     
     if (self.scrollView.subviews.count > 0) {
         self.scrollView.contentSize = CGSizeMake(CGRectGetMaxX([self.scrollView.subviews lastObject].frame) + 15.f, 0);
     }
+    UIButton *button = [self.scrollView viewWithTag:tagIndex + self.myIndexPath];
+    [self menuBtnClick:button];
     
 }
 
@@ -96,6 +103,7 @@
     
     //计算scrollview偏移量
     CGFloat originX = selectedBtn.center.x - CGRectGetMidX(self.scrollView.frame);
+    NSLog(@"~~~~~~~~~~~~~%lf", selectedBtn.center.x);
     CGFloat maxOffsetX = self.scrollView.contentSize.width - self.scrollView.frame.size.width;
     if (originX < 0) {
         originX = 0;
@@ -139,6 +147,9 @@
     self.selectedBtn = sender;
     if ([self.delegate respondsToSelector:@selector(menuBtnClickAtIndex:)]) {
         [self.delegate menuBtnClickAtIndex:sender.tag - tagIndex];
+        
+        NSInteger tag = sender.tag - tagIndex;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"changeTitle" object:nil userInfo:@{@"tag":[NSNumber numberWithInteger:tag]}];
     }
 }
 

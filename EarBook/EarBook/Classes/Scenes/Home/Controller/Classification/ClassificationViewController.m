@@ -129,15 +129,19 @@
                 for (NSDictionary *dict in array) {
                     Classification *classification = [[Classification alloc] init];
                     [classification setValuesForKeysWithDictionary:dict];
+                    NSLog(@"%@", classification.url);
+                    NSLog(@"%@", classification.ID);
                     [allDataArray addObject:classification];
                 }
             }else {
                 allDataArray = NULL;
             }
             if (allDataArray != NULL) {
+                NSLog(@"%ld", allDataArray.count);
                 [classificationVC.allDataDict setValue:allDataArray forKey:key];
             }
         }
+        NSLog(@"%ld", classificationVC.allDataDict.count);
         dispatch_async(dispatch_get_main_queue(), ^{
             [classificationVC.tableView reloadData];
         });
@@ -171,6 +175,7 @@
     return 1;
 }
 
+//设置cell
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     ClassificationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
@@ -180,10 +185,14 @@
     allDataArray = self.allDataDict[self.typeArray[indexPath.section]];
     cell.cellArray = allDataArray;
     
-    cell.block = ^(Classification *classification){
+    cell.block = ^(NSInteger myIndexPath, Classification *classification){
         
         MRYViewController *mryVC = [[MRYViewController alloc] init];
+        
+        mryVC.myIndexPath = myIndexPath;
         mryVC.classification = classification;
+        mryVC.allDataArray = allDataArray;
+        
         mryVC.menuArray = [NSMutableArray array];
         [mryVC.menuArray removeAllObjects];
         for (Classification *classiFCT in allDataArray) {

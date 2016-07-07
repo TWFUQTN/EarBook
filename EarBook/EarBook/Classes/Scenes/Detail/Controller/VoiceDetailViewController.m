@@ -14,6 +14,7 @@
 #import "ListCell.h"
 #import "EB_COLOR.h"
 #import "EB_URL.h"
+#import "Voice.h"
 
 @interface VoiceDetailViewController ()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -92,6 +93,13 @@
     // 注册cell
     [self.listTableView registerNib:[UINib nibWithNibName:@"ListCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
+}
+
+- (void)setVoice:(Voice *)voice {
+    if (_voice != voice) {
+        _voice = voice;
+    }
+    _book.url = _voice.ID;
 }
 
 #pragma mark - 请求详情数据

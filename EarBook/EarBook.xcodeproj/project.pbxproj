@@ -192,6 +192,8 @@
 		D684EEC31D229385002D2AF6 /* JoiningURL.m in Sources */ = {isa = PBXBuildFile; fileRef = D684EEC21D229385002D2AF6 /* JoiningURL.m */; };
 		D6856C2B1D1E2D1800E4F4FE /* ListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6856C291D1E2D1800E4F4FE /* ListCell.m */; };
 		D6856C2C1D1E2D1800E4F4FE /* ListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6856C2A1D1E2D1800E4F4FE /* ListCell.xib */; };
+		D6899CC51D2D26170066083C /* MryPageTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6899CC31D2D26170066083C /* MryPageTableCell.m */; };
+		D6899CC61D2D26170066083C /* MryPageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6899CC41D2D26170066083C /* MryPageTableCell.xib */; };
 		D69173DA1D2CEEA400978E48 /* headText.png in Resources */ = {isa = PBXBuildFile; fileRef = D69173D91D2CEEA400978E48 /* headText.png */; };
 		D6973BA81D2659A1008FEDD2 /* BookInfosHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6973BA71D2659A1008FEDD2 /* BookInfosHandle.m */; };
 		D6ADC1051D25F9E500B3AF67 /* RankingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ADC1041D25F9E500B3AF67 /* RankingListViewController.m */; };
@@ -479,6 +481,9 @@
 		D6856C281D1E2D1800E4F4FE /* ListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListCell.h; sourceTree = "<group>"; };
 		D6856C291D1E2D1800E4F4FE /* ListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListCell.m; sourceTree = "<group>"; };
 		D6856C2A1D1E2D1800E4F4FE /* ListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListCell.xib; sourceTree = "<group>"; };
+		D6899CC21D2D26170066083C /* MryPageTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryPageTableCell.h; sourceTree = "<group>"; };
+		D6899CC31D2D26170066083C /* MryPageTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryPageTableCell.m; sourceTree = "<group>"; };
+		D6899CC41D2D26170066083C /* MryPageTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MryPageTableCell.xib; sourceTree = "<group>"; };
 		D69173D91D2CEEA400978E48 /* headText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headText.png; sourceTree = "<group>"; };
 		D6973BA61D2659A1008FEDD2 /* BookInfosHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookInfosHandle.h; sourceTree = "<group>"; };
 		D6973BA71D2659A1008FEDD2 /* BookInfosHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookInfosHandle.m; sourceTree = "<group>"; };
@@ -1078,6 +1083,9 @@
 				D6488AEF1D27747B00ABA6FD /* MryScrollMenu.m */,
 				D6488AF01D27747B00ABA6FD /* MryScrollPageCell.h */,
 				D6488AF11D27747B00ABA6FD /* MryScrollPageCell.m */,
+				D6899CC21D2D26170066083C /* MryPageTableCell.h */,
+				D6899CC31D2D26170066083C /* MryPageTableCell.m */,
+				D6899CC41D2D26170066083C /* MryPageTableCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1532,6 +1540,7 @@
 				D6856C2C1D1E2D1800E4F4FE /* ListCell.xib in Resources */,
 				D60F14121D2BD3CA009E9793 /* playSetting.png in Resources */,
 				D616995B1D224F99006E7FB6 /* volume.png in Resources */,
+				D6899CC61D2D26170066083C /* MryPageTableCell.xib in Resources */,
 				D60F140C1D2BD3CA009E9793 /* playBack.png in Resources */,
 				D61699731D226E87006E7FB6 /* playlturneft.png in Resources */,
 				D6054E291D2C996E00829F6B /* pause2.png in Resources */,
@@ -1710,6 +1719,7 @@
 				D60A541D1D1D2FDC00ECF173 /* DetailViewController.m in Sources */,
 				D632AFCC1D1E22880092A6A3 /* TYCircleView.m in Sources */,
 				D6F611321D22CA53002B4506 /* SpecialSubjectCell.m in Sources */,
+				D6899CC51D2D26170066083C /* MryPageTableCell.m in Sources */,
 				D6F611341D22CA53002B4506 /* SpecialSubjectListCell.m in Sources */,
 				D6F611201D22CA53002B4506 /* SpecialSubjectViewController.m in Sources */,
 				D6770F801D1EA82600AE0CFE /* UserCell.m in Sources */,

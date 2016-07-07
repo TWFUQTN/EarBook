@@ -8,10 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
+@class BookMP3;
+@class Voice;
+
+typedef void(^BookBlock)(BookMP3 *bookMp3);
+typedef void(^VoiceBlock)(Voice *voice);
+
+
 @interface MryPageTable : UITableView
 
 @property (nonatomic,copy) NSString *title;
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
+
+@property (nonatomic, strong) NSString *urlString;
+
+@property (nonatomic, assign) BOOL status;
+
+@property (nonatomic, copy) BookBlock bookBlock;
+
+@property (nonatomic, copy) VoiceBlock voiceBlock;
+
+
 
 @end

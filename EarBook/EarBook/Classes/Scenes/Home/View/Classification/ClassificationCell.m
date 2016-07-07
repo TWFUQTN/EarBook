@@ -215,7 +215,10 @@
 //    }
 //    mryVC.url = url;
     Classification *classification = self.cellArray[indexPath.row];
-    self.block(classification);
+    
+    NSInteger myIndexPath = indexPath.row;
+    
+    self.block(myIndexPath, classification);
     
 }
 

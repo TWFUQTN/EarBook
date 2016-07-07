@@ -23,6 +23,7 @@
     //初始化滚动目录
     MryScrollMenu *scrollMenu = [[MryScrollMenu alloc]initWithFrame:self.menuframe];
     scrollMenu.delegate = self;
+    scrollMenu.myIndexPath = self.myIndexPath;
     scrollMenu.menuArray = self.menuArray;
     [self.view addSubview:scrollMenu];
     self.scrollMenu = scrollMenu;

@@ -20,4 +20,9 @@
 @property (nonatomic,assign) CGRect menuframe;
 @property (nonatomic,assign) CGRect tableframe;
 
+//点击位置传值
+@property (nonatomic, assign) NSInteger myIndexPath;
+
+
+
 @end
