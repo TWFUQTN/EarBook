@@ -14,8 +14,15 @@
 #import "ListCell.h"
 #import "EB_COLOR.h"
 #import "EB_URL.h"
+#import "LoginViewController.h"
+#import "DownloadFile.h"
 
-@interface VoiceDetailViewController ()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
+#import <AVOSCloud.h>
+#import <UMSocial.h>
+
+#define kButtonTag 989132
+
+@interface VoiceDetailViewController ()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, UMSocialUIDelegate>
 
 //segment及滑动的label视图
 @property (nonatomic, strong) ZF_SegmentLabelView *SLView;
@@ -53,6 +60,8 @@
 
 //装目录列表信息
 @property (nonatomic, strong) NSMutableArray *listArray;
+
+@property (nonatomic, strong) NSProgress *progress;
 
 @end
 
@@ -199,8 +208,101 @@
     if (_listArray.count > 0) {
         cell.bookList = _listArray[indexPath.row];
     }
+    cell.uploadButton.tag = kButtonTag + indexPath.row;
+    
+    [cell.uploadButton addTarget:self action:@selector(uploadButtonAction:) forControlEvents:(UIControlEventTouchUpInside)];
     
     return cell;
+}
+
+#pragma mark - 下载按钮点击方法
+- (void)uploadButtonAction:(UIButton *)sender
+{
+    [sender setTitle:@"已下载" forState:(UIControlStateNormal)];
+    
+    NSInteger index = sender.tag - kButtonTag;
+    
+    BookList *bookList = _listArray[index];
+    
+    AVUser *currentUser = [AVUser currentUser];
+    
+    if (currentUser != nil) {
+        [self uploadWithBookList:bookList CurrentUser:currentUser];
+
+    } else {
+        //缓存用户对象为空时，可打开用户注册界面…
+        LoginViewController *loginVC = [LoginViewController new];
+        loginVC.flag = 1;
+        [self.navigationController pushViewController:loginVC animated:YES];
+    }
+}
+
+#pragma mark - 下载
+- (void)uploadWithBookList:(BookList *)bookList
+               CurrentUser:(AVUser *)currentUser
+{
+    DownloadFile *downloadFile = [DownloadFile shareDownloadFile];
+    
+    //下载
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    
+    NSURL *URL = [NSURL URLWithString:bookList.path];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+    __weak typeof(self) voiceVC = self;
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+        NSLog(@"%@", downloadProgress);
+        voiceVC.progress = downloadProgress;
+        [downloadProgress addObserver:self forKeyPath:@"fractionCompleted" options:(NSKeyValueObservingOptionNew) context:NULL];
+        
+    } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+        
+        // 下载到沙盒的位置
+        NSURL *documentsDirectoryURL = [[[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil] URLByAppendingPathComponent:[response suggestedFilename]];
+        //        NSLog(@"documentsDirectoryURL = %@", documentsDirectoryURL);
+        
+        // 将NSURL转为NSString
+        NSString *documentsPath = [[documentsDirectoryURL absoluteString] substringFromIndex:7];
+        
+        [downloadFile saveToleanCloudWithdocumentsPath:documentsPath BookList:bookList Book:_book User:currentUser ClassName:@"DownloadBook"];
+        
+        // 移除观察者
+        [voiceVC.progress removeObserver:self forKeyPath:@"fractionCompleted"];
+        
+        return documentsDirectoryURL;
+        
+    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        NSLog(@"File downloaded to: %@", filePath);
+    }];
+    //重新开始下载
+    [downloadTask resume];
+    
+}
+
+#pragma mark - 拿到进度
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
+    //拿到进度
+    //    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    
+    if ([keyPath isEqualToString:@"fractionCompleted"] && [object isKindOfClass:[NSProgress class]]) {
+        NSProgress *progress = (NSProgress *)object;
+        if (progress.fractionCompleted == 1.0) {
+            [self errorAlertWithMessage:@"下载完成！"];
+        }
+    }
+}
+
+#pragma mark - 错误提示的alert
+- (void)errorAlertWithMessage:(NSString *)message
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:nil];
+    
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - scrollView代理方法
@@ -256,6 +358,42 @@
         self.bottomScrollView.contentOffset = CGPointMake([UIScreen mainScreen].bounds.size.width * index, 0) ;
         
     }];
+}
+
+#pragma mark - 分享
+- (IBAction)shareAction:(UIButton *)sender
+{
+    [UMSocialData defaultData].extConfig.title = _nameLabel.text;
+    
+    NSString *shareText = @"";
+    if (_descLabel.text.length > 140) {
+        shareText = [_descLabel.text substringToIndex:140];
+    } else {
+        shareText = _descLabel.text;
+    }
+    
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"57767a3667e58e180b0006c2"
+                                      shareText:shareText
+                                     shareImage:_coverImageView.image
+                                shareToSnsNames:@[UMShareToWechatSession,UMShareToSina,UMShareToQQ,UMShareToQzone]
+                                       delegate:self];
+}
+
+#pragma mark - 收藏
+- (IBAction)collectionAction:(UIButton *)sender
+{
+//    AVUser *currentUser = [AVUser currentUser];
+//    
+//    if (currentUser != nil) {
+//        [[DownloadFile shareDownloadFile] saveToleanCloudWithdocumentsPath:nil BookList:nil Book:_book User:currentUser ClassName:@""];
+//        
+//    } else {
+//        //缓存用户对象为空时，可打开用户注册界面…
+//        LoginViewController *loginVC = [LoginViewController new];
+//        loginVC.flag = 1;
+//        [self.navigationController pushViewController:loginVC animated:YES];
+//    }
 }
 
 

@@ -10,8 +10,9 @@
 #import "JoiningURL.h"
 #import "EB_COLOR.h"
 #import "BookMP3.h"
+#import <UMSocial.h>
 
-@interface SpecialSubjectDetailViewController ()
+@interface SpecialSubjectDetailViewController ()<UMSocialUIDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *coverImageView;
 @property (weak, nonatomic) IBOutlet UILabel *descLabel;
@@ -49,6 +50,26 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (IBAction)shareAction:(UIButton *)sender
+{
+    [UMSocialData defaultData].extConfig.title = _book.name;
+    
+    NSString *shareText = @"";
+    if (_descLabel.text.length > 140) {
+        shareText = [_descLabel.text substringToIndex:140];
+    } else {
+        shareText = _descLabel.text;
+    }
+    
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"57767a3667e58e180b0006c2"
+                                      shareText:shareText
+                                     shareImage:_coverImageView.image
+                                shareToSnsNames:@[UMShareToWechatSession,UMShareToSina,UMShareToQQ,UMShareToQzone]
+                                       delegate:self];
 }
 
 /*
