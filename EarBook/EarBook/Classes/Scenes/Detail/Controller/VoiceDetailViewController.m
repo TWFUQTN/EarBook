@@ -15,6 +15,11 @@
 #import "EB_COLOR.h"
 #import "EB_URL.h"
 #import "Voice.h"
+#import "BookInfosHandle.h"
+#import "PlayerViewController.h"
+
+#define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
+
 
 @interface VoiceDetailViewController ()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -55,6 +60,9 @@
 //装目录列表信息
 @property (nonatomic, strong) NSMutableArray *listArray;
 
+@property (nonatomic, strong) VoiceProgram *detailVoice;
+
+
 @end
 
 @implementation VoiceDetailViewController
@@ -67,7 +75,10 @@
     return _listArray;
 }
 
-
+- (void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.translucent = NO;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -78,7 +89,8 @@
     [self requestListData];
     
     // 设置navigationBar
-    self.navigationController.navigationBar.translucent = NO;
+//    self.navigationController.navigationBarHidden = NO;
+//    self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = EB_MAIN_COLOR;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     // 返回按钮
@@ -95,11 +107,20 @@
     
 }
 
-- (void)setVoice:(Voice *)voice {
-    if (_voice != voice) {
-        _voice = voice;
+//- (void)setVoice:(Voice *)voice {
+//    if (_voice != voice) {
+//        _voice = voice;
+//    }
+//    _book.url = _voice.ID;
+//}
+
+- (void)setBook:(BookMP3 *)book {
+    if (_book != book) {
+        _book = book;
     }
-    _book.url = _voice.ID;
+    if (!_book.url) {
+        _book.url = _book.ID;
+    }
 }
 
 #pragma mark - 请求详情数据
@@ -117,7 +138,7 @@
              NSDictionary *dict = responseObject[@"ablumn"];
              VoiceProgram *voice = [VoiceProgram new];
              [voice setValuesForKeysWithDictionary:dict];
-             
+             voiceDetailVC.detailVoice = voice;
              dispatch_async(dispatch_get_main_queue(), ^{
                  // 刷新列表
                  [voiceDetailVC reloadUIWithVoice:voice];
@@ -266,6 +287,34 @@
     }];
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    kBookInfosHandle.bookInfosArray = _listArray;
+    
+    if (self.pushFrom == PushFromMoreListVC1) {
+        kBookInfosHandle.bookMP3 = _book;
+    } else {
+        
+        kBookInfosHandle.bookMP3.announcer = _detailVoice.announcer;
+        kBookInfosHandle.bookMP3.cover = _detailVoice.cover;
+        kBookInfosHandle.bookMP3.name = _detailVoice.name;
+        kBookInfosHandle.bookMP3.type = _detailVoice.typeName;
+        kBookInfosHandle.bookMP3.sections = _detailVoice.sections;
+        kBookInfosHandle.bookMP3.desc = _detailVoice.Description;
+        kBookInfosHandle.bookMP3.play = _detailVoice.playCount;
+        kBookInfosHandle.bookMP3.update = _detailVoice.updateTime;
+        
+    }
+    PlayerViewController * playerViewVC = [[PlayerViewController alloc]init];
+    BookList *bookList = self.listArray[indexPath.row];
+    playerViewVC.bookList = bookList;
+    playerViewVC.index = indexPath.row;
+    kBookInfosHandle.indexout  = indexPath.row;
+    //    playerViewVC.bookInformation = _book;
+    //    playerViewVC.playList = _listArray;
+    
+    //    [self presentViewController:playerViewVC animated:YES completion:nil];
+    [self.navigationController pushViewController:playerViewVC animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

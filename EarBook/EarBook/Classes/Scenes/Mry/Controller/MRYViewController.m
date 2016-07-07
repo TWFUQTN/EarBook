@@ -142,11 +142,12 @@
         [self.navigationController pushViewController:detailVC animated:YES];
     };
     
-//    table.voiceBlock = ^(Voice *voice) {
-//        VoiceDetailViewController *voiceDetailVC = [[VoiceDetailViewController alloc] init];
-//        voiceDetailVC.book = voice;
-//        [self.navigationController pushViewController:voiceDetailVC animated:YES];
-//    };
+    table.voiceBlock = ^(BookMP3 *book) {
+        VoiceDetailViewController *voiceDetailVC = [[VoiceDetailViewController alloc] init];
+        voiceDetailVC.book = book;
+        voiceDetailVC.pushFrom = PushFromMoreListVC1;
+        [self.navigationController pushViewController:voiceDetailVC animated:YES];
+    };
     
 //    if ([self.menuArray[0] isEqualToString:@"情感治愈"] || self.classification.url) {
 //        NSString *urlString = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@", EB_CLASSIFICATION_VOICE_DETAIL_BASE_URL, EB_CLASSIFICATION_VOICE_DETAIL_BODY1_URL, self.url, EB_CLASSIFICATION_VOICE_DETAIL_BODY2_URL, self.url, EB_CLASSIFICATION_VOICE_DETAIL_BODY3_URL, self.url, EB_CLASSIFICATION_VOICE_DETAIL_BODY4_URL];
