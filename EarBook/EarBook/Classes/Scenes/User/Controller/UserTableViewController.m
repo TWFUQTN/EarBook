@@ -27,16 +27,20 @@
     [super viewDidLoad];
     
     self.title = @"我的";
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.frame];
+    imageView.image = [UIImage imageNamed:@"back12.jpg"];
+    self.tableView.backgroundView =imageView;
+    
     
     // 设置navigationBar
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barTintColor = EB_MAIN_COLOR;
+    self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
     
     [self.tableView registerNib:[UINib nibWithNibName:@"UserCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
-    self.dictionary = @{@"image":@[@"1", @"2", @"3", @"4", @"1"],
+    self.dictionary = @{@"image":@[@"Useruser", @"Userheart", @"Userfolder", @"Usertrashcan", @"Userpie"],
                         @"title":@[@"完善资料", @"我的收藏", @"我的下载", @"清除缓存", @"最近播放"]
                         };
     
@@ -45,6 +49,8 @@
     
     // 返回按钮
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:(UIBarButtonItemStylePlain) target:self action:@selector(back)];
+    self.navigationController.navigationBar.alpha = 0.8;
+
 }
 
 #pragma mark - 判断用户是否登录
@@ -129,7 +135,7 @@
         
         cell.cacheLabel.text = [NSString stringWithFormat:@"%.2fM", size];
     }
-    
+//    cell.alpha = 0.7;
     return cell;
 }
 

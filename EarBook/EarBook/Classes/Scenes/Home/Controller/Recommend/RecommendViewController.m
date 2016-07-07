@@ -83,6 +83,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    imageView.image = [UIImage imageNamed:@"back1.jpg"];
+    self.tableView.backgroundView = imageView;
     // 加载数据
     [self requestData];
     
@@ -379,9 +382,21 @@
             NSArray *arr = _bookDict[@0];
             
             if (arr.count > 0) {
+                if (indexPath.row == 0) {
+                    recCell.coverImageView.image = [UIImage imageNamed:@"cellImage1.jpg"];
+                    recCell.backImageView.image = [UIImage imageNamed:@"cell11.jpg"];
+                    recCell.backImageView.alpha = 0.8;
+                }
+                if (indexPath.row == 1) {
+                    recCell.coverImageView.image = [UIImage imageNamed:@"cellImage2.jpg"];
+                    recCell.backImageView.image = [UIImage imageNamed:@"cell12.jpg"];
+                    recCell.backImageView.alpha = 0.8;
+
+
+                }
                 recCell.book = arr[indexPath.row];
             }
-            
+            recCell.alpha = 0.8;
             return recCell;
             break;
         }
@@ -525,18 +540,23 @@
             headerView.titleLabel.text = @"小编推荐";
             headerView.moreButton.tag = baseTag + section;
             [self moreActionForHeaderView:headerView];
+            headerView.alpha = 0.8;
             return headerView;
             break;
         case 2:
             headerView.titleLabel.text = @"新书推荐";
             headerView.moreButton.tag = baseTag + section;
             [self moreActionForHeaderView:headerView];
+            headerView.alpha = 0.8;
+
             return headerView;
             break;
         case 3:
             headerView.titleLabel.text = @"更多专题";
             headerView.moreButton.tag = baseTag + section;
             [self moreActionForHeaderView:headerView];
+            headerView.alpha = 0.8;
+
             return headerView;
             break;
         default:

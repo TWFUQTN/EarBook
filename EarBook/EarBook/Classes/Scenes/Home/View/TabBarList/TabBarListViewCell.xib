@@ -34,7 +34,6 @@
                                 <state key="normal" image="tabBardownload.png"/>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="FYS-yf-zCR" secondAttribute="trailing" constant="5" id="5I4-vt-Of9"/>
                             <constraint firstItem="FYS-yf-zCR" firstAttribute="leading" secondItem="chf-Ue-KOV" secondAttribute="trailing" constant="5" id="5m1-VH-tab"/>

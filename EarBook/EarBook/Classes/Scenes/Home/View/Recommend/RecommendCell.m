@@ -14,7 +14,6 @@
 
 @property (unsafe_unretained, nonatomic) IBOutlet UILabel *nameLabel;
 @property (unsafe_unretained, nonatomic) IBOutlet UILabel *reasonLabel;
-@property (unsafe_unretained, nonatomic) IBOutlet UIImageView *coverImageView;
 
 
 @end
@@ -26,11 +25,14 @@
     if (_book != book) {
         _book = nil;
         _book = book;
-        
+        self.backgroundColor = [UIColor clearColor];
         _nameLabel.text = _book.name;
         _reasonLabel.text = _book.reason;
         _coverImageView.layer.cornerRadius = (self.bounds.size.height - 20) / 2;
         _coverImageView.layer.masksToBounds = YES;
+        _coverImageView.layer.borderWidth = 1;
+        
+        
     }
 }
 

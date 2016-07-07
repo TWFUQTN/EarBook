@@ -71,7 +71,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    imageView.image = [UIImage imageNamed:@"back3.jpg"];
+    self.tableView.backgroundView = imageView;
     self.typeArray = @[@"热门频道", @"主播电台", @"有声小说", @"文学名著", @"曲艺戏曲", @"相声评书", @"少儿天地", @"外语学习", @"娱乐综艺", @"人文社科", @"商业财经", @"健康养生", @"职业技能"];
     
     [self.tableView registerClass:[ClassificationCell class] forCellReuseIdentifier:@"cell"];

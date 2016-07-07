@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
@@ -36,10 +36,10 @@
                         <outletCollection property="gestureRecognizers" destination="2Wc-ts-7dN" appends="YES" id="0OF-56-EEt"/>
                     </connections>
                 </view>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MbY-mc-Q2Q">
+                <view hidden="YES" alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MbY-mc-Q2Q">
                     <rect key="frame" x="100" y="200" width="220" height="318"/>
                     <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lKZ-sc-A95">
+                        <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lKZ-sc-A95">
                             <rect key="frame" x="0.0" y="0.0" width="220" height="40"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="播放列表" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1ZK-CQ-2QS">
@@ -59,7 +59,7 @@
                                         <constraint firstAttribute="height" constant="30" id="a1r-bY-J8K"/>
                                         <constraint firstAttribute="width" constant="30" id="oCI-LU-ILq"/>
                                     </constraints>
-                                    <state key="normal" image="tabBartrash.png"/>
+                                    <state key="normal" image="tabBardelete1.png"/>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="a1r-bY-J8K"/>
@@ -78,7 +78,7 @@
                                         <constraint firstAttribute="height" constant="30" id="X7X-hR-0qM"/>
                                         <constraint firstAttribute="width" constant="30" id="tSP-Ye-g5b"/>
                                     </constraints>
-                                    <state key="normal" image="tabBarlikes.png"/>
+                                    <state key="normal" image="tabBarHeart1.png"/>
                                     <variation key="default">
                                         <mask key="constraints">
                                             <exclude reference="QqN-YD-mky"/>
@@ -89,8 +89,8 @@
                                         <action selector="tabBarListLikes:" destination="-1" eventType="touchUpInside" id="dPC-Ht-8aG"/>
                                     </connections>
                                 </button>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Per-Qd-dhF">
-                                    <rect key="frame" x="75" y="0.0" width="75" height="40"/>
+                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Per-Qd-dhF">
+                                    <rect key="frame" x="73" y="0.0" width="75" height="40"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </view>
                             </subviews>
@@ -124,7 +124,7 @@
                                 </mask>
                             </variation>
                         </view>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6VS-LP-enc">
+                        <view alpha="0.80000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6VS-LP-enc">
                             <rect key="frame" x="0.0" y="40" width="220" height="278"/>
                             <subviews>
                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="B4M-Ms-lcK">
@@ -162,12 +162,12 @@
                             </constraints>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lub-fk-hr3">
-                            <rect key="frame" x="285" y="15" width="30" height="30"/>
+                            <rect key="frame" x="285" y="14" width="30" height="30"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="30" id="bsU-Ud-RCV"/>
                                 <constraint firstAttribute="height" constant="30" id="gLa-aP-1oo"/>
                             </constraints>
-                            <state key="normal" image="ltist.png"/>
+                            <state key="normal" image="tabBarUp3.png"/>
                             <connections>
                                 <action selector="tabBarListButton:" destination="-1" eventType="touchUpInside" id="utW-AE-LeY"/>
                             </connections>
@@ -178,20 +178,9 @@
                                 <constraint firstAttribute="width" constant="30" id="UXn-oH-JgA"/>
                                 <constraint firstAttribute="height" constant="30" id="oeW-Qb-IGw"/>
                             </constraints>
-                            <state key="normal" image="tabBarnext.png"/>
+                            <state key="normal" image="next3.png"/>
                             <connections>
                                 <action selector="tabBarLastButton:" destination="-1" eventType="touchUpInside" id="qzr-MN-FEB"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLW-k8-mGL">
-                            <rect key="frame" x="215" y="15" width="30" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="eHB-13-jnV"/>
-                                <constraint firstAttribute="width" constant="30" id="iWM-gu-ED8"/>
-                            </constraints>
-                            <state key="normal" image="tabBarplay.png"/>
-                            <connections>
-                                <action selector="tabBarPlayButton:" destination="-1" eventType="touchUpInside" id="M5L-Y2-35s"/>
                             </connections>
                         </button>
                         <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="eCl-8r-aJR">
@@ -206,9 +195,20 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="名称" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JgU-8f-dPc">
                             <rect key="frame" x="75" y="10" width="135" height="14"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kLW-k8-mGL">
+                            <rect key="frame" x="218" y="15" width="30" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="eHB-13-jnV"/>
+                                <constraint firstAttribute="width" constant="30" id="iWM-gu-ED8"/>
+                            </constraints>
+                            <state key="normal" image="play3.png"/>
+                            <connections>
+                                <action selector="tabBarPlayButton:" destination="-1" eventType="touchUpInside" id="M5L-Y2-35s"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -217,7 +217,7 @@
                         <constraint firstAttribute="bottom" secondItem="ycH-O1-Rlb" secondAttribute="bottom" id="4kw-s9-9bO"/>
                         <constraint firstItem="kLW-k8-mGL" firstAttribute="leading" secondItem="JgU-8f-dPc" secondAttribute="trailing" constant="5" id="Ldj-Pf-hO9"/>
                         <constraint firstAttribute="bottom" secondItem="kLW-k8-mGL" secondAttribute="bottom" constant="5" id="NqW-fN-WDd"/>
-                        <constraint firstAttribute="bottom" secondItem="lub-fk-hr3" secondAttribute="bottom" constant="5" id="PHO-kj-JVC"/>
+                        <constraint firstAttribute="bottom" secondItem="lub-fk-hr3" secondAttribute="bottom" constant="6" id="PHO-kj-JVC"/>
                         <constraint firstAttribute="height" constant="50" id="YN5-qC-FT5"/>
                         <constraint firstItem="ycH-O1-Rlb" firstAttribute="leading" secondItem="Hua-5D-N7a" secondAttribute="leading" id="eLT-0X-Jgm"/>
                         <constraint firstAttribute="trailing" secondItem="lub-fk-hr3" secondAttribute="trailing" constant="5" id="g7Y-LK-bNQ"/>
@@ -255,7 +255,7 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="作者" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeX-A5-PVh">
                     <rect key="frame" x="78" y="542" width="142" height="21"/>
                     <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQ2-to-iC7">
@@ -305,12 +305,12 @@
         </tapGestureRecognizer>
     </objects>
     <resources>
-        <image name="ltist.png" width="512" height="512"/>
+        <image name="next3.png" width="64" height="64"/>
+        <image name="play3.png" width="64" height="64"/>
+        <image name="tabBarHeart1.png" width="64" height="64"/>
+        <image name="tabBarUp3.png" width="64" height="64"/>
         <image name="tabBarback.jpg" width="800" height="339"/>
-        <image name="tabBarlikes.png" width="512" height="512"/>
-        <image name="tabBarnext.png" width="512" height="512"/>
-        <image name="tabBarplay.png" width="512" height="512"/>
-        <image name="tabBartrash.png" width="512" height="512"/>
+        <image name="tabBardelete1.png" width="64" height="64"/>
         <image name="textHeader.png" width="171" height="171"/>
     </resources>
 </document>

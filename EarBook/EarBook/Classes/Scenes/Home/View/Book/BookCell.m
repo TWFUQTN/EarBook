@@ -38,7 +38,10 @@
     
     if (self) {
         [self layoutView];
-        self.backgroundColor = [UIColor whiteColor];
+        self.backgroundColor = [UIColor clearColor];
+        self.myCollectionView.backgroundColor = [UIColor whiteColor];
+        self.myCollectionView.alpha = 0.9;
+//        self.myCollectionView.p
     }
     return self;
 }
@@ -83,7 +86,7 @@
     if (self.bookArray.count > 0) {
         cell.book = self.bookArray[indexPath.row];
     }
-    
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 

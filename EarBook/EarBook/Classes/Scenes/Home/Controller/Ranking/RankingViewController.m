@@ -91,7 +91,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    imageView.image = [UIImage imageNamed:@"back2.jpg"];
+    self.tableView.backgroundView = imageView;
     // 请求数据
     [self requestData];
     // 注册cell
@@ -210,6 +212,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     BookCell *cell = [tableView dequeueReusableCellWithIdentifier:@"BookCell"];
+    cell.alpha = 0.7;
+
     if (_bookDict.count > 0 && self.titleArray.count > 0) {
 
         NSString *key = self.titleArray[indexPath.section];
@@ -223,7 +227,6 @@
         detailVC.joiningURLString = JoiningURLStringByID;
         [self.navigationController pushViewController:detailVC animated:YES];
     };
-    
     return cell;
 }
 
@@ -240,15 +243,19 @@
         header.moreButton.tag = kRankingListTag + section;
         
         [header.moreButton addTarget:self action:@selector(moreButtonAction:) forControlEvents:(UIControlEventTouchUpInside)];
-        
+        header.alpha = 0.8;
         return header;
     }
     
     RankingHeader *header = [tableView dequeueReusableHeaderFooterViewWithIdentifier:@"RankingHeader"];
-    
+    header.alpha = 0.8;
     header.title = _titleArray[section];
     header.tag = kRankingListTag + section;
-    
+    self.header1.alpha = 0.8;
+    self.header2.alpha = 0.8;
+    self.header3.alpha = 0.8;
+    self.header4.alpha = 0.8;
+
     switch (section) {
         case 0:
             self.header1 = header;
@@ -277,6 +284,7 @@
     header.totalRankingBtn.tag = kRankingListTag + 30;
     [header.totalRankingBtn addTarget:self action:@selector(rankingBtnAction:) forControlEvents:(UIControlEventTouchUpInside)];
     
+
     return header;
 }
 

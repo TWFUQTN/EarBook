@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RegisterViewController">
@@ -18,6 +18,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back5.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="oxX-wq-OH4">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hsK-3W-yUL">
                     <rect key="frame" x="20" y="20" width="335" height="40"/>
                     <subviews>
@@ -106,6 +109,7 @@
                 <constraint firstItem="yob-2O-pdH" firstAttribute="top" secondItem="Gns-xF-lef" secondAttribute="bottom" constant="40" id="4tH-C4-Bvr"/>
                 <constraint firstItem="MBY-q5-g3u" firstAttribute="height" secondItem="hsK-3W-yUL" secondAttribute="height" id="8Wm-N1-ELF"/>
                 <constraint firstItem="MBY-q5-g3u" firstAttribute="leading" secondItem="hsK-3W-yUL" secondAttribute="leading" id="91M-N4-lIa"/>
+                <constraint firstAttribute="trailing" secondItem="oxX-wq-OH4" secondAttribute="trailing" id="EDR-Dx-M8i"/>
                 <constraint firstItem="yob-2O-pdH" firstAttribute="height" secondItem="BHp-VU-PmZ" secondAttribute="height" id="ENC-yQ-QsY"/>
                 <constraint firstAttribute="trailing" secondItem="hsK-3W-yUL" secondAttribute="trailing" constant="20" id="L3J-qM-Gfb"/>
                 <constraint firstAttribute="trailing" secondItem="yob-2O-pdH" secondAttribute="trailing" constant="20" id="NxR-Dx-C0O"/>
@@ -114,17 +118,23 @@
                 <constraint firstItem="yob-2O-pdH" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="W2p-AW-DeZ"/>
                 <constraint firstItem="Gns-xF-lef" firstAttribute="top" secondItem="hsv-2N-pve" secondAttribute="bottom" constant="5" id="XD1-wR-q6d"/>
                 <constraint firstItem="MBY-q5-g3u" firstAttribute="width" secondItem="hsK-3W-yUL" secondAttribute="width" id="Yfa-ye-Qan"/>
+                <constraint firstItem="oxX-wq-OH4" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="cCk-vb-VGU"/>
                 <constraint firstItem="hsv-2N-pve" firstAttribute="top" secondItem="MBY-q5-g3u" secondAttribute="bottom" constant="5" id="hxk-Hr-vza"/>
                 <constraint firstItem="hsK-3W-yUL" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="mKA-pO-TXx"/>
                 <constraint firstItem="Gns-xF-lef" firstAttribute="height" secondItem="hsv-2N-pve" secondAttribute="height" id="p7e-tj-Bp9"/>
                 <constraint firstItem="hsK-3W-yUL" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="rVq-V0-PFL"/>
                 <constraint firstItem="Gns-xF-lef" firstAttribute="leading" secondItem="hsv-2N-pve" secondAttribute="leading" id="sKo-9R-KnK"/>
                 <constraint firstItem="Gns-xF-lef" firstAttribute="width" secondItem="hsv-2N-pve" secondAttribute="width" id="tmM-Nd-vYL"/>
+                <constraint firstAttribute="bottom" secondItem="oxX-wq-OH4" secondAttribute="bottom" id="vdb-eI-I97"/>
                 <constraint firstItem="hsv-2N-pve" firstAttribute="height" secondItem="MBY-q5-g3u" secondAttribute="height" id="vh6-IP-9tb"/>
+                <constraint firstItem="oxX-wq-OH4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="wzk-dj-YOm"/>
                 <constraint firstItem="hsv-2N-pve" firstAttribute="width" secondItem="MBY-q5-g3u" secondAttribute="width" id="zgX-tA-xaH"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="-334.5" y="300.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="back5.jpg" width="440" height="782"/>
+    </resources>
 </document>

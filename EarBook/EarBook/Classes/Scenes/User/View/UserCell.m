@@ -21,7 +21,7 @@
     NSArray *titleArr = dictionary[@"title"];
     self.icon.image = [UIImage imageNamed:imageArr[index]];
     self.titleLabel.text = titleArr[index];
-    
+    self.backgroundColor = [UIColor clearColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

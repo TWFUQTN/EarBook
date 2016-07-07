@@ -80,6 +80,8 @@
     return _listArray;
 }
 - (void)viewWillAppear:(BOOL)animated{
+    self.navigationController.navigationBar.translucent = NO;
+
     self.navigationController.navigationBarHidden = NO;
 }
 - (void)viewDidLoad {

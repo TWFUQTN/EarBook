@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
@@ -16,6 +16,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back4.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="4gm-Za-oM5">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IRt-Qa-5PQ">
                     <rect key="frame" x="20" y="20" width="335" height="40"/>
                     <subviews>
@@ -90,19 +93,26 @@
             <constraints>
                 <constraint firstItem="EFl-vS-4cy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="04r-Ms-O0t"/>
                 <constraint firstItem="vIH-Ec-XRY" firstAttribute="leading" secondItem="IRt-Qa-5PQ" secondAttribute="leading" id="1xx-F7-6ua"/>
+                <constraint firstAttribute="bottom" secondItem="4gm-Za-oM5" secondAttribute="bottom" id="2VP-yQ-GBo"/>
                 <constraint firstItem="EFl-vS-4cy" firstAttribute="height" secondItem="vIH-Ec-XRY" secondAttribute="height" id="9ox-zv-rPB"/>
                 <constraint firstAttribute="trailing" secondItem="IRt-Qa-5PQ" secondAttribute="trailing" constant="20" id="DNJ-sJ-78Z"/>
                 <constraint firstItem="vIH-Ec-XRY" firstAttribute="top" secondItem="IRt-Qa-5PQ" secondAttribute="bottom" constant="5" id="HZf-pU-WnX"/>
                 <constraint firstItem="EFl-vS-4cy" firstAttribute="top" secondItem="vIH-Ec-XRY" secondAttribute="bottom" constant="40" id="Im5-0M-iwP"/>
                 <constraint firstItem="uxs-a6-Enf" firstAttribute="top" secondItem="EFl-vS-4cy" secondAttribute="bottom" constant="10" id="K7A-5q-Edn"/>
+                <constraint firstItem="4gm-Za-oM5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kw3-IJ-J5j"/>
                 <constraint firstItem="uxs-a6-Enf" firstAttribute="trailing" secondItem="EFl-vS-4cy" secondAttribute="trailing" id="ZPj-KV-imP"/>
                 <constraint firstItem="IRt-Qa-5PQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="cqi-hL-wm3"/>
                 <constraint firstItem="IRt-Qa-5PQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="dSj-uC-3EO"/>
+                <constraint firstItem="4gm-Za-oM5" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gw5-4O-UN9"/>
                 <constraint firstItem="EFl-vS-4cy" firstAttribute="width" secondItem="vIH-Ec-XRY" secondAttribute="width" id="hyo-BA-ZtM"/>
                 <constraint firstItem="vIH-Ec-XRY" firstAttribute="width" secondItem="IRt-Qa-5PQ" secondAttribute="width" id="jqW-jj-5iM"/>
+                <constraint firstAttribute="trailing" secondItem="4gm-Za-oM5" secondAttribute="trailing" id="rIh-VU-Emd"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
             <point key="canvasLocation" x="13.5" y="179.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="back4.jpg" width="440" height="782"/>
+    </resources>
 </document>

@@ -101,19 +101,21 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    
 }
 
 //tabbar 加载
 -(void)tabBarViewLoad{
     
-    
+//    _header.imageView
     _tabbarHomeView.userInteractionEnabled = YES;
     _tabbarSongView.layer.cornerRadius = 31;
     _tabbarSongView.layer.masksToBounds = YES;
     _tabbarSongImageView.layer.cornerRadius = 30;
     _tabbarSongImageView.layer.masksToBounds = YES;
     _isTabBarListOpen = NO;
-    _tabbarListUpView.layer.borderWidth = 2;
+    _tabbarListUpView.layer.cornerRadius = 1;
+//    _tabbarListUpView.layer.borderWidth = 2;
     self.tabBarListTableView.dataSource = self;
     self.tabBarListTableView.delegate = self;
     if (kBookInfosHandle.bookInfosArray != nil  && kBookInfosHandle.bookMP3 != nil) {
@@ -122,7 +124,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
         _bookInformation = kBookInfosHandle.bookMP3;
         [kAVPlayerManager playWithUrl:_bookList.path currentIndex:self.index];
         // 改变播放按钮的状态
-        [_tabBarPlayButton setImage:[UIImage imageNamed:@"tabBarpause"] forState:UIControlStateNormal];
+        [_tabBarPlayButton setImage:[UIImage imageNamed:@"pause3"] forState:UIControlStateNormal];
         // tabbar image
         _tabbarSongImageView.layer.cornerRadius = 30;
         _tabbarSongImageView.layer.masksToBounds = YES;
@@ -140,11 +142,24 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     [self.tabBarListTableView registerNib:[UINib nibWithNibName:@"TabBarListViewCell" bundle:nil] forCellReuseIdentifier:@"listcell"];
     // 设置代理
     kAVPlayerManager.delegate = self;
-    [_progressSlider setThumbImage:[UIImage imageNamed:@"thumb.png"] forState:UIControlStateNormal];
+    [_progressSlider setThumbImage:[UIImage imageNamed:@"thumb1.png"] forState:UIControlStateNormal];
     _progressSlider.maximumTrackTintColor = [UIColor whiteColor];
-    _progressSlider.minimumTrackTintColor = [UIColor redColor];
-
+    _progressSlider.minimumTrackTintColor = [UIColor grayColor];
     
+    [self homeBackView];
+    
+}
+- (void)homeBackView{
+    NSMutableArray *saveImageArray = [NSMutableArray array];
+    for (int i = 1; i < 12; i++) {
+        NSString *imageName = [NSString stringWithFormat:@"home%d.png",i];
+        UIImage *image = [UIImage imageNamed:imageName];
+        [saveImageArray addObject:image];
+    }
+    self.headerView.backgroundImageView.animationDuration = 2;
+    self.headerView.backgroundImageView.animationRepeatCount = 0;
+    self.headerView.backgroundImageView.animationImages = saveImageArray;
+    [self.headerView.backgroundImageView startAnimating];
 }
 - (IBAction)tabBarListDelete:(id)sender {
     
@@ -291,20 +306,28 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 }
 #pragma mark 下一曲
 - (IBAction)tabBarLastButton:(id)sender {
-    _bookList = [kBookInfosHandle bookInfoNextWithIndex:&_index];
-    [self playAndSetUpViews];
+    if (kBookInfosHandle.bookMP3 != nil) {
+        _bookList = [kBookInfosHandle bookInfoNextWithIndex:&_index];
+
+        [self playAndSetUpViews];
+        [_tabBarPlayButton setImage:[UIImage imageNamed:@"pause3"] forState:UIControlStateNormal];
+
+    }
+
     
 }
 #pragma mark 播放
 - (IBAction)tabBarPlayButton:(id)sender {
-    
-    if (kAVPlayerManager.status == isPaused || kAVPlayerManager.status == isStoped) {
-        [kAVPlayerManager play];
-        [_tabBarPlayButton setImage:[UIImage imageNamed:@"playPause"] forState:UIControlStateNormal];
-    } else if (kAVPlayerManager.status == isPlaying) {
-        [kAVPlayerManager pause];
-        [_tabBarPlayButton setImage:[UIImage imageNamed:@"playPlay"] forState:UIControlStateNormal];
+    if (kBookInfosHandle.bookMP3 != nil){
+        if (kAVPlayerManager.status == isPaused || kAVPlayerManager.status == isStoped) {
+            [kAVPlayerManager play];
+            [_tabBarPlayButton setImage:[UIImage imageNamed:@"pause3"] forState:UIControlStateNormal];
+        } else if (kAVPlayerManager.status == isPlaying) {
+            [kAVPlayerManager pause];
+            [_tabBarPlayButton setImage:[UIImage imageNamed:@"play3"] forState:UIControlStateNormal];
+        }
     }
+
     
 }
 #pragma mark - 定时器改变时间
@@ -326,10 +349,10 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 }
 
 - (IBAction)tabBarSongImageViewAction:(id)sender {
-    
-    PlayerViewController *playVC = [[PlayerViewController alloc]init];
-    [self presentViewController:playVC animated:YES completion:nil];
-
+    if (kBookInfosHandle.bookMP3 != nil) {
+        PlayerViewController *playVC = [[PlayerViewController alloc]init];
+        [self.navigationController pushViewController:playVC animated:YES];
+    }
     
 }
 

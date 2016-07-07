@@ -12,5 +12,7 @@
 @interface RecommendCell : UITableViewCell
 
 @property (nonatomic, strong) BookMP3 *book;
+@property (unsafe_unretained, nonatomic) IBOutlet UIImageView *coverImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *backImageView;
 
 @end
