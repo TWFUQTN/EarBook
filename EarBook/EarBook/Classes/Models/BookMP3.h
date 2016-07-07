@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BookMP3 : NSObject
+@interface BookMP3 : NSObject<NSCoding>
 
 #pragma mark - 书籍详情
 /// 主播

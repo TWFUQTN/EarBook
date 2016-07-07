@@ -83,13 +83,13 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     if (currentUser != nil) {
         // 跳转到用户管理界面
         UserTableViewController *userVC = [UserTableViewController new];
-        userVC.block = ^(AVUserManager *user) {
-            if (user) {
-                _header.nameLabel.text = user.username;
-            } else {
-                _header.nameLabel.text = @"未登录";
-            }
-        };
+//        userVC.block = ^(AVUserManager *user) {
+//            if (user) {
+//                _header.nameLabel.text = user.username;
+//            } else {
+//                _header.nameLabel.text = @"未登录";
+//            }
+//        };
         [self.navigationController pushViewController:userVC animated:YES];
         
     } else {
@@ -196,7 +196,10 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     if (currentUser != nil) {
         
         _header.nameLabel.text = currentUser.username;
+    } else {
+        _header.nameLabel.text = @"未登录";
     }
+
 }
 - (void)createTable{
     [kDocumentsHandle createLikeTable];

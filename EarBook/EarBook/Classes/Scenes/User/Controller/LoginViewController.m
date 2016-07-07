@@ -67,16 +67,18 @@
 {
     [self validateInput];
     
+    __weak typeof(self)loginVC = self;
     [AVUserManager logInWithUsernameInBackground:_usernameTextField.text password:_pwdTextField.text block:^(AVUser *user, NSError *error) {
-        if (user != nil) {
+        if (user != nil ) {
             
-            // 登录成功
-            UserTableViewController *userVC = [UserTableViewController new];
-//            userVC.user = (AVUserManager *)user;
-            [self.navigationController pushViewController:userVC animated:YES];
-
-        } else {
-            
+            if (loginVC.flag == 1) {
+                [loginVC.navigationController popViewControllerAnimated:YES];
+            } else {
+                // 登录成功
+                UserTableViewController *userVC = [UserTableViewController new];
+                //            userVC.user = (AVUserManager *)user;
+                [loginVC.navigationController pushViewController:userVC animated:YES];
+            }
         }
     }];
 }

@@ -108,6 +108,9 @@
 		D656751D1D210FC5000E4B26 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = D656751C1D210FC5000E4B26 /* back.png */; };
 		D65C34BA1D27DF5800CBC367 /* DocumentsHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D65C34B91D27DF5800CBC367 /* DocumentsHandle.m */; };
 		D65C34BC1D27EF8D00CBC367 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D65C34BB1D27EF8D00CBC367 /* libsqlite3.0.tbd */; };
+		D66972BB1D2CE20600CE4C00 /* DownloadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D66972BA1D2CE20600CE4C00 /* DownloadFile.m */; };
+		D66972BE1D2CFD0300CE4C00 /* DownloadListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66972BD1D2CFD0300CE4C00 /* DownloadListViewController.m */; };
+		D66972C11D2D346500CE4C00 /* DownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D66972C01D2D346500CE4C00 /* DownloadModel.m */; };
 		D67313E31D24B92B00386E91 /* RankingHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = D67313E21D24B92B00386E91 /* RankingHeader.m */; };
 		D67313E61D2503A100386E91 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = D67313E51D2503A100386E91 /* User.m */; };
 		D674E0A61D26BE4900E11919 /* Voice.m in Sources */ = {isa = PBXBuildFile; fileRef = D674E0A51D26BE4900E11919 /* Voice.m */; };
@@ -330,6 +333,12 @@
 		D65C34BB1D27EF8D00CBC367 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		D65DC00D1D1E79C1003905BA /* EfficientDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EfficientDefine.h; sourceTree = "<group>"; };
 		D65DC00E1D1E79DB003905BA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D66972B91D2CE20600CE4C00 /* DownloadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadFile.h; sourceTree = "<group>"; };
+		D66972BA1D2CE20600CE4C00 /* DownloadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadFile.m; sourceTree = "<group>"; };
+		D66972BC1D2CFD0300CE4C00 /* DownloadListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadListViewController.h; sourceTree = "<group>"; };
+		D66972BD1D2CFD0300CE4C00 /* DownloadListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadListViewController.m; sourceTree = "<group>"; };
+		D66972BF1D2D346500CE4C00 /* DownloadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadModel.h; sourceTree = "<group>"; };
+		D66972C01D2D346500CE4C00 /* DownloadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadModel.m; sourceTree = "<group>"; };
 		D67313E11D24B92B00386E91 /* RankingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingHeader.h; sourceTree = "<group>"; };
 		D67313E21D24B92B00386E91 /* RankingHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingHeader.m; sourceTree = "<group>"; };
 		D67313E41D2503A100386E91 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
@@ -593,6 +602,8 @@
 				D65C34B91D27DF5800CBC367 /* DocumentsHandle.m */,
 				D64677E81D2A9BC1006D7CB4 /* AVUserManager.h */,
 				D64677E91D2A9BC1006D7CB4 /* AVUserManager.m */,
+				D66972B91D2CE20600CE4C00 /* DownloadFile.h */,
+				D66972BA1D2CE20600CE4C00 /* DownloadFile.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -814,6 +825,8 @@
 				D62D4E0A1D27C41F00939B13 /* PersonalDataViewController.h */,
 				D62D4E0B1D27C41F00939B13 /* PersonalDataViewController.m */,
 				D62D4E0C1D27C41F00939B13 /* PersonalDataViewController.xib */,
+				D66972BC1D2CFD0300CE4C00 /* DownloadListViewController.h */,
+				D66972BD1D2CFD0300CE4C00 /* DownloadListViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -823,6 +836,8 @@
 			children = (
 				D67313E41D2503A100386E91 /* User.h */,
 				D67313E51D2503A100386E91 /* User.m */,
+				D66972BF1D2D346500CE4C00 /* DownloadModel.h */,
+				D66972C01D2D346500CE4C00 /* DownloadModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1435,6 +1450,7 @@
 				D6F611241D22CA53002B4506 /* BookCell.m in Sources */,
 				D674E0A61D26BE4900E11919 /* Voice.m in Sources */,
 				D6F611361D22CA53002B4506 /* TabBarListViewCell.m in Sources */,
+				D66972BE1D2CFD0300CE4C00 /* DownloadListViewController.m in Sources */,
 				D6E334001D23A7FC006052D6 /* VoiceProgram.m in Sources */,
 				D632AFC51D1E22880092A6A3 /* ARSegmentPageController.m in Sources */,
 				D6488AF41D27747B00ABA6FD /* MryScrollPageCell.m in Sources */,
@@ -1447,6 +1463,7 @@
 				D65C34BA1D27DF5800CBC367 /* DocumentsHandle.m in Sources */,
 				D6F611211D22CA53002B4506 /* Classification.m in Sources */,
 				D632AFCB1D1E22880092A6A3 /* TYCircleMenu.m in Sources */,
+				D66972BB1D2CE20600CE4C00 /* DownloadFile.m in Sources */,
 				D6770F7B1D1EA73E00AE0CFE /* UserTableViewController.m in Sources */,
 				D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */,
 				D6F6111D1D22CA53002B4506 /* MoreListViewController.m in Sources */,
@@ -1467,6 +1484,7 @@
 				D675A5721D20D11300E6F999 /* TBActivityView.m in Sources */,
 				D6DA8ABE1D240FBC0067E813 /* AVPlayerManager.m in Sources */,
 				D684EEC31D229385002D2AF6 /* JoiningURL.m in Sources */,
+				D66972C11D2D346500CE4C00 /* DownloadModel.m in Sources */,
 				D632AFC81D1E22880092A6A3 /* TYCircleCell.m in Sources */,
 				D62B095A1D1D2DFC00128D82 /* PlayerViewController.m in Sources */,
 				D60A541D1D1D2FDC00ECF173 /* DetailViewController.m in Sources */,
