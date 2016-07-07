@@ -12,7 +12,9 @@
 #import "BookList.h"
 #import "BookMP3.h"
 #import "DocumentsHandle.h"
-
+#import "BaseModel.h"
+#import <AVOSCloud.h>
+#import "AVPlayerManager.h"
 // 获取数据源接口的反馈结果
 
 @interface BookInfosHandle : NSObject
@@ -22,9 +24,9 @@
 @property (nonatomic, strong) BookMP3 * bookMP3;
 //book index
 @property (nonatomic, assign) NSInteger indexout;
-//存储最近列表
+//最近列表
 @property (nonatomic, strong) NSMutableArray *bookCrentlyArray;
-//喜欢的收藏名字
+//喜欢收藏
 @property (nonatomic, strong) NSMutableArray *bookLikeArray;
 //当前的时间
 @property (nonatomic, strong) NSString *nowDate;
@@ -43,9 +45,12 @@ singleton_interface(BookInfosHandle)
 
 //获取当前时间及其时间戳
 - (void)getNowDate;
-
-//读取数据库
-- (void)makeOutRecentlyBaseWithBookID:(NSString *)ID index:(NSInteger )index second:(NSInteger)second value:(CGFloat)value;
-
-
+#pragma mark - 最近播放写入转换成AVObject
+- (void)recentlyBookToAVObject;
+#pragma mark - 最近播放AVObject转换成转换成NBAseModel
+- (BaseModel *)recentlyAVObjectToNews:(AVObject *)object ;
+#pragma mark - 搜藏写入转换成AVObject
+- (void)likeBookToAVObject;
+#pragma mark - 搜藏AVObject转换成转换成NBAseModel
+- (BaseModel *)likeAVObjectToNews:(AVObject *)object;
 @end

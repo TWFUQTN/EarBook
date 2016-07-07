@@ -9,12 +9,23 @@
 #import <Foundation/Foundation.h>
 
 @interface BaseModel : NSObject
-/// bookid
-@property (nonatomic, strong) NSString *ID;
-// index
+
+@property (nonatomic, strong) NSString *bookID;
+
 @property (nonatomic, assign) NSInteger index;
-// 时间戳
-@property (nonatomic, assign) NSInteger time;
-// 播放的时间数值
-@property (nonatomic, assign) CGFloat value;
+
+@property (nonatomic, strong) NSString *bookImageURL;
+
+@property (nonatomic, strong) NSString *bookName;
+
+@property (nonatomic, strong) NSDate *bookDate;
+
+@property (nonatomic, strong) NSString *bookMP3URL;
+
+@property (nonatomic, strong) NSString *bookAnnouncer;
+
+@property (nonatomic, strong) NSMutableArray *listArray;
+
+@property (nonatomic, strong) NSString *bookMP3Name;
+
 @end
