@@ -1,0 +1,211 @@
+//
+//  DownloadListViewController.m
+//  EarBook
+//
+//  Created by lanou3g on 16/7/6.
+//  Copyright © 2016年 赵符壹. All rights reserved.
+//
+
+#import "DownloadListViewController.h"
+#import "BookList.h"
+#import "BookMP3.h"
+#import "DownloadModel.h"
+#import "EB_COLOR.h"
+#import <AVOSCloud.h>
+
+@interface DownloadListViewController ()
+
+/// 下载沙盒路径
+@property (nonatomic, strong) NSMutableArray *downloadPathArray;
+
+/// 书籍详情数组
+//@property (nonatomic, strong) NSMutableArray *bookArray;
+
+/// 书籍列表数组
+//@property (nonatomic, strong) NSMutableArray *bookListArray;
+
+@end
+
+@implementation DownloadListViewController
+
+- (NSMutableArray *)downloadPathArray
+{
+    if (!_downloadPathArray) {
+        _downloadPathArray = [NSMutableArray array];
+    }
+    return _downloadPathArray;
+}
+
+//- (NSMutableArray *)bookArray
+//{
+//    if (!_bookArray) {
+//        _bookArray = [NSMutableArray array];
+//    }
+//    return _bookArray;
+//}
+//
+//- (NSMutableArray *)bookListArray
+//{
+//    if (!_bookListArray) {
+//        _bookListArray = [NSMutableArray array];
+//    }
+//    return _bookListArray;
+//}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.title = @"我的下载";
+    
+    // 获取数据
+    [self loadData];
+    
+    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+    
+    // 设置navigationBar
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = EB_MAIN_COLOR;
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    // 返回按钮
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:(UIBarButtonItemStylePlain) target:self action:@selector(back)];
+}
+
+#pragma mark - 返回按钮
+- (void)back
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - 获取数据
+- (void)loadData
+{
+    AVUser *currentUser = [AVUser currentUser];
+    
+    AVQuery *query = [AVQuery queryWithClassName:@"DownloadBook"];
+    [query whereKey:@"username" equalTo:currentUser.username];
+    
+    __weak typeof(self)downloadVC = self;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (!error) {
+            for (AVObject *oneObject in objects) {
+                
+//                NSData *bookListData = [oneObject objectForKey:@"bookList"];
+//                NSData *bookData = [oneObject objectForKey:@"book"];
+//                
+//                BookList *bookList = [self unarchiverWithData:bookListData key:@"bookList"];
+//                [downloadVC.bookListArray addObject:bookList];
+//                
+//                BookMP3 *book = [self unarchiverWithData:bookData key:@"book"];
+//                [downloadVC.bookArray addObject:book];
+                
+                DownloadModel *downloadModel = [DownloadModel new];
+                
+                downloadModel.bookName = [oneObject objectForKey:@"bookName"];
+                downloadModel.bookListName = [oneObject objectForKey:@"bookListName"];
+                downloadModel.ID = [oneObject objectForKey:@"ID"];
+                downloadModel.path = [oneObject objectForKey:@"path"];
+                
+                downloadModel.downloadTime = oneObject.createdAt;
+                
+                [downloadVC.downloadPathArray addObject:downloadModel];
+                
+            }
+            
+            [downloadVC.tableView reloadData];
+        }
+    }];
+}
+
+#pragma mark - 解挡
+- (id)unarchiverWithData:(NSData *)data
+                     key:(NSString *)key
+{
+    NSKeyedUnarchiver *unarchiver = [[NSKeyedUnarchiver alloc] initForReadingWithData:data];
+    id object = [unarchiver decodeObjectForKey:key];
+    
+    [unarchiver finishDecoding];
+    
+    return object;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+
+    return self.downloadPathArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
+    
+    if (_downloadPathArray.count > 0) {
+        
+        DownloadModel *model = _downloadPathArray[indexPath.row];
+        
+        NSDateFormatter *formatter = [NSDateFormatter new];
+//        [formatter setDateFormat:@""];
+        
+        cell.textLabel.text = model.bookListName;
+        cell.detailTextLabel.text = [formatter stringFromDate:model.downloadTime];
+    }
+    
+    return cell;
+}
+
+/*
+// Override to support conditional editing of the table view.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the specified item to be editable.
+    return YES;
+}
+*/
+
+/*
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Delete the row from the data source
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
+        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+    }   
+}
+*/
+
+/*
+// Override to support rearranging the table view.
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
+}
+*/
+
+/*
+// Override to support conditional rearranging of the table view.
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return NO if you do not want the item to be re-orderable.
+    return YES;
+}
+*/
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
+
+@end

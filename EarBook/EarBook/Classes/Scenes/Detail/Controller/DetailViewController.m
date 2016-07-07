@@ -14,9 +14,11 @@
 #import "BookList.h"
 #import "Tool_AdaptiveHeight.h"
 #import "PlayerViewController.h"
+#import "LoginViewController.h"
 #import "BookInfosHandle.h"
-
+#import "DownloadFile.h"
 #import <UMSocial.h>
+#import <AVOSCloud.h>
 
 
 #define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
@@ -25,7 +27,7 @@
 
 #define kButtonTag 9891
 
-@interface DetailViewController ()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, UMSocialUIDelegate>
+@interface DetailViewController ()<UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, UMSocialUIDelegate, NSURLSessionDelegate>
 //{
 //    NSInteger *page;
 //}
@@ -57,16 +59,22 @@
 //内层scrollView高度（自适应高）
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;
 
-
-
-
-
 //装目录列表信息
 @property (nonatomic, strong) NSMutableArray *listArray;
 
-
-
 @property (nonatomic, strong) BookMP3 *detailBook;
+
+/// 下载任务的属性
+@property (nonatomic, strong) NSURLSessionDownloadTask *task;
+
+/// 网络请求类
+@property (nonatomic, strong) NSURLSession *session;
+
+/// 发送请求类
+@property (nonatomic, strong) NSURLRequest *request;
+
+/// 用于保存已经下载的数据，供继续下载使用
+@property (nonatomic, strong) NSMutableData *data;
 
 @end
 
@@ -184,6 +192,7 @@
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
     // 列表页数据加载
     NSString *bookListURL = [NSString stringWithFormat:@"%@%@%@%ld%@", EB_BOOK_LIST_BASE_URL, book.ID, EB_BOOK_LIST_URL1, self.pageNum, EB_BOOK_LIST_URL2];
+    __weak typeof(self) detailVC = self;
     [session GET:bookListURL
       parameters:nil
         progress:nil
@@ -192,11 +201,11 @@
              for (NSDictionary *dict in responseObject[@"list"]) {
                  BookList *bookList = [BookList new];
                  [bookList setValuesForKeysWithDictionary:dict];
-                 [self.listArray addObject:bookList];
+                 [detailVC.listArray addObject:bookList];
              }
              
              dispatch_async(dispatch_get_main_queue(), ^{
-                 [self.listTableView reloadData];
+                 [detailVC.listTableView reloadData];
              });
              
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -253,6 +262,7 @@
         cell.bookList = _listArray[indexPath.row];
     }
     cell.uploadButton.tag = kButtonTag + indexPath.row;
+    
     [cell.uploadButton addTarget:self action:@selector(uploadButtonAction:) forControlEvents:(UIControlEventTouchUpInside)];
     
     return cell;
@@ -261,7 +271,62 @@
 #pragma mark - 下载
 - (void)uploadButtonAction:(UIButton *)sender
 {
+    [sender setTitle:@"已下载" forState:(UIControlStateNormal)];
     
+    NSInteger index = sender.tag - kButtonTag;
+    NSLog(@"%ld", index);
+    
+    BookList *bookList = _listArray[index];
+    
+    AVUser *currentUser = [AVUser currentUser];
+    
+    DownloadFile *downloadFile = [DownloadFile shareDownloadFile];
+    
+    if (currentUser != nil) {
+        if (self.pushFrom == PushFromMoreListVC) {
+            // 下载
+            [downloadFile downloadWithBookList:bookList Book:_book User:currentUser];
+            
+//            [downloadFile.progress addObserver:self forKeyPath:@"fractionCompleted" options:(NSKeyValueObservingOptionNew) context:NULL];
+            
+        } else {
+            // 下载
+            [downloadFile downloadWithBookList:bookList Book:_detailBook User:currentUser];
+//            [downloadFile.progress addObserver:self forKeyPath:@"fractionCompleted" options:(NSKeyValueObservingOptionNew) context:NULL];
+
+        }
+    } else {
+        //缓存用户对象为空时，可打开用户注册界面…
+        LoginViewController *loginVC = [LoginViewController new];
+        loginVC.flag = 1;
+        [self.navigationController pushViewController:loginVC animated:YES];
+    }
+    
+    
+}
+
+#pragma mark - 拿到进度
+//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
+//    //拿到进度
+//    //    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+//    
+//    if ([keyPath isEqualToString:@"fractionCompleted"] && [object isKindOfClass:[NSProgress class]]) {
+//        NSProgress *progress = (NSProgress *)object;
+//        if (progress.fractionCompleted == 1.0) {
+//            [self errorAlertWithMessage:@"下载完成！"];
+//        }
+//    }
+//}
+
+#pragma mark - 错误提示的alert
+- (void)errorAlertWithMessage:(NSString *)message
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:(UIAlertControllerStyleAlert)];
+    
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:nil];
+    
+    [alert addAction:cancelAction];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - scrollView代理方法

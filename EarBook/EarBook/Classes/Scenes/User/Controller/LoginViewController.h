@@ -13,4 +13,6 @@
 
 //@property (nonatomic, copy) LoginVCBlock block;
 
+@property (nonatomic, assign) NSInteger flag;
+
 @end

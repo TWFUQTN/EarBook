@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface BookList : NSObject
+@interface BookList : NSObject<NSCoding>
 
 /// 名字
 @property (nonatomic, copy) NSString *name;

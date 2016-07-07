@@ -10,6 +10,7 @@
 #import "LoginViewController.h"
 #import "PersonalDataViewController.h"
 #import "HomeViewController.h"
+#import "DownloadListViewController.h"
 #import "UserCell.h"
 #import "EB_COLOR.h"
 #import "FileManagerHandle.h"
@@ -76,23 +77,6 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-#pragma mark - 登录
-//- (void)loginAction {
-//    
-//    AVUserManager *currentUser = [AVUserManager currentUser];
-//    if (currentUser != nil) {
-//        
-//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"注销" style:(UIBarButtonItemStylePlain) target:self action:@selector(logoutAction)];
-//        
-//    } else {
-//        //缓存用户对象为空时，可打开用户注册界面…
-//        LoginViewController *loginVC = [LoginViewController new];
-//        
-//        [self.navigationController pushViewController:loginVC animated:YES];
-//    }
-//    
-//}
-
 #pragma mark - 注销
 - (void)logoutAction
 {
@@ -150,7 +134,6 @@
             
             PersonalDataViewController *personalDataVC = [PersonalDataViewController new];
             
-            
             [self.navigationController pushViewController:personalDataVC animated:YES];
             
             break;
@@ -159,6 +142,10 @@
             break;
         }
         case 2: {
+            
+            DownloadListViewController *downloadListVC = [DownloadListViewController new];
+            [self.navigationController pushViewController:downloadListVC animated:YES];
+            
             break;
         }
         case 3: {
