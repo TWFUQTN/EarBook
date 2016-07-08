@@ -91,7 +91,6 @@
 		D62B09541D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B093E1D1D2DFC00128D82 /* 苹果接口.txt */; };
 		D62B095A1D1D2DFC00128D82 /* PlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B094D1D1D2DFC00128D82 /* PlayerViewController.m */; };
 		D62B095B1D1D2DFC00128D82 /* PlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62B094E1D1D2DFC00128D82 /* PlayerViewController.xib */; };
-		D62B095C1D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B09501D1D2DFC00128D82 /* 苹果接口.txt */; };
 		D62D4E091D27C10700939B13 /* FileManagerHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D62D4E081D27C10700939B13 /* FileManagerHandle.m */; };
 		D62D4E0D1D27C41F00939B13 /* PersonalDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D62D4E0B1D27C41F00939B13 /* PersonalDataViewController.m */; };
 		D62D4E0E1D27C41F00939B13 /* PersonalDataViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D62D4E0C1D27C41F00939B13 /* PersonalDataViewController.xib */; };
@@ -197,6 +196,8 @@
 		D6899CC61D2D26170066083C /* MryPageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6899CC41D2D26170066083C /* MryPageTableCell.xib */; };
 		D69173DA1D2CEEA400978E48 /* headText.png in Resources */ = {isa = PBXBuildFile; fileRef = D69173D91D2CEEA400978E48 /* headText.png */; };
 		D6973BA81D2659A1008FEDD2 /* BookInfosHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6973BA71D2659A1008FEDD2 /* BookInfosHandle.m */; };
+		D69AA1C71D2FDF9B00F8AFF7 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D69AA1C61D2FDF9B00F8AFF7 /* MediaPlayer.framework */; };
+		D69AA1C91D2FDFA800F8AFF7 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D69AA1C81D2FDFA800F8AFF7 /* AudioToolbox.framework */; };
 		D6ADC1051D25F9E500B3AF67 /* RankingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ADC1041D25F9E500B3AF67 /* RankingListViewController.m */; };
 		D6B248CC1D211A850082ED6A /* BookList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B248CB1D211A850082ED6A /* BookList.m */; };
 		D6CE72AE1D23578300B6E108 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CE72AC1D23578300B6E108 /* MyCollectionViewCell.m */; };
@@ -340,7 +341,6 @@
 		D62B094C1D1D2DFC00128D82 /* PlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlayerViewController.h; sourceTree = "<group>"; };
 		D62B094D1D1D2DFC00128D82 /* PlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayerViewController.m; sourceTree = "<group>"; };
 		D62B094E1D1D2DFC00128D82 /* PlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PlayerViewController.xib; sourceTree = "<group>"; };
-		D62B09501D1D2DFC00128D82 /* 苹果接口.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "苹果接口.txt"; sourceTree = "<group>"; };
 		D62D4E071D27C10700939B13 /* FileManagerHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManagerHandle.h; sourceTree = "<group>"; };
 		D62D4E081D27C10700939B13 /* FileManagerHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManagerHandle.m; sourceTree = "<group>"; };
 		D62D4E0A1D27C41F00939B13 /* PersonalDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PersonalDataViewController.h; sourceTree = "<group>"; };
@@ -489,6 +489,8 @@
 		D69173D91D2CEEA400978E48 /* headText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headText.png; sourceTree = "<group>"; };
 		D6973BA61D2659A1008FEDD2 /* BookInfosHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookInfosHandle.h; sourceTree = "<group>"; };
 		D6973BA71D2659A1008FEDD2 /* BookInfosHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookInfosHandle.m; sourceTree = "<group>"; };
+		D69AA1C61D2FDF9B00F8AFF7 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		D69AA1C81D2FDFA800F8AFF7 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		D6ADC1031D25F9E500B3AF67 /* RankingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingListViewController.h; sourceTree = "<group>"; };
 		D6ADC1041D25F9E500B3AF67 /* RankingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingListViewController.m; sourceTree = "<group>"; };
 		D6B248CA1D211A850082ED6A /* BookList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookList.h; sourceTree = "<group>"; };
@@ -576,6 +578,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D69AA1C91D2FDFA800F8AFF7 /* AudioToolbox.framework in Frameworks */,
+				D69AA1C71D2FDF9B00F8AFF7 /* MediaPlayer.framework in Frameworks */,
 				D62D4F781D28002400939B13 /* libicucore.tbd in Frameworks */,
 				D62D4F761D28001700939B13 /* CoreLocation.framework in Frameworks */,
 				D62D4F741D28000C00939B13 /* CoreTelephony.framework in Frameworks */,
@@ -601,6 +605,8 @@
 		AFB473BCB4BE4E0E4B2B1812 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D69AA1C81D2FDFA800F8AFF7 /* AudioToolbox.framework */,
+				D69AA1C61D2FDF9B00F8AFF7 /* MediaPlayer.framework */,
 				D62D4F771D28002400939B13 /* libicucore.tbd */,
 				D62D4F751D28001700939B13 /* CoreLocation.framework */,
 				D62D4F731D28000C00939B13 /* CoreTelephony.framework */,
@@ -853,7 +859,6 @@
 		D62B094F1D1D2DFC00128D82 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				D62B09501D1D2DFC00128D82 /* 苹果接口.txt */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1494,7 +1499,6 @@
 				D62B09541D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D6420C301D2D01810063F5D4 /* cellImage1.jpg in Resources */,
 				D6420C661D2D33620063F5D4 /* home11.png in Resources */,
-				D62B095C1D1D2DFC00128D82 /* 苹果接口.txt in Resources */,
 				D6770F881D1EB5ED00AE0CFE /* 1.png in Resources */,
 				D6420C6B1D2D33620063F5D4 /* home6.png in Resources */,
 				D616996F1D226D3E006E7FB6 /* playnosound.png in Resources */,

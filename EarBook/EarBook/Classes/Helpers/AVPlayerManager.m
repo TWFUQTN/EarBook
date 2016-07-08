@@ -33,7 +33,7 @@ singleton_implementation(AVPlayerManager)
         [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
         // 定时器默认暂停
         _timer.fireDate = [NSDate distantFuture];
-        self.volume = 0.2;
+        self.volume = 1;
         self.index = -1;
     }
     return self;
@@ -67,7 +67,7 @@ singleton_implementation(AVPlayerManager)
     if (!_avPlayer) {
         // 创建新的进行播放
         _avPlayer = [[AVPlayer alloc] initWithPlayerItem:playerItem];
-        _avPlayer.volume = 0.5;
+        _avPlayer.volume = 1;
         
     } else {
         // 替换当前播放item
@@ -122,24 +122,6 @@ singleton_implementation(AVPlayerManager)
     _status = isPlaying;
 }
 
-//// 系统音量发生变化
-//- (void)volumeChanged{
-//    [self.playerConsole changeVoluem:[MPMusicPlayerController applicationMusicPlayer].volume];
-//}
-//
-////// 获取系统音量
-//-(float) getVolumeLevel
-//{
-//    MPVolumeView *volumeView = [[MPVolumeView alloc] init];
-//    UISlider *volumeViewSlider= nil;
-//    for (UIView *view in [volumeView subviews]){
-//        if ([view.class.description isEqualToString:@"MPVolumeSlider"]){
-//            volumeViewSlider = (UISlider*)view;
-//            break;
-//        }
-//    }
-//    return volumeViewSlider.value;
-//}
 
 // 暂停
 - (void)pause {
