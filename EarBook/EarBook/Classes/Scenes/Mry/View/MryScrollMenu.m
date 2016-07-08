@@ -74,7 +74,6 @@
         menuBtn.frame = CGRectMake(menuBtnX, 0, btnRect.size.width, self.scrollView.frame.size.height);
         
         [self.scrollView addSubview:menuBtn];
-        NSLog(@"___________%ld", self.myIndexPath);
         if (i == 0) {
             self.selectedBtn = menuBtn;
         }
@@ -103,7 +102,6 @@
     
     //计算scrollview偏移量
     CGFloat originX = selectedBtn.center.x - CGRectGetMidX(self.scrollView.frame);
-    NSLog(@"~~~~~~~~~~~~~%lf", selectedBtn.center.x);
     CGFloat maxOffsetX = self.scrollView.contentSize.width - self.scrollView.frame.size.width;
     if (originX < 0) {
         originX = 0;

@@ -15,6 +15,8 @@ typedef void(^classificationCellBlock)(NSInteger indexPath, Classification *clas
 //类型名
 @property (nonatomic, strong) UILabel *typeLabel;
 
+//图片
+@property (nonatomic, strong) UIImageView *myImageView;
 
 //传值数组
 @property (nonatomic, strong) NSMutableArray *cellArray;

@@ -11,6 +11,7 @@
 #import "EB_URL.h"
 #import "Classification.h"
 #import "MRYViewController.h"
+#import "MBProgressHUD+GifHUD.h"
 
 
 #import <AFNetworking/AFNetworking.h>
@@ -69,8 +70,22 @@
     return _classificationArr;
 }
 
+//显示等待视图
+- (void)showGif {
+    [MBProgressHUD setUpGifWithFrame:CGRectMake(0, 0, 80, 80) gifName:@"wait" andShowToView:self.view];
+}
+
+//隐藏等待视图
+- (void)hideGifView {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self showGif];
+    
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     imageView.image = [UIImage imageNamed:@"back3.jpg"];
     self.tableView.backgroundView = imageView;
@@ -86,9 +101,11 @@
     // 下拉刷新
     __weak typeof(self) classificationVC = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self showGif];
         [classificationVC requestData];
         // 结束刷新
         [classificationVC.tableView.mj_footer endRefreshing];
+        [self hideGifView];
     }];
     
     
@@ -136,8 +153,6 @@
                 for (NSDictionary *dict in array) {
                     Classification *classification = [[Classification alloc] init];
                     [classification setValuesForKeysWithDictionary:dict];
-                    NSLog(@"%@", classification.url);
-                    NSLog(@"%@", classification.ID);
                     [allDataArray addObject:classification];
                 }
             }else {
@@ -151,6 +166,7 @@
 //        NSLog(@"%ld", classificationVC.allDataDict.count);
         dispatch_async(dispatch_get_main_queue(), ^{
             [classificationVC.tableView reloadData];
+            [self hideGifView];
         });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"第二次网络请求失败");
@@ -188,6 +204,7 @@
     ClassificationCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
 //    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.typeLabel.text = self.typeArray[indexPath.section];
+    cell.myImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"cellm%ld", indexPath.section + 1]];
     NSMutableArray *allDataArray = [NSMutableArray array];
     allDataArray = self.allDataDict[self.typeArray[indexPath.section]];
     cell.cellArray = allDataArray;
@@ -214,9 +231,11 @@
 
 //cell高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.section == 12) {
+    if(indexPath.section == 11) {
+        NSLog(@"--------=======%f", [ClassificationCell heightOfCellByNumberFromItems:[self.allDataDict[self.typeArray[indexPath.section]] count]] + 20);
         return [ClassificationCell heightOfCellByNumberFromItems:[self.allDataDict[self.typeArray[indexPath.section]] count]] + 20;
     }
+    NSLog(@"~~~~~~!!!!!!_______+++++%f", [ClassificationCell heightOfCellByNumberFromItems:[self.allDataDict[self.typeArray[indexPath.section]] count]]);
     return [ClassificationCell heightOfCellByNumberFromItems:[self.allDataDict[self.typeArray[indexPath.section]] count]];
 }
 

@@ -135,8 +135,6 @@
     [session GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSArray *dataArray = responseObject[@"list"];
         for (NSDictionary *dict in dataArray) {
-            NSLog(@"%ld", dataArray.count);
-            NSLog(@"%ld", dict.count);
             NSString *bookId = dict[@"id"];
             NSString *bookUrl = [NSString stringWithFormat:@"%@%@%@", EB_BOOK_DETAIL_BASE_URL, bookId, EB_BOOK_DETAIL_URL];
             [mryVC requestDetailBookData:bookUrl];

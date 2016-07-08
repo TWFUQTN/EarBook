@@ -20,6 +20,7 @@
 #import "SpecialSubjectViewController.h"
 #import "SpecialSubjectDetailViewController.h"
 #import "VoiceDetailViewController.h"
+#import "MBProgressHUD+GifHUD.h"
 
 #import <AVOSCloud.h>
 
@@ -80,12 +81,26 @@
     [self createNetScrollView];
 }
 
+//显示等待视图
+- (void)showGif {
+    [MBProgressHUD setUpGifWithFrame:CGRectMake(0, 0, 80, 80) gifName:@"wait" andShowToView:self.view];
+}
+
+//隐藏等待视图
+- (void)hideGifView {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     imageView.image = [UIImage imageNamed:@"back1.jpg"];
     self.tableView.backgroundView = imageView;
+    
+    [self showGif];
+    
     // 加载数据
     [self requestData];
     
@@ -100,9 +115,11 @@
     // 下拉刷新
     __weak typeof(self) recommendVC = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self showGif];
         [recommendVC requestData];
         // 结束刷新
         [recommendVC.tableView.mj_footer endRefreshing];
+        [self hideGifView];
     }];
     
     // 测试代码
@@ -157,6 +174,7 @@
                   dispatch_async(dispatch_get_main_queue(), ^{
                       
                       [self.tableView reloadData];
+                      [self hideGifView];
                   });
 
               } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
