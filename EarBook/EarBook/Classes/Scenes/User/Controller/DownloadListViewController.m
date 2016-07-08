@@ -58,15 +58,18 @@
     [super viewDidLoad];
     
     self.title = @"我的下载";
-
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.frame];
+    imageView.image = [UIImage imageNamed:@"back9.jpg"];
+    self.tableView.backgroundView =imageView;
     // 获取数据
     [self loadData];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
     // 设置navigationBar
+    self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barTintColor = EB_MAIN_COLOR;
+    self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     // 返回按钮
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:(UIBarButtonItemStylePlain) target:self action:@selector(back)];

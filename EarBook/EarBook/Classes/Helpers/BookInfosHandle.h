@@ -11,7 +11,6 @@
 #import <UIKit/UIKit.h>
 #import "BookList.h"
 #import "BookMP3.h"
-#import "DocumentsHandle.h"
 #import "BaseModel.h"
 #import <AVOSCloud.h>
 #import "AVPlayerManager.h"
@@ -32,6 +31,8 @@
 @property (nonatomic, strong) NSString *nowDate;
 //时间戳
 @property (nonatomic, assign) NSInteger allSecond;
+//当前书籍是否被收藏
+@property (nonatomic, assign) BOOL isCollected;
 
 // 声明单例
 singleton_interface(BookInfosHandle)
@@ -53,4 +54,13 @@ singleton_interface(BookInfosHandle)
 - (void)likeBookToAVObject;
 #pragma mark - 搜藏AVObject转换成转换成NBAseModel
 - (BaseModel *)likeAVObjectToNews:(AVObject *)object;
+
+
+#pragma mark - 从like表中获取所有数据
+- (void)selectAllFromLikeBooksTable;
+#pragma mark - 从like表中获取数据
+-(void)selectFromLikeBooksTable;
+#pragma mark - 收藏
+- (void)likeItemAction;
+
 @end

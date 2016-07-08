@@ -33,7 +33,7 @@ singleton_implementation(AVPlayerManager)
         [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
         // 定时器默认暂停
         _timer.fireDate = [NSDate distantFuture];
-        self.volume = 0.5;
+        self.volume = 0.2;
         self.index = -1;
     }
     return self;

@@ -154,7 +154,6 @@
 		D6488AF31D27747B00ABA6FD /* MryScrollMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D6488AEF1D27747B00ABA6FD /* MryScrollMenu.m */; };
 		D6488AF41D27747B00ABA6FD /* MryScrollPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6488AF11D27747B00ABA6FD /* MryScrollPageCell.m */; };
 		D656751D1D210FC5000E4B26 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = D656751C1D210FC5000E4B26 /* back.png */; };
-		D65C34BA1D27DF5800CBC367 /* DocumentsHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D65C34B91D27DF5800CBC367 /* DocumentsHandle.m */; };
 		D65C34BC1D27EF8D00CBC367 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D65C34BB1D27EF8D00CBC367 /* libsqlite3.0.tbd */; };
 		D66972BB1D2CE20600CE4C00 /* DownloadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D66972BA1D2CE20600CE4C00 /* DownloadFile.m */; };
 		D66972BE1D2CFD0300CE4C00 /* DownloadListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66972BD1D2CFD0300CE4C00 /* DownloadListViewController.m */; };
@@ -427,8 +426,6 @@
 		D6488AF01D27747B00ABA6FD /* MryScrollPageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MryScrollPageCell.h; sourceTree = "<group>"; };
 		D6488AF11D27747B00ABA6FD /* MryScrollPageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MryScrollPageCell.m; sourceTree = "<group>"; };
 		D656751C1D210FC5000E4B26 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
-		D65C34B81D27DF5800CBC367 /* DocumentsHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentsHandle.h; sourceTree = "<group>"; };
-		D65C34B91D27DF5800CBC367 /* DocumentsHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentsHandle.m; sourceTree = "<group>"; };
 		D65C34BB1D27EF8D00CBC367 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		D65DC00D1D1E79C1003905BA /* EfficientDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EfficientDefine.h; sourceTree = "<group>"; };
 		D65DC00E1D1E79DB003905BA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -726,8 +723,6 @@
 				D6973BA71D2659A1008FEDD2 /* BookInfosHandle.m */,
 				D62D4E071D27C10700939B13 /* FileManagerHandle.h */,
 				D62D4E081D27C10700939B13 /* FileManagerHandle.m */,
-				D65C34B81D27DF5800CBC367 /* DocumentsHandle.h */,
-				D65C34B91D27DF5800CBC367 /* DocumentsHandle.m */,
 				D64677E81D2A9BC1006D7CB4 /* AVUserManager.h */,
 				D64677E91D2A9BC1006D7CB4 /* AVUserManager.m */,
 				D66972B91D2CE20600CE4C00 /* DownloadFile.h */,
@@ -1689,7 +1684,6 @@
 				D631B4B11D1C1CBC00102682 /* main.m in Sources */,
 				D62D4E0D1D27C41F00939B13 /* PersonalDataViewController.m in Sources */,
 				D6973BA81D2659A1008FEDD2 /* BookInfosHandle.m in Sources */,
-				D65C34BA1D27DF5800CBC367 /* DocumentsHandle.m in Sources */,
 				D6F611211D22CA53002B4506 /* Classification.m in Sources */,
 				D632AFCB1D1E22880092A6A3 /* TYCircleMenu.m in Sources */,
 				D66972BB1D2CE20600CE4C00 /* DownloadFile.m in Sources */,

@@ -34,6 +34,8 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     // 设置navigationBar
+    self.navigationController.navigationBarHidden = NO;
+
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
