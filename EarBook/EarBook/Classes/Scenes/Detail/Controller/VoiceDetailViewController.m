@@ -288,10 +288,8 @@
         
         // 下载到沙盒的位置
         NSURL *documentsDirectoryURL = [[[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil] URLByAppendingPathComponent:[response suggestedFilename]];
-        //        NSLog(@"documentsDirectoryURL = %@", documentsDirectoryURL);
-        
-        // 将NSURL转为NSString
-        NSString *documentsPath = [[documentsDirectoryURL absoluteString] substringFromIndex:7];
+
+       NSString *documentsPath = [response suggestedFilename];
         
         [downloadFile saveToleanCloudWithdocumentsPath:documentsPath BookList:bookList Book:_book User:currentUser ClassName:@"DownloadBook"];
         

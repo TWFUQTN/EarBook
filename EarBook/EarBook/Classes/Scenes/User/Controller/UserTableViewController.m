@@ -41,8 +41,8 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"UserCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
-    self.dictionary = @{@"image":@[@"Useruser", @"Userheart", @"Userfolder", @"Usertrashcan", @"Userpie"],
-                        @"title":@[@"完善资料", @"我的收藏", @"我的下载", @"清除缓存", @"最近播放"]
+    self.dictionary = @{@"image":@[@"Useruser", @"Userheart", @"Userfolder", @"Usertrashcan"],
+                        @"title":@[@"完善资料", @"我的收藏", @"我的下载", @"清除缓存"]
                         };
     
     // 判断用户是否登录
