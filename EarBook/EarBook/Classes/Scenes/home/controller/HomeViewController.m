@@ -20,15 +20,13 @@
 #import "BookInfosHandle.h"
 #import "AVUserManager.h"
 #import "LoginViewController.h"
-#import "DocumentsHandle.h"
 
 
 // AVPlayerManager的单例
 #define kAVPlayerManager [AVPlayerManager shareAVPlayerManager]
 //BookInfoHandle的单例
 #define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
-//Documentbase的单例
-#define kDocumentsHandle [DocumentsHandle shareDocumentsHandle]
+
 
 
 void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
@@ -167,7 +165,20 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     
 }
 - (IBAction)tabBarListLikes:(id)sender {
-    
+    [kBookInfosHandle likeItemAction];
+    if (kBookInfosHandle.isCollected == YES) {
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"收藏" message:@"收藏成功" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertA = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        }];
+        [alertC addAction:alertA];
+        [self presentViewController:alertC animated:YES completion:nil];
+    }else {
+        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"收藏" message:@"取消收藏" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *alertA = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        }];
+        [alertC addAction:alertA];
+        [self presentViewController:alertC animated:YES completion:nil];
+    }
     
 }
 
@@ -216,10 +227,6 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
         _header.nameLabel.text = @"未登录";
     }
 
-}
-- (void)createTable{
-    [kDocumentsHandle createLikeTable];
-    [kDocumentsHandle createRecentTable];
 }
 #pragma mark view
 // 更新并设置view上所有子视图
@@ -346,7 +353,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     }];
 }
 - (IBAction)tabBarListDisapperAction:(id)sender {
-    
+    [kBookInfosHandle selectFromLikeBooksTable];
     _tabBarListView.hidden = YES;
     _tabbarListOtherView.hidden = YES;
     _isTabBarListOpen = NO;

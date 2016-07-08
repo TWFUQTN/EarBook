@@ -163,70 +163,93 @@ singleton_implementation(BookInfosHandle)
         _bookCrentlyArray = currentArray;
     }
 }
-#pragma mark - 收藏写入转换成AVObject
-- (void)likeBookToAVObject{
-    AVObject *ob = [[AVObject alloc] initWithClassName:@"like"];
-    [ob setObject:_bookMP3.ID forKey:@"bookID"];
-    [ob setObject:_bookMP3.name forKey:@"bookName"];
-    [ob setObject:_bookMP3.cover forKey:@"bookImageURL"];
-    [ob setObject:[AVUser currentUser].username forKey:@"username"];
-    [ob setObject:[NSString stringWithFormat:@"%ld",_indexout] forKey:@"index"];
-    
-    [ob saveInBackground];
-}
+
 #pragma mark - 收藏AVObject转换成转换成NBAseModel
 - (BaseModel *)likeAVObjectToNews:(AVObject *)object {
     BaseModel *baseModel = [[BaseModel alloc] init];
     baseModel.bookID = [object objectForKey:@"bookID"];
     baseModel.bookName = [object objectForKey:@"bookName"];
     baseModel.bookImageURL = [object objectForKey:@"bookImageURL"];
-    baseModel.index = [[object objectForKey:@"index"] integerValue];
     baseModel.bookDate = [object objectForKey:@"updatedAt"];
     return baseModel;
 }
-//#pragma mark - 收藏
-//- (void)collectItemAction:(UIBarButtonItem *)sender {
-//    if ([AVUser currentUser]) {
-//        if (self.isCollect) {
-//            // 删除逻辑
-//            NSString *cql = @"delete from News where objectId = ?";
-//            NSArray *pvalues =  @[self.objectId];
-//            [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
-//                // 如果 error 为空，说明删除成功
-//                if (!error) {
-//                    // 删除成功
-//                    sender.image = [[UIImage imageNamed:@"newscollect"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-//
-//
-//                } else {
-//                    NSLog(@"~~~~~~error = %@", error);
-//                }
-//            }];
-//            
-//        } else {
-//            // 存储逻辑
-//            AVObject *object = [[DataBaseHandle sharedDataBaseHandle] newsToAVObject:self.news];
-//            [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//                if (succeeded) {
-//                    // 从表中获取数据->objectID
-//                    [self selectFromNewsTable:sender];
-//                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//                    hud.mode = MBProgressHUDModeText;
-//                    hud.labelText = @"收藏成功";
-//                    hud.margin = 10.f;
-//                    hud.yOffset = 0.f;
-//                    hud.removeFromSuperViewOnHide = YES;
-//                    [hud hide:YES afterDelay:1];
-//                } else {
-//                    NSLog(@"!!!error = %@", error);
-//                }
-//            }];
-//        }
-//    } else {
-//        LoginViewController *loginVC = [[LoginViewController alloc] init];
-//        [self.navigationController pushViewController:loginVC animated:YES];
-//    }
-//    
-//    
-//}
+#pragma mark - 收藏
+- (void)likeAddBook{
+    if ([AVUser currentUser]) {
+        AVObject *ob = [[AVObject alloc] initWithClassName:@"like"];
+        [ob setObject:_bookMP3.ID forKey:@"bookID"];
+        [ob setObject:_bookMP3.name forKey:@"bookName"];
+        [ob setObject:_bookMP3.cover forKey:@"bookImageURL"];
+        [ob setObject:[AVUser currentUser].username forKey:@"username"];
+        [ob saveInBackground];
+    }
+}
+#pragma mark - 从like表中获取数据
+- (void)selectAllFromLikeBooksTable{
+    NSMutableArray *array = [NSMutableArray array];
+    if ([AVUser currentUser]) {
+        NSString *CQL = [NSString stringWithFormat:@"select * from like where username = %@ ",[AVUser currentUser].username];
+        [AVQuery doCloudQueryInBackgroundWithCQL:CQL callback:^(AVCloudQueryResult *result, NSError *error) {
+            if (!error) {
+                // 操作成功
+                for (BaseModel *model in result.results) {
+                    [array addObject:model];
+                }
+            }
+            else {
+                NSLog(@"%@", error);
+            }
+
+        } ];
+    }
+    _bookLikeArray = array;
+}
+#pragma mark - 从like表中获取数据判断是否收藏
+-(void)selectFromLikeBooksTable {
+    if ([AVUser currentUser]) {
+        
+        NSString *CQL = [NSString stringWithFormat:@"select * from like where username = %@ and bookName = %@",[AVUser currentUser].username,_bookMP3.ID];
+     [AVQuery doCloudQueryInBackgroundWithCQL:CQL callback:^(AVCloudQueryResult *result, NSError *error) {
+            if (!error) {
+                // 操作成功
+                if (result.results.count > 0) {
+                    self.isCollected = YES;
+                }
+            } else {
+                self.isCollected = NO;
+                NSLog(@"%@", error);
+            }
+        }];
+    }
+}
+#pragma mark - 收藏
+- (void)likeItemAction {
+    if ([AVUser currentUser]) {
+        if (self.isCollected == YES) {
+            // 删除逻辑
+            NSString *CQL = [NSString stringWithFormat:@"delete from like where username = %@ and bookName = %@",[AVUser currentUser].username,_bookMP3.name];
+               [AVQuery doCloudQueryInBackgroundWithCQL:CQL callback:^(AVCloudQueryResult *result, NSError *error) {
+              // 如果 error 为空，说明删除成功
+               if (!error) {
+              self.isCollected = NO;
+                 } else {
+                    NSLog(@"~~~~~~error = %@", error);
+              }
+            }];
+                }
+        else{
+                // 存储逻辑
+                NSString *CQLInsertString =[NSString stringWithFormat:@"insert into recently (username,bookName,bookID,bookImageURL) values(%@,%@,%@,%@)",[AVUser currentUser].username,_bookMP3.name,_bookMP3.ID,_bookMP3.cover];
+              [AVQuery doCloudQueryInBackgroundWithCQL:CQLInsertString callback:^(AVCloudQueryResult *result, NSError *error) {
+                if(!error){
+                    NSLog(@"添加成功");
+                }
+                else {
+                
+                    NSLog(@"添加失败");
+                }
+            }];
+        }
+    }
+}
 @end

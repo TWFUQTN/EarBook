@@ -7,13 +7,17 @@
 //
 
 #import "DownloadListViewController.h"
+#import "PlayerViewController.h"
 #import "BookList.h"
 #import "BookMP3.h"
 #import "DownloadModel.h"
 #import "EB_COLOR.h"
 #import "DownloadFile.h"
-
+#import "BookInfosHandle.h"
+#import "AVPlayerManager.h"
 #import <AVOSCloud.h>
+
+#define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
 
 @interface DownloadListViewController ()
 
@@ -58,15 +62,18 @@
     [super viewDidLoad];
     
     self.title = @"我的下载";
-
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.frame];
+    imageView.image = [UIImage imageNamed:@"back9.jpg"];
+    self.tableView.backgroundView =imageView;
     // 获取数据
     [self loadData];
     
-    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
+//    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
     // 设置navigationBar
+    self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barTintColor = EB_MAIN_COLOR;
+    self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     // 返回按钮
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:(UIBarButtonItemStylePlain) target:self action:@selector(back)];
@@ -100,7 +107,7 @@
                 downloadModel.ID = [oneObject objectForKey:@"ID"];
                 downloadModel.url = [oneObject objectForKey:@"url"];
                 downloadModel.path = [oneObject objectForKey:@"path"];
-                
+                downloadModel.cover = [oneObject objectForKey:@"cover"];
                 downloadModel.downloadTime = oneObject.createdAt;
                 
                 [downloadVC.downloadPathArray addObject:downloadModel];
@@ -145,14 +152,18 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:(UITableViewCellStyleValue1) reuseIdentifier:@"cell"];
+    }
+    
     if (_downloadPathArray.count > 0) {
         
         DownloadModel *model = _downloadPathArray[indexPath.row];
         
-        NSDateFormatter *formatter = [NSDateFormatter new];
+//        NSDateFormatter *formatter = [NSDateFormatter new];
         
         cell.textLabel.text = model.bookListName;
-        cell.detailTextLabel.text = [formatter stringFromDate:model.downloadTime];
+//        cell.detailTextLabel.text = @"播放";
     }
     
     return cell;
@@ -162,9 +173,21 @@
 {
     DownloadModel *model = _downloadPathArray[indexPath.row];
     
-    if (model.url) {
-        
+//    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    
+    NSString *bundlePlayPath = [NSString stringWithFormat:@"file://%@", [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:model.path]];
+    AVPlayerManager *manager = [AVPlayerManager shareAVPlayerManager];
+    if (manager.status == isPlaying) {
+        [manager pause];
+        manager.status = isPaused;
+//        cell.detailTextLabel.text = @"播放";
+    } else {
+        [manager playWithUrl:bundlePlayPath currentIndex:indexPath.row];
+        [manager play];
+        manager.status = isPlaying;
+//        cell.detailTextLabel.text = @"暂停";
     }
+    
 }
 
 /*

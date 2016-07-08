@@ -34,6 +34,8 @@
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     // 设置navigationBar
+    self.navigationController.navigationBarHidden = NO;
+
     self.navigationController.navigationBar.translucent = NO;
     self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -41,8 +43,8 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"UserCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
-    self.dictionary = @{@"image":@[@"Useruser", @"Userheart", @"Userfolder", @"Usertrashcan", @"Userpie"],
-                        @"title":@[@"完善资料", @"我的收藏", @"我的下载", @"清除缓存", @"最近播放"]
+    self.dictionary = @{@"image":@[@"Useruser", @"Userheart", @"Userfolder", @"Usertrashcan"],
+                        @"title":@[@"完善资料", @"我的收藏", @"我的下载", @"清除缓存"]
                         };
     
     // 判断用户是否登录

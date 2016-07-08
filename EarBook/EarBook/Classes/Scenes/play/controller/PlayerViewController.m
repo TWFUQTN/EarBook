@@ -95,6 +95,7 @@
     _bookList = kBookInfosHandle.bookInfosArray[_index];
 //    _bookList = _playList[_index];
     _bookInformation = kBookInfosHandle.bookMP3;
+
     [kAVPlayerManager playWithUrl:_bookList.path currentIndex:self.index];
     // 改变播放按钮的状态
     [_playButton setImage:[UIImage imageNamed:@"playPause"] forState:UIControlStateNormal];

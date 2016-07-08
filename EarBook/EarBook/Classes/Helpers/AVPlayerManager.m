@@ -33,7 +33,7 @@ singleton_implementation(AVPlayerManager)
         [[NSRunLoop currentRunLoop] addTimer:_timer forMode:NSRunLoopCommonModes];
         // 定时器默认暂停
         _timer.fireDate = [NSDate distantFuture];
-        self.volume = 0.5;
+        self.volume = 0.2;
         self.index = -1;
     }
     return self;
@@ -84,14 +84,62 @@ singleton_implementation(AVPlayerManager)
 
 // 播放音乐
 - (void)play {
+    
+//    UIBackgroundTaskIdentifier bgTask = 0;
+//
+//    if([UIApplication sharedApplication].applicationState== UIApplicationStateBackground) {
+//        
+//        NSLog(@"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx后台播放");
+//        
+//        [_avPlayer play];
+//        
+//        UIApplication *app = [UIApplication sharedApplication];
+//        
+//        UIBackgroundTaskIdentifier newTask = [app beginBackgroundTaskWithExpirationHandler:nil];
+//        
+//        if(bgTask!= UIBackgroundTaskInvalid) {
+//            
+//            [app endBackgroundTask:bgTask];
+//            
+//        }
+//        
+//        bgTask = newTask;
+//        
+//    }
+//    
+//    else {
+//        
+//        NSLog(@"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx前台播放");
+//        
+//        [_avPlayer play];
+//    }
+    
+    
     [_avPlayer play];
     // 开启定时器
     _timer.fireDate = [NSDate distantPast];
     // 改变播放状态
     _status = isPlaying;
-    
-    
 }
+
+//// 系统音量发生变化
+//- (void)volumeChanged{
+//    [self.playerConsole changeVoluem:[MPMusicPlayerController applicationMusicPlayer].volume];
+//}
+//
+////// 获取系统音量
+//-(float) getVolumeLevel
+//{
+//    MPVolumeView *volumeView = [[MPVolumeView alloc] init];
+//    UISlider *volumeViewSlider= nil;
+//    for (UIView *view in [volumeView subviews]){
+//        if ([view.class.description isEqualToString:@"MPVolumeSlider"]){
+//            volumeViewSlider = (UISlider*)view;
+//            break;
+//        }
+//    }
+//    return volumeViewSlider.value;
+//}
 
 // 暂停
 - (void)pause {

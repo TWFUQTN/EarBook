@@ -15,6 +15,8 @@
 @property (nonatomic, copy) NSString *ID;
 @property (nonatomic, copy) NSString *url;
 @property (nonatomic, copy) NSString *path;
+@property (nonatomic, copy) NSString *cover;
 @property (nonatomic, strong) NSDate *downloadTime;
+@property (nonatomic, strong) NSString *name;
 
 @end
