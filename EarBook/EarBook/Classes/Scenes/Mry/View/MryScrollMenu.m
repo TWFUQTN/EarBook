@@ -7,6 +7,7 @@
 //
 
 #import "MryScrollMenu.h"
+#import "EB_COLOR.h"
 
 #define tagIndex 20160606
 
@@ -24,10 +25,9 @@
         UIScrollView *scrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height)];
         scrollView.showsVerticalScrollIndicator = NO;
         scrollView.showsHorizontalScrollIndicator = NO;
+        self.backgroundColor = [UIColor whiteColor];
         self.scrollView = scrollView;
         [self addSubview:scrollView];
-        
-        self.scrollView.backgroundColor = [UIColor yellowColor];
         
         UIView *breakline = [[UIView alloc]initWithFrame:CGRectMake(0, frame.size.height - 0.5f, frame.size.width, 0.5f)];
         breakline.backgroundColor = [UIColor lightGrayColor];

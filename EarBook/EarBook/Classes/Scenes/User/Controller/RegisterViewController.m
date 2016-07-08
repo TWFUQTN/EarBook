@@ -37,8 +37,10 @@
     self.title = @"注册";
     
     // 设置navigationBar
+    self.navigationController.navigationBarHidden = NO;
+
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barTintColor = EB_MAIN_COLOR;
+    self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     // 返回按钮
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:(UIBarButtonItemStylePlain) target:self action:@selector(back)];

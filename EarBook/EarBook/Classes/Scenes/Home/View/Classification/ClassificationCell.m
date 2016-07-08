@@ -40,10 +40,6 @@
         _cellArray = nil;
         _cellArray = cellArray;
     }
-    //    NSLog(@"%d", i);
-    //    i++;
-    //    self.myCollectionView.backgroundColor = [UIColor redColor];
-    //    NSLog(@"%@", self.myCollectionView.backgroundColor);
     
     [self.myCollectionView reloadData];
     
@@ -53,6 +49,8 @@
     
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        self.backgroundColor = [UIColor clearColor];
+        self.contentView.backgroundColor = [UIColor clearColor];
         [self initLayout];
     }
     return self;
@@ -77,10 +75,6 @@
         make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width / 8);
         make.height.mas_equalTo(myImageView.mas_width);
     }];
-    //给myImageView宽赋值第二种
-//    CGRect frame = myImageView.frame;
-//    frame.size.width = leftView.frame.size.width / 2;
-//    myImageView.frame = frame;
     
     self.typeLabel = [[UILabel alloc] init];
     [leftView addSubview:self.typeLabel];
@@ -88,16 +82,9 @@
     [self.typeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(leftView);
         make.width.equalTo(leftView);
-//        make.width.equalTo(leftView.mas_width);
-//        make.width.mas_equalTo(leftView.mas_width);
         make.height.mas_equalTo([UIScreen mainScreen].bounds.size.width / 24);
         make.top.equalTo(myImageView.mas_bottom);
     }];
-    //给typeLabel高的第二种赋值
-//    CGRect frame = self.typeLabel.frame;
-//    frame.size.height = self.typeLabel.frame.size.width / 6;
-//    self.typeLabel.frame = frame;
-    
     
     self.bottomView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame) / 4, 0, CGRectGetWidth(self.frame) * 3 / 4, CGRectGetHeight(self.frame))];
     [self.contentView addSubview:self.bottomView];
@@ -107,11 +94,6 @@
         make.bottom.equalTo(self);
         make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width * 3 / 4);
     }];
-    //给myImageView宽赋值第二种
-//    CGRect frame = self.bottomView.frame;
-//    frame.size.width = leftView.frame.size.width * 3;
-//    self.bottomView.frame = frame;
-    
     
     //1.定义collectionView样式
     self.myFlowLayout = [UICollectionViewFlowLayout new];
@@ -126,18 +108,14 @@
     self.myFlowLayout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
     //给定item的大小
     self.myFlowLayout.itemSize = CGSizeMake(kWidth, (kWidth) / 4);
-    //    NSLog(@"%f, %f", self.myFlowLayout.itemSize.height, self.myFlowLayout.itemSize.width);
-    
     
     //布局collectionView
     //创建对象并指定样式
     
-    //删除之前所有布局
-//    for (UIView *view in self.bottomView.subviews) {
-//        [view removeFromSuperview];
-//    }
-    
     self.myCollectionView = [[UICollectionView alloc] initWithFrame:self.bottomView.bounds collectionViewLayout:self.myFlowLayout];
+    self.myCollectionView.alpha = 0.8;
+    self.myCollectionView.backgroundColor = [UIColor clearColor];
+    self.bottomView.backgroundColor = [UIColor clearColor];
     [self.bottomView addSubview:self.myCollectionView];
     
     [self.myCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -150,24 +128,8 @@
     self.myCollectionView.dataSource = self;
     self.myCollectionView.delegate = self;
     [self.myCollectionView registerClass:[MyCollectionViewCell class] forCellWithReuseIdentifier:@"collecell"];
-    //    [self.myCollectionView registerNib:[UINib nibWithNibName:@"MyCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"MyCollectionViewCell"];
     
-    self.myCollectionView.backgroundColor = [UIColor whiteColor];
 }
-
-
-
-
-//- (void)layoutSubviews {
-////#pragma mark - 初始高度赋值，程序完成后删除
-////    self.bottomView.frame = CGRectMake(self.bounds.size.width * 0.25, 0, self.bounds.size.width * 0.75, 300);
-////    CGRect frame = self.cellView.frame;
-////    frame.size.height = self.bottomView.frame.size.height;
-////    self.cellView.frame = frame;
-//    
-//    
-//    
-//}
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     
@@ -179,13 +141,12 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-//    MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collecell" forIndexPath:indexPath];
     MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collecell" forIndexPath:indexPath];
-//    cell.backgroundColor = [UIColor purpleColor];
     Classification *classification = self.cellArray[indexPath.row];
-//    NSLog(@"%d", i);
-//    i++;
     cell.titleLabel.text = classification.name;
+    cell.titleLabel.textColor = [UIColor greenColor];
+    cell.backgroundColor = [UIColor clearColor];
+    cell.titleLabel.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
@@ -206,20 +167,11 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-//    MRYViewController *mryVC = [[MRYViewController alloc] init];
-//    NSString *url = [[NSString alloc] init];
-//    if (classification.url) {
-//        url = classification.url;
-//    } else {
-//        url = classification.ID;
-//    }
-//    mryVC.url = url;
     Classification *classification = self.cellArray[indexPath.row];
     
     NSInteger myIndexPath = indexPath.row;
     
     self.block(myIndexPath, classification);
-    
 }
 
 

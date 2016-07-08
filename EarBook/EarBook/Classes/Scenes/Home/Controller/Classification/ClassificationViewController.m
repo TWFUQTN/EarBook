@@ -214,9 +214,11 @@
 
 //cell高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if(indexPath.section == 12) {
+    if(indexPath.section == 11) {
         return [ClassificationCell heightOfCellByNumberFromItems:[self.allDataDict[self.typeArray[indexPath.section]] count]] + 20;
+            NSLog(@"%f",[ClassificationCell heightOfCellByNumberFromItems:[self.allDataDict[self.typeArray[indexPath.section]] count]] + 20);
     }
+    NSLog(@"%f",[ClassificationCell heightOfCellByNumberFromItems:[self.allDataDict[self.typeArray[indexPath.section]] count]]);
     return [ClassificationCell heightOfCellByNumberFromItems:[self.allDataDict[self.typeArray[indexPath.section]] count]];
 }
 

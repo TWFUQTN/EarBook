@@ -11,6 +11,7 @@
 #import "BookMP3.h"
 #import "Voice.h"
 #import "EB_URL.h"
+#import "MBProgressHUD+GifHUD.h"
 
 @interface MryPageTable ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -28,14 +29,23 @@
     return _dataArray;
 }
 
+//显示等待视图
+- (void)showGif {
+    [MBProgressHUD setUpGifWithFrame:CGRectMake(0, 0, 80, 80) gifName:@"wait" andShowToView:self];
+}
+
+//隐藏等待视图
+- (void)hideGifView {
+    [MBProgressHUD hideHUDForView:self animated:YES];
+}
 
 - (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style{
     if (self = [super initWithFrame:frame style:style]) {
         self.delegate = self;
         self.dataSource = self;
         [self registerNib:[UINib nibWithNibName:@"MryPageTableCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-//        [self requestData];
-//        self.dataArray = [NSMutableArray array];
+        self.separatorStyle = UITableViewCellSeparatorStyleNone;
+        [self showGif];
     }
     return self;
 }
@@ -76,15 +86,13 @@
             for (NSDictionary *dict in array1) {
                 NSString *partUrl = dict[@"name"];
                 [mryVC requestBookData:partUrl];
-//                NSLog(@"%ld",self.i);
-                
             }
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self reloadData];
             });
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"网络请求失败：%@", error);
-//            NSLog(@"%ld", self.i);
         }];
         
     }
@@ -96,7 +104,6 @@
     
     NSString *urlString = [NSString stringWithFormat:@"%@%@", EB_BASE_URL, url];
     
-    
     __weak typeof(MryPageTable *) mryVC = self;
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
     
@@ -107,11 +114,9 @@
             [book setValuesForKeysWithDictionary:dict];
             [mryVC.dataArray addObject:book];
         }
-//        NSString *number = [NSString stringWithFormat:@"%ld", self.i];
-//        [self.allDataDict setValue:self.dataArray forKey:number];
-//        NSLog(@"音乐i = %ld", self.i);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self reloadData];
+            [self hideGifView];
         });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"网络请求失败：%@", error);
@@ -136,9 +141,6 @@
             NSString *bookUrl = [NSString stringWithFormat:@"%@%@%@", EB_BOOK_DETAIL_BASE_URL, bookId, EB_BOOK_DETAIL_URL];
             [mryVC requestDetailBookData:bookUrl];
         }
-//        NSString *number = [NSString stringWithFormat:@"%ld", self.i];
-//        [self.allDataDict setValue:self.dataArray forKey:number];
-//        NSLog(@"书本i = %ld", self.i);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self reloadData];
         });
@@ -159,6 +161,7 @@
         [mryVC.dataArray addObject:book];
         dispatch_async(dispatch_get_main_queue(), ^{
             [self reloadData];
+            [self hideGifView];
         });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"网络请求:%@", error);
@@ -177,8 +180,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MryPageTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    cell.backgroundColor = [UIColor cyanColor];
-    NSLog(@"=========%ld", self.dataArray.count);
     if ([self.dataArray[indexPath.row] class] == [BookMP3 class]) {
         cell.book = self.dataArray[indexPath.row];
     }
@@ -191,6 +192,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    [self deselectRowAtIndexPath:indexPath animated:YES];
+    
     BookMP3 *book = self.dataArray[indexPath.row];
     
     if (book.state) {
@@ -202,9 +205,10 @@
     
 }
 
+
 //cell高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 110;
+    return 125;
 }
 
 //赋值时刷新视图

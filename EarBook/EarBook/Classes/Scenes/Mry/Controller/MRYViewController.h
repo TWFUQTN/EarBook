@@ -13,8 +13,6 @@
 
 @interface MRYViewController : MryScrollPageVC
 
-//
-//@property (nonatomic, strong) MryScrollMenu *mryMenu;
 
 //传值model
 @property (nonatomic, strong) Classification *classification;
