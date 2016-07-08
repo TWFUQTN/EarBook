@@ -16,6 +16,10 @@
 #import "EB_URL.h"
 #import "RankingHeader.h"
 #import "RecommendHeaderView.h"
+#import "MBProgressHUD+GifHUD.h"
+#import "ReloadView.h"
+
+
 
 #define kRankingListTag 542308
 
@@ -42,6 +46,10 @@
 @property (nonatomic, strong) RankingHeader *header2;
 @property (nonatomic, strong) RankingHeader *header3;
 @property (nonatomic, strong) RankingHeader *header4;
+
+//重新加载视图
+@property (nonatomic, strong) ReloadView *reloadView;
+
 
 @end
 
@@ -87,12 +95,35 @@
     return _titleArray;
 }
 
+- (ReloadView *)reloadView {
+    if (!_reloadView) {
+        _reloadView = [[ReloadView alloc] init];
+    }
+    return _reloadView;
+}
+
+
+//显示等待视图
+- (void)showGif {
+    [MBProgressHUD setUpGifWithFrame:CGRectMake(0, 0, 80, 80) gifName:@"wait" andShowToView:self.view];
+}
+
+//隐藏等待视图
+- (void)hideGifView {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     imageView.image = [UIImage imageNamed:@"back2.jpg"];
     self.tableView.backgroundView = imageView;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    //等待视图
+    [self showGif];
+    
     // 请求数据
     [self requestData];
     // 注册cell
@@ -103,9 +134,11 @@
     // 下拉刷新
     __weak typeof(self) rankingVC = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self showGif];
         [rankingVC requestData];
         // 结束刷新
         [rankingVC.tableView.mj_footer endRefreshing];
+        [self hideGifView];
     }];
     
 }
@@ -134,7 +167,17 @@
                  [rankingVC.tableView reloadData];
              });
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-             
+             [self hideGifView];
+             [self.view addSubview:self.reloadView];
+             __weak typeof(self) weakSelf = self;
+             self.reloadView.block = ^() {
+                 
+                 [weakSelf requestData];
+                 NSLog(@"*******");
+                 [weakSelf showGif];
+                 
+             };
+
          }];
 }
 
@@ -179,6 +222,7 @@
              
              dispatch_async(dispatch_get_main_queue(), ^{
                  [rankingVC.tableView reloadData];
+                 [self hideGifView];
              });
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
              

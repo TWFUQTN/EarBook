@@ -44,11 +44,9 @@
     if (orientation == UIDeviceOrientationPortrait ||orientation ==
         UIDeviceOrientationPortraitUpsideDown) { // 竖屏
         self.widthOfBottomView.constant = [UIScreen mainScreen].bounds.size.width;
-        NSLog(@"%f", self.widthOfBottomView.constant);
 
     } else { // 横屏
         self.widthOfBottomView.constant = [UIScreen mainScreen].bounds.size.width;
-        NSLog(@"%f", self.widthOfBottomView.constant);
 
     }
 }

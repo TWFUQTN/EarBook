@@ -50,7 +50,8 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
-        self.contentView.backgroundColor = [UIColor clearColor];
+        self.layer.borderWidth = 2;
+//        self.contentView.backgroundColor = [UIColor clearColor];
         [self initLayout];
     }
     return self;
@@ -67,13 +68,13 @@
         make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width /4);
     }];
     
-    UIImageView *myImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"placeholderImage"]];
-    [leftView addSubview:myImageView];
-    [myImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.myImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"placeholderImage"]];
+    [leftView addSubview:self.myImageView];
+    [self.myImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerX.equalTo(leftView);
         make.centerY.equalTo(leftView).offset(-14);
         make.width.mas_equalTo([UIScreen mainScreen].bounds.size.width / 8);
-        make.height.mas_equalTo(myImageView.mas_width);
+        make.height.mas_equalTo(self.myImageView.mas_width);
     }];
     
     self.typeLabel = [[UILabel alloc] init];
@@ -83,7 +84,7 @@
         make.centerX.equalTo(leftView);
         make.width.equalTo(leftView);
         make.height.mas_equalTo([UIScreen mainScreen].bounds.size.width / 24);
-        make.top.equalTo(myImageView.mas_bottom);
+        make.top.equalTo(self.myImageView.mas_bottom);
     }];
     
     self.bottomView = [[UIView alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.frame) / 4, 0, CGRectGetWidth(self.frame) * 3 / 4, CGRectGetHeight(self.frame))];
@@ -113,9 +114,9 @@
     //创建对象并指定样式
     
     self.myCollectionView = [[UICollectionView alloc] initWithFrame:self.bottomView.bounds collectionViewLayout:self.myFlowLayout];
-    self.myCollectionView.alpha = 0.8;
-    self.myCollectionView.backgroundColor = [UIColor clearColor];
-    self.bottomView.backgroundColor = [UIColor clearColor];
+    self.myCollectionView.alpha = 0.9;
+    self.myCollectionView.backgroundColor = [UIColor whiteColor];
+//    self.bottomView.backgroundColor = [UIColor clearColor];
     [self.bottomView addSubview:self.myCollectionView];
     
     [self.myCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -144,7 +145,7 @@
     MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collecell" forIndexPath:indexPath];
     Classification *classification = self.cellArray[indexPath.row];
     cell.titleLabel.text = classification.name;
-    cell.titleLabel.textColor = [UIColor greenColor];
+//    cell.titleLabel.textColor = [UIColor greenColor];
     cell.backgroundColor = [UIColor clearColor];
     cell.titleLabel.backgroundColor = [UIColor clearColor];
     return cell;
