@@ -12,7 +12,7 @@
 #import "Classification.h"
 #import "MRYViewController.h"
 #import "MBProgressHUD+GifHUD.h"
-
+#import "ReloadView.h"
 
 #import <AFNetworking/AFNetworking.h>
 
@@ -36,6 +36,9 @@
 //类型排序数组
 @property (nonatomic, strong) NSArray *typeArray;
 
+//重新加载视图
+@property (nonatomic, strong) ReloadView *reloadView;
+
 
 @end
 
@@ -51,6 +54,14 @@
     }
     return _session;
 }
+
+- (ReloadView *)reloadView {
+    if (!_reloadView) {
+        _reloadView = [[ReloadView alloc] init];
+    }
+    return _reloadView;
+}
+
 //- (NSMutableArray *)allDataArray {
 //    if (!_allDataArray) {
 //        _allDataArray = [[NSMutableArray alloc] init];
@@ -126,15 +137,19 @@
             //再次进行网络请求
             [classificationVC inRequestData:url];
         }
-//        for (NSDictionary *dict in dataArray) {
-//            NSString *name = dict[@"name"];
-//            NSString *url = [NSString stringWithFormat:@"%@%@", EB_BASE_URL, name];
-//            //再次进行网络请求
-//            [classificationVC inRequestData:url];
-//        }
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"网络请求失败:%@", error);
+        [self hideGifView];
+        [self.view addSubview:self.reloadView];
+        __weak typeof(self) weakSelf = self;
+        self.reloadView.block = ^() {
+            
+            [weakSelf requestData];
+            NSLog(@"*******");
+            [weakSelf showGif];
+            
+        };
+
     }];
     
 }

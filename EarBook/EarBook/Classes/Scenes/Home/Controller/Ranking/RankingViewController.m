@@ -17,6 +17,8 @@
 #import "RankingHeader.h"
 #import "RecommendHeaderView.h"
 #import "MBProgressHUD+GifHUD.h"
+#import "ReloadView.h"
+
 
 
 #define kRankingListTag 542308
@@ -44,6 +46,10 @@
 @property (nonatomic, strong) RankingHeader *header2;
 @property (nonatomic, strong) RankingHeader *header3;
 @property (nonatomic, strong) RankingHeader *header4;
+
+//重新加载视图
+@property (nonatomic, strong) ReloadView *reloadView;
+
 
 @end
 
@@ -88,6 +94,14 @@
     }
     return _titleArray;
 }
+
+- (ReloadView *)reloadView {
+    if (!_reloadView) {
+        _reloadView = [[ReloadView alloc] init];
+    }
+    return _reloadView;
+}
+
 
 //显示等待视图
 - (void)showGif {
@@ -153,7 +167,17 @@
                  [rankingVC.tableView reloadData];
              });
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-             
+             [self hideGifView];
+             [self.view addSubview:self.reloadView];
+             __weak typeof(self) weakSelf = self;
+             self.reloadView.block = ^() {
+                 
+                 [weakSelf requestData];
+                 NSLog(@"*******");
+                 [weakSelf showGif];
+                 
+             };
+
          }];
 }
 

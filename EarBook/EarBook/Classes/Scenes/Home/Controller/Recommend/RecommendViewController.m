@@ -21,12 +21,17 @@
 #import "SpecialSubjectDetailViewController.h"
 #import "VoiceDetailViewController.h"
 #import "MBProgressHUD+GifHUD.h"
+#import "ReloadView.h"
 
 #import <AVOSCloud.h>
 
 #define baseTag 100
 
 @interface RecommendViewController ()<WYScrollViewNetDelegate>
+
+//重新加载视图
+@property (nonatomic, strong) ReloadView *reloadView;
+
 
 /** 网络图片数组*/
 @property(nonatomic,strong) NSMutableArray *NetImageArray;
@@ -57,6 +62,14 @@
     }
     return _session;
 }
+
+- (ReloadView *)reloadView {
+    if (!_reloadView) {
+        _reloadView = [[ReloadView alloc] init];
+    }
+    return _reloadView;
+}
+
 
 -(NSMutableArray *)NetImageArray
 {
@@ -179,6 +192,17 @@
 
               } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                   NSLog(@"网络请求错误");
+                  [self hideGifView];
+                  [self.view addSubview:self.reloadView];
+                  __weak typeof(self) weakSelf = self;
+                  self.reloadView.block = ^() {
+                      
+                      [weakSelf requestData];
+                      NSLog(@"*******");
+                      [weakSelf showGif];
+                      
+                  };
+
               }];
 }
 

@@ -12,8 +12,13 @@
 #import "Voice.h"
 #import "EB_URL.h"
 #import "MBProgressHUD+GifHUD.h"
+#import "ReloadView.h"
 
 @interface MryPageTable ()<UITableViewDelegate,UITableViewDataSource>
+
+//加载界面
+@property (nonatomic, strong) ReloadView *reloadView;
+
 
 @end
 
@@ -27,6 +32,13 @@
         _dataArray = [NSMutableArray array];
     }
     return _dataArray;
+}
+
+- (ReloadView *)reloadView {
+    if (!_reloadView) {
+        _reloadView = [[ReloadView alloc] init];
+    }
+    return _reloadView;
 }
 
 //显示等待视图
@@ -75,6 +87,16 @@
             });
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            [self hideGifView];
+            [self addSubview:self.reloadView];
+            __weak typeof(self) weakSelf = self;
+            self.reloadView.block = ^() {
+                
+                [weakSelf requestData];
+                NSLog(@"*******");
+                [weakSelf showGif];
+                
+            };
             NSLog(@"网络请求失败：%@", error);
         }];
     }
@@ -92,6 +114,16 @@
                 [self reloadData];
             });
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+            [self hideGifView];
+            [self addSubview:self.reloadView];
+            __weak typeof(self) weakSelf = self;
+            self.reloadView.block = ^() {
+                
+                [weakSelf requestData];
+                NSLog(@"*******");
+                [weakSelf showGif];
+                
+            };
             NSLog(@"网络请求失败：%@", error);
         }];
         
@@ -119,6 +151,16 @@
             [self hideGifView];
         });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self hideGifView];
+        [self addSubview:self.reloadView];
+        __weak typeof(self) weakSelf = self;
+        self.reloadView.block = ^() {
+            
+            [weakSelf requestData];
+            NSLog(@"*******");
+            [weakSelf showGif];
+            
+        };
         NSLog(@"网络请求失败：%@", error);
     }];
     
@@ -143,6 +185,16 @@
             [self reloadData];
         });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self hideGifView];
+        [self addSubview:self.reloadView];
+        __weak typeof(self) weakSelf = self;
+        self.reloadView.block = ^() {
+            
+            [weakSelf requestData];
+            NSLog(@"*******");
+            [weakSelf showGif];
+            
+        };
         NSLog(@"网络请求失败:%@", error);
     }];
     
@@ -162,6 +214,16 @@
             [self hideGifView];
         });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        [self hideGifView];
+        [self addSubview:self.reloadView];
+        __weak typeof(self) weakSelf = self;
+        self.reloadView.block = ^() {
+            
+            [weakSelf requestData];
+            NSLog(@"*******");
+            [weakSelf showGif];
+            
+        };
         NSLog(@"网络请求:%@", error);
     }];
     
