@@ -84,6 +84,8 @@
 		D61699701D226D3E006E7FB6 /* playreduce.png in Resources */ = {isa = PBXBuildFile; fileRef = D616996B1D226D3E006E7FB6 /* playreduce.png */; };
 		D61699711D226D3E006E7FB6 /* playsound.png in Resources */ = {isa = PBXBuildFile; fileRef = D616996C1D226D3E006E7FB6 /* playsound.png */; };
 		D61699731D226E87006E7FB6 /* playlturneft.png in Resources */ = {isa = PBXBuildFile; fileRef = D61699721D226E87006E7FB6 /* playlturneft.png */; };
+		D62812741D2F97540026FBC0 /* MBProgressHUD+GifHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = D62812731D2F97540026FBC0 /* MBProgressHUD+GifHUD.m */; };
+		D62812781D2FA1BD0026FBC0 /* wait.gif in Resources */ = {isa = PBXBuildFile; fileRef = D62812771D2FA1BD0026FBC0 /* wait.gif */; };
 		D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09091D1CC90700128D82 /* AppDelegate.m */; };
 		D62B09261D1D20EA00128D82 /* Tool_AdaptiveHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09251D1D20EA00128D82 /* Tool_AdaptiveHeight.m */; };
 		D62B09541D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B093E1D1D2DFC00128D82 /* 苹果接口.txt */; };
@@ -327,6 +329,9 @@
 		D616996B1D226D3E006E7FB6 /* playreduce.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playreduce.png; sourceTree = "<group>"; };
 		D616996C1D226D3E006E7FB6 /* playsound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playsound.png; sourceTree = "<group>"; };
 		D61699721D226E87006E7FB6 /* playlturneft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playlturneft.png; sourceTree = "<group>"; };
+		D62812721D2F97540026FBC0 /* MBProgressHUD+GifHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+GifHUD.h"; sourceTree = "<group>"; };
+		D62812731D2F97540026FBC0 /* MBProgressHUD+GifHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+GifHUD.m"; sourceTree = "<group>"; };
+		D62812771D2FA1BD0026FBC0 /* wait.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = wait.gif; sourceTree = "<group>"; };
 		D62B09081D1CC90700128D82 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D62B09091D1CC90700128D82 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D62B09241D1D20EA00128D82 /* Tool_AdaptiveHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tool_AdaptiveHeight.h; sourceTree = "<group>"; };
@@ -704,6 +709,8 @@
 			children = (
 				D6DA8AC21D241AB80067E813 /* NSString+TimeFormatter.h */,
 				D6DA8AC31D241AB80067E813 /* NSString+TimeFormatter.m */,
+				D62812721D2F97540026FBC0 /* MBProgressHUD+GifHUD.h */,
+				D62812731D2F97540026FBC0 /* MBProgressHUD+GifHUD.m */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -743,6 +750,7 @@
 				D6770F851D1EB5ED00AE0CFE /* 2.png */,
 				D6770F861D1EB5ED00AE0CFE /* 3.png */,
 				D6770F871D1EB5ED00AE0CFE /* 4.png */,
+				D62812771D2FA1BD0026FBC0 /* wait.gif */,
 				D632AFCD1D1E22A70092A6A3 /* HomeImage */,
 				D62B095E1D1D2FFD00128D82 /* PlayerImage */,
 			);
@@ -1408,6 +1416,7 @@
 				TargetAttributes = {
 					D631B4AB1D1C1CBC00102682 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 8AL5X4932P;
 					};
 				};
 			};
@@ -1543,6 +1552,7 @@
 				D6054E3E1D2CAEDB00829F6B /* tabBarHeart1.png in Resources */,
 				D6054E271D2C996E00829F6B /* next2.png in Resources */,
 				D6054E3B1D2CACB700829F6B /* pause3.png in Resources */,
+				D62812781D2FA1BD0026FBC0 /* wait.gif in Resources */,
 				D6054E2B1D2C9D2300829F6B /* play3.png in Resources */,
 				D60F14281D2C0272009E9793 /* tabBarskip.png in Resources */,
 				D60F14141D2BD3CA009E9793 /* playSettinglike.png in Resources */,
@@ -1696,6 +1706,7 @@
 				D632AFA91D1E227A0092A6A3 /* LoginViewController.m in Sources */,
 				D6F6112B1D22CA53002B4506 /* MoreListCell.m in Sources */,
 				D675A5711D20D11300E6F999 /* PCStackMenuItem.m in Sources */,
+				D62812741D2F97540026FBC0 /* MBProgressHUD+GifHUD.m in Sources */,
 				D6F6111E1D22CA53002B4506 /* RecommendViewController.m in Sources */,
 				D632AFC71D1E22880092A6A3 /* ARSegmentView.m in Sources */,
 				D61699471D22269E006E7FB6 /* UIView+DOPExtension.m in Sources */,
@@ -1832,6 +1843,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Yang (F2N9DLANA4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wei Yang (F2N9DLANA4)";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = EarBook/Classes/Macros/PrefixHeader.pch;
 				INFOPLIST_FILE = EarBook/Info.plist;
@@ -1915,6 +1927,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Wei Yang (F2N9DLANA4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wei Yang (F2N9DLANA4)";
 				ENABLE_BITCODE = NO;
 				GCC_PREFIX_HEADER = EarBook/Classes/Macros/PrefixHeader.pch;
 				INFOPLIST_FILE = EarBook/Info.plist;

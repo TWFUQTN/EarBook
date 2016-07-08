@@ -116,6 +116,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 //    _tabbarListUpView.layer.borderWidth = 2;
     self.tabBarListTableView.dataSource = self;
     self.tabBarListTableView.delegate = self;
+    self.progressSlider.value = 0;
     if (kBookInfosHandle.bookInfosArray != nil  && kBookInfosHandle.bookMP3 != nil) {
         _index = kBookInfosHandle.indexout;
         _bookList = kBookInfosHandle.bookInfosArray[_index];
