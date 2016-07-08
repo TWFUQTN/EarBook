@@ -66,7 +66,7 @@
     // 设置代理
     kAVPlayerManager.delegate = self;
 
-    //    声音加载
+    // 声音加载
     [self addDefaultSlider];
 
     // 播放并设置view上所有子视图

@@ -157,7 +157,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
         UIImage *image = [UIImage imageNamed:imageName];
         [saveImageArray addObject:image];
     }
-    self.headerView.backgroundImageView.animationDuration = 2;
+    self.headerView.backgroundImageView.animationDuration = 3;
     self.headerView.backgroundImageView.animationRepeatCount = 0;
     self.headerView.backgroundImageView.animationImages = saveImageArray;
     [self.headerView.backgroundImageView startAnimating];

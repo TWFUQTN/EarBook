@@ -42,8 +42,6 @@
 @property (nonatomic, strong) RankingHeader *header2;
 @property (nonatomic, strong) RankingHeader *header3;
 @property (nonatomic, strong) RankingHeader *header4;
-//@property (nonatomic, strong) RecommendHeaderView *header5;
-//@property (nonatomic, strong) RecommendHeaderView *header6;
 
 @end
 
@@ -94,6 +92,7 @@
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     imageView.image = [UIImage imageNamed:@"back2.jpg"];
     self.tableView.backgroundView = imageView;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     // 请求数据
     [self requestData];
     // 注册cell
@@ -218,6 +217,7 @@
 
         NSString *key = self.titleArray[indexPath.section];
         cell.bookArray = _bookDict[key];
+        
     }
     
     cell.block = ^void(BookMP3 *book) {

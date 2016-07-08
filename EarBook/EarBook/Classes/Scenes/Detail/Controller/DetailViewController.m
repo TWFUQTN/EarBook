@@ -268,55 +268,94 @@
     return cell;
 }
 
-#pragma mark - 下载
+#pragma mark - 下载按钮点击方法
 - (void)uploadButtonAction:(UIButton *)sender
 {
     [sender setTitle:@"已下载" forState:(UIControlStateNormal)];
     
     NSInteger index = sender.tag - kButtonTag;
-    NSLog(@"%ld", index);
     
     BookList *bookList = _listArray[index];
     
     AVUser *currentUser = [AVUser currentUser];
     
-    DownloadFile *downloadFile = [DownloadFile shareDownloadFile];
-    
     if (currentUser != nil) {
-        if (self.pushFrom == PushFromMoreListVC) {
+//        if (self.pushFrom == PushFromMoreListVC) {
             // 下载
-            [downloadFile downloadWithBookList:bookList Book:_book User:currentUser];
+//            [downloadFile downloadWithBookList:bookList Book:_book User:currentUser];
             
 //            [downloadFile.progress addObserver:self forKeyPath:@"fractionCompleted" options:(NSKeyValueObservingOptionNew) context:NULL];
             
-        } else {
+//            [self uploadWithBookList:bookList CurrentUser:currentUser];
+        
+//        } else {
             // 下载
-            [downloadFile downloadWithBookList:bookList Book:_detailBook User:currentUser];
+//            [downloadFile downloadWithBookList:bookList Book:_detailBook User:currentUser];
 //            [downloadFile.progress addObserver:self forKeyPath:@"fractionCompleted" options:(NSKeyValueObservingOptionNew) context:NULL];
+            
+            [self uploadWithBookList:bookList CurrentUser:currentUser];
 
-        }
+//        }
     } else {
         //缓存用户对象为空时，可打开用户注册界面…
         LoginViewController *loginVC = [LoginViewController new];
         loginVC.flag = 1;
         [self.navigationController pushViewController:loginVC animated:YES];
     }
+}
+
+#pragma mark - 下载
+- (void)uploadWithBookList:(BookList *)bookList
+               CurrentUser:(AVUser *)currentUser
+{
+    DownloadFile *downloadFile = [DownloadFile shareDownloadFile];
     
+    //下载
+    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+    
+    
+    NSURL *URL = [NSURL URLWithString:bookList.path];
+    NSURLRequest *request = [NSURLRequest requestWithURL:URL];
+
+    NSURLSessionDownloadTask *downloadTask = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+        NSLog(@"%@", downloadProgress);
+        
+        [downloadProgress addObserver:self forKeyPath:@"fractionCompleted" options:(NSKeyValueObservingOptionNew) context:NULL];
+        
+    } destination:^NSURL *(NSURL *targetPath, NSURLResponse *response) {
+        
+        // 下载到沙盒的位置
+        NSURL *documentsDirectoryURL = [[[NSFileManager defaultManager] URLForDirectory:NSDocumentDirectory inDomain:NSUserDomainMask appropriateForURL:nil create:NO error:nil] URLByAppendingPathComponent:[response suggestedFilename]];
+        
+        // 将NSURL转为NSString
+        NSString *documentsPath = [[documentsDirectoryURL absoluteString] substringFromIndex:7];
+        
+        [downloadFile saveToleanCloudWithdocumentsPath:documentsPath BookList:bookList Book:_detailBook User:currentUser ClassName:@"DownloadBook"];
+        
+        return documentsDirectoryURL;
+        
+    } completionHandler:^(NSURLResponse *response, NSURL *filePath, NSError *error) {
+        NSLog(@"File downloaded to: %@", filePath);
+    }];
+    //重新开始下载
+    [downloadTask resume];
     
 }
 
 #pragma mark - 拿到进度
-//- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
-//    //拿到进度
-//    //    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
-//    
-//    if ([keyPath isEqualToString:@"fractionCompleted"] && [object isKindOfClass:[NSProgress class]]) {
-//        NSProgress *progress = (NSProgress *)object;
-//        if (progress.fractionCompleted == 1.0) {
-//            [self errorAlertWithMessage:@"下载完成！"];
-//        }
-//    }
-//}
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
+    //拿到进度
+    //    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
+    
+    if ([keyPath isEqualToString:@"fractionCompleted"] && [object isKindOfClass:[NSProgress class]]) {
+        NSProgress *progress = (NSProgress *)object;
+        if (progress.fractionCompleted == 1.0) {
+            [self errorAlertWithMessage:@"下载完成！"];
+        }
+    }
+}
 
 #pragma mark - 错误提示的alert
 - (void)errorAlertWithMessage:(NSString *)message
@@ -412,8 +451,6 @@
 #pragma mark - 分享
 - (IBAction)shareAction:(UIButton *)sender
 {
-    //分享gif图片
-
     [UMSocialData defaultData].extConfig.title = _nameLabel.text;
 
     NSString *shareText = @"";
@@ -431,6 +468,11 @@
                                        delegate:self];
 }
 
+#pragma mark - 收藏
+- (IBAction)collectionAction:(UIButton *)sender
+{
+    
+}
 
 /*
 #pragma mark - Navigation

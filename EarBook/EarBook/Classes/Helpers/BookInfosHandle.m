@@ -8,6 +8,7 @@
 
 #import "BookInfosHandle.h"
 #import "EB_URL.h"
+
 @interface BookInfosHandle ()
 
 @end
@@ -49,9 +50,7 @@ singleton_implementation(BookInfosHandle)
     (*index)--;
     NSLog(@"上一首index = %ld", *index);
     _indexout = *index;
-    [self getNowDate];
     _bookCrentlyArray = nil;
-_bookCrentlyArray = [kDocumentsHandle recentlyTableWithBookID:_bookMP3.ID index:_indexout second:_allSecond value:0];
     return self.bookInfosArray[*index];
     
 }
@@ -67,12 +66,10 @@ _bookCrentlyArray = [kDocumentsHandle recentlyTableWithBookID:_bookMP3.ID index:
     (*index)++;
     NSLog(@"下一首index = %ld", *index);
     _indexout = *index;
-    [self getNowDate];
     _bookCrentlyArray = nil;
-    _bookCrentlyArray = [kDocumentsHandle recentlyTableWithBookID:_bookMP3.ID index:_indexout second:_allSecond value:0];
     return self.bookInfosArray[*index];
     
-}
+    }
 //获取当前时间
 - (void)getNowDate {
     NSDate *  senddate=[NSDate date];
@@ -82,37 +79,154 @@ _bookCrentlyArray = [kDocumentsHandle recentlyTableWithBookID:_bookMP3.ID index:
     NSDate *localDate = [NSDate date]; //获取当前时间
     _allSecond = [localDate timeIntervalSince1970];
 }
-//读取数据库
-- (void)makeOutRecentlyBaseWithBookID:(NSString *)ID index:(NSInteger )index second:(NSInteger)second value:(CGFloat)value {
-    NSString *URL = @"";
+#pragma mark - 最近播放写入
+- (void)recentlyBookToAVObject{
+    if ([AVUser currentUser]) {
+        BookList *list =  _bookInfosArray[_indexout];
+        NSMutableArray * currentArray = [NSMutableArray array];
+        NSString *CQLString = [NSString stringWithFormat:@"select * from %@ where username = %@ and booKID = %@",@"recently",[AVUser currentUser].username,_bookMP3.ID];
+        [AVQuery doCloudQueryInBackgroundWithCQL:CQLString callback:^(AVCloudQueryResult *result, NSError *error) {
+            if (!error) {
+                NSString *CQLUpdteString =[NSString stringWithFormat:@"update recently set index = %@ and bookMP3URL = %@ and bookMP3Name= %@ and listArray = %@ where username = %@ and booKID = %@",[NSString stringWithFormat:@"%ld",_indexout],list.path,list.name,_bookInfosArray,[AVUser currentUser].username,_bookMP3.ID];
+                      [AVQuery doCloudQueryInBackgroundWithCQL:CQLUpdteString callback:^(AVCloudQueryResult *result, NSError *error) {
+                         if (!error) {
+                           NSLog(@"更新成功");
+                              }
+                         else{
+                           NSLog(@"更新失败");
+                           }
+                            }];
+                                 }
+         else{
+//             bookID;
+//              index;
+//             bookImageURL;
+//                     ;
+//             bookMP3URL;
+//             bookAnnouncer;
+//             listArray;
+//             bookMP3Name;
 
-    URL = [NSString stringWithFormat:@"%@%@%@", EB_BOOK_DETAIL_BASE_URL, ID, EB_BOOK_DETAIL_URL];
-    AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
-    BookMP3 *book = [BookMP3 new];
-    [session GET:URL
-      parameters:nil
-        progress:nil
-         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-             
-             [book setValuesForKeysWithDictionary:responseObject];
-             
-//             [detailVC bookListWithBook:book];
-             
-             dispatch_async(dispatch_get_main_queue(), ^{
-                 // 刷新详情界面
-//                 [detailVC reloadUIWithBook:book];
-             });
-             
-         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-#warning Alert
-             NSLog(@"请求出错");
-         }];
+             NSString *CQLInsertString =[NSString stringWithFormat:@"insert into recently (username,bookID,index,bookImageURL,bookName) values()",_indexout,list.path,list.name,_bookInfosArray,[AVUser currentUser].username,_bookMP3.ID];
+     
+             [AVQuery doCloudQueryInBackgroundWithCQL:@"insert into TodoFolder(name, priority) values('工作', 1) " callback:^(AVCloudQueryResult *result, NSError *error) {
+                 // 如果 error 为空，说明保存成功
+                 
+             }];
+                
+                
+                
+            }
+            
+        }];
+        _bookCrentlyArray = currentArray;
+        
+    }
+    AVObject *ob = [[AVObject alloc] initWithClassName:@"recently"];
+    [ob setObject:_bookMP3.ID forKey:@"bookID"];
+    [ob setObject:_bookMP3.name forKey:@"bookName"];
+    [ob setObject:_bookMP3.cover forKey:@"bookImageURL"];
+    [ob setObject:[AVUser currentUser].username forKey:@"username"];
+    [ob setObject:[NSString stringWithFormat:@"%ld",_indexout] forKey:@"index"];
+    [ob saveInBackground];
 }
 
-
-
-
-
-
-
+#pragma mark - 最近播放AVObject转换成转换成NBAseModel
+- (BaseModel *)recentlyAVObjectToNews:(AVObject *)object {
+    BaseModel *baseModel = [[BaseModel alloc] init];
+    baseModel.bookID = [object objectForKey:@"bookID"];
+    baseModel.bookName = [object objectForKey:@"bookName"];
+    baseModel.bookImageURL = [object objectForKey:@"bookImageURL"];
+    baseModel.index = [[object objectForKey:@"index"] integerValue];
+    baseModel.bookDate = [object objectForKey:@"updatedAt"];
+    baseModel.bookMP3URL = [object objectForKey:@"bookMP3URL"];
+    baseModel.listArray = [object objectForKey:@"listArray"];
+    baseModel.bookMP3Name = [object objectForKey:@"bookMP3Name"];
+    baseModel.bookAnnouncer = [object objectForKey:@"bookAnnouncer"];
+    return baseModel;
+}
+#pragma mark - 从最近播放表中获取数据
+- (void)selectFromRecentlyTable{
+    if ([AVUser currentUser]) {
+        NSMutableArray * currentArray = [NSMutableArray array];
+        NSString *CQLString = [NSString stringWithFormat:@"select * from %@ where username = %@",@"recently",[AVUser currentUser].username];
+        [AVQuery doCloudQueryInBackgroundWithCQL:CQLString callback:^(AVCloudQueryResult *result, NSError *error) {
+            if (!error) {
+                for (AVObject *obj in result.results) {
+                   BaseModel *model = [self recentlyAVObjectToNews:obj];
+                    [currentArray addObject:model];
+                }
+            }else{
+                NSLog(@"%@",error);
+            }
+        }];
+        _bookCrentlyArray = currentArray;
+    }
+}
+#pragma mark - 收藏写入转换成AVObject
+- (void)likeBookToAVObject{
+    AVObject *ob = [[AVObject alloc] initWithClassName:@"like"];
+    [ob setObject:_bookMP3.ID forKey:@"bookID"];
+    [ob setObject:_bookMP3.name forKey:@"bookName"];
+    [ob setObject:_bookMP3.cover forKey:@"bookImageURL"];
+    [ob setObject:[AVUser currentUser].username forKey:@"username"];
+    [ob setObject:[NSString stringWithFormat:@"%ld",_indexout] forKey:@"index"];
+    
+    [ob saveInBackground];
+}
+#pragma mark - 收藏AVObject转换成转换成NBAseModel
+- (BaseModel *)likeAVObjectToNews:(AVObject *)object {
+    BaseModel *baseModel = [[BaseModel alloc] init];
+    baseModel.bookID = [object objectForKey:@"bookID"];
+    baseModel.bookName = [object objectForKey:@"bookName"];
+    baseModel.bookImageURL = [object objectForKey:@"bookImageURL"];
+    baseModel.index = [[object objectForKey:@"index"] integerValue];
+    baseModel.bookDate = [object objectForKey:@"updatedAt"];
+    return baseModel;
+}
+//#pragma mark - 收藏
+//- (void)collectItemAction:(UIBarButtonItem *)sender {
+//    if ([AVUser currentUser]) {
+//        if (self.isCollect) {
+//            // 删除逻辑
+//            NSString *cql = @"delete from News where objectId = ?";
+//            NSArray *pvalues =  @[self.objectId];
+//            [AVQuery doCloudQueryInBackgroundWithCQL:cql pvalues:pvalues callback:^(AVCloudQueryResult *result, NSError *error) {
+//                // 如果 error 为空，说明删除成功
+//                if (!error) {
+//                    // 删除成功
+//                    sender.image = [[UIImage imageNamed:@"newscollect"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//
+//
+//                } else {
+//                    NSLog(@"~~~~~~error = %@", error);
+//                }
+//            }];
+//            
+//        } else {
+//            // 存储逻辑
+//            AVObject *object = [[DataBaseHandle sharedDataBaseHandle] newsToAVObject:self.news];
+//            [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//                if (succeeded) {
+//                    // 从表中获取数据->objectID
+//                    [self selectFromNewsTable:sender];
+//                    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//                    hud.mode = MBProgressHUDModeText;
+//                    hud.labelText = @"收藏成功";
+//                    hud.margin = 10.f;
+//                    hud.yOffset = 0.f;
+//                    hud.removeFromSuperViewOnHide = YES;
+//                    [hud hide:YES afterDelay:1];
+//                } else {
+//                    NSLog(@"!!!error = %@", error);
+//                }
+//            }];
+//        }
+//    } else {
+//        LoginViewController *loginVC = [[LoginViewController alloc] init];
+//        [self.navigationController pushViewController:loginVC animated:YES];
+//    }
+//    
+//    
+//}
 @end

@@ -241,11 +241,7 @@ singleton_implementation(DocumentsHandle)
             NSInteger second = [resultSet intForColumn:@"time"];
             CGFloat value = [resultSet doubleForColumn:@"value"];
             BaseModel *model = [[BaseModel alloc]init];
-            model.ID = ID;
-            model.index = index;
-            model.time = second;
-            model.value = value;
-            [array addObject:model];
+
         }
     } else {
         NSLog(@"查询失败");
@@ -264,11 +260,11 @@ singleton_implementation(DocumentsHandle)
             NSInteger second = [resultSet intForColumn:@"time"];
             CGFloat value = [resultSet doubleForColumn:@"value"];
             BaseModel *model = [[BaseModel alloc]init];
-            model.ID = ID;
-            model.index = index;
-            model.time = second;
-            model.value = value;
-            [array addObject:model];
+//            model.ID = ID;
+//            model.index = index;
+//            model.time = second;
+//            model.value = value;
+//            [array addObject:model];
         }
     } else {
         NSLog(@"查询失败");

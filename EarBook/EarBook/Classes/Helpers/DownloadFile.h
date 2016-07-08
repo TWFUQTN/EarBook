@@ -19,7 +19,7 @@
 
 //@property (nonatomic, copy) DownloadFileBlock block;
 
-@property (nonatomic, assign) NSProgress *progress;
+//@property (nonatomic, assign) NSProgress *progress;
 
 singleton_interface(DownloadFile)
 /**
@@ -30,5 +30,13 @@ singleton_interface(DownloadFile)
 - (void)downloadWithBookList:(BookList *)bookList
                         Book:(BookMP3 *)book
                         User:(AVUser *)user;
+
+- (void)saveToleanCloudWithdocumentsPath:(NSString *)documentsPath
+                                BookList:(BookList *)bookList
+                                    Book:(BookMP3 *)book
+                                    User:(AVUser *)user
+                               ClassName:(NSString *)className;
+
+- (NSMutableArray *)queryData;
 
 @end

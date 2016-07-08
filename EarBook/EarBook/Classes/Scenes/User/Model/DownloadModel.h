@@ -13,6 +13,7 @@
 @property (nonatomic, copy) NSString *bookName;
 @property (nonatomic, copy) NSString *bookListName;
 @property (nonatomic, copy) NSString *ID;
+@property (nonatomic, copy) NSString *url;
 @property (nonatomic, copy) NSString *path;
 @property (nonatomic, strong) NSDate *downloadTime;
 
