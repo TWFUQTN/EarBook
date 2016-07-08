@@ -34,6 +34,7 @@
         self.delegate = self;
         self.dataSource = self;
         [self registerNib:[UINib nibWithNibName:@"MryPageTableCell" bundle:nil] forCellReuseIdentifier:@"cell"];
+        self.separatorStyle = UITableViewCellSeparatorStyleNone;
     }
     return self;
 }
@@ -169,7 +170,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MryPageTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    cell.backgroundColor = [UIColor cyanColor];
     if ([self.dataArray[indexPath.row] class] == [BookMP3 class]) {
         cell.book = self.dataArray[indexPath.row];
     }
@@ -182,6 +182,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    [self deselectRowAtIndexPath:indexPath animated:YES];
+    
     BookMP3 *book = self.dataArray[indexPath.row];
     
     if (book.state) {
@@ -193,9 +195,10 @@
     
 }
 
+
 //cell高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 110;
+    return 125;
 }
 
 //赋值时刷新视图

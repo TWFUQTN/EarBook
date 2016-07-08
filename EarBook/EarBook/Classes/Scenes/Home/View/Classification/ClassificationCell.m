@@ -50,6 +50,7 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         self.backgroundColor = [UIColor clearColor];
+        self.contentView.backgroundColor = [UIColor clearColor];
         [self initLayout];
     }
     return self;
@@ -114,6 +115,7 @@
     self.myCollectionView = [[UICollectionView alloc] initWithFrame:self.bottomView.bounds collectionViewLayout:self.myFlowLayout];
     self.myCollectionView.alpha = 0.8;
     self.myCollectionView.backgroundColor = [UIColor clearColor];
+    self.bottomView.backgroundColor = [UIColor clearColor];
     [self.bottomView addSubview:self.myCollectionView];
     
     [self.myCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -127,7 +129,6 @@
     self.myCollectionView.delegate = self;
     [self.myCollectionView registerClass:[MyCollectionViewCell class] forCellWithReuseIdentifier:@"collecell"];
     
-    self.myCollectionView.backgroundColor = [UIColor whiteColor];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -143,7 +144,9 @@
     MyCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"collecell" forIndexPath:indexPath];
     Classification *classification = self.cellArray[indexPath.row];
     cell.titleLabel.text = classification.name;
+    cell.titleLabel.textColor = [UIColor greenColor];
     cell.backgroundColor = [UIColor clearColor];
+    cell.titleLabel.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
