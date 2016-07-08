@@ -34,8 +34,6 @@
         self.delegate = self;
         self.dataSource = self;
         [self registerNib:[UINib nibWithNibName:@"MryPageTableCell" bundle:nil] forCellReuseIdentifier:@"cell"];
-//        [self requestData];
-//        self.dataArray = [NSMutableArray array];
     }
     return self;
 }
@@ -76,15 +74,13 @@
             for (NSDictionary *dict in array1) {
                 NSString *partUrl = dict[@"name"];
                 [mryVC requestBookData:partUrl];
-//                NSLog(@"%ld",self.i);
-                
             }
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self reloadData];
             });
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             NSLog(@"网络请求失败：%@", error);
-//            NSLog(@"%ld", self.i);
         }];
         
     }
@@ -96,7 +92,6 @@
     
     NSString *urlString = [NSString stringWithFormat:@"%@%@", EB_BASE_URL, url];
     
-    
     __weak typeof(MryPageTable *) mryVC = self;
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
     
@@ -107,9 +102,6 @@
             [book setValuesForKeysWithDictionary:dict];
             [mryVC.dataArray addObject:book];
         }
-//        NSString *number = [NSString stringWithFormat:@"%ld", self.i];
-//        [self.allDataDict setValue:self.dataArray forKey:number];
-//        NSLog(@"音乐i = %ld", self.i);
         dispatch_async(dispatch_get_main_queue(), ^{
             [self reloadData];
         });
@@ -178,7 +170,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     MryPageTableCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
     cell.backgroundColor = [UIColor cyanColor];
-    NSLog(@"=========%ld", self.dataArray.count);
     if ([self.dataArray[indexPath.row] class] == [BookMP3 class]) {
         cell.book = self.dataArray[indexPath.row];
     }
