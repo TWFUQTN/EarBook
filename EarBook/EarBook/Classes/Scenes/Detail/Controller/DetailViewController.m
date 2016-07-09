@@ -76,6 +76,8 @@
 /// 用于保存已经下载的数据，供继续下载使用
 @property (nonatomic, strong) NSMutableData *data;
 
+@property (nonatomic, strong) UIButton *button;
+
 @end
 
 @implementation DetailViewController
@@ -271,7 +273,7 @@
 #pragma mark - 下载按钮点击方法
 - (void)uploadButtonAction:(UIButton *)sender
 {
-    [sender setTitle:@"已下载" forState:(UIControlStateNormal)];
+    [sender setTitle:@"下载中" forState:(UIControlStateNormal)];
     
     NSInteger index = sender.tag - kButtonTag;
     
@@ -293,7 +295,7 @@
 //            [downloadFile downloadWithBookList:bookList Book:_detailBook User:currentUser];
 //            [downloadFile.progress addObserver:self forKeyPath:@"fractionCompleted" options:(NSKeyValueObservingOptionNew) context:NULL];
             
-            [self uploadWithBookList:bookList CurrentUser:currentUser];
+            [self uploadWithBookList:bookList CurrentUser:currentUser Button:sender];
 
 //        }
     } else {
@@ -307,7 +309,10 @@
 #pragma mark - 下载
 - (void)uploadWithBookList:(BookList *)bookList
                CurrentUser:(AVUser *)currentUser
+                    Button:(UIButton *)button
 {
+    self.button = button;
+    
     DownloadFile *downloadFile = [DownloadFile shareDownloadFile];
     
     //下载
@@ -361,7 +366,9 @@
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:(UIAlertControllerStyleAlert)];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:nil];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"完成" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
+        [self.button setTitle:@"已下载" forState:(UIControlStateNormal)];
+    }];
     
     [alert addAction:cancelAction];
     [self presentViewController:alert animated:YES completion:nil];

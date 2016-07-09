@@ -54,14 +54,14 @@
                       clientKey:@"ix79U7yFCqWgyLU8oFv44VuS"];
     
 #pragma mark - 后台
-//    AVAudioSession *session = [AVAudioSession sharedInstance];
-//    NSError *setCategoryError = nil;
-//    [session setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
-//    NSError *activationError = nil;
-//    [session setActive:YES error:&activationError];
+    AVAudioSession *session = [AVAudioSession sharedInstance];
+    NSError *setCategoryError = nil;
+    [session setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
+    NSError *activationError = nil;
+    [session setActive:YES error:&activationError];
     
 #pragma mark - 耳机
-    [self listeningEarphone];
+//    [self listeningEarphone];
     
     return YES;
 }
@@ -90,33 +90,33 @@
     return result;
 }
 
-- (void)listeningEarphone
-{
-    //监听耳机事件
-    [[AVAudioSession sharedInstance] setDelegate:self];
-    
-    // Use this code instead to allow the app sound to continue to play when the screen is locked.
-    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
-    
-    // Registers the audio route change listener callback function
-    AudioSessionAddPropertyListener(kAudioSessionProperty_AudioRouteChange,audioRouteChangeListenerCallback, (__bridge void *)(self));
-}
-
-void audioRouteChangeListenerCallback (
-                                       void                      *inUserData,
-                                       AudioSessionPropertyID    inPropertyID,
-                                       UInt32                    inPropertyValueS,
-                                       const void                *inPropertyValue
-                                       ) {
-    UInt32 propertySize = sizeof(CFStringRef);
-    AudioSessionInitialize(NULL, NULL, NULL, NULL);
-    CFStringRef state = nil;
-    
-    //获取音频路线
-    AudioSessionGetProperty(kAudioSessionProperty_AudioRoute
-                            ,&propertySize,&state);//kAudioSessionProperty_AudioRoute：音频路线
-    NSLog(@"%@",state);//Headphone 耳机  Speaker 喇叭.
-}
+//- (void)listeningEarphone
+//{
+//    //监听耳机事件
+//    [[AVAudioSession sharedInstance] setDelegate:self];
+//    
+//    // Use this code instead to allow the app sound to continue to play when the screen is locked.
+//    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+//    
+//    // Registers the audio route change listener callback function
+//    AudioSessionAddPropertyListener(kAudioSessionProperty_AudioRouteChange,audioRouteChangeListenerCallback, (__bridge void *)(self));
+//}
+//
+//void audioRouteChangeListenerCallback (
+//                                       void                      *inUserData,
+//                                       AudioSessionPropertyID    inPropertyID,
+//                                       UInt32                    inPropertyValueS,
+//                                       const void                *inPropertyValue
+//                                       ) {
+//    UInt32 propertySize = sizeof(CFStringRef);
+//    AudioSessionInitialize(NULL, NULL, NULL, NULL);
+//    CFStringRef state = nil;
+//    
+//    //获取音频路线
+//    AudioSessionGetProperty(kAudioSessionProperty_AudioRoute
+//                            ,&propertySize,&state);//kAudioSessionProperty_AudioRoute：音频路线
+//    NSLog(@"%@",state);//Headphone 耳机  Speaker 喇叭.
+//}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     

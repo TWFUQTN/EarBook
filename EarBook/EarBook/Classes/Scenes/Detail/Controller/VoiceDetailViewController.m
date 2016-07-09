@@ -69,6 +69,7 @@
 @property (nonatomic, strong) NSProgress *progress;
 @property (nonatomic, strong) VoiceProgram *detailVoice;
 
+@property (nonatomic, strong) UIButton *button;
 
 @end
 
@@ -245,7 +246,7 @@
 #pragma mark - 下载按钮点击方法
 - (void)uploadButtonAction:(UIButton *)sender
 {
-    [sender setTitle:@"已下载" forState:(UIControlStateNormal)];
+    [sender setTitle:@"下载中" forState:(UIControlStateNormal)];
     
     NSInteger index = sender.tag - kButtonTag;
     
@@ -254,7 +255,7 @@
     AVUser *currentUser = [AVUser currentUser];
     
     if (currentUser != nil) {
-        [self uploadWithBookList:bookList CurrentUser:currentUser];
+        [self uploadWithBookList:bookList CurrentUser:currentUser Button:sender];
 
     } else {
         //缓存用户对象为空时，可打开用户注册界面…
@@ -267,7 +268,10 @@
 #pragma mark - 下载
 - (void)uploadWithBookList:(BookList *)bookList
                CurrentUser:(AVUser *)currentUser
+                    Button:(UIButton *)button
 {
+    self.button = button;
+    
     DownloadFile *downloadFile = [DownloadFile shareDownloadFile];
     
     //下载
@@ -308,13 +312,12 @@
 
 #pragma mark - 拿到进度
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context{
-    //拿到进度
-    //    [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
     
     if ([keyPath isEqualToString:@"fractionCompleted"] && [object isKindOfClass:[NSProgress class]]) {
         NSProgress *progress = (NSProgress *)object;
         if (progress.fractionCompleted == 1.0) {
             [self errorAlertWithMessage:@"下载完成！"];
+            
         }
     }
 }
@@ -324,7 +327,9 @@
 {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:message preferredStyle:(UIAlertControllerStyleAlert)];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:nil];
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"完成" style:(UIAlertActionStyleCancel) handler:^(UIAlertAction * _Nonnull action) {
+        [self.button setTitle:@"已下载" forState:(UIControlStateNormal)];
+    }];
     
     [alert addAction:cancelAction];
     [self presentViewController:alert animated:YES completion:nil];

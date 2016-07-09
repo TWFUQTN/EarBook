@@ -13,11 +13,13 @@
 ///
 @property (nonatomic, copy) NSString *account;
 
+@property (nonatomic, strong) NSString *password;
+
 @property (nonatomic, copy) NSString *email;
 
 @property (nonatomic, copy) NSString *nickname;
 
-@property (nonatomic, assign) BOOL sex;
+//@property (nonatomic, assign) BOOL sex;
 
 @property (nonatomic, assign) BOOL activate;
 
@@ -25,7 +27,7 @@
 
 @property (nonatomic, copy) NSString *userId;
 
-@property (nonatomic, copy) NSString *cover;
+@property (nonatomic, strong) NSData *cover;
 
 @property (nonatomic, copy) NSString *birthday;
 

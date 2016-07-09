@@ -18,8 +18,8 @@
 #import "UserTableViewController.h"
 #import "AVPlayerManager.h"
 #import "BookInfosHandle.h"
-#import "AVUserManager.h"
 #import "LoginViewController.h"
+#import <AVOSCloud.h>
 
 
 // AVPlayerManager的单例
@@ -77,7 +77,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 
 - (void)tap
 {
-    AVUserManager *currentUser = [AVUserManager currentUser];
+    AVUser *currentUser = [AVUser currentUser];
     if (currentUser != nil) {
         // 跳转到用户管理界面
         UserTableViewController *userVC = [UserTableViewController new];
@@ -219,12 +219,25 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     self.navigationController.navigationBar.translucent = YES;
     
     // 判断
-    AVUserManager *currentUser = [AVUserManager currentUser];
+    AVUser *currentUser = [AVUser currentUser];
     if (currentUser != nil) {
         
-        _header.nameLabel.text = currentUser.username;
+        NSData *imageData = [currentUser objectForKey:@"cover1"];
+        if (imageData.length > 0) {
+            UIImage *cover = [UIImage imageWithData:imageData];
+            _header.headImageView.image = cover;
+        }
+        
+        NSString *nickName = [currentUser objectForKey:@"nickName"];
+        if (nickName.length > 0) {
+            _header.nameLabel.text = nickName;
+        } else {
+            _header.nameLabel.text = currentUser.username;
+        }
+        
     } else {
         _header.nameLabel.text = @"未登录";
+        _header.headImageView.image = [UIImage imageNamed:@"DefaultAvatar"];
     }
 
 }
