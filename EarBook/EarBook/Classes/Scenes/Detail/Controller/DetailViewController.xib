@@ -113,6 +113,9 @@
                                                         <constraint firstAttribute="height" constant="40" id="b7O-gO-UXP"/>
                                                     </constraints>
                                                     <state key="normal" title="分享"/>
+                                                    <connections>
+                                                        <action selector="shareAction:" destination="-1" eventType="touchUpInside" id="hMe-hs-oeH"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ssi-Yi-bY8">
                                                     <rect key="frame" x="188" y="333" width="188" height="40"/>

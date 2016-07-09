@@ -13,13 +13,15 @@
 #import "BookInfosHandle.h"
 #import "DetailViewController.h"
 #import "HomeViewController.h"
+#import <UMSocial.h>
+
 
 //BookInfoHandle的单例
 #define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
 
 // AVPlayerManager的单例
 #define kAVPlayerManager [AVPlayerManager shareAVPlayerManager]
-@interface PlayerViewController () <AVPlayerManagerDelegate>
+@interface PlayerViewController () <AVPlayerManagerDelegate, UMSocialUIDelegate>
 //音量控制器
 @property (nonatomic, strong) MTTCircularSlider* defaultSlider;
 //背景图片
@@ -218,7 +220,23 @@
 }
 #pragma mark - 分享
 - (IBAction)shareAction:(id)sender {
-
+    
+    [UMSocialData defaultData].extConfig.title = _bookName.text;
+    
+    NSString *shareText = @"";
+    if (_bookCurrent.text.length > 140) {
+        shareText = [_bookCurrent.text substringToIndex:140];
+    } else {
+        shareText = _bookCurrent.text;
+    }
+    
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:@"57767a3667e58e180b0006c2"
+                                      shareText:shareText
+                                     shareImage:_backgroundImageView.image
+                                shareToSnsNames:@[UMShareToWechatSession,UMShareToSina,UMShareToQQ,UMShareToQzone]
+                                       delegate:self];
+    
 }
 
 #pragma mark - 列表按钮
