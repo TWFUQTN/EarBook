@@ -213,6 +213,10 @@
 		D6899CC61D2D26170066083C /* MryPageTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6899CC41D2D26170066083C /* MryPageTableCell.xib */; };
 		D69173DA1D2CEEA400978E48 /* headText.png in Resources */ = {isa = PBXBuildFile; fileRef = D69173D91D2CEEA400978E48 /* headText.png */; };
 		D6973BA81D2659A1008FEDD2 /* BookInfosHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = D6973BA71D2659A1008FEDD2 /* BookInfosHandle.m */; };
+		D6ABA88F1D30E8E000698F0B /* CollectionTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ABA88D1D30E8E000698F0B /* CollectionTableViewController.m */; };
+		D6ABA8901D30E8E000698F0B /* CollectionTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6ABA88E1D30E8E000698F0B /* CollectionTableViewController.xib */; };
+		D6ABA8941D30E92A00698F0B /* CollectionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ABA8921D30E92A00698F0B /* CollectionTableViewCell.m */; };
+		D6ABA8951D30E92A00698F0B /* CollectionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6ABA8931D30E92A00698F0B /* CollectionTableViewCell.xib */; };
 		D6ADC1051D25F9E500B3AF67 /* RankingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6ADC1041D25F9E500B3AF67 /* RankingListViewController.m */; };
 		D6B248CC1D211A850082ED6A /* BookList.m in Sources */ = {isa = PBXBuildFile; fileRef = D6B248CB1D211A850082ED6A /* BookList.m */; };
 		D6CE72AE1D23578300B6E108 /* MyCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CE72AC1D23578300B6E108 /* MyCollectionViewCell.m */; };
@@ -522,6 +526,12 @@
 		D69173D91D2CEEA400978E48 /* headText.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = headText.png; sourceTree = "<group>"; };
 		D6973BA61D2659A1008FEDD2 /* BookInfosHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookInfosHandle.h; sourceTree = "<group>"; };
 		D6973BA71D2659A1008FEDD2 /* BookInfosHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookInfosHandle.m; sourceTree = "<group>"; };
+		D6ABA88C1D30E8E000698F0B /* CollectionTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionTableViewController.h; sourceTree = "<group>"; };
+		D6ABA88D1D30E8E000698F0B /* CollectionTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionTableViewController.m; sourceTree = "<group>"; };
+		D6ABA88E1D30E8E000698F0B /* CollectionTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionTableViewController.xib; sourceTree = "<group>"; };
+		D6ABA8911D30E92A00698F0B /* CollectionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionTableViewCell.h; sourceTree = "<group>"; };
+		D6ABA8921D30E92A00698F0B /* CollectionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionTableViewCell.m; sourceTree = "<group>"; };
+		D6ABA8931D30E92A00698F0B /* CollectionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionTableViewCell.xib; sourceTree = "<group>"; };
 		D6ADC1031D25F9E500B3AF67 /* RankingListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RankingListViewController.h; sourceTree = "<group>"; };
 		D6ADC1041D25F9E500B3AF67 /* RankingListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RankingListViewController.m; sourceTree = "<group>"; };
 		D6B248CA1D211A850082ED6A /* BookList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookList.h; sourceTree = "<group>"; };
@@ -1017,6 +1027,9 @@
 				D62D4E0C1D27C41F00939B13 /* PersonalDataViewController.xib */,
 				D66972BC1D2CFD0300CE4C00 /* DownloadListViewController.h */,
 				D66972BD1D2CFD0300CE4C00 /* DownloadListViewController.m */,
+				D6ABA88C1D30E8E000698F0B /* CollectionTableViewController.h */,
+				D6ABA88D1D30E8E000698F0B /* CollectionTableViewController.m */,
+				D6ABA88E1D30E8E000698F0B /* CollectionTableViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1039,6 +1052,9 @@
 				D6770F7D1D1EA82600AE0CFE /* UserCell.h */,
 				D6770F7E1D1EA82600AE0CFE /* UserCell.m */,
 				D6770F7F1D1EA82600AE0CFE /* UserCell.xib */,
+				D6ABA8911D30E92A00698F0B /* CollectionTableViewCell.h */,
+				D6ABA8921D30E92A00698F0B /* CollectionTableViewCell.m */,
+				D6ABA8931D30E92A00698F0B /* CollectionTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1508,6 +1524,7 @@
 				D6420C861D2D4C740063F5D4 /* Usertrashcan.png in Resources */,
 				D60A541E1D1D2FDC00ECF173 /* DetailViewController.xib in Resources */,
 				D61699591D224F99006E7FB6 /* playSetting.png in Resources */,
+				D6ABA8951D30E92A00698F0B /* CollectionTableViewCell.xib in Resources */,
 				D6E4F9411D24B12C0035C332 /* placeholderImage.png in Resources */,
 				D60F14251D2C0272009E9793 /* tabBarfolder.png in Resources */,
 				D6770F8A1D1EB5ED00AE0CFE /* 3.png in Resources */,
@@ -1626,6 +1643,7 @@
 				D6054E3B1D2CACB700829F6B /* pause3.png in Resources */,
 				D62812781D2FA1BD0026FBC0 /* wait2.gif in Resources */,
 				D6054E2B1D2C9D2300829F6B /* play3.png in Resources */,
+				D6ABA8901D30E8E000698F0B /* CollectionTableViewController.xib in Resources */,
 				D60F14281D2C0272009E9793 /* tabBarskip.png in Resources */,
 				D60F14141D2BD3CA009E9793 /* playSettinglike.png in Resources */,
 				D64761911D22A7F5004A8262 /* SpecialSubjectDetailViewController.xib in Resources */,
@@ -1729,6 +1747,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D62B09261D1D20EA00128D82 /* Tool_AdaptiveHeight.m in Sources */,
+				D6ABA8941D30E92A00698F0B /* CollectionTableViewCell.m in Sources */,
 				D632AFC91D1E22880092A6A3 /* TYCircleCollectionView.m in Sources */,
 				D631B4B71D1C1CBC00102682 /* ViewController.m in Sources */,
 				D6E4F9681D254F9D0035C332 /* MryScrollPageVC.m in Sources */,
@@ -1798,6 +1817,7 @@
 				D60A541D1D1D2FDC00ECF173 /* DetailViewController.m in Sources */,
 				D632AFCC1D1E22880092A6A3 /* TYCircleView.m in Sources */,
 				D6F611321D22CA53002B4506 /* SpecialSubjectCell.m in Sources */,
+				D6ABA88F1D30E8E000698F0B /* CollectionTableViewController.m in Sources */,
 				D6899CC51D2D26170066083C /* MryPageTableCell.m in Sources */,
 				D6F611341D22CA53002B4506 /* SpecialSubjectListCell.m in Sources */,
 				D6F611201D22CA53002B4506 /* SpecialSubjectViewController.m in Sources */,

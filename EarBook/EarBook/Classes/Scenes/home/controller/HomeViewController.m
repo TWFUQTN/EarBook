@@ -165,6 +165,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     
 }
 - (IBAction)tabBarListLikes:(id)sender {
+    [kBookInfosHandle selectFromLikeBooksTable];
     [kBookInfosHandle likeItemAction];
     if (kBookInfosHandle.isCollected == YES) {
         UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"收藏" message:@"收藏成功" preferredStyle:UIAlertControllerStyleAlert];
@@ -172,7 +173,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
         }];
         [alertC addAction:alertA];
         [self presentViewController:alertC animated:YES completion:nil];
-    }else {
+    }else if(kBookInfosHandle.isCollected == NO) {
         UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"收藏" message:@"取消收藏" preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *alertA = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         }];
