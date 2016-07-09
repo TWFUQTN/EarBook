@@ -63,9 +63,20 @@
 
 
 - (void)viewDidAppear:(BOOL)animated {
+    
+#pragma mark - 后台播放1
+    [super viewWillDisappear:animated];
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    [self resignFirstResponder];
    
 }
 - (void)viewWillAppear:(BOOL)animated {
+    
+#pragma mark - 后台播放2
+    [super viewWillAppear:animated];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self becomeFirstResponder];
+    
     self.navigationController.navigationBarHidden = YES;
     // 设置代理
     kAVPlayerManager.delegate = self;
@@ -78,6 +89,37 @@
     [self otherSetting];
     
 }
+
+#pragma mark - 后台播放3
+- (BOOL)canBecomeFirstResponder
+{
+    return YES;
+}
+
+#pragma mark - 后台播放4
+- (void) remoteControlReceivedWithEvent: (UIEvent *) receivedEvent {
+    if (receivedEvent.type == UIEventTypeRemoteControl) {
+        
+        switch (receivedEvent.subtype) {
+                
+            case UIEventSubtypeRemoteControlTogglePlayPause:
+                [self playAction:self.playButton];
+                break;
+                
+            case UIEventSubtypeRemoteControlPreviousTrack:
+                [self lastButton:self.lastButton];
+                break;
+                
+            case UIEventSubtypeRemoteControlNextTrack:
+                [self nextButton:self.nextButton];
+                break;
+                
+            default:
+                break;  
+        }  
+    }  
+}
+
 //其他设置
 - (void)otherSetting{
     [_progressSlider setThumbImage:[UIImage imageNamed:@"thumb.png"] forState:UIControlStateNormal];

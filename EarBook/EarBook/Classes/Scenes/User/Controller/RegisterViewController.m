@@ -61,7 +61,11 @@
     _user.username = _usernameTextField.text;// 设置用户名
     _user.password =  _pwdTextField.text;// 设置密码
     _user.email = _emailTextField.text;// 设置邮箱
-//    user.nickname = _nicknameTextField.text; // 设置昵称
+
+    [_user setObject:[NSData data] forKey:@"cover1"]; // 设置头像
+    [_user setObject:@"" forKey:@"nickName"];// 设置昵称
+    [_user setObject:@"" forKey:@"sex"];// 设置性别
+    [_user setObject:@"" forKey:@"birthday"];
     
     [_user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
@@ -94,7 +98,7 @@
     if (self.rePWDTextField.text.length <= 0) {
         [self errorAlertWithMessage:@"确认密码不能为空"];
     }
-    if (self.rePWDTextField.text.length <= 6) {
+    if (self.rePWDTextField.text.length <= 5) {
         [self errorAlertWithMessage:@"确认密码不能少于6位"];
     }
     if (![self.pwdTextField.text isEqualToString:self.rePWDTextField.text]) {

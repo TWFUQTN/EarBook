@@ -27,15 +27,19 @@
 
 - (void)initLayout {
     
-    self.myImageView = [[UIImageView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.backgroundColor = [UIColor whiteColor];
+    
+    self.myImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.width)];
     self.myImageView.image = [UIImage imageNamed:@"error.jpg"];
     self.myImageView.userInteractionEnabled = YES;
     [self addSubview:self.myImageView];
     
     self.myButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    self.myButton.frame = CGRectMake(107, 50, 200, 50);
-    self.myButton.backgroundColor = [UIColor orangeColor];
-    [self.myButton setTitle:@"重新加载" forState:UIControlStateNormal];
+    self.myButton.frame = CGRectMake(0, self.frame.size.width, self.frame.size.width, self.frame.size.height - self.frame.size.width);
+    self.myButton.titleLabel.font = [UIFont systemFontOfSize:20];
+//    self.myButton.backgroundColor = [UIColor orangeColor];
+    [self.myButton setTitle:@"获取不到数据,点我重新加载..." forState:UIControlStateNormal];
+    self.myButton.tintColor = [UIColor blackColor];
     [self.myButton addTarget:self action:@selector(myButtonAction) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.myButton];
     self.myButton.userInteractionEnabled = YES;

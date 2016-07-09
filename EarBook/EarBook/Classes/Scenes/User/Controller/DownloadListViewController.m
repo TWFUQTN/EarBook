@@ -64,8 +64,10 @@
     self.title = @"我的下载";
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.frame];
     imageView.image = [UIImage imageNamed:@"back9.jpg"];
+    
     self.tableView.backgroundView =imageView;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
     // 获取数据
     [self loadData];
     
@@ -160,10 +162,8 @@
     if (_downloadPathArray.count > 0) {
         
         DownloadModel *model = _downloadPathArray[indexPath.row];
-        
-//        NSDateFormatter *formatter = [NSDateFormatter new];
-        
         cell.textLabel.text = model.bookListName;
+        
 //        cell.detailTextLabel.text = @"播放";
     }
     
@@ -181,15 +181,18 @@
     if (manager.status == isPlaying) {
         [manager pause];
         manager.status = isPaused;
+        [tableView deselectRowAtIndexPath:indexPath animated:YES];
 //        cell.detailTextLabel.text = @"播放";
     } else {
         [manager playWithUrl:bundlePlayPath currentIndex:indexPath.row];
         [manager play];
         manager.status = isPlaying;
+        
 //        cell.detailTextLabel.text = @"暂停";
     }
     
 }
+
 
 /*
 // Override to support conditional editing of the table view.

@@ -36,7 +36,8 @@
 
 - (ReloadView *)reloadView {
     if (!_reloadView) {
-        _reloadView = [[ReloadView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 350)];
+        _reloadView = [[ReloadView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+        _reloadView.transform = CGAffineTransformMakeRotation(90 * M_PI / 180);
     }
     return _reloadView;
 }
@@ -80,7 +81,7 @@
         [session GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
             //刷新数据
-            for (UIView *view in self.subviews) {
+            for (UIView *view in self.superview.subviews) {
                 if (view == self.reloadView) {
                     NSLog(@"dfjaldsfj=======");
                     [view removeFromSuperview];
@@ -97,7 +98,7 @@
             
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             [self hideGifView];
-            [self addSubview:self.reloadView];
+            [self.superview addSubview:self.reloadView];
             __weak typeof(self) weakSelf = self;
             self.reloadView.block = ^() {
                 
@@ -115,7 +116,7 @@
         [session GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             
             //刷新数据
-            for (UIView *view in self.subviews) {
+            for (UIView *view in self.superview.subviews) {
                 if (view == self.reloadView) {
                     NSLog(@"dfjaldsfj=======");
                     [view removeFromSuperview];
@@ -133,7 +134,7 @@
             });
         } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
             [self hideGifView];
-            [self addSubview:self.reloadView];
+            [self.superview addSubview:self.reloadView];
             __weak typeof(self) weakSelf = self;
             self.reloadView.block = ^() {
                 
@@ -160,7 +161,7 @@
     [session GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         //刷新数据
-        for (UIView *view in self.subviews) {
+        for (UIView *view in self.superview.subviews) {
             if (view == self.reloadView) {
                 NSLog(@"dfjaldsfj=======");
                 [view removeFromSuperview];
@@ -179,7 +180,7 @@
         });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self hideGifView];
-        [self addSubview:self.reloadView];
+        [self.superview addSubview:self.reloadView];
         __weak typeof(self) weakSelf = self;
         self.reloadView.block = ^() {
             
@@ -204,7 +205,7 @@
     [session GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         //刷新数据
-        for (UIView *view in self.subviews) {
+        for (UIView *view in self.superview.subviews) {
             if (view == self.reloadView) {
                 NSLog(@"dfjaldsfj=======");
                 [view removeFromSuperview];
@@ -222,7 +223,7 @@
         });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self hideGifView];
-        [self addSubview:self.reloadView];
+        [self.superview addSubview:self.reloadView];
         __weak typeof(self) weakSelf = self;
         self.reloadView.block = ^() {
             
@@ -244,7 +245,7 @@
     [session GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         //刷新数据
-        for (UIView *view in self.subviews) {
+        for (UIView *view in self.superview.subviews) {
             if (view == self.reloadView) {
                 NSLog(@"dfjaldsfj=======");
                 [view removeFromSuperview];
@@ -260,7 +261,7 @@
         });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [self hideGifView];
-        [self addSubview:self.reloadView];
+        [self.superview addSubview:self.reloadView];
         __weak typeof(self) weakSelf = self;
         self.reloadView.block = ^() {
             

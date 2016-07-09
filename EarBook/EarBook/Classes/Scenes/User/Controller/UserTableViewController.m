@@ -11,6 +11,7 @@
 #import "PersonalDataViewController.h"
 #import "HomeViewController.h"
 #import "DownloadListViewController.h"
+#import "DisclaimerViewController.h"
 #import "UserCell.h"
 #import "EB_COLOR.h"
 #import "FileManagerHandle.h"
@@ -44,8 +45,8 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"UserCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
-    self.dictionary = @{@"image":@[@"Useruser", @"Userheart", @"Userfolder", @"Usertrashcan"],
-                        @"title":@[@"完善资料", @"我的收藏", @"我的下载", @"清除缓存"]
+    self.dictionary = @{@"image":@[@"Useruser", @"Userheart", @"Userfolder", @"Usertrashcan", @""],
+                        @"title":@[@"完善资料", @"我的收藏", @"我的下载", @"清除缓存", @"免责声明"]
                         };
     
     // 判断用户是否登录
@@ -63,20 +64,12 @@
     AVUserManager *currentUser = [AVUserManager currentUser];
     if (currentUser != nil) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"注销" style:(UIBarButtonItemStylePlain) target:self action:@selector(logoutAction)];
-//        self.user = currentUser;
     }
-//    else {
-//        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"登录" style:(UIBarButtonItemStylePlain) target:self action:@selector(loginAction)];
-//    }
 }
 
 #pragma mark - 返回按钮
 - (void)back
 {
-//    if (self.block) {
-//        self.block(self.user);
-//    }
-    
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
@@ -178,6 +171,8 @@
             break;
         }
         case 4: {
+            DisclaimerViewController*disclaimerVC = [DisclaimerViewController new];
+            [self.navigationController pushViewController:disclaimerVC animated:YES];
             break;
         }
         default:
