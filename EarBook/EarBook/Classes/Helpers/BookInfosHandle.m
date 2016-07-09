@@ -70,6 +70,15 @@ singleton_implementation(BookInfosHandle)
     return self.bookInfosArray[*index];
     
     }
+// 点击第几集数
+- (BookList *)bookInfoWithIndex:(NSInteger *)index {
+
+    _indexout = *index;
+    _bookCrentlyArray = nil;
+    return self.bookInfosArray[*index];
+    
+}
+
 //获取当前时间
 - (void)getNowDate {
     NSDate *  senddate=[NSDate date];
@@ -184,25 +193,60 @@ singleton_implementation(BookInfosHandle)
         [ob saveInBackground];
     }
 }
+//- (void)loadData
+//{
+//    AVUser *currentUser = [AVUser currentUser];
+//    
+//    AVQuery *query = [AVQuery queryWithClassName:@"DownloadBook"];
+//    [query whereKey:@"username" equalTo:currentUser.username];
+//    
+//    __weak typeof(self)downloadVC = self;
+//    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//        
+//        if (!error) {
+//            for (AVObject *oneObject in objects) {
+//                
+////                DownloadModel *downloadModel = [DownloadModel new];
+////                
+////                // 从云端取出数据
+////                downloadModel.bookName = [oneObject objectForKey:@"bookName"];
+////                downloadModel.bookListName = [oneObject objectForKey:@"bookListName"];
+////                downloadModel.ID = [oneObject objectForKey:@"ID"];
+////                downloadModel.url = [oneObject objectForKey:@"url"];
+////                downloadModel.path = [oneObject objectForKey:@"path"];
+////                downloadModel.cover = [oneObject objectForKey:@"cover"];
+////                downloadModel.downloadTime = oneObject.createdAt;
+////                
+////                [downloadVC.downloadPathArray addObject:downloadModel];
+//                
+//            }
+//            
+////            [downloadVC.tableView reloadData];
+//        }
+//    }];
+//}
 #pragma mark - 从like表中获取数据
 - (void)selectAllFromLikeBooksTable{
     NSMutableArray *array = [NSMutableArray array];
-    if ([AVUser currentUser]) {
-        NSString *CQL = [NSString stringWithFormat:@"select * from like where username = %@ ",[AVUser currentUser].username];
-        [AVQuery doCloudQueryInBackgroundWithCQL:CQL callback:^(AVCloudQueryResult *result, NSError *error) {
-            if (!error) {
-                // 操作成功
-                for (BaseModel *model in result.results) {
-                    [array addObject:model];
-                }
+    AVQuery *query = [AVQuery queryWithClassName:@"like"];
+    [query whereKey:@"username" equalTo:[AVUser currentUser].username];
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // 操作成功
+            for (AVObject *object in objects) {
+                BaseModel *model = [[BaseModel alloc]init];
+                model.bookID = [object objectForKey:@"bookID"];
+                model.bookImageURL = [object objectForKey:@"bookImageURL"];
+                model.bookName = [object objectForKey:@"bookName"];
+                [array addObject:model];
             }
-            else {
-                NSLog(@"%@", error);
-            }
-
-        } ];
-    }
-    _bookLikeArray = array;
+        }
+        else{
+            NSLog(@"%@",error);
+        }
+    }];
+        _bookLikeArray = array;
 }
 #pragma mark - 从like表中获取数据判断是否收藏
 -(void)selectFromLikeBooksTable {
@@ -210,42 +254,31 @@ singleton_implementation(BookInfosHandle)
         AVQuery *query = [AVQuery queryWithClassName:@"like"];
         [query whereKey:@"username" equalTo:[AVUser currentUser].username];
         [query whereKey:@"bookName" equalTo:_bookMP3.name];
+        __weak typeof(self)weakSelf = self;
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
 //            NSArray<AVObject *> *priorityEqualsZeroTodos = objects;// 符合 priority = 0 的 Todo 数组
             if (!error) {
-                self.isCollected = YES;
+                weakSelf.isCollected = YES;
             }
             else{
-                self.isCollected = NO;
+                weakSelf.isCollected = NO;
             }
         }];
-        
-        
-//        
-//        NSString *CQL = [NSString stringWithFormat:@"select * from like where username = %@ and bookName = %@",[AVUser currentUser].username,_bookMP3.ID];
-//     [AVQuery doCloudQueryInBackgroundWithCQL:CQL callback:^(AVCloudQueryResult *result, NSError *error) {
-//            if (!error) {
-//                // 操作成功
-//                if (result.results.count > 0) {
-//                self.isCollected = YES;
-//                }
-//            } else {
-//                self.isCollected = NO;
-//                NSLog(@"%@", error);
-//            }
-//        }];
     }
 }
 #pragma mark - 收藏
 - (void)likeItemAction {
+    __weak typeof(self)weakSelf = self;
+
     if ([AVUser currentUser]) {
         if (self.isCollected == YES) {
             // 删除逻辑
+
             NSString *CQL = [NSString stringWithFormat:@"delete from like where username = %@ and bookName = %@",[AVUser currentUser].username,_bookMP3.name];
                [AVQuery doCloudQueryInBackgroundWithCQL:CQL callback:^(AVCloudQueryResult *result, NSError *error) {
               // 如果 error 为空，说明删除成功
                if (!error) {
-              self.isCollected = NO;
+              weakSelf.isCollected = NO;
                    NSLog(@"删除成功");
 
                  } else {
@@ -262,7 +295,7 @@ singleton_implementation(BookInfosHandle)
             [todo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
                     // 存储成功
-                    self.isCollected = YES;
+                    weakSelf.isCollected = YES;
 
                     NSLog(@"%@",todo.objectId);// 保存成功之后，objectId 会自动从云端加载到本地
                 } else {

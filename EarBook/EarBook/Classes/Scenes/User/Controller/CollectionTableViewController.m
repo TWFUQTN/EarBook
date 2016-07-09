@@ -12,6 +12,7 @@
 #import "BaseModel.h"
 #import <UIImageView+WebCache.h>
 #import "DetailViewController.h"
+#import "BookMP3.h"
 #define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
 
 
@@ -21,10 +22,48 @@
 @end
 
 @implementation CollectionTableViewController
+
 - (void)viewWillAppear:(BOOL)animated{
-    [kBookInfosHandle selectAllFromLikeBooksTable];
+    self.dataArray = [NSMutableArray array];
+    self.title = @"我的收藏";
+    UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.frame];
+    imageView.image = [UIImage imageNamed:@"back13.jpg"];
+    self.tableView.backgroundView =imageView;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
+    // 设置navigationBar
+    self.navigationController.navigationBarHidden = NO;
+    self.navigationController.navigationBar.translucent = NO;
+    self.navigationController.navigationBar.barTintColor = [UIColor lightGrayColor];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    [self loadData];
 }
+#pragma mark - 获取数据
+- (void)loadData
+{
+    AVUser *currentUser = [AVUser currentUser];
+    
+    AVQuery *query = [AVQuery queryWithClassName:@"like"];
+    [query whereKey:@"username" equalTo:currentUser.username];
+    
+    __weak typeof(self)weakSelf = self;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        
+        if (!error) {
+            for (int i = 0; i < objects.count; i++) {
+                // 操作成功
+           
+                    BaseModel *model = [[BaseModel alloc]init];
+                    model.bookID = [objects[i] objectForKey:@"bookID"];
+                    model.bookImageURL = [objects[i] objectForKey:@"bookImageURL"];
+                    model.bookName = [objects[i] objectForKey:@"bookName"];
+                [weakSelf.dataArray addObject:model];
+            }
+            [weakSelf.tableView reloadData];
+        }
+    }];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -50,27 +89,49 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return kBookInfosHandle.bookLikeArray.count;
+    return _dataArray.count;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 120;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     CollectionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"collectionCell" forIndexPath:indexPath];
     BaseModel *model = [[BaseModel alloc]init];
-    model = kBookInfosHandle.bookLikeArray[indexPath.row];
+    model = _dataArray[indexPath.row];
     cell.bookNameLabel.text = model.bookName;
     [cell.bookImageView sd_setImageWithURL:[NSURL URLWithString:model.bookImageURL]];
+    cell.backgroundColor = [UIColor clearColor];
+    if (indexPath.row == _dataArray.count) {
+        cell.cellBackImageView.image = [UIImage imageNamed:@"cellback4.jpg"];
+    }
+   else if (indexPath.row == _dataArray.count - 1 ) {
+        cell.cellBackImageView.image = [UIImage imageNamed:@"cellback3.jpg"];
+    }
+   else if (indexPath.row == _dataArray.count - 2) {
+        
+        cell.cellBackImageView.image = [UIImage imageNamed:@"cellback2.jpg"];
+    }
+    else{
+        cell.cellBackImageView.image = [UIImage imageNamed:@"cellback1.jpg"];
+
+    }
     return cell;
+    
 }
 
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath{
     BaseModel *model = [[BaseModel alloc]init];
-    model = kBookInfosHandle.bookLikeArray[indexPath.row];
+    model = _dataArray[indexPath.row];
     DetailViewController *detailVC = [[DetailViewController alloc]init];
-    detailVC.book.ID = model.bookID;
-    detailVC.pushFrom = PushFromMoreListVC;
+    BookMP3 *bookModel = [[BookMP3 alloc]init];
+    bookModel.ID = model.bookID;
+    detailVC.book = bookModel;
+    detailVC.joiningURLString = JoiningURLStringByID;
+    detailVC.pushFrom = PushFromRankingVC;
     [self.navigationController pushViewController:detailVC animated:YES];
 }
+
 
 /*
 // Override to support conditional editing of the table view.

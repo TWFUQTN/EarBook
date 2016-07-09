@@ -9,6 +9,7 @@
 #import "ARSegmentPageController.h"
 #import "BookMP3.h"
 #import "BookList.h"
+#import "DetailViewController.h"
 @interface HomeViewController : ARSegmentPageController
 
 @property (weak, nonatomic) IBOutlet UIView *tabbarHomeView;
@@ -41,7 +42,9 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *tabBarPlayButton;
 @property (weak, nonatomic) IBOutlet UISlider *progressSlider;
-
-
+//是否被收藏
+@property (nonatomic,assign) BOOL isCollected;
+//收藏数组
+@property (nonatomic,strong) NSMutableArray *dataArray;
 
 @end

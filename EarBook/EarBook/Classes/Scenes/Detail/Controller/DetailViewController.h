@@ -39,4 +39,8 @@ typedef NS_ENUM(NSUInteger, JoiningURLString) {
 @property (nonatomic, strong) ZF_SegmentLabelView *SLView;
 //底层scroll
 @property (weak, nonatomic) IBOutlet UIScrollView *bottomScrollView;
+//是否被收藏
+@property (nonatomic,assign) BOOL isCollected;
+//收藏数组
+@property (nonatomic,strong) NSMutableArray *dataArray;
 @end

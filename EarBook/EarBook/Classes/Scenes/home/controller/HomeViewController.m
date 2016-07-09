@@ -164,23 +164,33 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     
     
 }
+
 - (IBAction)tabBarListLikes:(id)sender {
-    [kBookInfosHandle selectFromLikeBooksTable];
-    [kBookInfosHandle likeItemAction];
-    if (kBookInfosHandle.isCollected == YES) {
-        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"收藏" message:@"收藏成功" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *alertA = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        }];
-        [alertC addAction:alertA];
-        [self presentViewController:alertC animated:YES completion:nil];
-    }else if(kBookInfosHandle.isCollected == NO) {
-        UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"收藏" message:@"取消收藏" preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *alertA = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        }];
-        [alertC addAction:alertA];
-        [self presentViewController:alertC animated:YES completion:nil];
-    }
-    
+
+
+
+                UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"收藏" message:@"是否收藏" preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *alertA = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    AVObject *todo = [AVObject objectWithClassName:@"like"];
+                    [todo setObject:[AVUser currentUser].username forKey:@"username"];
+                    [todo setObject:kBookInfosHandle.bookMP3.name forKey:@"bookName"];
+                    [todo setObject:kBookInfosHandle.bookMP3.ID forKey:@"bookID"];
+                    [todo setObject:kBookInfosHandle.bookMP3.cover forKey:@"bookImageURL"];
+                    [todo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                        if (succeeded) {
+                            NSLog(@"%@",todo.objectId);// 保存成功之后，objectId 会自动从云端加载到本地
+                        }
+                    }];
+                }];
+           UIAlertAction *alertB = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
+    }];
+
+
+                [alertC addAction:alertA];
+                [alertC addAction:alertB];
+                [self presentViewController:alertC animated:YES completion:nil];
+
 }
 
 //列表
@@ -196,6 +206,20 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     BookList * book = kBookInfosHandle.bookInfosArray[indexPath.row];
     listCell.listLabel.text = book.name;
     return listCell;
+}
+#pragma mark - list点击效果
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (kBookInfosHandle.bookMP3 != nil) {
+        _index = indexPath.row;
+        _bookList = [kBookInfosHandle bookInfoWithIndex:&_index];
+        
+        [self playAndSetUpViews];
+        [_tabBarPlayButton setImage:[UIImage imageNamed:@"pause3"] forState:UIControlStateNormal];
+        
+    }
+
+    
+    
 }
 - (void)selectMenuAtIndex:(NSInteger)index {
     NSLog(@"选中:%zd",index);
@@ -280,6 +304,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 }
 //弹出按钮
 - (IBAction)SongButton:(id)sender {
+    
     UIButton *button = (UIButton *)sender;
     PCStackMenu *stackMenu = [[PCStackMenu alloc] initWithTitles:[NSArray arrayWithObjects:@"Setting", @"Search", @"Twitter", @"Message", @"Share", @"More ...", nil]
                                                 withImages:[NSArray arrayWithObjects:[UIImage imageNamed:@"gear@2x.png"], [UIImage imageNamed:@"magnifier@2x.png"], [UIImage imageNamed:@"twitter@2x.png"], [UIImage imageNamed:@"speech@2x.png"], [UIImage imageNamed:@"actions@2x"], nil]
@@ -299,7 +324,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
 //tabBar 列表按钮
 - (IBAction)tabBarListButton:(id)sender {
     [self.tabBarListTableView reloadData];
-    self.tabBarListTableView.contentOffset = CGPointMake(0, 100);
+    self.tabBarListTableView.contentOffset = CGPointMake(0, 44 * _index);
     if (self.isTabBarListOpen) {
         [UIView animateWithDuration:1 animations:^{
             _tabbarListOtherView.hidden = YES;
@@ -390,6 +415,7 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     // 根据模式取出下一首播放的music
     [self getMusicByLoopMode];
 }
+
 
 
 /*
