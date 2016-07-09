@@ -9,10 +9,11 @@
 #import "LoginViewController.h"
 #import "RegisterViewController.h"
 #import "UserTableViewController.h"
+#import "PwdResetViewController.h"
 #import "EB_COLOR.h"
 #import "EB_URL.h"
 #import "User.h"
-#import "AVUserManager.h"
+#import <AVOSCloud.h>
 
 @interface LoginViewController ()
 
@@ -73,7 +74,18 @@
     [self validateInput];
     
     __weak typeof(self)loginVC = self;
-    [AVUserManager logInWithUsernameInBackground:_usernameTextField.text password:_pwdTextField.text block:^(AVUser *user, NSError *error) {
+    [AVUser logInWithUsernameInBackground:_usernameTextField.text password:_pwdTextField.text block:^(AVUser *user, NSError *error) {
+        NSLog(@"%@", error);
+        if (error.code == 1) {
+            [loginVC errorAlertWithMessage:error.userInfo[@"error"]];
+        }
+        if (error.code == 210) {
+            [loginVC errorAlertWithMessage:@"用户与密码不匹配"];
+        }
+        if (error.code == 211) {
+            [loginVC errorAlertWithMessage:@"用户未注册"];
+        }
+        
         if (user != nil ) {
             
             if (loginVC.flag == 1) {
@@ -81,11 +93,11 @@
             } else {
                 // 登录成功
                 UserTableViewController *userVC = [UserTableViewController new];
-                //            userVC.user = (AVUserManager *)user;
                 [loginVC.navigationController pushViewController:userVC animated:YES];
             }
         }
     }];
+    
 }
 
 #pragma mark - 验证输入的值
@@ -122,11 +134,14 @@
 //}
 
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)forgetPwd:(UIButton *)sender
+{
+    PwdResetViewController *pwdResetVC = [PwdResetViewController new];
+    
+    [self.navigationController pushViewController:pwdResetVC animated:YES];
 }
+
+
 
 /*
 #pragma mark - Navigation

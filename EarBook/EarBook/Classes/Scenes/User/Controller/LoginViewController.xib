@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController">
@@ -82,11 +82,14 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uxs-a6-Enf">
-                    <rect key="frame" x="295" y="195" width="60" height="27"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <rect key="frame" x="275" y="205" width="80" height="32"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <state key="normal" title="忘记密码？">
-                        <color key="titleColor" red="0.25098040700000002" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleColor" red="0.5835201680268457" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
+                    <connections>
+                        <action selector="forgetPwd:" destination="-1" eventType="touchUpInside" id="6Vk-Tg-9Be"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
@@ -98,7 +101,7 @@
                 <constraint firstAttribute="trailing" secondItem="IRt-Qa-5PQ" secondAttribute="trailing" constant="20" id="DNJ-sJ-78Z"/>
                 <constraint firstItem="vIH-Ec-XRY" firstAttribute="top" secondItem="IRt-Qa-5PQ" secondAttribute="bottom" constant="5" id="HZf-pU-WnX"/>
                 <constraint firstItem="EFl-vS-4cy" firstAttribute="top" secondItem="vIH-Ec-XRY" secondAttribute="bottom" constant="40" id="Im5-0M-iwP"/>
-                <constraint firstItem="uxs-a6-Enf" firstAttribute="top" secondItem="EFl-vS-4cy" secondAttribute="bottom" constant="10" id="K7A-5q-Edn"/>
+                <constraint firstItem="uxs-a6-Enf" firstAttribute="top" secondItem="EFl-vS-4cy" secondAttribute="bottom" constant="20" id="K7A-5q-Edn"/>
                 <constraint firstItem="4gm-Za-oM5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Kw3-IJ-J5j"/>
                 <constraint firstItem="uxs-a6-Enf" firstAttribute="trailing" secondItem="EFl-vS-4cy" secondAttribute="trailing" id="ZPj-KV-imP"/>
                 <constraint firstItem="IRt-Qa-5PQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="cqi-hL-wm3"/>

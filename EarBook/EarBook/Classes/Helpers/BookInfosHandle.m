@@ -207,19 +207,33 @@ singleton_implementation(BookInfosHandle)
 #pragma mark - 从like表中获取数据判断是否收藏
 -(void)selectFromLikeBooksTable {
     if ([AVUser currentUser]) {
-        
-        NSString *CQL = [NSString stringWithFormat:@"select * from like where username = %@ and bookName = %@",[AVUser currentUser].username,_bookMP3.ID];
-     [AVQuery doCloudQueryInBackgroundWithCQL:CQL callback:^(AVCloudQueryResult *result, NSError *error) {
+        AVQuery *query = [AVQuery queryWithClassName:@"like"];
+        [query whereKey:@"username" equalTo:[AVUser currentUser].username];
+        [query whereKey:@"bookName" equalTo:_bookMP3.name];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+//            NSArray<AVObject *> *priorityEqualsZeroTodos = objects;// 符合 priority = 0 的 Todo 数组
             if (!error) {
-                // 操作成功
-                if (result.results.count > 0) {
-                    self.isCollected = YES;
-                }
-            } else {
+                self.isCollected = YES;
+            }
+            else{
                 self.isCollected = NO;
-                NSLog(@"%@", error);
             }
         }];
+        
+        
+//        
+//        NSString *CQL = [NSString stringWithFormat:@"select * from like where username = %@ and bookName = %@",[AVUser currentUser].username,_bookMP3.ID];
+//     [AVQuery doCloudQueryInBackgroundWithCQL:CQL callback:^(AVCloudQueryResult *result, NSError *error) {
+//            if (!error) {
+//                // 操作成功
+//                if (result.results.count > 0) {
+//                self.isCollected = YES;
+//                }
+//            } else {
+//                self.isCollected = NO;
+//                NSLog(@"%@", error);
+//            }
+//        }];
     }
 }
 #pragma mark - 收藏
@@ -232,21 +246,28 @@ singleton_implementation(BookInfosHandle)
               // 如果 error 为空，说明删除成功
                if (!error) {
               self.isCollected = NO;
+                   NSLog(@"删除成功");
+
                  } else {
                     NSLog(@"~~~~~~error = %@", error);
               }
             }];
                 }
         else{
-                // 存储逻辑
-                NSString *CQLInsertString =[NSString stringWithFormat:@"insert into recently (username,bookName,bookID,bookImageURL) values(%@,%@,%@,%@)",[AVUser currentUser].username,_bookMP3.name,_bookMP3.ID,_bookMP3.cover];
-              [AVQuery doCloudQueryInBackgroundWithCQL:CQLInsertString callback:^(AVCloudQueryResult *result, NSError *error) {
-                if(!error){
-                    NSLog(@"添加成功");
-                }
-                else {
-                
-                    NSLog(@"添加失败");
+            AVObject *todo = [AVObject objectWithClassName:@"like"];
+            [todo setObject:[AVUser currentUser].username forKey:@"username"];
+            [todo setObject:_bookMP3.name forKey:@"bookName"];
+            [todo setObject:_bookMP3.ID forKey:@"bookID"];
+            [todo setObject:_bookMP3.cover forKey:@"bookImageURL"];
+            [todo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    // 存储成功
+                    self.isCollected = YES;
+
+                    NSLog(@"%@",todo.objectId);// 保存成功之后，objectId 会自动从云端加载到本地
+                } else {
+                    NSLog(@"存储失败")
+                    // 失败的话，请检查网络环境以及 SDK 配置是否正确
                 }
             }];
         }
