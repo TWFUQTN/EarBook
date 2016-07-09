@@ -273,8 +273,8 @@ static classname *shared##classname = nil; \
 } \
 \
 - (id)copyWithZone:(NSZone *)zone \
-{ \  
-    return self; \  
+{\
+    return self;\
 }
 
 #endif /* EfficientDefine_h */

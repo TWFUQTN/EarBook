@@ -18,5 +18,6 @@
 @property (nonatomic, copy) NSString *cover;
 @property (nonatomic, strong) NSDate *downloadTime;
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, copy) NSString *objectId;
 
 @end

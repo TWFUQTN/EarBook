@@ -112,7 +112,7 @@
                 downloadModel.path = [oneObject objectForKey:@"path"];
                 downloadModel.cover = [oneObject objectForKey:@"cover"];
                 downloadModel.downloadTime = oneObject.createdAt;
-                
+                downloadModel.objectId = oneObject.objectId;
                 [downloadVC.downloadPathArray addObject:downloadModel];
                 
             }
@@ -194,25 +194,63 @@
 }
 
 
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
+        
+        // 删除云端数据库
+        DownloadModel *model = self.downloadPathArray[indexPath.row];
+        NSString *CQL = [NSString stringWithFormat:@"delete from DownloadBook where objectId='%@'", model.objectId];
+        // 执行 CQL 语句实现删除一个 Todo 对象
+        [AVQuery doCloudQueryInBackgroundWithCQL:CQL callback:^(AVCloudQueryResult *result, NSError *error) {
+            if (!error) {
+                NSLog(@"删除成功");
+            }
+            
+        }];
+        
+        // 删除本地下载的MP3
+        [self deleteFileWithModel:model];
+        
+        // 删除数组的内容
+        [self.downloadPathArray removeObjectAtIndex:indexPath.row];
+        
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
     } else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
+// 删除沙盒里的文件
+-(void)deleteFileWithModel:(DownloadModel *)model
+{
+    
+    NSString *mp3Path = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:model.path];
+    
+    NSFileManager* fileManager=[NSFileManager defaultManager];
+    
+    BOOL blHave=[[NSFileManager defaultManager] fileExistsAtPath:mp3Path];
+    if (!blHave) {
+        NSLog(@"no  have");
+        return ;
+    }else {
+        NSLog(@" have");
+        BOOL blDele= [fileManager removeItemAtPath:mp3Path error:nil];
+        if (blDele) {
+            NSLog(@"dele success");
+        }else {
+            NSLog(@"dele fail");
+        }
+        
+    }
+}
 
 /*
 // Override to support rearranging the table view.
