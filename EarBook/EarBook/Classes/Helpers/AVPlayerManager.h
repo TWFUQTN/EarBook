@@ -10,7 +10,6 @@
 #import <UIKit/UIKit.h>
 #import "Singleton.h"
 
-
 @protocol AVPlayerManagerDelegate <NSObject>
 
 // 当AVPlayer播放时间不断改变时 反馈

@@ -16,6 +16,8 @@
 #import <UMSocial.h>
 
 
+#import <MediaPlayer/MediaPlayer.h>
+
 //BookInfoHandle的单例
 #define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
 
@@ -61,7 +63,7 @@
 
 
 - (void)viewDidAppear:(BOOL)animated {
-    
+   
 }
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = YES;
@@ -156,8 +158,8 @@
     _defaultSlider = [MTTCircularSlider new];
     _defaultSlider.lineWidth = 5;
     _defaultSlider.angle = 45;
-    _defaultSlider.maxValue = 1;
-    _defaultSlider.minValue = 0;
+//    _defaultSlider.maxValue = 5;
+//    _defaultSlider.minValue = 0;
     _defaultSlider.selectColor = [UIColor redColor];
     _defaultSlider.unselectColor = [UIColor whiteColor];
     _defaultSlider.tag = 1;
@@ -202,6 +204,8 @@
     }
     else {
         [_soundButton setImage:[UIImage imageNamed:@"playsound"] forState:UIControlStateNormal];
+        _defaultSlider.value = 0.5;
+        kAVPlayerManager.volume = _defaultSlider.value;
         _isSound = YES;
     }
     
@@ -284,6 +288,7 @@
 
 - (void)sliderValueChanged{
     kAVPlayerManager.volume = _defaultSlider.value;
+//    kAVPlayerManager.volume = [self getVolumeLevel];
     if (kAVPlayerManager.volume > 0 ) {
         [_soundButton setImage:[UIImage imageNamed:@"playsound"] forState:UIControlStateNormal];
         _isSound = YES;
@@ -326,7 +331,6 @@
             break;
     }
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
