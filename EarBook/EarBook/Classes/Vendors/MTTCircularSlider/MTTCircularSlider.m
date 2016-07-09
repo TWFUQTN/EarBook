@@ -65,13 +65,13 @@
         CGFloat radius = contextSize.width / 2 - lineOffset;
         CGContextRef context = UIGraphicsGetCurrentContext();
 
-        const CGFloat* components = CGColorGetComponents(self.unselectColor.CGColor);
+//        const CGFloat* components = CGColorGetComponents(self.unselectColor.CGColor);
         CGContextSetStrokeColorWithColor(context, self.unselectColor.CGColor);
         CGContextSetLineWidth(context, self.lineWidth);
         CGContextAddArc(context, center, center, radius, 0, 2 * M_PI, 0);
         CGContextDrawPath(context, kCGPathStroke);
 
-        components = CGColorGetComponents(self.selectColor.CGColor);
+//        components = CGColorGetComponents(self.selectColor.CGColor);
         CGContextSetStrokeColorWithColor(context, self.selectColor.CGColor);
         CGContextSetLineWidth(context, self.lineWidth);
         CGContextAddArc(context, center, center, radius, _minRotation, _rotation, 0);

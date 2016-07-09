@@ -24,6 +24,7 @@
 @implementation CollectionTableViewController
 
 - (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     self.dataArray = [NSMutableArray array];
     self.title = @"我的收藏";
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.frame];

@@ -107,16 +107,7 @@ singleton_implementation(BookInfosHandle)
                             }];
                                  }
          else{
-//             bookID;
-//              index;
-//             bookImageURL;
-//                     ;
-//             bookMP3URL;
-//             bookAnnouncer;
-//             listArray;
-//             bookMP3Name;
 
-             NSString *CQLInsertString =[NSString stringWithFormat:@"insert into recently (username,bookID,index,bookImageURL,bookName) values()",_indexout,list.path,list.name,_bookInfosArray,[AVUser currentUser].username,_bookMP3.ID];
      
              [AVQuery doCloudQueryInBackgroundWithCQL:@"insert into TodoFolder(name, priority) values('工作', 1) " callback:^(AVCloudQueryResult *result, NSError *error) {
                  // 如果 error 为空，说明保存成功
@@ -299,7 +290,7 @@ singleton_implementation(BookInfosHandle)
 
                     NSLog(@"%@",todo.objectId);// 保存成功之后，objectId 会自动从云端加载到本地
                 } else {
-                    NSLog(@"存储失败")
+                    NSLog(@"存储失败");
                     // 失败的话，请检查网络环境以及 SDK 配置是否正确
                 }
             }];

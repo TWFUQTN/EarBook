@@ -141,11 +141,11 @@
 
 - (void)dismissWithSelect:(PCStackMenuItem *)selectedItem
 {
-	int selectedIndex = [_items indexOfObject:selectedItem];
+	int selectedIndex = (int)[_items indexOfObject:selectedItem];
 	selectedItem.highlight = YES;
 	
     [UIView animateWithDuration:0.1 animations:^{
-		CGRect r;
+		CGRect r = CGRectMake(0, 0, 0, 0);
 		for(int i = 0; i < [_items count]; i++)
 		{
 			PCStackMenuItem *stackItem = [_items objectAtIndex:i];
@@ -188,7 +188,7 @@
 - (void)dismiss
 {
     [UIView animateWithDuration:0.2 animations:^{
-		CGRect r;
+		CGRect r = CGRectMake(0, 0, 0, 0);
 		for(int i = 0; i < [_items count]; i++)
 		{
 			PCStackMenuItem *stackItem = [_items objectAtIndex:i];

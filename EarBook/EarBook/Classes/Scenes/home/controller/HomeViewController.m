@@ -98,9 +98,9 @@ void *CustomHeaderInsetObserver = &CustomHeaderInsetObserver;
     }
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    
-}
+//- (void)viewDidAppear:(BOOL)animated {
+//    
+//}
 
 //tabbar 加载
 -(void)tabBarViewLoad{
