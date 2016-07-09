@@ -43,7 +43,8 @@ singleton_interface(BookInfosHandle)
 
 // 下一首数据源
 - (BookList *)bookInfoNextWithIndex:(NSInteger *)index;
-
+// 点击第几集数
+- (BookList *)bookInfoWithIndex:(NSInteger *)index;
 //获取当前时间及其时间戳
 - (void)getNowDate;
 #pragma mark - 最近播放写入转换成AVObject

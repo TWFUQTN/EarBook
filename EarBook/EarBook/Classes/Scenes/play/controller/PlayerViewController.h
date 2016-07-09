@@ -23,5 +23,8 @@
 @property (nonatomic,copy) NSMutableArray *playList;
 //设置的视图
 @property (weak, nonatomic) IBOutlet UIView *playSettingView;
-
+//是否被收藏
+@property (nonatomic,assign) BOOL isCollected;
+//收藏数组
+@property (nonatomic,strong) NSMutableArray *dataArray;
 @end

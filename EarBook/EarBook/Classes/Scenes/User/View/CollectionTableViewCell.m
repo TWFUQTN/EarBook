@@ -11,6 +11,7 @@
 @implementation CollectionTableViewCell
 
 - (void)awakeFromNib {
+    self.alpha = 0.8;
     // Initialization code
 }
 

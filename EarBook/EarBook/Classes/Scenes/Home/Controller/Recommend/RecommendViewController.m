@@ -65,7 +65,7 @@
 
 - (ReloadView *)reloadView {
     if (!_reloadView) {
-        _reloadView = [[ReloadView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 350)];
+        _reloadView = [[ReloadView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     }
     return _reloadView;
 }
@@ -156,7 +156,7 @@
               success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                   
                   //刷新数据
-                  for (UIView *view in self.view.subviews) {
+                  for (UIView *view in self.view.superview.subviews) {
                       if (view == self.reloadView) {
                           NSLog(@"dfjaldsfj=======");
                           [view removeFromSuperview];
@@ -202,7 +202,7 @@
               } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                   NSLog(@"网络请求错误");
                   [self hideGifView];
-                  [self.view addSubview:self.reloadView];
+                  [self.view.superview addSubview:self.reloadView];
                   __weak typeof(self) weakSelf = self;
                   self.reloadView.block = ^() {
                       

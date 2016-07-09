@@ -261,7 +261,7 @@
                 <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="top" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AQ2-to-iC7">
                     <rect key="frame" x="73" y="538" width="137" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="dei-GY-ciZ"/>
+                        <constraint firstAttribute="height" id="dei-GY-ciZ"/>
                     </constraints>
                     <connections>
                         <action selector="SongButton:" destination="-1" eventType="touchUpInside" id="KfN-VY-cLi"/>

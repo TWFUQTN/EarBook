@@ -259,6 +259,29 @@
 #pragma mark - 收藏
 - (IBAction)likeAction:(id)sender {
     
+    
+    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"收藏" message:@"是否收藏" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *alertA = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        AVObject *todo = [AVObject objectWithClassName:@"like"];
+        [todo setObject:[AVUser currentUser].username forKey:@"username"];
+        [todo setObject:kBookInfosHandle.bookMP3.name forKey:@"bookName"];
+        [todo setObject:kBookInfosHandle.bookMP3.ID forKey:@"bookID"];
+        [todo setObject:kBookInfosHandle.bookMP3.cover forKey:@"bookImageURL"];
+        [todo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                NSLog(@"%@",todo.objectId);// 保存成功之后，objectId 会自动从云端加载到本地
+            }
+        }];
+    }];
+    UIAlertAction *alertB = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    
+    [alertC addAction:alertA];
+    [alertC addAction:alertB];
+    [self presentViewController:alertC animated:YES completion:nil];
+
 }
 #pragma mark - 删除
 - (IBAction)trashAction:(id)sender {

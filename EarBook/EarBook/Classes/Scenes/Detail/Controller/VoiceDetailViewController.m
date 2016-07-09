@@ -89,7 +89,7 @@
 
 - (ReloadView *)reloadView {
     if (!_reloadView) {
-        _reloadView = [[ReloadView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 350)];
+        _reloadView = [[ReloadView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     }
     return _reloadView;
 }
@@ -473,17 +473,29 @@
 #pragma mark - 收藏
 - (IBAction)collectionAction:(UIButton *)sender
 {
-//    AVUser *currentUser = [AVUser currentUser];
-//    
-//    if (currentUser != nil) {
-//        [[DownloadFile shareDownloadFile] saveToleanCloudWithdocumentsPath:nil BookList:nil Book:_book User:currentUser ClassName:@""];
-//        
-//    } else {
-//        //缓存用户对象为空时，可打开用户注册界面…
-//        LoginViewController *loginVC = [LoginViewController new];
-//        loginVC.flag = 1;
-//        [self.navigationController pushViewController:loginVC animated:YES];
-//    }
+    
+    
+    UIAlertController *alertC = [UIAlertController alertControllerWithTitle:@"收藏" message:@"是否收藏" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *alertA = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        AVObject *todo = [AVObject objectWithClassName:@"like"];
+        [todo setObject:[AVUser currentUser].username forKey:@"username"];
+        [todo setObject:kBookInfosHandle.bookMP3.name forKey:@"bookName"];
+        [todo setObject:kBookInfosHandle.bookMP3.ID forKey:@"bookID"];
+        [todo setObject:kBookInfosHandle.bookMP3.cover forKey:@"bookImageURL"];
+        [todo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                NSLog(@"%@",todo.objectId);// 保存成功之后，objectId 会自动从云端加载到本地
+            }
+        }];
+    }];
+    UIAlertAction *alertB = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }];
+    
+    
+    [alertC addAction:alertA];
+    [alertC addAction:alertB];
+    [self presentViewController:alertC animated:YES completion:nil];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {

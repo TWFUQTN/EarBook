@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface CollectionTableViewController : UITableViewController
-
+@property (nonatomic,strong)NSMutableArray *dataArray;
 @end
