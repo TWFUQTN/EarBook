@@ -15,8 +15,12 @@
 #import <UMSocialSinaSSOHandler.h>
 #import <UMSocialQQHandler.h>
 #import <AVOSCloud/AVOSCloud.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface AppDelegate ()
+@interface AppDelegate ()<AVAudioSessionDelegate>
+{
+    UIBackgroundTaskIdentifier _bgTaskId;
+}
 
 @end
 
@@ -49,7 +53,15 @@
     [AVOSCloud setApplicationId:@"Ms8SKLbB5oEPS5vSMNAHQCsc-gzGzoHsz"
                       clientKey:@"ix79U7yFCqWgyLU8oFv44VuS"];
     
+#pragma mark - 后台
+//    AVAudioSession *session = [AVAudioSession sharedInstance];
+//    NSError *setCategoryError = nil;
+//    [session setCategory:AVAudioSessionCategoryPlayback error:&setCategoryError];
+//    NSError *activationError = nil;
+//    [session setActive:YES error:&activationError];
     
+#pragma mark - 耳机
+    [self listeningEarphone];
     
     return YES;
 }
@@ -78,10 +90,65 @@
     return result;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+- (void)listeningEarphone
+{
+    //监听耳机事件
+    [[AVAudioSession sharedInstance] setDelegate:self];
+    
+    // Use this code instead to allow the app sound to continue to play when the screen is locked.
+    [[AVAudioSession sharedInstance] setCategory:AVAudioSessionCategoryPlayback error:nil];
+    
+    // Registers the audio route change listener callback function
+    AudioSessionAddPropertyListener(kAudioSessionProperty_AudioRouteChange,audioRouteChangeListenerCallback, (__bridge void *)(self));
 }
+
+void audioRouteChangeListenerCallback (
+                                       void                      *inUserData,
+                                       AudioSessionPropertyID    inPropertyID,
+                                       UInt32                    inPropertyValueS,
+                                       const void                *inPropertyValue
+                                       ) {
+    UInt32 propertySize = sizeof(CFStringRef);
+    AudioSessionInitialize(NULL, NULL, NULL, NULL);
+    CFStringRef state = nil;
+    
+    //获取音频路线
+    AudioSessionGetProperty(kAudioSessionProperty_AudioRoute
+                            ,&propertySize,&state);//kAudioSessionProperty_AudioRoute：音频路线
+    NSLog(@"%@",state);//Headphone 耳机  Speaker 喇叭.
+}
+
+- (void)applicationWillResignActive:(UIApplication *)application {
+    
+//    //开启后台处理多媒体事件
+//    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+//    AVAudioSession *session=[AVAudioSession sharedInstance];
+//    [session setActive:YES error:nil];
+//    //后台播放
+//    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+//    //这样做，可以在按home键进入后台后 ，播放一段时间，几分钟吧。但是不能持续播放网络歌曲，若需要持续播放网络歌曲，还需要申请后台任务id，具体做法是：
+//    _bgTaskId=[AppDelegate backgroundPlayerID:_bgTaskId];
+//    //其中的_bgTaskId是后台任务UIBackgroundTaskIdentifier _bgTaskId;
+}
+
+//实现一下backgroundPlayerID:这个方法:
+//+(UIBackgroundTaskIdentifier)backgroundPlayerID:(UIBackgroundTaskIdentifier)backTaskId
+//{
+//    //设置并激活音频会话类别
+//    AVAudioSession *session=[AVAudioSession sharedInstance];
+//    [session setCategory:AVAudioSessionCategoryPlayback error:nil];
+//    [session setActive:YES error:nil];
+//    //允许应用程序接收远程控制
+//    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+//    //设置后台任务ID
+//    UIBackgroundTaskIdentifier newTaskId=UIBackgroundTaskInvalid;
+//    newTaskId=[[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:nil];
+//    if(newTaskId!=UIBackgroundTaskInvalid&&backTaskId!=UIBackgroundTaskInvalid)
+//    {
+//        [[UIApplication sharedApplication] endBackgroundTask:backTaskId];
+//    }
+//    return newTaskId;
+//}
 
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.

@@ -19,6 +19,8 @@
 #import "Voice.h"
 #import "BookInfosHandle.h"
 #import "PlayerViewController.h"
+#import "MBProgressHUD+GifHUD.h"
+#import "ReloadView.h"
 
 #define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
 
@@ -69,6 +71,9 @@
 @property (nonatomic, strong) NSProgress *progress;
 @property (nonatomic, strong) VoiceProgram *detailVoice;
 
+//重新加载视图
+@property (nonatomic, strong) ReloadView *reloadView;
+
 
 @end
 
@@ -82,6 +87,24 @@
     return _listArray;
 }
 
+- (ReloadView *)reloadView {
+    if (!_reloadView) {
+        _reloadView = [[ReloadView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 350)];
+    }
+    return _reloadView;
+}
+
+//显示等待视图
+- (void)showGif {
+    [MBProgressHUD setUpGifWithFrame:CGRectMake(0, 0, 80, 80) gifName:@"wait" andShowToView:self.view];
+}
+
+//隐藏等待视图
+- (void)hideGifView {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+
 - (void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.navigationBar.translucent = NO;
@@ -90,6 +113,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    [self showGif];
     // 请求详情数据
     [self requestDetailData];
     // 请求列表数据
@@ -142,6 +166,16 @@
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              
+             //刷新数据
+             for (UIView *view in self.view.subviews) {
+                 if (view == self.reloadView) {
+                     NSLog(@"dfjaldsfj=======");
+                     [view removeFromSuperview];
+                 }
+             }
+             
+             [self hideGifView];
+             
              NSDictionary *dict = responseObject[@"ablumn"];
              VoiceProgram *voice = [VoiceProgram new];
              [voice setValuesForKeysWithDictionary:dict];
@@ -152,7 +186,16 @@
              });
     }
          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-             
+             [self hideGifView];
+             [self.view addSubview:self.reloadView];
+             __weak typeof(self) weakSelf = self;
+             self.reloadView.block = ^() {
+                 
+                 [weakSelf requestDetailData];
+                 NSLog(@"*******");
+                 [weakSelf showGif];
+                 
+             };
     }];
 }
 
@@ -167,6 +210,15 @@
       parameters:nil
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             
+             //刷新数据
+             for (UIView *view in self.view.subviews) {
+                 if (view == self.reloadView) {
+                     NSLog(@"dfjaldsfj=======");
+                     [view removeFromSuperview];
+                 }
+             }
+             [self hideGifView];
 
              for (NSDictionary *dict in responseObject[@"list"]) {
                  BookList *list = [BookList new];
@@ -180,7 +232,16 @@
              });
          }
          failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-             
+             [self hideGifView];
+             [self.view addSubview:self.reloadView];
+             __weak typeof(self) weakSelf = self;
+             self.reloadView.block = ^() {
+                 
+                 [weakSelf requestListData];
+                 NSLog(@"*******");
+                 [weakSelf showGif];
+                 
+             };
          }];
 }
 

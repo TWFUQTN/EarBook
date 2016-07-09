@@ -36,7 +36,7 @@
 
 - (ReloadView *)reloadView {
     if (!_reloadView) {
-        _reloadView = [[ReloadView alloc] init];
+        _reloadView = [[ReloadView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 350)];
     }
     return _reloadView;
 }
@@ -78,6 +78,15 @@
         NSString *urlString = [NSString stringWithFormat:@"%@%@%@%@%@%@%@%@", EB_CLASSIFICATION_VOICE_DETAIL_BASE_URL, EB_CLASSIFICATION_VOICE_DETAIL_BODY1_URL, self.urlString, EB_CLASSIFICATION_VOICE_DETAIL_BODY2_URL, self.urlString, EB_CLASSIFICATION_VOICE_DETAIL_BODY3_URL, self.urlString, EB_CLASSIFICATION_VOICE_DETAIL_BODY4_URL];
         
         [session GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            //刷新数据
+            for (UIView *view in self.subviews) {
+                if (view == self.reloadView) {
+                    NSLog(@"dfjaldsfj=======");
+                    [view removeFromSuperview];
+                }
+            }
+            
             NSArray *array = responseObject[@"list"];
             NSString *partUrl = array[1][@"name"];
             [mryVC requestVoiceData:partUrl];
@@ -104,6 +113,15 @@
         NSString *urlString = [NSString stringWithFormat:@"%@%@%@%@%@%@", EB_CLASSIFICATION_BOOK_DETAIL_BASE_URL, EB_CLASSIFICATION_BOOK_DETAIL_BODY1_URL, self.urlString,  EB_CLASSIFICATION_BOOK_DETAIL_BODY2_URL, self.urlString,  EB_CLASSIFICATION_BOOK_DETAIL_BODY3_URL];
         
         [session GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+            
+            //刷新数据
+            for (UIView *view in self.subviews) {
+                if (view == self.reloadView) {
+                    NSLog(@"dfjaldsfj=======");
+                    [view removeFromSuperview];
+                }
+            }
+            
             NSArray *array1 = responseObject[@"list"];
             for (NSDictionary *dict in array1) {
                 NSString *partUrl = dict[@"name"];
@@ -140,6 +158,15 @@
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
     
     [session GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        //刷新数据
+        for (UIView *view in self.subviews) {
+            if (view == self.reloadView) {
+                NSLog(@"dfjaldsfj=======");
+                [view removeFromSuperview];
+            }
+        }
+        
         NSArray *dataArray = responseObject[@"list"];
         for (NSDictionary *dict in dataArray) {
             BookMP3 *book = [[BookMP3 alloc] init];
@@ -175,6 +202,15 @@
     __weak typeof(MryPageTable *) mryVC = self;
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
     [session GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        //刷新数据
+        for (UIView *view in self.subviews) {
+            if (view == self.reloadView) {
+                NSLog(@"dfjaldsfj=======");
+                [view removeFromSuperview];
+            }
+        }
+        
         NSArray *dataArray = responseObject[@"list"];
         for (NSDictionary *dict in dataArray) {
             NSString *bookId = dict[@"id"];
@@ -206,6 +242,15 @@
     __weak typeof(MryPageTable *) mryVC = self;
     AFHTTPSessionManager *session = [AFHTTPSessionManager manager];
     [session GET:url parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        //刷新数据
+        for (UIView *view in self.subviews) {
+            if (view == self.reloadView) {
+                NSLog(@"dfjaldsfj=======");
+                [view removeFromSuperview];
+            }
+        }
+        
         BookMP3 *book = [[BookMP3 alloc] init];
         [book setValuesForKeysWithDictionary:responseObject];
         [mryVC.dataArray addObject:book];

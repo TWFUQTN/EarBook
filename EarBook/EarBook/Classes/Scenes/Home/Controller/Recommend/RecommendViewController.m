@@ -65,7 +65,7 @@
 
 - (ReloadView *)reloadView {
     if (!_reloadView) {
-        _reloadView = [[ReloadView alloc] init];
+        _reloadView = [[ReloadView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 350)];
     }
     return _reloadView;
 }
@@ -154,6 +154,15 @@
            parameters:nil
              progress:nil
               success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+                  
+                  //刷新数据
+                  for (UIView *view in self.view.subviews) {
+                      if (view == self.reloadView) {
+                          NSLog(@"dfjaldsfj=======");
+                          [view removeFromSuperview];
+                      }
+                  }
+                  
 //                  NSLog(@"%@", responseObject[@"list"]);
                   
                   NSArray *dataArray = responseObject[@"list"];

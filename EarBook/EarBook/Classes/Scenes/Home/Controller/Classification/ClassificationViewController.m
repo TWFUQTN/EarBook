@@ -57,7 +57,7 @@
 
 - (ReloadView *)reloadView {
     if (!_reloadView) {
-        _reloadView = [[ReloadView alloc] init];
+        _reloadView = [[ReloadView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 350)];
     }
     return _reloadView;
 }
@@ -129,6 +129,14 @@
     __weak typeof(self) classificationVC = self;
     [self.session GET:EB_CLASSIFICATION_URL parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
+        //刷新数据
+        for (UIView *view in self.view.subviews) {
+            if (view == self.reloadView) {
+                NSLog(@"dfjaldsfj=======");
+                [view removeFromSuperview];
+            }
+        }
+        
         NSArray *dataArray = responseObject[@"list"];
         for (int i = 1; i < dataArray.count; i++) {
             NSDictionary *dict = dataArray[i];
@@ -160,6 +168,14 @@
     __weak typeof(self) classificationVC = self;
     [self.session GET:urlString parameters:nil progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
+        //刷新数据
+        for (UIView *view in self.view.subviews) {
+            if (view == self.reloadView) {
+                NSLog(@"dfjaldsfj=======");
+                [view removeFromSuperview];
+            }
+        }
+        
         for (NSDictionary *dataDict in responseObject[@"list"]) {
             NSString *key = dataDict[@"name"];
             NSMutableArray *allDataArray = [NSMutableArray array];
@@ -185,6 +201,16 @@
         });
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"第二次网络请求失败");
+        [self hideGifView];
+        [self.view addSubview:self.reloadView];
+        __weak typeof(self) weakSelf = self;
+        self.reloadView.block = ^() {
+            
+            [weakSelf requestData];
+            NSLog(@"*******");
+            [weakSelf showGif];
+            
+        };
     }];
 }
 

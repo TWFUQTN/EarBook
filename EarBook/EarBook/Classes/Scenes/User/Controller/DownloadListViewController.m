@@ -65,6 +65,7 @@
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.frame];
     imageView.image = [UIImage imageNamed:@"back9.jpg"];
     self.tableView.backgroundView =imageView;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     // 获取数据
     [self loadData];
     
