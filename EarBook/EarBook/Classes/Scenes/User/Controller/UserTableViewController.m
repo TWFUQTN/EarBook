@@ -16,6 +16,7 @@
 #import "EB_COLOR.h"
 #import "FileManagerHandle.h"
 #import "AVUserManager.h"
+#import "CollectionTableViewController.h"
 
 @interface UserTableViewController ()
 
@@ -134,6 +135,8 @@
             break;
         }
         case 1: {
+            CollectionTableViewController *collectionVC = [CollectionTableViewController new];
+            [self.navigationController pushViewController:collectionVC animated:YES];
             break;
         }
         case 2: {

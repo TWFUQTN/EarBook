@@ -19,7 +19,8 @@
 #import "DownloadFile.h"
 #import <UMSocial.h>
 #import <AVOSCloud.h>
-
+#import "ReloadView.h"
+#import "MBProgressHUD+GifHUD.h"
 
 #define kBookInfosHandle [BookInfosHandle shareBookInfosHandle]
 #define kScrollWidth self.scrollView.frame.size.width
@@ -77,11 +78,15 @@
 @property (nonatomic, strong) NSMutableData *data;
 
 @property (nonatomic, strong) UIButton *button;
+//重新加载视图
+@property (nonatomic, strong) ReloadView *reloadView;
+
 
 @end
 
 @implementation DetailViewController
 
+//懒加载
 - (NSMutableArray *)listArray
 {
     if (!_listArray) {
@@ -89,6 +94,25 @@
     }
     return _listArray;
 }
+
+- (ReloadView *)reloadView {
+    if (!_reloadView) {
+        _reloadView = [[ReloadView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 350)];
+    }
+    return _reloadView;
+}
+
+//显示等待视图
+- (void)showGif {
+    [MBProgressHUD setUpGifWithFrame:CGRectMake(0, 0, 80, 80) gifName:@"wait" andShowToView:self.view];
+}
+
+//隐藏等待视图
+- (void)hideGifView {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+
 - (void)viewWillAppear:(BOOL)animated{
     self.navigationController.navigationBar.translucent = NO;
 
@@ -113,6 +137,10 @@
         }];
         
     } else {
+        
+        //菊花图
+        [self showGif];
+        
         // 请求数据
         [self requestData];
         // 下拉刷新
@@ -170,6 +198,14 @@
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              
+             //刷新数据
+             for (UIView *view in self.view.subviews) {
+                 if (view == self.reloadView) {
+                     NSLog(@"dfjaldsfj=======");
+                     [view removeFromSuperview];
+                 }
+             }
+             
              [book setValuesForKeysWithDictionary:responseObject];
 //             book.ID = responseObject[@"id"];
              
@@ -180,11 +216,22 @@
              dispatch_async(dispatch_get_main_queue(), ^{
                  // 刷新详情界面
                  [detailVC reloadUIWithBook:book];
+                 [self hideGifView];
              });
              
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 #warning Alert
              NSLog(@"请求出错");
+             [self hideGifView];
+             [self.view addSubview:self.reloadView];
+             __weak typeof(self) weakSelf = self;
+             self.reloadView.block = ^() {
+                 
+                 [weakSelf requestData];
+                 NSLog(@"*******");
+                 [weakSelf showGif];
+                 
+             };
          }];
 }
 
@@ -200,6 +247,14 @@
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              
+             //刷新数据
+             for (UIView *view in self.view.subviews) {
+                 if (view == self.reloadView) {
+                     NSLog(@"dfjaldsfj=======");
+                     [view removeFromSuperview];
+                 }
+             }
+             
              for (NSDictionary *dict in responseObject[@"list"]) {
                  BookList *bookList = [BookList new];
                  [bookList setValuesForKeysWithDictionary:dict];
@@ -208,11 +263,22 @@
              
              dispatch_async(dispatch_get_main_queue(), ^{
                  [detailVC.listTableView reloadData];
+                 [self hideGifView];
              });
              
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
 #warning Alert
              NSLog(@"请求出错");
+             [self hideGifView];
+             [self.view addSubview:self.reloadView];
+             __weak typeof(self) weakSelf = self;
+             self.reloadView.block = ^() {
+                 
+                 [weakSelf bookListWithBook:weakSelf.book];
+                 NSLog(@"*******");
+                 [weakSelf showGif];
+                 
+             };
          }];
 }
 

@@ -97,7 +97,7 @@
 
 - (ReloadView *)reloadView {
     if (!_reloadView) {
-        _reloadView = [[ReloadView alloc] init];
+        _reloadView = [[ReloadView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 350)];
     }
     return _reloadView;
 }
@@ -152,6 +152,15 @@
       parameters:nil
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             
+             //刷新数据
+             for (UIView *view in self.view.subviews) {
+                 if (view == self.reloadView) {
+                     NSLog(@"dfjaldsfj=======");
+                     [view removeFromSuperview];
+                 }
+             }
+             
              // 解析数据
              NSString *urlString = @"";
              NSArray *resultArray = responseObject[@"list"];
@@ -191,6 +200,14 @@
         progress:nil
          success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
              
+             //刷新数据
+             for (UIView *view in self.view.subviews) {
+                 if (view == self.reloadView) {
+                     NSLog(@"dfjaldsfj=======");
+                     [view removeFromSuperview];
+                 }
+             }
+             
              // 解析数据
              NSArray *resultArray = responseObject[@"list"];
              if (resultArray.count > 0) {
@@ -225,7 +242,16 @@
                  [self hideGifView];
              });
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-             
+             [self hideGifView];
+             [self.view addSubview:self.reloadView];
+             __weak typeof(self) weakSelf = self;
+             self.reloadView.block = ^() {
+                 
+                 [weakSelf requestData];
+                 NSLog(@"*******");
+                 [weakSelf showGif];
+                 
+             };
          }];
     
 }
