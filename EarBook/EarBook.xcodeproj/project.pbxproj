@@ -101,7 +101,7 @@
 		D62812931D2FC3200026FBC0 /* cellm9.png in Resources */ = {isa = PBXBuildFile; fileRef = D62812861D2FC3200026FBC0 /* cellm9.png */; };
 		D62812951D2FDC9D0026FBC0 /* wait.gif in Resources */ = {isa = PBXBuildFile; fileRef = D62812941D2FDC9D0026FBC0 /* wait.gif */; };
 		D62812981D2FDE190026FBC0 /* ReloadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D62812971D2FDE190026FBC0 /* ReloadView.m */; };
-		D628129A1D2FDFFA0026FBC0 /* error.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D62812991D2FDFFA0026FBC0 /* error.jpg */; };
+		D628129A1D2FDFFA0026FBC0 /* error1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D62812991D2FDFFA0026FBC0 /* error1.jpg */; };
 		D62B09101D1CC90700128D82 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09091D1CC90700128D82 /* AppDelegate.m */; };
 		D62B09261D1D20EA00128D82 /* Tool_AdaptiveHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D62B09251D1D20EA00128D82 /* Tool_AdaptiveHeight.m */; };
 		D62B09541D1D2DFC00128D82 /* 苹果接口.txt in Resources */ = {isa = PBXBuildFile; fileRef = D62B093E1D1D2DFC00128D82 /* 苹果接口.txt */; };
@@ -220,6 +220,7 @@
 		D6CE72AF1D23578300B6E108 /* MyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6CE72AD1D23578300B6E108 /* MyCollectionViewCell.xib */; };
 		D6CE72B31D23583400B6E108 /* VoiceDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D6CE72B11D23583400B6E108 /* VoiceDetailViewController.m */; };
 		D6CE72B41D23583400B6E108 /* VoiceDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6CE72B21D23583400B6E108 /* VoiceDetailViewController.xib */; };
+		D6D179BB1D31028400EC3F30 /* error.jpg in Resources */ = {isa = PBXBuildFile; fileRef = D6D179BA1D31028400EC3F30 /* error.jpg */; };
 		D6DA8ABE1D240FBC0067E813 /* AVPlayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DA8ABD1D240FBC0067E813 /* AVPlayerManager.m */; };
 		D6DA8AC41D241AB80067E813 /* NSString+TimeFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D6DA8AC31D241AB80067E813 /* NSString+TimeFormatter.m */; };
 		D6E334001D23A7FC006052D6 /* VoiceProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = D6E333FF1D23A7FC006052D6 /* VoiceProgram.m */; };
@@ -365,7 +366,7 @@
 		D62812941D2FDC9D0026FBC0 /* wait.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = wait.gif; sourceTree = "<group>"; };
 		D62812961D2FDE190026FBC0 /* ReloadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReloadView.h; sourceTree = "<group>"; };
 		D62812971D2FDE190026FBC0 /* ReloadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReloadView.m; sourceTree = "<group>"; };
-		D62812991D2FDFFA0026FBC0 /* error.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = error.jpg; sourceTree = "<group>"; };
+		D62812991D2FDFFA0026FBC0 /* error1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = error1.jpg; sourceTree = "<group>"; };
 		D62B09081D1CC90700128D82 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		D62B09091D1CC90700128D82 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		D62B09241D1D20EA00128D82 /* Tool_AdaptiveHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Tool_AdaptiveHeight.h; sourceTree = "<group>"; };
@@ -534,6 +535,7 @@
 		D6CE72B01D23583400B6E108 /* VoiceDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceDetailViewController.h; sourceTree = "<group>"; };
 		D6CE72B11D23583400B6E108 /* VoiceDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VoiceDetailViewController.m; sourceTree = "<group>"; };
 		D6CE72B21D23583400B6E108 /* VoiceDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VoiceDetailViewController.xib; sourceTree = "<group>"; };
+		D6D179BA1D31028400EC3F30 /* error.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = error.jpg; sourceTree = "<group>"; };
 		D6DA8ABC1D240FBC0067E813 /* AVPlayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVPlayerManager.h; sourceTree = "<group>"; };
 		D6DA8ABD1D240FBC0067E813 /* AVPlayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVPlayerManager.m; sourceTree = "<group>"; };
 		D6DA8AC21D241AB80067E813 /* NSString+TimeFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TimeFormatter.h"; sourceTree = "<group>"; };
@@ -812,7 +814,8 @@
 				D6770F871D1EB5ED00AE0CFE /* 4.png */,
 				D62812771D2FA1BD0026FBC0 /* wait2.gif */,
 				D62812941D2FDC9D0026FBC0 /* wait.gif */,
-				D62812991D2FDFFA0026FBC0 /* error.jpg */,
+				D6D179BA1D31028400EC3F30 /* error.jpg */,
+				D62812991D2FDFFA0026FBC0 /* error1.jpg */,
 				D632AFCD1D1E22A70092A6A3 /* HomeImage */,
 				D62B095E1D1D2FFD00128D82 /* PlayerImage */,
 			);
@@ -1547,7 +1550,8 @@
 				D61699581D224F99006E7FB6 /* PlayRight.png in Resources */,
 				D60F141C1D2C00FD009E9793 /* tabBarplay1.png in Resources */,
 				D6420C6E1D2D33620063F5D4 /* home9.png in Resources */,
-				D628129A1D2FDFFA0026FBC0 /* error.jpg in Resources */,
+				D6D179BB1D31028400EC3F30 /* error.jpg in Resources */,
+				D628129A1D2FDFFA0026FBC0 /* error1.jpg in Resources */,
 				D6CE72AF1D23578300B6E108 /* MyCollectionViewCell.xib in Resources */,
 				D6770F891D1EB5ED00AE0CFE /* 2.png in Resources */,
 				D656751D1D210FC5000E4B26 /* back.png in Resources */,

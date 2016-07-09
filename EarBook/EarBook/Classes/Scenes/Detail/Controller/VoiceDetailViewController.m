@@ -89,7 +89,7 @@
 
 - (ReloadView *)reloadView {
     if (!_reloadView) {
-        _reloadView = [[ReloadView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 350)];
+        _reloadView = [[ReloadView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     }
     return _reloadView;
 }
