@@ -48,7 +48,6 @@
 		D61699461D22269E006E7FB6 /* DOPNavbarMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = D61699431D22269E006E7FB6 /* DOPNavbarMenu.m */; };
 		D61699471D22269E006E7FB6 /* UIView+DOPExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = D61699451D22269E006E7FB6 /* UIView+DOPExtension.m */; };
 		D61699521D224F99006E7FB6 /* Mainsearch.png in Resources */ = {isa = PBXBuildFile; fileRef = D61699481D224F99006E7FB6 /* Mainsearch.png */; };
-		D61699531D224F99006E7FB6 /* playBack.png in Resources */ = {isa = PBXBuildFile; fileRef = D61699491D224F99006E7FB6 /* playBack.png */; };
 		D61699541D224F99006E7FB6 /* playLeft.png in Resources */ = {isa = PBXBuildFile; fileRef = D616994A1D224F99006E7FB6 /* playLeft.png */; };
 		D61699551D224F99006E7FB6 /* playList.png in Resources */ = {isa = PBXBuildFile; fileRef = D616994B1D224F99006E7FB6 /* playList.png */; };
 		D61699561D224F99006E7FB6 /* playPause.png in Resources */ = {isa = PBXBuildFile; fileRef = D616994C1D224F99006E7FB6 /* playPause.png */; };
@@ -152,6 +151,7 @@
 		D6488AF41D27747B00ABA6FD /* MryScrollPageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D6488AF11D27747B00ABA6FD /* MryScrollPageCell.m */; };
 		D656751D1D210FC5000E4B26 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = D656751C1D210FC5000E4B26 /* back.png */; };
 		D65C34BC1D27EF8D00CBC367 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = D65C34BB1D27EF8D00CBC367 /* libsqlite3.0.tbd */; };
+		D660F0001D373CB000FCB28A /* playBack.png in Resources */ = {isa = PBXBuildFile; fileRef = D660EFFF1D373CB000FCB28A /* playBack.png */; };
 		D66972BB1D2CE20600CE4C00 /* DownloadFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D66972BA1D2CE20600CE4C00 /* DownloadFile.m */; };
 		D66972BE1D2CFD0300CE4C00 /* DownloadListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D66972BD1D2CFD0300CE4C00 /* DownloadListViewController.m */; };
 		D66972C11D2D346500CE4C00 /* DownloadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D66972C01D2D346500CE4C00 /* DownloadModel.m */; };
@@ -321,7 +321,6 @@
 		D61699441D22269E006E7FB6 /* UIView+DOPExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DOPExtension.h"; sourceTree = "<group>"; };
 		D61699451D22269E006E7FB6 /* UIView+DOPExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DOPExtension.m"; sourceTree = "<group>"; };
 		D61699481D224F99006E7FB6 /* Mainsearch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Mainsearch.png; sourceTree = "<group>"; };
-		D61699491D224F99006E7FB6 /* playBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playBack.png; sourceTree = "<group>"; };
 		D616994A1D224F99006E7FB6 /* playLeft.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playLeft.png; sourceTree = "<group>"; };
 		D616994B1D224F99006E7FB6 /* playList.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playList.png; sourceTree = "<group>"; };
 		D616994C1D224F99006E7FB6 /* playPause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playPause.png; sourceTree = "<group>"; };
@@ -458,6 +457,7 @@
 		D65C34BB1D27EF8D00CBC367 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		D65DC00D1D1E79C1003905BA /* EfficientDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EfficientDefine.h; sourceTree = "<group>"; };
 		D65DC00E1D1E79DB003905BA /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		D660EFFF1D373CB000FCB28A /* playBack.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = playBack.png; sourceTree = "<group>"; };
 		D66972B91D2CE20600CE4C00 /* DownloadFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadFile.h; sourceTree = "<group>"; };
 		D66972BA1D2CE20600CE4C00 /* DownloadFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownloadFile.m; sourceTree = "<group>"; };
 		D66972BC1D2CFD0300CE4C00 /* DownloadListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownloadListViewController.h; sourceTree = "<group>"; };
@@ -945,7 +945,6 @@
 				D61699601D224FCA006E7FB6 /* playSettingsearch.png */,
 				D61699611D224FCA006E7FB6 /* playSettingtrash.png */,
 				D61699481D224F99006E7FB6 /* Mainsearch.png */,
-				D61699491D224F99006E7FB6 /* playBack.png */,
 				D616994A1D224F99006E7FB6 /* playLeft.png */,
 				D616994B1D224F99006E7FB6 /* playList.png */,
 				D616994C1D224F99006E7FB6 /* playPause.png */,
@@ -953,6 +952,7 @@
 				D616994E1D224F99006E7FB6 /* PlayRight.png */,
 				D616994F1D224F99006E7FB6 /* playSetting.png */,
 				D61699501D224F99006E7FB6 /* playvolume.png */,
+				D660EFFF1D373CB000FCB28A /* playBack.png */,
 				D61699511D224F99006E7FB6 /* volume.png */,
 			);
 			path = PlayerImage;
@@ -1632,6 +1632,7 @@
 				D616996D1D226D3E006E7FB6 /* playadd.png in Resources */,
 				D61699521D224F99006E7FB6 /* Mainsearch.png in Resources */,
 				D632AFAA1D1E227A0092A6A3 /* LoginViewController.xib in Resources */,
+				D660F0001D373CB000FCB28A /* playBack.png in Resources */,
 				D6F611371D22CA53002B4506 /* TabBarListViewCell.xib in Resources */,
 				D6054E361D2CA91800829F6B /* tabBarUp3.png in Resources */,
 				D61699711D226D3E006E7FB6 /* playsound.png in Resources */,
@@ -1652,7 +1653,6 @@
 				D628128E1D2FC3200026FBC0 /* cellm4.png in Resources */,
 				D66A5BEC1D30EEE6004452E6 /* PwdResetViewController.xib in Resources */,
 				D628128A1D2FC3200026FBC0 /* cellm12.png in Resources */,
-				D61699531D224F99006E7FB6 /* playBack.png in Resources */,
 				D66E82B11D3142C700E537ED /* playvolume.png in Resources */,
 				D6F611281D22CA53002B4506 /* ClassificationCell.xib in Resources */,
 				D61699541D224F99006E7FB6 /* playLeft.png in Resources */,
