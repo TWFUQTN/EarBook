@@ -1524,7 +1524,6 @@
 				TargetAttributes = {
 					D631B4AB1D1C1CBC00102682 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 8AL5X4932P;
 					};
 				};
 			};
@@ -2056,6 +2055,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZLZ.EarBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "da693ba3-6fdd-4f40-90f2-92b11b786fc5";
+				PROVISIONING_PROFILE = "1e9bd237-52a2-4331-b31a-4029bc5d6d78";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -2141,6 +2141,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ZLZ.EarBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "da693ba3-6fdd-4f40-90f2-92b11b786fc5";
+				PROVISIONING_PROFILE = "1e9bd237-52a2-4331-b31a-4029bc5d6d78";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
