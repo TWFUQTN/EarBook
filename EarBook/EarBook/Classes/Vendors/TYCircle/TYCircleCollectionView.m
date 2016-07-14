@@ -24,7 +24,7 @@ static NSString *cellId = @"TYCircleCell";
 @synthesize isDismissWhenSelected = _isDismissWhenSelected;
 
 - (instancetype)initWithFrame:(CGRect)frame itemOffset:(CGFloat)itemOffset imageArray:(NSArray *)images titleArray:(NSArray *)titles {
-     _circleLayout = [[TYCircleCollectionViewLayout alloc]initWithRadius:frame.size.height-TYCircleViewMargin  itemOffset:itemOffset];
+     self.circleLayout = [[TYCircleCollectionViewLayout alloc]initWithRadius:frame.size.height-TYCircleViewMargin  itemOffset:itemOffset];
     return [self initWithFrame:frame collectionViewLayout:_circleLayout imageArray:images titleArray:titles];
 }
 

@@ -246,8 +246,8 @@
 //    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     cell.typeLabel.text = self.typeArray[indexPath.section];
     cell.myImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"cellm%ld", indexPath.section + 1]];
-    NSMutableArray *allDataArray = [NSMutableArray array];
-    allDataArray = self.allDataDict[self.typeArray[indexPath.section]];
+    
+    NSMutableArray * allDataArray = self.allDataDict[self.typeArray[indexPath.section]];
     cell.cellArray = allDataArray;
     
     cell.block = ^(NSInteger myIndexPath, Classification *classification){

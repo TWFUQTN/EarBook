@@ -114,8 +114,8 @@
 
 
 - (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     self.navigationController.navigationBar.translucent = NO;
-
     self.navigationController.navigationBarHidden = NO;
 }
 - (void)viewDidLoad {
@@ -220,7 +220,6 @@
              });
              
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-#warning Alert
              NSLog(@"请求出错");
              [self hideGifView];
              [self.view addSubview:self.reloadView];
@@ -267,7 +266,6 @@
              });
              
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-#warning Alert
              NSLog(@"请求出错");
              [self hideGifView];
              [self.view addSubview:self.reloadView];

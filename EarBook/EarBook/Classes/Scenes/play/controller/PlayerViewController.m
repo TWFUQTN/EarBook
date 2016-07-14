@@ -63,12 +63,11 @@
 
 
 - (void)viewDidAppear:(BOOL)animated {
-    
+    [super viewDidAppear:animated];
 #pragma mark - 后台播放1
     [super viewWillDisappear:animated];
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
     [self resignFirstResponder];
-   
 }
 - (void)viewWillAppear:(BOOL)animated {
     

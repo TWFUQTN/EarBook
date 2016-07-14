@@ -52,7 +52,7 @@ singleton_interface(BookInfosHandle)
 #pragma mark - 最近播放AVObject转换成转换成NBAseModel
 - (BaseModel *)recentlyAVObjectToNews:(AVObject *)object ;
 #pragma mark - 搜藏写入转换成AVObject
-- (void)likeBookToAVObject;
+//- (void)likeBookToAVObject;
 #pragma mark - 搜藏AVObject转换成转换成NBAseModel
 - (BaseModel *)likeAVObjectToNews:(AVObject *)object;
 

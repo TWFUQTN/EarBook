@@ -154,6 +154,7 @@
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     [self moveLabelAndViewByIndex:_rangeType - 1];
 }
 

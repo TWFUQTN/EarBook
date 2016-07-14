@@ -141,8 +141,7 @@
         }
         if (indexPath.row == 1) {
             cell.basicDataTextField.text = _userArray[indexPath.row];
-            cell.basicDataTextField.delegate = self;
-            cell.basicDataTextField.tag = kTextFieldTag + indexPath.row;
+            cell.basicDataTextField.enabled = NO;
             self.userModel.email = cell.basicDataTextField.text;
         }
         
@@ -182,8 +181,6 @@
     }
 }
 
-
-
 #pragma mark 点击头像的方法
 - (void)invokeSystemCamera
 {
@@ -203,8 +200,11 @@
         [self presentViewController:_imagePicker animated:YES completion:nil];
     }];
     
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"取消" style:(UIAlertActionStyleCancel) handler:nil];
+    
     [alert addAction:photoAction];
     [alert addAction:cameraAction];
+    [alert addAction:cancelAction];
     
     [self presentViewController:alert animated:YES completion:nil];
 }
@@ -239,14 +239,6 @@
     if (tag == kTextFieldTag) {
         self.userModel.nickname = textField.text;
     }
-    if (tag == kTextFieldTag + 1) {
-        
-        if ([self isEmail:textField.text]) {
-            self.userModel.email = textField.text;
-        } else {
-            [self errorAlertWithMessage:@"邮箱格式不符"];
-        }
-    }
 }
 
 #pragma mark - 错误提示的alert
@@ -260,29 +252,7 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-// 点击键盘return键的时候
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-    [textField resignFirstResponder]; // 释放第一响应者,回收键盘
-    NSLog(@"点击键盘return键");
-    return YES;
-}
 
-- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    [self.view endEditing:YES]; // 当前视图结束编辑
-}
-
-- (BOOL)isEmail:(NSString *)email
-{
-    NSString *regex = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
-    
-    NSRange range = [email rangeOfString:regex options:NSRegularExpressionSearch];
-    if (range.location != NSNotFound) {
-        return NO;
-    }
-    return YES;
-}
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

@@ -28,8 +28,8 @@
 
 @implementation LoginViewController
 - (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.navigationController.navigationBar.alpha = 0.8;
-
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
