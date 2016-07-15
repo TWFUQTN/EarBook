@@ -52,9 +52,11 @@
     return _dataArray;
 }
 
+- (void)viewDidDisappear:(BOOL)animated{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     //navigation设置
@@ -75,10 +77,10 @@
     self.menuframe = CGRectMake(0, 0, ScreenW, 40);
     self.tableframe = CGRectMake(0, CGRectGetMaxY(self.menuframe), ScreenW, ScreenH - CGRectGetMaxY(self.menuframe));
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTitle:) name:@"changeTitle" object:nil];
     
     [super viewDidLoad];
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(changeTitle:) name:@"changeTitle" object:nil];
+
 }
 
 //通知方法，修改标题
