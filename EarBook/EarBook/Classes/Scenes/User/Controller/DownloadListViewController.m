@@ -80,6 +80,7 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     // 返回按钮
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back"] style:(UIBarButtonItemStylePlain) target:self action:@selector(back)];
+    
 }
 
 #pragma mark - 返回按钮
