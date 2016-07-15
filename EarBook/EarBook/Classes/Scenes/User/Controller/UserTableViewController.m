@@ -45,8 +45,8 @@
     
     [self.tableView registerNib:[UINib nibWithNibName:@"UserCell" bundle:nil] forCellReuseIdentifier:@"cell"];
     
-    self.dictionary = @{@"image":@[@"Useruser", @"Userheart", @"Userfolder", @"Usertrashcan", @""],
-                        @"title":@[@"完善资料", @"我的收藏", @"我的下载", @"清除缓存", @"免责声明"]
+    self.dictionary = @{@"image":@[@"Useruser", @"Userheart", @"Usertrashcan", @""],
+                        @"title":@[@"完善资料", @"我的收藏", @"清除缓存", @"免责声明"]
                         };
     
     // 判断用户是否登录
@@ -107,7 +107,7 @@
     
     [cell cellBindWithDictionary:self.dictionary Index:indexPath.row];
     
-    if (indexPath.row == 3) {
+    if (indexPath.row == 2) {
         // caches文件夹路径
         NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
         // 获取caches文件夹的大小
@@ -141,12 +141,8 @@
         }
         case 2: {
             
-            DownloadListViewController *downloadListVC = [DownloadListViewController new];
-            [self.navigationController pushViewController:downloadListVC animated:YES];
-            
-            break;
-        }
-        case 3: {
+//            DownloadListViewController *downloadListVC = [DownloadListViewController new];
+//            [self.navigationController pushViewController:downloadListVC animated:YES];
             
             // 清除缓存
             // caches文件夹路径
@@ -170,11 +166,38 @@
             
             break;
         }
-        case 4: {
+        case 3: {
+            
+//            // 清除缓存
+//            // caches文件夹路径
+//            NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//            // 获取caches文件夹的大小
+//            float size = [FileManagerHandle folderSizeAtPath:cachesPath];
+//            
+//            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:[NSString stringWithFormat:@"是否清除大小为%.2fM的缓存", size] preferredStyle:UIAlertControllerStyleAlert];
+//            
+//            __weak typeof(self)userListVC = self;
+//            UIAlertAction *sureAction = [UIAlertAction actionWithTitle:@"是" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+//                NSString *cachesPath = [NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES) objectAtIndex:0];
+//                // 清除缓存
+//                [FileManagerHandle clearCache:cachesPath];
+//                [userListVC.tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+//            }];
+//            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"否" style:UIAlertActionStyleCancel handler:nil];
+//            [alert addAction:sureAction];
+//            [alert addAction:cancelAction];
+//            [self presentViewController:alert animated:YES completion:nil];
+            
             DisclaimerViewController*disclaimerVC = [DisclaimerViewController new];
             [self.navigationController pushViewController:disclaimerVC animated:YES];
+            
             break;
         }
+//        case 4: {
+//            DisclaimerViewController*disclaimerVC = [DisclaimerViewController new];
+//            [self.navigationController pushViewController:disclaimerVC animated:YES];
+//            break;
+//        }
         default:
             break;
     }
